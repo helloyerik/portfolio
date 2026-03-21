@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Partners — Йерик</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="shell topbar__inner">
+        <a class="brand" href="../../index.html">Yerik</a>
+        <nav class="topnav">
+          <a href="../../index.html#about">Обо мне</a>
+          <a href="../../index.html#mechta">Mechta.kz</a>
+          <a href="../../index.html#projects">Проекты</a>
+          <a href="../../index.html#contacts">Контакты</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page shell">
+      <section class="page-header">
+        <div class="image-placeholder">Обложка кейса / hero visual</div>
+        <div class="content-block">
+          <div class="eyebrow">Mechta.kz / проект</div>
+          <h1 class="display-title">Partners</h1>
+          <div class="meta-grid">
+            <span>Internal product</span>
+            <span>Продуктовый дизайнер</span>
+            <span>MVP за месяц</span>
+          </div>
+          <div class="prose">
+            <p>
+              `Partners` — сервис для обработки предложений от поставщиков и партнеров для
+              последующей перепродажи в магазине и на сайте. До этого компания тестировала решение
+              на базе `1С`, но отказалась от него из-за высокого риска ошибок, сложности
+              масштабирования и слабой управляемости процесса.
+            </p>
+            <p>
+              Задача состояла в том, чтобы собрать отдельный сервис, который работает параллельно с
+              основным каталогом интернет-магазина и помогает сотрудникам быстрее и точнее
+              обрабатывать входящие предложения.
+            </p>
+            <p>
+              Для меня это был кейс про системность, внутренние интерфейсы и выстраивание понятного
+              процесса в сложной корпоративной среде.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-grid">
+        <article class="content-block">
+          <h2 class="section-title">Что получилось</h2>
+          <div class="prose prose--compact">
+            <ul>
+              <li>упростили процесс обработки входящих предложений</li>
+              <li>сократили количество дублей в основном каталоге в `X раз`</li>
+              <li>ускорили time-to-market за счет reuse компонентов</li>
+              <li>запустили MVP за месяц</li>
+              <li>снизили количество ручных ошибок в процессе обработки</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="content-block">
+          <h2 class="section-title">Что я делал</h2>
+          <div class="prose prose--compact">
+            <ul>
+              <li>участвовал в дискавери с командой</li>
+              <li>проводил анализ конкурентов</li>
+              <li>искал референсы внутренних интерфейсов</li>
+              <li>структурировал пользовательский процесс</li>
+              <li>собирал кликабельные прототипы</li>
+              <li>презентовал концепт команде и категорийным менеджерам</li>
+              <li>писал документацию и сопровождал реализацию</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="content-block">
+          <h2 class="section-title">Контекст и проблема</h2>
+          <div class="prose">
+            <p>
+              До запуска сервиса предложения от партнеров обрабатывались в плохо масштабируемой
+              среде. Из-за отсутствия регламента и слабой структуры процесса в каталоге появлялись
+              дубли, опечатки и десятки вариаций одного и того же товара.
+            </p>
+            <ul>
+              <li>входящие предложения создавали дубли в `1С`</li>
+              <li>было сложно искать и сравнивать предложения</li>
+              <li>не было понятной логики приоритизации</li>
+              <li>онбординг сотрудников в `1С` был сложным</li>
+              <li>процесс было трудно масштабировать</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="content-block">
+          <h2 class="section-title">Исследование и подход</h2>
+          <div class="prose">
+            <p>
+              После получения задачи мы побрейнштормили с менеджером, аналитиком, backend и
+              frontend-разработчиками контекст, ограничения и ожидания. Вместе с аналитиком
+              проводили опрос категорийных менеджеров, чтобы понять реальные боли и точки роста.
+            </p>
+            <p>
+              В ходе ресерча стало ясно, что процесс похож на работу с входящими сообщениями: из
+              большого потока нужно быстро выделить потенциально интересные предложения, сохранить
+              их, оценить и перевести в следующий этап.
+            </p>
+          </div>
+        </article>
+
+        <article class="content-block">
+          <h2 class="section-title">Внедренные решения</h2>
+          <div class="prose prose--compact">
+            <ul>
+              <li>добавили калькулятор маржинальности</li>
+              <li>дали возможность сохранять предложения в избранные</li>
+              <li>добавили поиск по названию, цене, партнеру и категории</li>
+              <li>выстроили более понятную структуру движения предложения по процессу</li>
+              <li>использовали существующие компоненты дизайн-системы, чтобы ускорить запуск</li>
+            </ul>
+          </div>
+        </article>
+
+        <section class="gallery">
+          <div class="gallery__item">Скриншот списка предложений</div>
+          <div class="gallery__item">Скриншот состояния отбора / избранного</div>
+          <div class="gallery__item">Скриншот рабочего сценария</div>
+        </section>
+
+        <nav class="project-nav">
+          <a href="../ecommerce-redesign/index.html">Предыдущий проект: Редизайн e-commerce</a>
+          <a href="../../index.html#mechta">Назад к Mechta.kz</a>
+        </nav>
+      </section>
+    </main>
+  </body>
+</html>
