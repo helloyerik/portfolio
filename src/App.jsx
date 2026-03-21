@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import mechtaKzLogo from "./assets/mechta-kz-logo.png";
 import {
   backlogSections,
@@ -89,6 +89,18 @@ function TopNav({ theme, onThemeChange }) {
 
 function Prose({ children, compact = false }) {
   return <div className={`prose${compact ? " prose--compact" : ""}`}>{children}</div>;
+}
+
+function RichList({ items, ordered = false }) {
+  const ListTag = ordered ? "ol" : "ul";
+
+  return (
+    <ListTag>
+      {items.map((item) => (
+        <li key={item}>{item}</li>
+      ))}
+    </ListTag>
+  );
 }
 
 function CompanyDivider({ id, mark, markType = "text", name, period, role, blurb }) {
@@ -318,28 +330,14 @@ function CasePage({ caseData }) {
       <article className="content-block">
         <h2 className="section-title">Результаты</h2>
         <Prose>
-          <div className="line-list">
-            {results.map((item, index) => (
-              <Fragment key={item}>
-                {index > 0 ? <br /> : null}
-                <span>{item}</span>
-              </Fragment>
-            ))}
-          </div>
+          <RichList items={results} />
         </Prose>
       </article>
 
       <article className="content-block">
         <h2 className="section-title">Задачи</h2>
         <Prose>
-          <div className="line-list">
-            {tasks.map((item, index) => (
-              <Fragment key={item}>
-                {index > 0 ? <br /> : null}
-                <span>{item}</span>
-              </Fragment>
-            ))}
-          </div>
+          <RichList items={tasks} />
         </Prose>
       </article>
 
@@ -350,16 +348,7 @@ function CasePage({ caseData }) {
             {section.paragraphs?.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
-            {section.list ? (
-              <div className="line-list">
-                {section.list.map((item, index) => (
-                  <Fragment key={item}>
-                    {index > 0 ? <br /> : null}
-                    <span>{item}</span>
-                  </Fragment>
-                ))}
-              </div>
-            ) : null}
+            {section.list ? <RichList items={section.list} ordered={section.ordered} /> : null}
           </Prose>
         </article>
       ))}
@@ -402,16 +391,7 @@ function WorkflowPage({ workflowCase }) {
             {section.paragraphs?.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
-            {section.list ? (
-              <div className="line-list">
-                {section.list.map((item, index) => (
-                  <Fragment key={item}>
-                    {index > 0 ? <br /> : null}
-                    <span>{item}</span>
-                  </Fragment>
-                ))}
-              </div>
-            ) : null}
+            {section.list ? <RichList items={section.list} ordered={section.ordered} /> : null}
           </Prose>
         </article>
       ))}
@@ -432,12 +412,20 @@ function PartnersPage() {
   return <CasePage caseData={publicCases.partners} />;
 }
 
+function CorporatePortalPage() {
+  return <CasePage caseData={publicCases.corporate} />;
+}
+
 function EcommerceWorkflowPage() {
   return <WorkflowPage workflowCase={workflowCases.ecommerce} />;
 }
 
 function PartnersWorkflowPage() {
   return <WorkflowPage workflowCase={workflowCases.partners} />;
+}
+
+function CorporatePortalWorkflowPage() {
+  return <WorkflowPage workflowCase={workflowCases.corporate} />;
 }
 
 export default function App() {
@@ -503,6 +491,24 @@ export default function App() {
       <>
         <TopNav theme={theme} onThemeChange={setTheme} />
         <PartnersWorkflowPage />
+      </>
+    );
+  }
+
+  if (pathname === "/projects/corporate-portal") {
+    return (
+      <>
+        <TopNav theme={theme} onThemeChange={setTheme} />
+        <CorporatePortalPage />
+      </>
+    );
+  }
+
+  if (pathname === "/projects/corporate-portal/workflow") {
+    return (
+      <>
+        <TopNav theme={theme} onThemeChange={setTheme} />
+        <CorporatePortalWorkflowPage />
       </>
     );
   }

@@ -226,10 +226,10 @@ a:hover {
   display: grid;
   grid-template-columns: 40px minmax(0, 1fr);
   column-gap: 12px;
-  row-gap: 4px;
+  row-gap: 0;
   align-items: start;
   padding: 0;
-  margin-bottom: var(--space-s);
+  margin-bottom: var(--space-xs);
 }
 
 .company-divider__mark {
@@ -260,7 +260,7 @@ a:hover {
 
 .company-divider__body {
   display: grid;
-  gap: 4px;
+  gap: 0;
   min-width: 0;
 }
 
