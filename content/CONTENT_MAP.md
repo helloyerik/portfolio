@@ -10,7 +10,7 @@
 - Приоритет: `highest`
 
 Проекты внутри секции:
-1. `Редизайн e-commerce` - full case
+1. `E-commerce` - full case
 2. `Partners` - full case
 3. `Ценники` - preview
 4. `Корпоративный портал` - preview
@@ -29,7 +29,7 @@
 
 ## 2. Полноценные кейсы
 
-### Редизайн e-commerce
+### E-commerce
 Включает:
 - страница товара;
 - корзина;

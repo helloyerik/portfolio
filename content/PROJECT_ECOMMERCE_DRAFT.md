@@ -1,5 +1,5 @@
 # Project Draft
-## Редизайн e-commerce
+## E-commerce
 
 ### Meta
 - Компания: Mechta.kz
