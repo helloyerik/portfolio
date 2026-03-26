@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import "../../yedesign-system/packages/tokens/src/tokens.css";
+import "@yerik/yedesign-system/tokens.css";
+import "@yerik/yedesign-system/style.css";
 import "./styles.css";
 
 createApp(App).mount("#root");

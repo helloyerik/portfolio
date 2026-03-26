@@ -1,5 +1,5 @@
 <script setup>
-import { Button, BottomSheet, Dialog, RadioGroup, useIsMobileViewport } from "@yedesign";
+import { Button, BottomSheet, Dialog, RadioGroup, useIsMobileViewport } from "@yerik/yedesign-system";
 
 const props = defineProps({
   theme: {

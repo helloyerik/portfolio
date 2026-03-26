@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import { Button } from "@yedesign";
+import { Button } from "@yerik/yedesign-system";
 import NavLink from "./NavLink.vue";
 import RevealBlock from "./RevealBlock.vue";
 import ScrollProgressBar from "./ScrollProgressBar.vue";

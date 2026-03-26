@@ -1,7 +1,7 @@
 <script setup>
 import { nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
 import confetti from "canvas-confetti";
-import { Button } from "@yedesign";
+import { Button } from "@yerik/yedesign-system";
 
 const specialProjectHeroImage =
   "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.meme-arsenal.com%2Fmemes%2F875d6d71564727fa28f6823024fe5979.jpg&f=1&nofb=1&ipt=516ba4d2a64fa2e7d982e8f765cf109294bc55706d64eb984f0ebad126046e1c";

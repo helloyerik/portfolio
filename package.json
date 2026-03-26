@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@yerik/yedesign-system": "git+https://github.com/helloyerik/yedesign-system.git#v1.0.0",
     "@phosphor-icons/vue": "^2.2.1",
     "agentation": "^2.2.1",
     "canvas-confetti": "^1.9.4",

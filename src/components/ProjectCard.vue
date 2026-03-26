@@ -1,5 +1,5 @@
 <script setup>
-import { Tag } from "@yedesign";
+import { Tag } from "@yerik/yedesign-system";
 import NavLink from "./NavLink.vue";
 
 const props = defineProps({

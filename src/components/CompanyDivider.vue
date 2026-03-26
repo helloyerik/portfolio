@@ -1,5 +1,5 @@
 <script setup>
-import { ListItem } from "@yedesign";
+import { ListItem } from "@yerik/yedesign-system";
 import mechtaKzLogo from "../assets/mechta-kz-logo.png";
 
 const props = defineProps({

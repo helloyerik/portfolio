@@ -7,14 +7,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
-      "@mi/tokens": path.resolve(__dirname, "../yedesign-system/packages/tokens/src"),
-      "@yedesign": path.resolve(__dirname, "../yedesign-system/packages/components/src/index.ts"),
     },
     dedupe: ["vue"],
-  },
-  server: {
-    fs: {
-      allow: [path.resolve(__dirname, "..")],
-    },
   },
 });
