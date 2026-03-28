@@ -41,16 +41,16 @@ const isMechtaLogo = props.markType === "mechta";
     <ListItem
       :title="name"
       :subtitle="`${period} · ${role}`"
-      size="XL"
+      size="M"
       variant="plain"
       :interactive="false"
       :chevron="false"
-      class-name="company-divider__item"
+      class="company-divider__item"
     >
       <template #media>
-        <div class="company-divider__mark" :class="{ 'company-divider__mark--image': isMechtaLogo }" aria-hidden="true">
-          <img v-if="isMechtaLogo" class="company-divider__logo-image" :src="mechtaKzLogo" alt="" />
-          <template v-else>{{ mark }}</template>
+        <img v-if="isMechtaLogo" class="company-divider__logo-image" :src="mechtaKzLogo" alt="" aria-hidden="true" />
+        <div v-else class="company-divider__mark" aria-hidden="true">
+          {{ mark }}
         </div>
       </template>
     </ListItem>

@@ -1,27 +1,32 @@
 <script setup>
-import { backlogSections } from "../content/cases";
+import { inject } from "vue";
 import RevealBlock from "./RevealBlock.vue";
+
+defineProps({
+  sections: {
+    type: Array,
+    default: () => [],
+  },
+});
+
+const siteCopy = inject("siteCopy");
 </script>
 
 <template>
   <main class="page shell">
     <RevealBlock as="section" class="page-header" :order="1">
       <div class="content-block">
-        <div class="eyebrow">Рабочая страница</div>
+        <div class="eyebrow">{{ siteCopy.workPageEyebrow }}</div>
         <h1 class="display-title">Backlog</h1>
         <div class="prose">
-          <p>
-            Сюда складывается нераспределенный, сырой и промежуточный контент, который пока не
-            вошел в основную структуру сайта. Эта страница нужна как рабочий буфер, чтобы не
-            терять материалы между итерациями.
-          </p>
+          <p>{{ siteCopy.backlogDescription }}</p>
         </div>
       </div>
     </RevealBlock>
 
     <section class="page-grid">
       <RevealBlock
-        v-for="(section, index) in backlogSections"
+        v-for="(section, index) in sections"
         :key="section.title"
         as="article"
         class="content-block"

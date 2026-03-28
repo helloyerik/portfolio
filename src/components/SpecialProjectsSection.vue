@@ -1,5 +1,5 @@
 <script setup>
-import { nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { inject, nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
 import confetti from "canvas-confetti";
 import { Button } from "@yerik/yedesign-system";
 
@@ -8,6 +8,7 @@ const specialProjectHeroImage =
 
 const birthdayOpen = ref(false);
 const canvasRef = ref(null);
+const siteCopy = inject("siteCopy");
 
 const onKeyDown = (event) => {
   if (event.key === "Escape") {
@@ -99,15 +100,21 @@ watch(birthdayOpen, async (isOpen) => {
 
 <template>
   <section class="special-projects">
-    <h2 class="section-title">Спец проекты</h2>
-    <Button label="Нажми меня" variant="outline" size="M" @click="openModal" />
+    <h2 class="section-title">{{ siteCopy.specialProjectsTitle }}</h2>
+    <Button :label="siteCopy.specialProjectsButton" variant="outline" size="M" @click="openModal" />
   </section>
 
   <Teleport to="body">
-    <div v-if="birthdayOpen" class="birthday-modal" role="dialog" aria-modal="true" aria-label="Поздравление">
+    <div
+      v-if="birthdayOpen"
+      class="birthday-modal"
+      role="dialog"
+      aria-modal="true"
+      :aria-label="siteCopy.celebrationDialogLabel"
+    >
       <button
         type="button"
-        aria-label="Закрыть поздравление"
+        :aria-label="siteCopy.celebrationCloseLabel"
         class="birthday-modal__backdrop"
         @click="closeModal"
       />
@@ -119,13 +126,10 @@ watch(birthdayOpen, async (isOpen) => {
           </div>
           <div class="birthday-modal__content">
             <div class="birthday-modal__copy">
-              <p class="project-card__title">Пусть все желания сбудутся!</p>
-              <p>
-                Вдохновленные мечтой, раскрываем потенциал и делаем жизнь людей ярче, а быт
-                комфортнее.
-              </p>
+              <p class="project-card__title">{{ siteCopy.celebrationTitle }}</p>
+              <p>{{ siteCopy.celebrationBody }}</p>
             </div>
-            <Button label="Спасибо" variant="primary" size="M" width="full" @click="closeModal" />
+            <Button :label="siteCopy.celebrationThanks" variant="primary" size="M" width="full" @click="closeModal" />
           </div>
         </div>
       </div>

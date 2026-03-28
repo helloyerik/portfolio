@@ -1,6 +1,5 @@
 <script setup>
-import { computed, onBeforeUnmount, onMounted, ref, watch } from "vue";
-import { caseOrder } from "../content/cases";
+import { computed, inject, onBeforeUnmount, onMounted, ref, watch } from "vue";
 import { mergeLearningSections, toSectionId } from "../lib/navigation";
 import CaseOutline from "./CaseOutline.vue";
 import InlineMedia from "./InlineMedia.vue";
@@ -14,21 +13,28 @@ const props = defineProps({
     type: Object,
     required: true,
   },
+  caseOrder: {
+    type: Array,
+    default: () => [],
+  },
 });
 
 const mergedSections = computed(() => mergeLearningSections(props.caseData.sections));
-const currentIndex = computed(() => caseOrder.findIndex((item) => item.slug === props.caseData.slug));
+const currentIndex = computed(() => props.caseOrder.findIndex((item) => item.slug === props.caseData.slug));
 const prevCase = computed(() =>
-  currentIndex.value >= 0 ? caseOrder[(currentIndex.value - 1 + caseOrder.length) % caseOrder.length] : null,
+  currentIndex.value >= 0
+    ? props.caseOrder[(currentIndex.value - 1 + props.caseOrder.length) % props.caseOrder.length]
+    : null,
 );
 const nextCase = computed(() =>
-  currentIndex.value >= 0 ? caseOrder[(currentIndex.value + 1) % caseOrder.length] : null,
+  currentIndex.value >= 0 ? props.caseOrder[(currentIndex.value + 1) % props.caseOrder.length] : null,
 );
+const siteCopy = inject("siteCopy");
 
 const sectionItems = computed(() => [
-  ...(props.caseData.myRole ? [{ id: "my-role", label: "Моя роль" }] : []),
-  { id: "results", label: "Результаты" },
-  { id: "tasks", label: "Задачи" },
+  ...(props.caseData.myRole ? [{ id: "my-role", label: siteCopy.value.myRoleLabel }] : []),
+  { id: "results", label: siteCopy.value.resultsLabel },
+  { id: "tasks", label: siteCopy.value.tasksLabel },
   ...mergedSections.value.map((section, index) => ({
     id: toSectionId(section.title, index),
     label: section.title,
@@ -82,7 +88,7 @@ watch(sectionItems, () => {
     <RevealBlock v-if="caseData.heroImage" class="case-hero" :order="1">
       <img class="case-hero__image" :src="caseData.heroImage" alt="" />
     </RevealBlock>
-    <RevealBlock v-else class="image-placeholder" :order="1">Обложка кейса / hero visual</RevealBlock>
+    <RevealBlock v-else class="image-placeholder" :order="1">{{ siteCopy.caseCoverPlaceholder }}</RevealBlock>
 
     <RevealBlock v-if="caseData.highlights?.length" class="fact-row" :order="2">
       <span v-for="(item, index) in caseData.highlights" :key="`${item}-${index}`">{{ item }}</span>
@@ -96,21 +102,21 @@ watch(sectionItems, () => {
     </RevealBlock>
 
     <RevealBlock v-if="caseData.myRole" as="article" class="content-block" id="my-role" :order="4">
-      <h2 class="section-title">Моя роль</h2>
+      <h2 class="section-title">{{ siteCopy.myRoleLabel }}</h2>
       <div class="prose">
         <p v-for="(paragraph, index) in caseData.myRole" :key="`${paragraph}-${index}`">{{ paragraph }}</p>
       </div>
     </RevealBlock>
 
     <RevealBlock as="article" class="content-block" id="results" :order="5">
-      <h2 class="section-title">Результаты</h2>
+      <h2 class="section-title">{{ siteCopy.resultsLabel }}</h2>
       <div class="prose">
         <RichList :items="caseData.results" />
       </div>
     </RevealBlock>
 
     <RevealBlock as="article" class="content-block" id="tasks" :order="6">
-      <h2 class="section-title">Задачи</h2>
+      <h2 class="section-title">{{ siteCopy.tasksLabel }}</h2>
       <div class="prose">
         <RichList :items="caseData.tasks" />
       </div>
@@ -130,9 +136,13 @@ watch(sectionItems, () => {
     </RevealBlock>
 
     <RevealBlock as="nav" class="project-nav" :order="mergedSections.length + 7">
-      <NavLink v-if="prevCase" :href="prevCase.slug">Предыдущий кейс: {{ prevCase.label }}</NavLink>
+      <NavLink v-if="prevCase" :href="prevCase.slug">
+        {{ siteCopy.previousCaseLabel }}: {{ prevCase.label }}
+      </NavLink>
       <span v-else />
-      <NavLink v-if="nextCase" :href="nextCase.slug">Следующий кейс: {{ nextCase.label }}</NavLink>
+      <NavLink v-if="nextCase" :href="nextCase.slug">
+        {{ siteCopy.nextCaseLabel }}: {{ nextCase.label }}
+      </NavLink>
       <span v-else />
     </RevealBlock>
   </main>

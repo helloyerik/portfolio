@@ -1,6 +1,8 @@
 <script setup>
 import { Tag } from "@yerik/yedesign-system";
-import { onBeforeUnmount, onMounted, ref } from "vue";
+import { inject, onBeforeUnmount, onMounted, ref } from "vue";
+
+const siteCopy = inject("siteCopy");
 
 const props = defineProps({
   beforeSrc: {
@@ -13,11 +15,11 @@ const props = defineProps({
   },
   beforeLabel: {
     type: String,
-    default: "До",
+    default: undefined,
   },
   afterLabel: {
     type: String,
-    default: "После",
+    default: undefined,
   },
 });
 
@@ -111,9 +113,13 @@ onBeforeUnmount(() => {
       @touchmove="handleTouchMove"
     >
       <div class="before-after__base" aria-hidden="true">
-        <img class="before-after__image before-after__image--base" :src="afterSrc" :alt="afterLabel" />
+        <img
+          class="before-after__image before-after__image--base"
+          :src="afterSrc"
+          :alt="afterLabel ?? siteCopy.afterLabel"
+        />
         <div class="before-after__layer-tags before-after__layer-tags--base">
-          <Tag class="before-after__tag" :label="afterLabel" variant="overlay" />
+          <Tag class="before-after__tag" :label="afterLabel ?? siteCopy.afterLabel" variant="overlay" />
         </div>
       </div>
       <div
@@ -121,9 +127,13 @@ onBeforeUnmount(() => {
         :style="{ clipPath: `inset(0 ${100 - position}% 0 0)` }"
         aria-hidden="true"
       >
-        <img class="before-after__image before-after__image--overlay" :src="beforeSrc" :alt="beforeLabel" />
+        <img
+          class="before-after__image before-after__image--overlay"
+          :src="beforeSrc"
+          :alt="beforeLabel ?? siteCopy.beforeLabel"
+        />
         <div class="before-after__layer-tags before-after__layer-tags--overlay">
-          <Tag class="before-after__tag" :label="beforeLabel" variant="overlay" />
+          <Tag class="before-after__tag" :label="beforeLabel ?? siteCopy.beforeLabel" variant="overlay" />
         </div>
       </div>
       <div class="before-after__divider" :style="{ left: `${position}%` }" aria-hidden="true">

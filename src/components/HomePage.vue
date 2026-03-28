@@ -1,10 +1,27 @@
 <script setup>
+import { inject } from "vue";
 import meImage from "../assets/me.png";
-import { bmcProjects, freelanceProjects, mechtaProjects } from "../content/cases";
 import CompanyDivider from "./CompanyDivider.vue";
 import ProjectCard from "./ProjectCard.vue";
 import RevealBlock from "./RevealBlock.vue";
 import SpecialProjectsSection from "./SpecialProjectsSection.vue";
+
+defineProps({
+  mechtaProjects: {
+    type: Array,
+    default: () => [],
+  },
+  freelanceProjects: {
+    type: Array,
+    default: () => [],
+  },
+  bmcProjects: {
+    type: Array,
+    default: () => [],
+  },
+});
+
+const siteCopy = inject("siteCopy");
 </script>
 
 <template>
@@ -14,7 +31,7 @@ import SpecialProjectsSection from "./SpecialProjectsSection.vue";
         <img class="hero-avatar__image" :src="meImage" alt="" />
       </div>
       <h1 class="display-title" id="about">
-        Помогаю бизнесу эффективнее выполнять задачи и улучшить юзабилити
+        {{ siteCopy.heroTitle }}
       </h1>
     </RevealBlock>
 
@@ -23,8 +40,8 @@ import SpecialProjectsSection from "./SpecialProjectsSection.vue";
         id="mechta"
         mark-type="mechta"
         name="Mechta.kz"
-        period="Июль 2025 — сейчас"
-        role="Продуктовый дизайнер"
+        :period="siteCopy.mechtaPeriod"
+        :role="siteCopy.productDesignerRole"
       />
     </RevealBlock>
     <RevealBlock v-for="project in mechtaProjects" :key="project.title" :order="4">
@@ -34,9 +51,9 @@ import SpecialProjectsSection from "./SpecialProjectsSection.vue";
     <RevealBlock id="projects" :order="5">
       <CompanyDivider
         mark="F"
-        name="Фриланс"
-        period="Июль 2023 — июль 2025"
-        role="Проектная занятость · онлайн"
+        :name="siteCopy.freelanceName"
+        :period="siteCopy.freelancePeriod"
+        :role="siteCopy.freelanceRole"
       />
     </RevealBlock>
     <RevealBlock v-for="project in freelanceProjects" :key="project.title" :order="6">
@@ -47,8 +64,8 @@ import SpecialProjectsSection from "./SpecialProjectsSection.vue";
       <CompanyDivider
         mark="B"
         name="BMC Group"
-        period="Февраль 2024 — август 2024"
-        role="Проектная занятость · гибрид"
+        :period="siteCopy.bmcPeriod"
+        :role="siteCopy.bmcRole"
       />
     </RevealBlock>
     <RevealBlock v-for="project in bmcProjects" :key="project.title" :order="8">
@@ -56,19 +73,10 @@ import SpecialProjectsSection from "./SpecialProjectsSection.vue";
     </RevealBlock>
 
     <RevealBlock as="section" class="about-block" :order="9">
-      <h2 class="section-title">Обо мне</h2>
+      <h2 class="section-title">{{ siteCopy.aboutTitle }}</h2>
       <div class="prose">
-        <p>
-          Я продуктовый дизайнер с 3+ годами опыта в цифровых продуктах. Работал с
-          интернет-магазином, B2B, ритейлом, ИИ и внутренними сервисами, включая админки,
-          процессные сценарии и сервисные интерфейсы.
-        </p>
-        <p>
-          Сильнее всего мне интересны задачи, где нужно одновременно учитывать usability,
-          бизнес-цели и реальную реализацию: от мобильных приложений и клиентских сценариев до
-          внутренних инструментов, дизайн-систем и продуктовых улучшений. Участвовал в запуске
-          новых решений с нуля, поддержке существующих продуктов и их последовательном
-          улучшении через прототипы, системный подход и тесную работу с командой.
+        <p v-for="(paragraph, index) in siteCopy.aboutParagraphs" :key="`${paragraph}-${index}`">
+          {{ paragraph }}
         </p>
       </div>
     </RevealBlock>

@@ -1,4 +1,5 @@
 <script setup>
+import { inject } from "vue";
 import RichList from "./RichList.vue";
 import LineList from "./LineList.vue";
 import InlineMedia from "./InlineMedia.vue";
@@ -9,6 +10,8 @@ const props = defineProps({
     required: true,
   },
 });
+
+const siteCopy = inject("siteCopy");
 </script>
 
 <template>
@@ -18,7 +21,7 @@ const props = defineProps({
     </p>
 
     <template v-if="section.problems?.length">
-      <p class="section-inline-title">Проблемы</p>
+      <p class="section-inline-title">{{ siteCopy.problemsLabel }}</p>
       <RichList :items="section.problems" />
     </template>
 
@@ -29,7 +32,7 @@ const props = defineProps({
 
     <template v-if="section.result?.length || section.resultList?.length">
       <p :class="section.resultTitleStyle === 'body' ? 'section-inline-label' : 'section-inline-title'">
-        {{ section.resultTitle ?? "Результат" }}
+        {{ section.resultTitle ?? siteCopy.resultLabel }}
       </p>
       <p v-for="(paragraph, index) in section.result ?? []" :key="`${paragraph}-${index}`">
         {{ paragraph }}
@@ -45,7 +48,7 @@ const props = defineProps({
         {{ paragraph }}
       </p>
       <template v-if="subsection.problems?.length">
-        <p class="section-inline-title">Проблемы</p>
+        <p class="section-inline-title">{{ siteCopy.problemsLabel }}</p>
         <RichList :items="subsection.problems" />
       </template>
       <RichList
@@ -57,7 +60,7 @@ const props = defineProps({
     </div>
 
     <template v-if="section.learningList?.length">
-      <p class="section-inline-title">Личные итоги</p>
+      <p class="section-inline-title">{{ siteCopy.personalTakeawaysLabel }}</p>
       <LineList :items="section.learningList" />
     </template>
   </div>

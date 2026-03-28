@@ -1,5 +1,6 @@
 <script setup>
-import { navigate } from "../lib/navigation";
+import { computed, inject } from "vue";
+import { localizeHref, navigate } from "../lib/navigation";
 
 const props = defineProps({
   href: {
@@ -8,13 +9,16 @@ const props = defineProps({
   },
 });
 
+const locale = inject("locale", computed(() => "en"));
+const localizedHref = computed(() => localizeHref(props.href, locale.value));
+
 const handleClick = (event) => {
-  navigate(event, props.href);
+  navigate(event, localizedHref.value);
 };
 </script>
 
 <template>
-  <a :href="href" @click="handleClick">
+  <a :href="localizedHref" @click="handleClick">
     <slot />
   </a>
 </template>

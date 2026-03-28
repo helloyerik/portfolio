@@ -18,11 +18,12 @@ export function readPreferredTheme() {
 }
 
 export function readPreferredPalette() {
-  if (typeof window === "undefined") return "default";
+  if (typeof window === "undefined") return "gruvbox";
 
   try {
-    return window.localStorage.getItem(PALETTE_STORAGE_KEY) === "gruvbox" ? "gruvbox" : "default";
+    const storedPalette = window.localStorage.getItem(PALETTE_STORAGE_KEY);
+    return storedPalette === "default" || storedPalette === "gruvbox" ? storedPalette : "gruvbox";
   } catch {
-    return "default";
+    return "gruvbox";
   }
 }

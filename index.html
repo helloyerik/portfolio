@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yerik Kuanbayev</title>
     <meta
       name="description"
-      content="Портфолио продуктового дизайнера с фокусом на e-commerce, внутренние сервисы и системные продуктовые кейсы."
+      content="Portfolio of a product designer focused on e-commerce, internal tools, and systems-driven product cases."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,13 +18,14 @@
       (function () {
         var storedTheme = null;
         var isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        var palette = "default";
+        var palette = "gruvbox";
         try {
           storedTheme = window.localStorage.getItem("portfolio-theme");
-          palette = window.localStorage.getItem("portfolio-palette") === "gruvbox" ? "gruvbox" : "default";
+          var storedPalette = window.localStorage.getItem("portfolio-palette");
+          palette = storedPalette === "default" || storedPalette === "gruvbox" ? storedPalette : "gruvbox";
         } catch (error) {
           storedTheme = null;
-          palette = "default";
+          palette = "gruvbox";
         }
         document.documentElement.dataset.theme =
           storedTheme === "light" || storedTheme === "dark" ? storedTheme : isDark ? "dark" : "light";

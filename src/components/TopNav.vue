@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { inject, ref } from "vue";
 import { Button } from "@yerik/yedesign-system";
 import NavLink from "./NavLink.vue";
 import RevealBlock from "./RevealBlock.vue";
@@ -20,6 +20,15 @@ const props = defineProps({
 const emit = defineEmits(["update:theme", "update:palette"]);
 
 const isThemeSettingsOpen = ref(false);
+const siteCopy = inject("siteCopy");
+
+const openExternal = (href) => {
+  window.open(href, "_blank", "noopener,noreferrer");
+};
+
+const openEmail = () => {
+  window.location.href = "mailto:helloyerik@gmail.com";
+};
 </script>
 
 <template>
@@ -29,11 +38,23 @@ const isThemeSettingsOpen = ref(false);
       <NavLink class="brand" href="/">Yerik Kuanbayev</NavLink>
       <div class="topbar__actions">
         <nav class="topnav">
-          <a href="https://t.me/helloyerik" target="_blank" rel="noreferrer">Telegram</a>
-          <span>Email</span>
+          <Button
+            :label="siteCopy.telegramButton"
+            variant="text-only"
+            size="M"
+            class-name="topnav__button"
+            @click="openExternal('https://t.me/helloyerik')"
+          />
+          <Button
+            :label="siteCopy.emailButton"
+            variant="text-only"
+            size="M"
+            class-name="topnav__button"
+            @click="openEmail"
+          />
         </nav>
         <Button
-          label="Тема"
+          :label="siteCopy.themeButton"
           variant="text-only"
           size="M"
           class-name="theme-toggle"

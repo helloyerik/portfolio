@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from "vue";
+import { inject, onMounted, ref } from "vue";
 import NavLink from "./NavLink.vue";
 
 const props = defineProps({
@@ -14,6 +14,7 @@ const props = defineProps({
 });
 
 const visible = ref(false);
+const siteCopy = inject("siteCopy");
 
 onMounted(() => {
   window.requestAnimationFrame(() => {
@@ -27,7 +28,7 @@ onMounted(() => {
     class="case-outline reveal"
     :class="{ 'reveal--visible': visible }"
     :style="{ '--reveal-delay': '12ms' }"
-    aria-label="Навигация по странице"
+    :aria-label="siteCopy.caseOutlineAriaLabel"
   >
     <div class="case-outline__toggle" aria-hidden="true">
       <span

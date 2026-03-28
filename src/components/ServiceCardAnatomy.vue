@@ -1,3 +1,9 @@
+<script setup>
+import { inject } from "vue";
+
+const siteCopy = inject("siteCopy");
+</script>
+
 <template>
   <div class="anatomy-card">
     <div class="anatomy-card__section">
@@ -31,7 +37,7 @@
           </ul>
           <div class="anatomy-preview__footer">
             <span class="anatomy-preview__price">Price</span>
-            <button class="anatomy-preview__button" type="button">Добавить</button>
+            <button class="anatomy-preview__button" type="button">{{ siteCopy.addLabel }}</button>
           </div>
         </div>
       </div>
@@ -77,7 +83,7 @@
       <div class="anatomy-card__rule" />
       <div class="anatomy-mini anatomy-mini--footer">
         <span class="anatomy-preview__price">Price</span>
-        <button class="anatomy-preview__button" type="button">Добавить</button>
+        <button class="anatomy-preview__button" type="button">{{ siteCopy.addLabel }}</button>
       </div>
     </div>
   </div>

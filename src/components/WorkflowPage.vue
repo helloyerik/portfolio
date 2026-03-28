@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from "vue";
+import { computed, inject } from "vue";
 import { mergeLearningSections } from "../lib/navigation";
 import NavLink from "./NavLink.vue";
 import RevealBlock from "./RevealBlock.vue";
@@ -13,6 +13,7 @@ const props = defineProps({
 });
 
 const mergedSections = computed(() => mergeLearningSections(props.workflowCase.sections));
+const siteCopy = inject("siteCopy");
 </script>
 
 <template>
@@ -20,10 +21,7 @@ const mergedSections = computed(() => mergeLearningSections(props.workflowCase.s
     <RevealBlock class="content-block" :order="1">
       <h1 class="display-title">{{ workflowCase.title }} / Workflow</h1>
       <div class="prose">
-        <p>
-          Это внутренний слой кейса, в котором собраны контекст, промежуточные шаги,
-          компромиссы, договоренности с командой и логика выбора решений.
-        </p>
+        <p>{{ siteCopy.workflowIntro }}</p>
       </div>
     </RevealBlock>
 
@@ -39,8 +37,8 @@ const mergedSections = computed(() => mergeLearningSections(props.workflowCase.s
     </RevealBlock>
 
     <RevealBlock as="nav" class="project-nav" :order="mergedSections.length + 2">
-      <NavLink :href="workflowCase.publicHref">Публичный кейс</NavLink>
-      <NavLink href="/#mechta">Назад к проектам</NavLink>
+      <NavLink :href="workflowCase.publicHref">{{ siteCopy.workflowPublicCaseLabel }}</NavLink>
+      <NavLink href="/#mechta">{{ siteCopy.workflowBackToProjectsLabel }}</NavLink>
     </RevealBlock>
   </main>
 </template>

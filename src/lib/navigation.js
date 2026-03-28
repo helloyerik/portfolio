@@ -1,39 +1,57 @@
+function normalizePathname(pathname) {
+  return pathname.replace(/\/+$/, "") || "/";
+}
+
 export function readRoute() {
   if (typeof window === "undefined") {
-    return { pathname: "/", hash: "" };
+    return { pathname: "/", hash: "", locale: "en" };
   }
 
+  const rawPathname = normalizePathname(window.location.pathname);
+  const locale = rawPathname === "/ru" || rawPathname.startsWith("/ru/") ? "ru" : "en";
+  const pathname =
+    locale === "ru" ? normalizePathname(rawPathname.slice(3) || "/") : rawPathname;
+
   return {
-    pathname: window.location.pathname.replace(/\/+$/, "") || "/",
+    pathname,
     hash: window.location.hash || "",
+    locale,
   };
+}
+
+export function localizeHref(href, locale = "en") {
+  if (!href) return href;
+
+  const isExternal = /^(https?:|mailto:|tel:)/.test(href);
+  if (isExternal || href.startsWith("#")) return href;
+
+  const [path, hash = ""] = href.split("#");
+
+  if (locale !== "ru") {
+    return href;
+  }
+
+  const localizedPath =
+    path === "/" ? "/ru" : path.startsWith("/ru") ? path : `/ru${path}`;
+
+  return hash ? `${localizedPath}#${hash}` : localizedPath;
 }
 
 export function navigate(event, href) {
   if (!href) return;
 
-  const isHash = href.startsWith("#") || href.startsWith("/#");
-  const isExternal = href.startsWith("http") || href.startsWith("mailto:");
+  const isExternal = /^(https?:|mailto:|tel:)/.test(href);
 
   if (isExternal) return;
 
   event.preventDefault();
 
-  if (isHash) {
-    const target = href.startsWith("/#")
-      ? href
-      : `${window.location.pathname.replace(/\/+$/, "") || "/"}${href}`;
+  const currentPath = normalizePathname(window.location.pathname);
+  const currentTarget = `${currentPath}${window.location.hash || ""}`;
+  const target = href.startsWith("#") ? `${currentPath}${href}` : href;
 
-    if (`${window.location.pathname}${window.location.hash}` !== target) {
-      window.history.pushState({}, "", target);
-    }
-
-    window.dispatchEvent(new PopStateEvent("popstate"));
-    return;
-  }
-
-  if (window.location.pathname !== href || window.location.hash) {
-    window.history.pushState({}, "", href);
+  if (currentTarget !== target) {
+    window.history.pushState({}, "", target);
   }
 
   window.dispatchEvent(new PopStateEvent("popstate"));

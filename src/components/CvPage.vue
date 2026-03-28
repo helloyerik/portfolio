@@ -1,7 +1,16 @@
 <script setup>
-import { cvData } from "../content/cases";
+import { inject } from "vue";
 import RevealBlock from "./RevealBlock.vue";
 import RichList from "./RichList.vue";
+
+defineProps({
+  cvData: {
+    type: Object,
+    required: true,
+  },
+});
+
+const siteCopy = inject("siteCopy");
 </script>
 
 <template>
@@ -38,15 +47,15 @@ import RichList from "./RichList.vue";
 
       <div class="cv-entry__grid">
         <div class="cv-entry__block">
-          <h3 class="cv-entry__label">Проекты</h3>
+          <h3 class="cv-entry__label">{{ siteCopy.cvProjectsLabel }}</h3>
           <RichList :items="item.projects" />
         </div>
         <div class="cv-entry__block">
-          <h3 class="cv-entry__label">Обязанности</h3>
+          <h3 class="cv-entry__label">{{ siteCopy.cvResponsibilitiesLabel }}</h3>
           <RichList :items="item.responsibilities" />
         </div>
         <div class="cv-entry__block">
-          <h3 class="cv-entry__label">Результаты</h3>
+          <h3 class="cv-entry__label">{{ siteCopy.cvResultsLabel }}</h3>
           <RichList :items="item.results" />
         </div>
       </div>
