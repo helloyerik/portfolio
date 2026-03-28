@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@phosphor-icons/vue": "^2.2.1",
-    "@yerik/yedesign-system": "github:helloyerik/yedesign-system#v1.0.1",
+    "@yerik/yedesign-system": "https://codeload.github.com/helloyerik/yedesign-system/tar.gz/refs/tags/v1.0.2",
     "agentation": "^2.2.1",
     "canvas-confetti": "^1.9.4",
     "vue": "^3.5.30"
