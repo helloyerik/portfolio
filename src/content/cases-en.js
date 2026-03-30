@@ -141,7 +141,6 @@ export const publicCases = {
     slug: "/projects/ecommerce-redesign",
     title: "E-commerce",
     heroImage: ecommerceCover,
-    highlights: ["Conversion-focused funnel redesign", "Design-system rollout"],
     summary: [
       "A core redesign of the Mechta.kz shopping funnel for a 500k MAU retail product: product page, cart, checkout, order details, and order history.",
       "The work combined conversion optimization, legacy cleanup, and design-system rollout so the team could improve the funnel without multiplying one-off UI logic.",
