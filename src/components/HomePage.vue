@@ -3,7 +3,6 @@ import { computed, inject } from "vue";
 import CompanyDivider from "./CompanyDivider.vue";
 import ProjectCard from "./ProjectCard.vue";
 import RevealBlock from "./RevealBlock.vue";
-import SpecialProjectsSection from "./SpecialProjectsSection.vue";
 
 const props = defineProps({
   mechtaProjects: {
@@ -59,18 +58,6 @@ const visibleMechtaProjects = computed(() =>
       <ProjectCard :project="project" />
     </RevealBlock>
 
-    <RevealBlock :order="7">
-      <CompanyDivider
-        mark="B"
-        name="BMC Group"
-        :period="siteCopy.bmcPeriod"
-        :role="siteCopy.bmcRole"
-      />
-    </RevealBlock>
-    <RevealBlock v-for="project in bmcProjects" :key="project.title" :order="8">
-      <ProjectCard :project="project" />
-    </RevealBlock>
-
     <RevealBlock as="section" class="about-block" :order="9">
       <h2 class="section-title">{{ siteCopy.aboutTitle }}</h2>
       <div class="prose">
@@ -78,10 +65,6 @@ const visibleMechtaProjects = computed(() =>
           {{ paragraph }}
         </p>
       </div>
-    </RevealBlock>
-
-    <RevealBlock as="section" class="special-projects-block" :order="10">
-      <SpecialProjectsSection />
     </RevealBlock>
   </main>
 </template>
