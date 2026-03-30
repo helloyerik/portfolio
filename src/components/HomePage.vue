@@ -58,13 +58,5 @@ const visibleMechtaProjects = computed(() =>
       <ProjectCard :project="project" />
     </RevealBlock>
 
-    <RevealBlock as="section" class="about-block" :order="9">
-      <h2 class="section-title">{{ siteCopy.aboutTitle }}</h2>
-      <div class="prose">
-        <p v-for="(paragraph, index) in siteCopy.aboutParagraphs" :key="`${paragraph}-${index}`">
-          {{ paragraph }}
-        </p>
-      </div>
-    </RevealBlock>
   </main>
 </template>
