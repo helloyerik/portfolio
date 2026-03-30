@@ -1,5 +1,5 @@
 <script setup>
-import { inject, onMounted, ref } from "vue";
+import { inject, onBeforeUnmount, onMounted, ref } from "vue";
 import NavLink from "./NavLink.vue";
 
 const props = defineProps({
@@ -17,15 +17,32 @@ const visible = ref(false);
 const isOpen = ref(false);
 const outlineRef = ref(null);
 const siteCopy = inject("siteCopy");
+let closeTimeoutId = 0;
+
+const clearCloseTimeout = () => {
+  if (!closeTimeoutId) return;
+  window.clearTimeout(closeTimeoutId);
+  closeTimeoutId = 0;
+};
 
 const openOutline = () => {
+  clearCloseTimeout();
   if (isOpen.value) return;
   isOpen.value = true;
 };
 
 const closeOutline = () => {
+  clearCloseTimeout();
   if (!isOpen.value) return;
   isOpen.value = false;
+};
+
+const scheduleClose = () => {
+  clearCloseTimeout();
+  closeTimeoutId = window.setTimeout(() => {
+    isOpen.value = false;
+    closeTimeoutId = 0;
+  }, 120);
 };
 
 const handleFocusOut = (event) => {
@@ -39,6 +56,10 @@ onMounted(() => {
     visible.value = true;
   });
 });
+
+onBeforeUnmount(() => {
+  clearCloseTimeout();
+});
 </script>
 
 <template>
@@ -49,7 +70,7 @@ onMounted(() => {
     :style="{ '--reveal-delay': '12ms' }"
     :aria-label="siteCopy.caseOutlineAriaLabel"
     @mouseenter="openOutline"
-    @mouseleave="closeOutline"
+    @mouseleave="scheduleClose"
     @focusin="openOutline"
     @focusout="handleFocusOut"
   >
@@ -68,6 +89,7 @@ onMounted(() => {
         :href="`#${item.id}`"
         class="case-outline__link"
         :class="{ 'case-outline__link--active': item.id === activeId }"
+        @click="closeOutline"
       >
         {{ item.label }}
       </NavLink>

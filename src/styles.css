@@ -1465,6 +1465,7 @@ html[data-palette="gruvbox"] .before-after__tag {
   content: "";
   position: absolute;
   inset: -12px;
+  pointer-events: none;
 }
 
 .case-outline--open .case-outline__panel {
