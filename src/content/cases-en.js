@@ -12,7 +12,7 @@ import { freelanceMedia } from "./freelance-media";
 export const caseOrder = [
   { slug: "/projects/ecommerce-redesign", label: "E-commerce" },
   { slug: "/projects/design-system", label: "Design system" },
-  { slug: "/projects/partners", label: "Partner offers" },
+  { slug: "/projects/partners", label: "Mechta Partners" },
   { slug: "/projects/corporate-portal", label: "Corporate portal" },
   { slug: "/projects/freelance", label: "Freelance" },
   { slug: "/projects/bmc-group", label: "BMC Group" },
@@ -52,7 +52,7 @@ export const mechtaProjects = [
   },
   {
     slug: "/projects/partners",
-    title: "Partner offers",
+    title: "Mechta Partners",
     kind: "0→1 / MVP",
     period: "2025",
     summary: [
@@ -84,7 +84,7 @@ export const mechtaProjects = [
   },
   {
     slug: "",
-    title: "Price labels",
+    title: "Mechta Prices",
     kind: "0→1 / internal product",
     period: "2025",
     summary: [
@@ -394,7 +394,7 @@ export const publicCases = {
   },
   partners: {
     slug: "/projects/partners",
-    title: "Partner offers",
+    title: "Mechta Partners",
     heroImage: partnersCover,
     summary: [
       "An internal service for processing supplier and partner offers: less manual chaos, fewer duplicates, and a clearer review workflow for category managers.",
@@ -813,7 +813,7 @@ export const cvData = {
       format: "full-time · on-site",
       summary:
         "A Kazakhstan retailer where I worked on the customer funnel of the e-commerce product and on internal tools.",
-      projects: ["E-commerce", "Design system", "Partner offers", "Corporate portal", "Price labels"],
+      projects: ["E-commerce", "Design system", "Mechta Partners", "Corporate portal", "Mechta Prices"],
       responsibilities: [
         "rebuilt web and mobile flows to improve conversion and reduce errors",
         "improved customer and internal workflows under real business constraints",

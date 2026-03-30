@@ -11,7 +11,7 @@ import bmcPreview from "../assets/projects/bmc-preview.jpg";
 export const caseOrder = [
   { slug: "/projects/ecommerce-redesign", label: "Интернет-магазин" },
   { slug: "/projects/design-system", label: "Дизайн-система" },
-  { slug: "/projects/partners", label: "Партнерские предложения" },
+  { slug: "/projects/partners", label: "Mechta Partners" },
   { slug: "/projects/corporate-portal", label: "Корпоративный портал" },
   { slug: "/projects/freelance", label: "Фриланс" },
   { slug: "/projects/bmc-group", label: "BMC Group" },
@@ -145,7 +145,7 @@ export const workflowCases = {
     ],
   },
   partners: {
-    title: "Партнерские предложения",
+    title: "Mechta Partners",
     publicHref: "/projects/partners",
     sections: [
       {
@@ -257,7 +257,7 @@ export const workflowCases = {
       {
         title: "Итог",
         paragraphs: [
-          "Для меня Партнерские предложения стали проектом про внутренние процессы и MVP-мышление. Здесь важно было не сделать красиво, а собрать рабочую логику, которая сокращает дубликаты и ручные ошибки.",
+          "Для меня Mechta Partners стал проектом про внутренние процессы и MVP-мышление. Здесь важно было не сделать красиво, а собрать рабочую логику, которая сокращает дубликаты и ручные ошибки.",
           "Результат во многом зависел от того, что мы рано договорились о структуре процесса и проверяли ее через прототип, а не только через обсуждение.",
         ],
       },
@@ -532,7 +532,7 @@ export const mechtaProjects = [
   },
   {
     slug: "/projects/partners",
-    title: "Партнерские предложения",
+    title: "Mechta Partners",
     kind: "0→1 / MVP",
     period: "2025",
     summary: [
@@ -564,7 +564,7 @@ export const mechtaProjects = [
   },
   {
     slug: "",
-    title: "Ценники",
+    title: "Mechta Prices",
     kind: "0→1 / интернал продукт",
     period: "2025",
     summary: [
@@ -940,10 +940,10 @@ export const publicCases = {
   },
   partners: {
     slug: "/projects/partners",
-    title: "Партнерские предложения",
+    title: "Mechta Partners",
     heroImage: partnersCover,
     summary: [
-      "Партнерские предложения — внутренний сервис для обработки предложений от поставщиков и партнеров для последующей перепродажи в магазине и на сайте.",
+      "Mechta Partners — внутренний сервис для обработки предложений от поставщиков и партнеров для последующей перепродажи в магазине и на сайте.",
       "До разработки команда тестировала решение на базе 1С, но отказалась от него из-за ошибок, сложности масштабирования и большого числа ручных действий.",
     ],
     myRole: [
@@ -978,7 +978,7 @@ export const publicCases = {
         mediaPlacement: "after-problems",
         media: {
           src: partnersDrawer,
-          alt: "Модуль подготовки к публикации в сервисе Партнерские предложения",
+          alt: "Модуль подготовки к публикации в сервисе Mechta Partners",
         },
       },
       {
@@ -1282,9 +1282,9 @@ export const cvData = {
       projects: [
         "Интернет-магазин",
         "Дизайн-система",
-        "Партнерские предложения",
+        "Mechta Partners",
         "Корпоративный портал",
-        "Управление ценниками",
+        "Mechta Prices",
       ],
       responsibilities: [
         "пересборка веб- и мобильных сценариев под рост конверсии и снижение ошибок",
