@@ -1,12 +1,11 @@
 <script setup>
-import { inject } from "vue";
-import meImage from "../assets/me.png";
+import { computed, inject } from "vue";
 import CompanyDivider from "./CompanyDivider.vue";
 import ProjectCard from "./ProjectCard.vue";
 import RevealBlock from "./RevealBlock.vue";
 import SpecialProjectsSection from "./SpecialProjectsSection.vue";
 
-defineProps({
+const props = defineProps({
   mechtaProjects: {
     type: Array,
     default: () => [],
@@ -22,14 +21,14 @@ defineProps({
 });
 
 const siteCopy = inject("siteCopy");
+const visibleMechtaProjects = computed(() =>
+  props.mechtaProjects.filter((project) => !project.hiddenOnHome),
+);
 </script>
 
 <template>
   <main class="shell home-page">
     <RevealBlock class="hero-intro" :order="1">
-      <div class="hero-avatar">
-        <img class="hero-avatar__image" :src="meImage" alt="" />
-      </div>
       <h1 class="display-title" id="about">
         {{ siteCopy.heroTitle }}
       </h1>
@@ -44,7 +43,7 @@ const siteCopy = inject("siteCopy");
         :role="siteCopy.productDesignerRole"
       />
     </RevealBlock>
-    <RevealBlock v-for="project in mechtaProjects" :key="project.title" :order="4">
+    <RevealBlock v-for="project in visibleMechtaProjects" :key="project.title" :order="4">
       <ProjectCard :project="project" />
     </RevealBlock>
 

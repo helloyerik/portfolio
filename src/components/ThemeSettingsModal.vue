@@ -35,6 +35,7 @@ const { isMobile } = useIsMobileViewport();
     v-if="isMobile"
     :model-value="true"
     :title="siteCopy.themeSettingsTitle"
+    sheet-class-name="theme-settings-modal__content"
     body-class-name="theme-settings-modal__sheet-body"
     @update:model-value="emit('close')"
     @close="emit('close')"

@@ -1,6 +1,6 @@
 :root {
   --palette-bg: #050505;
-  --palette-fg: #ffffff;
+  --palette-fg: #ebdbb2;
   --palette-fg-muted: rgba(255, 255, 255, 0.58);
   --palette-line: rgba(255, 255, 255, 0.16);
   --palette-line-strong: rgba(255, 255, 255, 0.24);
@@ -16,7 +16,7 @@
   --palette-shadow-soft: rgba(0, 0, 0, 0.18);
   --palette-brand: rgba(230, 23, 113, 1);
   --palette-brand-soft: rgba(230, 23, 113, 0.2);
-  --palette-brand-contrast: #ffffff;
+  --palette-brand-contrast: #ebdbb2;
   --palette-toggle-active-bg: #ffffff;
   --palette-toggle-active-text: #000000;
   --palette-tag-bg: rgba(0, 0, 0, 0.76);
@@ -30,7 +30,7 @@
   --palette-static-paper-accent: rgba(230, 23, 113, 1);
   --palette-static-paper-accent-soft: rgba(230, 23, 113, 0.2);
   --palette-static-paper-button-bg: rgba(0, 0, 0, 0.75);
-  --palette-static-paper-button-text: rgba(255, 255, 255, 0.85);
+  --palette-static-paper-button-text: rgba(235, 219, 178, 0.85);
   --palette-static-thumb-from: rgba(161, 226, 194, 0.9);
   --palette-static-thumb-to: rgba(79, 140, 107, 1);
 
@@ -83,7 +83,7 @@ html[data-theme="light"][data-palette="default"] {
   --palette-avatar-top: rgba(0, 0, 0, 0.06);
   --palette-avatar-bottom: rgba(0, 0, 0, 0.02);
   --palette-toggle-active-bg: #000000;
-  --palette-toggle-active-text: #ffffff;
+  --palette-toggle-active-text: #ebdbb2;
   --palette-tag-bg: rgba(255, 255, 255, 0.92);
 }
 

@@ -36,23 +36,21 @@ const openEmail = () => {
     <ScrollProgressBar />
     <RevealBlock as="div" class="shell topbar__inner" :order="0">
       <NavLink class="brand" href="/">Yerik Kuanbayev</NavLink>
-      <div class="topbar__actions">
-        <nav class="topnav">
-          <Button
-            :label="siteCopy.telegramButton"
-            variant="text-only"
-            size="M"
-            class-name="topnav__button"
-            @click="openExternal('https://t.me/helloyerik')"
-          />
-          <Button
-            :label="siteCopy.emailButton"
-            variant="text-only"
-            size="M"
-            class-name="topnav__button"
-            @click="openEmail"
-          />
-        </nav>
+      <nav class="topnav topbar__actions">
+        <Button
+          :label="siteCopy.telegramButton"
+          variant="text-only"
+          size="M"
+          class-name="topnav__button"
+          @click="openExternal('https://t.me/helloyerik')"
+        />
+        <Button
+          :label="siteCopy.emailButton"
+          variant="text-only"
+          size="M"
+          class-name="topnav__button"
+          @click="openEmail"
+        />
         <Button
           :label="siteCopy.themeButton"
           variant="text-only"
@@ -60,7 +58,7 @@ const openEmail = () => {
           class-name="theme-toggle"
           @click="isThemeSettingsOpen = true"
         />
-      </div>
+      </nav>
     </RevealBlock>
   </header>
 

@@ -1,6 +1,7 @@
 <script setup>
 import { computed, inject } from "vue";
 import { Tag } from "@yerik/yedesign-system";
+import { isPositiveNdaMetric } from "../lib/metricMarkers";
 import NavLink from "./NavLink.vue";
 
 const props = defineProps({
@@ -20,6 +21,10 @@ const showSoonTag = computed(() =>
 const nonTagFacts = computed(() =>
   projectFacts.value.filter((fact) => fact !== "Скоро" && fact !== "Soon"),
 );
+const formatHighlight = (value) => {
+  if (!value) return value;
+  return value.charAt(0).toUpperCase() + value.slice(1);
+};
 </script>
 
 <template>
@@ -36,9 +41,16 @@ const nonTagFacts = computed(() =>
       </div>
       <div class="project-card__body">
         <h3 class="project-card__title">{{ project.title }}</h3>
-        <div v-if="nonTagFacts.length" class="fact-row project-card__highlights">
-          <span v-for="(fact, index) in nonTagFacts" :key="`${fact}-${index}`">{{ fact }}</span>
-        </div>
+        <ul v-if="nonTagFacts.length" class="project-card__highlights">
+          <li
+            v-for="(fact, index) in nonTagFacts"
+            :key="`${fact}-${index}`"
+            :class="{ 'metric-list-item': isPositiveNdaMetric(fact) }"
+          >
+            <span v-if="isPositiveNdaMetric(fact)" class="metric-list-item__marker" aria-hidden="true">↑</span>
+            {{ formatHighlight(fact) }}
+          </li>
+        </ul>
       </div>
     </article>
   </NavLink>
@@ -55,9 +67,16 @@ const nonTagFacts = computed(() =>
     </div>
     <div class="project-card__body">
       <h3 class="project-card__title">{{ project.title }}</h3>
-      <div v-if="nonTagFacts.length" class="fact-row project-card__highlights">
-        <span v-for="(fact, index) in nonTagFacts" :key="`${fact}-${index}`">{{ fact }}</span>
-      </div>
+      <ul v-if="nonTagFacts.length" class="project-card__highlights">
+        <li
+          v-for="(fact, index) in nonTagFacts"
+          :key="`${fact}-${index}`"
+          :class="{ 'metric-list-item': isPositiveNdaMetric(fact) }"
+        >
+          <span v-if="isPositiveNdaMetric(fact)" class="metric-list-item__marker" aria-hidden="true">↑</span>
+          {{ formatHighlight(fact) }}
+        </li>
+      </ul>
     </div>
   </article>
 </template>

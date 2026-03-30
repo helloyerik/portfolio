@@ -1,6 +1,5 @@
 <script setup>
 import { ListItem } from "@yerik/yedesign-system";
-import mechtaKzLogo from "../assets/mechta-kz-logo.png";
 
 const props = defineProps({
   id: {
@@ -32,8 +31,6 @@ const props = defineProps({
     default: "",
   },
 });
-
-const isMechtaLogo = props.markType === "mechta";
 </script>
 
 <template>
@@ -46,14 +43,7 @@ const isMechtaLogo = props.markType === "mechta";
       :interactive="false"
       :chevron="false"
       class="company-divider__item"
-    >
-      <template #media>
-        <img v-if="isMechtaLogo" class="company-divider__logo-image" :src="mechtaKzLogo" alt="" aria-hidden="true" />
-        <div v-else class="company-divider__mark" aria-hidden="true">
-          {{ mark }}
-        </div>
-      </template>
-    </ListItem>
+    />
     <p v-if="blurb" class="company-divider__blurb">{{ blurb }}</p>
   </div>
 </template>

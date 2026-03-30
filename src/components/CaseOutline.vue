@@ -14,7 +14,25 @@ const props = defineProps({
 });
 
 const visible = ref(false);
+const isOpen = ref(false);
+const outlineRef = ref(null);
 const siteCopy = inject("siteCopy");
+
+const openOutline = () => {
+  if (isOpen.value) return;
+  isOpen.value = true;
+};
+
+const closeOutline = () => {
+  if (!isOpen.value) return;
+  isOpen.value = false;
+};
+
+const handleFocusOut = (event) => {
+  if (!outlineRef.value?.contains(event.relatedTarget)) {
+    closeOutline();
+  }
+};
 
 onMounted(() => {
   window.requestAnimationFrame(() => {
@@ -25,10 +43,15 @@ onMounted(() => {
 
 <template>
   <aside
+    ref="outlineRef"
     class="case-outline reveal"
-    :class="{ 'reveal--visible': visible }"
+    :class="{ 'reveal--visible': visible, 'case-outline--open': isOpen }"
     :style="{ '--reveal-delay': '12ms' }"
     :aria-label="siteCopy.caseOutlineAriaLabel"
+    @mouseenter="openOutline"
+    @mouseleave="closeOutline"
+    @focusin="openOutline"
+    @focusout="handleFocusOut"
   >
     <div class="case-outline__toggle" aria-hidden="true">
       <span

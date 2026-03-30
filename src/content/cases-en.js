@@ -7,6 +7,7 @@ import pricingPreview from "../assets/projects/pricing-preview.jpg";
 import corporatePreview from "../assets/projects/corporate-preview.png";
 import freelancePreview from "../assets/projects/freelance-preview.jpg";
 import bmcPreview from "../assets/projects/bmc-preview.jpg";
+import { freelanceMedia } from "./freelance-media";
 
 export const caseOrder = [
   { slug: "/projects/ecommerce-redesign", label: "E-commerce" },
@@ -29,8 +30,8 @@ export const mechtaProjects = [
       "Redesign and optimization of the funnel: product page, cart, checkout, order details, and order history.",
       "Warranty services and upsell scenarios were handled as a dedicated layer inside the project.",
     ],
-    highlights: ["+XX% purchase conversion", "+X% checkout starts", "X times fewer support requests"],
-    facts: ["+XX% conversion", "+X% to checkout", "X times fewer requests"],
+    highlights: ["+NDA% purchase conversion", "+NDA% checkout starts", "-NDA% support requests"],
+    facts: ["+NDA% conversion", "+NDA% to checkout", "-NDA% support requests"],
     cover: ecommerceCover,
     preview: false,
   },
@@ -43,9 +44,10 @@ export const mechtaProjects = [
       "Components, patterns, and documentation as one source of truth for design, analytics, and engineering.",
       "We moved from a list of screens to a more structured description of flows, states, and product logic.",
     ],
-    highlights: ["faster launches", "less custom work and fewer duplicates", "lower support cost"],
+    highlights: ["Faster launches", "Less custom work and fewer duplicates", "Lower support cost"],
     facts: ["Fewer duplicates", "Faster change delivery"],
     cover: ecommerceCover,
+    hiddenOnHome: true,
     preview: false,
   },
   {
@@ -56,9 +58,28 @@ export const mechtaProjects = [
     summary: [
       "An internal tool for processing supplier and partner offers. The focus was structure, speed for managers, and a scalable process.",
     ],
-    highlights: ["launched in one month", "X times fewer duplicates", "a real workflow instead of manual chaos"],
-    facts: ["X times fewer duplicates", "Structured flow"],
+    highlights: ["Launched the MVP in one month", "Reduced errors in product card creation", "Third highlight to be defined later"],
+    facts: ["Reduced product card creation errors", "Structured flow"],
     cover: partnersCover,
+    preview: false,
+  },
+  {
+    slug: "/projects/corporate-portal",
+    title: "Corporate portal",
+    kind: "0→1 / internal product",
+    period: "2025",
+    summary: [
+      "An internal portal for employees, org structure, and documents with electronic signing through eGov.",
+    ],
+    highlights: [
+      "Accelerated the document signing process",
+      "Reduced document processing costs",
+      "Reduced HR support tickets by NDAx",
+      "The fourth point I will define later",
+    ],
+    facts: ["Employees and org structure", "Documents and eGov"],
+    cover: corporatePreview,
+    hiddenOnHome: true,
     preview: false,
   },
   {
@@ -70,23 +91,14 @@ export const mechtaProjects = [
       "A service for faster repricing and label replacement in physical stores, reducing reliance on legacy tools.",
       "Field interviews and usability testing with supervisors and floor consultants helped validate the MVP in a real work context before launch.",
     ],
-    highlights: ["MVP validated in-store", "field research", "faster repricing flow"],
-    facts: ["Field research", "MVP tested with real users"],
+    highlights: [
+      "Under NDA, improved the price-tag printing workflow by making it faster",
+      "Reduced material waste during printing",
+      "Lowered printing error rates",
+    ],
+    facts: ["Faster price-tag printing workflow", "Reduced material waste", "Lowered printing error rates"],
     cover: pricingPreview,
     preview: true,
-  },
-  {
-    slug: "/projects/corporate-portal",
-    title: "Corporate portal",
-    kind: "0→1 / internal product",
-    period: "2025",
-    summary: [
-      "An internal portal for employees, org structure, and documents with electronic signing through eGov.",
-    ],
-    highlights: ["employees and org structure", "documents and eGov", "roles and process statuses"],
-    facts: ["Employees and org structure", "Documents and eGov"],
-    cover: corporatePreview,
-    preview: false,
   },
 ];
 
@@ -96,9 +108,11 @@ export const freelanceProjects = [
     title: "Freelance",
     kind: "Case collection",
     period: "2023 — 2025",
-    summary: ["A combined case built from four client projects: UniqUnits, Xola, CheryX, and Vault."],
-    highlights: ["4 projects", "mobile / AI / fintech", "fast cycle from brief to deliverable"],
-    facts: ["4 projects", "Mobile / AI / Fintech / Utilities"],
+    summary: [
+      "A combined case built from seven client projects: Orbi, Xola, CheryX, Vault, Freelance Marketplace, AI Workspace, and AI Image Creation.",
+    ],
+    highlights: ["7 projects", "mobile / AI / fintech", "fast cycle from brief to deliverable"],
+    facts: ["7 projects", "Mobile / AI / Fintech / Utilities"],
     cover: freelancePreview,
     preview: false,
   },
@@ -127,15 +141,36 @@ export const publicCases = {
     slug: "/projects/ecommerce-redesign",
     title: "E-commerce",
     heroImage: ecommerceCover,
-    highlights: ["Regular sync with a 20+ person team"],
+    highlights: ["Conversion-focused funnel redesign", "Design-system rollout"],
     summary: [
-      "One of the core projects inside Mechta.kz, a Kazakhstan retailer with a 500k MAU audience. Together with the team we rebuilt the key funnel steps: product page, cart, checkout, order details, and the order list. My role was to design, structure, and detail those scenarios.",
-      "The project was focused on conversion growth, fewer user errors, and a cleaner customer journey. In parallel, I expanded the design-system and documentation layer so the solutions could scale, reduce custom work, simplify support, and speed up future releases.",
+      "A core redesign of the Mechta.kz shopping funnel for a 500k MAU retail product: product page, cart, checkout, order details, and order history.",
+      "The work combined conversion optimization, legacy cleanup, and design-system rollout so the team could improve the funnel without multiplying one-off UI logic.",
     ],
-    myRole: [
-      "I worked closely with the product team, engineering, and the design lead. I owned the structure of the funnel scenarios, screen-level detailing, prototypes, presentations for major changes, and handoff to implementation, while priorities and trade-offs were aligned together with the team.",
+    context: [
+      "The funnel had grown through multiple releases, so key screens were overloaded with banners, secondary promos, trade-in offers, financing blocks, and state-specific logic. On the product page especially, core decisions such as stock, delivery, credit, and the main CTA had to compete for the same attention area.",
+      "This was not a solo redesign. I worked in close collaboration with a lead designer and a cross-functional team of analysts, product managers, and frontend/backend engineers. A large part of the job was reducing ambiguity: mapping dependencies, reviewing scenarios in pair, and turning a messy set of requirements into a cleaner product structure.",
     ],
-    results: ["Together we improved purchase conversion by +XX% across the rebuilt funnel."],
+    goals: [
+      "make the main funnel actions easier to notice and faster to complete",
+      "reduce clutter on the product page without losing critical sales, delivery, credit, or SEO information",
+      "replace deprecated UI patterns with a cleaner and more scalable design-system base",
+      "lower support and operational handwork by making states, statuses, and next steps easier to understand",
+    ],
+    actions: [
+      "audited the funnel through analytics, competitor patterns, heatmaps, and session recordings",
+      "prioritized the most conversion-sensitive modules first: product page, cart, checkout, order details, and order list",
+      "removed or toned down low-performing and distracting elements such as oversized promo areas and legacy upsell treatments",
+      "made the main CTAs more prominent and moved secondary actions away from the primary decision zone",
+      "reorganized delivery, financing, bonuses, discount clarifications, and stock-dependent states into clearer blocks",
+      "worked with the lead designer, analysts, and engineers through recurring reviews, prototypes, and presentations to align decisions before implementation",
+      "expanded the design system and documentation layer to reduce hardcoded inconsistencies and simplify future launches",
+    ],
+    results: [
+      "Growth in the number of products with connected delivery — NDA%",
+      "Growth in the number of successful deals with delivery — NDA%",
+      "Growth in successful deals with delivery — NDA%",
+      "Growth in NPS — NDA%",
+    ],
     tasks: [
       "Rebuilt key funnel pages to increase conversion",
       "Looked for drop-off points through competitors, heatmaps, and session recordings",
@@ -202,7 +237,7 @@ export const publicCases = {
         resultTitle: "Result:",
         resultTitleStyle: "body",
         resultList: [
-          "the next-step transition grew by +X%",
+          "the next-step transition grew by +NDA%",
           "the flow became more stable across delivery and pick-up scenarios",
           "special rules and restrictions stopped breaking the main checkout path",
         ],
@@ -221,7 +256,7 @@ export const publicCases = {
           "The post-purchase stage became the foundation of the project: this is where statuses, promotions, line items, pickup timing, and service dependencies all converged.",
         ],
         result: [
-          "After rebuilding the post-purchase stage and its connected screens, support requests dropped by X times: users understood order status, contents, and next actions much better without extra help.",
+          "After rebuilding the post-purchase stage and its connected screens, support requests dropped by -NDA%: users understood order status, contents, and next actions much better without extra help.",
         ],
         list: [
           "standardized statuses and their sequence after purchase",
@@ -249,9 +284,6 @@ export const publicCases = {
           "simplified the content structure to reduce hardcoded layout logic",
           "worked through edge cases, including services attached to several identical items",
         ],
-        media: {
-          kind: "service-card-anatomy",
-        },
       },
       {
         title: "Summary",
@@ -274,16 +306,30 @@ export const publicCases = {
     title: "Design system",
     heroImage: ecommerceCover,
     summary: [
-      "At Mechta.kz we evolved the design system not just as a component library but as a working layer for faster launches, fewer custom solutions, and clearer alignment between teams. My area of ownership was the systematization of flows, patterns, and documentation.",
-      "We gradually moved away from a collection of isolated mockups toward structured documentation of flows, states, and dependencies so that design, analytics, and engineering could rely on one shared source of truth.",
+      "A system layer for Mechta.kz that went beyond a component library and started working as shared product infrastructure for design, analytics, and engineering.",
+      "The core shift was moving from isolated screen files to a clearer description of flows, states, dependencies, and reusable patterns.",
     ],
-    myRole: [
-      "I developed this layer together with the product team. I focused on systematizing scenarios, patterns, documentation, and quick prototypes, while rollout priorities and trade-offs were aligned with the design lead, analysts, and engineers.",
+    context: [
+      "The design system had value as a UI library, but a lot of work still lived in disconnected mockups. As the product grew, that increased duplication, manual updates, and interpretation gaps between design, analytics, and engineering.",
+      "My focus was to move the system from a collection of components into a layer that also documented behavior, dependencies, and repeatable product logic.",
+    ],
+    goals: [
+      "reduce duplicate mockups and repeated manual updates",
+      "speed up launches through reusable patterns and templates",
+      "make flows, states, and dependencies easier to understand across teams",
+      "lower the cost of support and future changes",
+    ],
+    actions: [
+      "expanded components and patterns around real product scenarios instead of isolated screens",
+      "moved behavior, states, and dependencies into structured documentation next to the UI",
+      "used diagrams and quick prototypes for scenario discussions before detailed design",
+      "aligned the system with analysts, product managers, engineers, and the design lead",
+      "built a more practical source of truth for launches, updates, and implementation handoff",
     ],
     results: [
-      "Reduced duplicated mockups by describing scenarios and states more systematically.",
-      "Accelerated new launches through components, templates, and repeatable patterns.",
-      "Lowered the cost of changes and support by removing unnecessary manual fixes across many screens.",
+      "Fewer duplicated mockups through more systematic scenario and state documentation.",
+      "Faster launches through components, templates, and repeatable patterns.",
+      "Lower support and change cost by removing unnecessary manual fixes across many screens.",
       "Improved clarity for analytics and engineering through a single layer of documentation and diagrams.",
     ],
     tasks: [
@@ -352,11 +398,25 @@ export const publicCases = {
     title: "Partner offers",
     heroImage: partnersCover,
     summary: [
-      "An internal service for processing offers from suppliers and partners. The project was about creating a manageable workflow, reducing duplicate work, and giving category managers a faster way to review incoming proposals.",
-      "The MVP had to be realistic for the team and useful from day one, so the main challenge was to build a clean process around a messy incoming stream rather than design another form-heavy internal tool.",
+      "An internal service for processing supplier and partner offers: less manual chaos, fewer duplicates, and a clearer review workflow for category managers.",
+      "The MVP had to be realistic for engineering and useful from day one, so the work focused on process clarity rather than interface complexity.",
     ],
-    myRole: [
-      "I worked on the service together with a product manager, analyst, and engineers. My role was to structure the workflow, turn the process into a clear set of modules, validate the logic with future users, and prepare the interface and prototype for implementation discussions.",
+    context: [
+      "Incoming offers were handled through a messy stream of manual operations. Duplicates polluted the catalog, decisions were hard to track, and category managers spent too much time just cleaning the flow before they could assess the actual proposal.",
+      "The challenge was not to invent a large internal platform from scratch, but to build a compact MVP that reflected the real workflow and gave the team a cleaner staged process.",
+    ],
+    goals: [
+      "turn the incoming stream into a manageable review workflow",
+      "reduce duplicate handling and wasted manager time",
+      "make prioritization and publishing preparation easier to track",
+      "ship an MVP that engineering could implement quickly",
+    ],
+    actions: [
+      "mapped the raw supplier flow into review, prioritization, and publishing-preparation stages",
+      "interviewed category managers to capture pain points from the real process",
+      "framed the service as an inbox-like workflow instead of another static internal form",
+      "validated the MVP through a clickable prototype and alignment with engineering",
+      "reused familiar patterns where they reduced time-to-market without hurting clarity",
     ],
     results: [
       "Launched the MVP in one month with a structure that was realistic for engineering.",
@@ -420,10 +480,25 @@ export const publicCases = {
     title: "Corporate portal",
     heroImage: corporatePreview,
     summary: [
-      "An internal portal for employee management, org structure, and document flows with electronic signing through eGov. The project had to be built under tight deadlines and with incomplete initial documentation, so structure and prioritization mattered as much as the UI itself.",
+      "An internal portal for employee management, org structure, and document flows with electronic signing through eGov.",
+      "The work was driven by deadlines and incomplete input, so a big part of the value was structuring the product before polishing the interface.",
     ],
-    myRole: [
-      "I worked with the product team and engineering on structuring the portal into modules. My responsibility was to turn an incomplete brief into a clear employee-management and document-signing flow, detail the roles and statuses, and prepare the interfaces for implementation.",
+    context: [
+      "The project started without a complete technical brief or a stable product structure. Roles, statuses, and process boundaries had to be defined quickly, while the portal itself needed to cover both administrative employee management and document approval/signing.",
+      "This made prioritization just as important as interface quality: the team needed a workable modular foundation first, and only then deeper refinement of separate flows.",
+    ],
+    goals: [
+      "turn an incomplete brief into a structured modular product",
+      "define clear role-based actions for employees, managers, and HR",
+      "build a readable document route from creation to eGov signing",
+      "prepare an admin layer for employees, departments, and org structure",
+    ],
+    actions: [
+      "split the portal into employee-management and document-signing modules",
+      "mapped roles, statuses, and transitions for lists and detailed process views",
+      "designed employee administration, editable org data, and manual linking where source data was incomplete",
+      "structured the eGov route with separate stages, confirmations, and status visibility",
+      "prepared the interfaces with engineering constraints and backend contracts in mind",
     ],
     results: [
       "Built the foundation of a modular internal portal under a tight deadline.",
@@ -509,17 +584,32 @@ export const publicCases = {
     title: "Freelance",
     heroImage: freelancePreview,
     summary: [
-      "Freelance gave me product experience in short cycles: entering a new domain fast, shaping the product structure, keeping quality high without long onboarding, and taking work to a state that clients could review, discuss, and move forward with. This is where I built speed, autonomy, and the habit of turning a raw request into a product frame.",
+      "A combined case from seven client projects: Orbi, Xola, CheryX, Vault, Freelance Marketplace, AI Workspace, and AI Image Creation.",
+      "This period sharpened fast context switching, independent decision-making, and the ability to turn a rough brief into a review-ready product direction.",
     ],
-    myRole: [
-      "I led these projects independently: from entering the problem space and structuring the product to the final UI, presentation, and next step with the client. Developers or client-side stakeholders joined around feedback and implementation, but I owned the product logic and visual direction.",
+    context: [
+      "Freelance meant much shorter cycles and much less infrastructure than a large product team. I had to enter new domains quickly, define the product frame, design the interface, and move the work to a state that clients could discuss, approve, and take forward.",
+      "The value of this period was not one domain in particular, but the repetition of the same skill across very different products: rapid onboarding, clear structuring, and independent delivery.",
+    ],
+    goals: [
+      "turn raw client requests into clear product structures",
+      "move quickly across new domains without long onboarding",
+      "ship interfaces and concepts that were ready for review or development",
+      "keep quality stable while managing scope, timing, and communication independently",
+    ],
+    actions: [
+      "framed products through competitor scans, interviews, and hypotheses",
+      "validated key scenarios with wireframes and clickable prototypes",
+      "designed UI, states, and brand direction around specific flows",
+      "prepared assets for development, pitching, or store publication",
+      "managed client scope, planning, and the next step without a larger delivery layer",
     ],
     results: [
       "Designed several client products from scratch, from structure and wireframes to polished UI.",
       "Worked across mobile products, AI, fintech, utility apps, and brand packaging.",
       "Prepared interfaces and concepts that clients could bring straight into development or the next iteration.",
       "Built a reliable freelance practice around entering a context quickly, making decisions, and shipping work ready for review.",
-      "Improved the client side of the job: timelines, pricing, planning, and clear expectations.",
+      "Handled the client side of the job: timelines, pricing, planning, and clear expectations.",
     ],
     tasks: [
       "Framed products through competitor scans, interviews, and hypotheses",
@@ -537,7 +627,7 @@ export const publicCases = {
         ],
       },
       {
-        title: "UniqUnits",
+        title: "Orbi",
         paragraphs: [
           "A mobile app built around a proprietary indicator for traders. The key challenge was to make a dense trading interface manageable on a small screen without slowing down access to critical actions.",
         ],
@@ -551,6 +641,7 @@ export const publicCases = {
           "structured the mobile home screen and algorithmic order flows",
           "worked through loading, error, success, and helper states",
         ],
+        media: freelanceMedia.Orbi,
       },
       {
         title: "Xola",
@@ -567,6 +658,7 @@ export const publicCases = {
           "built wireframes, product structure, and the visual layer",
           "turned the concept into a more coherent cooking product",
         ],
+        media: freelanceMedia.Xola,
       },
       {
         title: "CheryX",
@@ -583,6 +675,7 @@ export const publicCases = {
           "moved into wireframes, brand direction, and the main payment flow",
           "shaped the product around convenience rather than technical complexity",
         ],
+        media: freelanceMedia.CheryX,
       },
       {
         title: "Vault",
@@ -599,16 +692,43 @@ export const publicCases = {
           "focused on cover assets and localization",
           "prepared the product package for publication across markets",
         ],
+        media: freelanceMedia.Vault,
       },
       {
-        title: "Personal takeaways",
-        list: [
-          "moving quickly from a client request to a product structure",
-          "working across different domains without losing coherence",
-          "building not only the interface but also the product packaging",
-          "running several small projects in parallel while keeping quality stable",
-          "holding client expectations and deadlines without outside control",
+        title: "Freelance Marketplace",
+        paragraphs: [
+          "A marketplace concept for IT specialists focused on profiles, matching, and hiring-related workflows. The goal was to shape a product direction that felt clear both for specialists and for teams searching for talent.",
         ],
+        list: [
+          "outlined the main marketplace structure and browsing logic",
+          "worked through profile, list, and matching-related screens",
+          "framed the product as a more usable hiring flow rather than just a directory of specialists",
+        ],
+        media: freelanceMedia.OOX,
+      },
+      {
+        title: "AI Workspace",
+        paragraphs: [
+          "A collaboration workspace concept with an AI agent inside the product flow. The task was to make the assistant feel embedded into teamwork rather than added as a separate gimmick.",
+        ],
+        list: [
+          "structured the workspace around collaboration and task context",
+          "explored how an AI agent could support navigation and decisions inside the flow",
+          "turned the concept into a more coherent product scenario with clearer screens and modules",
+        ],
+        media: freelanceMedia["AI Workspace"],
+      },
+      {
+        title: "AI Image Creation",
+        paragraphs: [
+          "A lightweight concept around generating images with AI. The focus here was not technical depth, but turning a generic generation flow into a cleaner and more presentable product experience.",
+        ],
+        list: [
+          "framed the basic generation flow and output states",
+          "designed a visual direction around prompt input and result review",
+          "packaged the concept into screens that were easier to discuss and iterate with the client",
+        ],
+        media: freelanceMedia["Genera AI"],
       },
     ],
   },
@@ -617,10 +737,24 @@ export const publicCases = {
     title: "BMC Group",
     heroImage: bmcPreview,
     summary: [
-      "At BMC Group we built client websites and visual materials in a fast agency rhythm. I was responsible for page design, no-code / low-code assembly, and part of the Instagram support. The main value of this experience was proximity to launch: work had to reach a state that could be approved and shipped.",
+      "Agency work around client websites, no-code / low-code delivery, and visual support for social channels.",
+      "The key value of this experience was launch proximity: work had to move from design into an assembled deliverable quickly.",
     ],
-    myRole: [
-      "The work was coordinated through the studio team, account manager, and clients. I owned the page design, no-code / low-code assembly, and part of the visual support, while final approvals happened together with the studio team.",
+    context: [
+      "BMC Group was a fast agency environment with short cycles, approvals, and launch pressure. The work was not finished at the mockup stage: pages had to be assembled, adapted to content, and brought to a state that clients could actually publish.",
+      "Alongside websites, visual support for social channels had to stay consistent with the site direction and fit the rhythm of regular brand communication.",
+    ],
+    goals: [
+      "shorten the path from design to launch-ready pages",
+      "adapt quickly to client content and approval constraints",
+      "keep websites and social materials visually coherent",
+      "support launch delivery through no-code / low-code assembly",
+    ],
+    actions: [
+      "designed pages around client goals, content, and approval constraints",
+      "assembled and adapted the pages in no-code / low-code tools",
+      "prepared visual materials for promotions, announcements, and regular social activity",
+      "brought the work to approval and publication rather than stopping at mockups",
     ],
     results: [
       "Took client websites from mockup to assembled release-ready pages in a no-code / low-code environment.",
@@ -689,9 +823,9 @@ export const cvData = {
         "expanded the design system and documentation to speed up shipping and support",
       ],
       results: [
-        "improved purchase conversion by +XX% in the e-commerce flow",
-        "increased the transition from cart to checkout by +X%",
-        "reduced call-center requests by X times",
+        "improved purchase conversion by +NDA% in the e-commerce flow",
+        "increased the transition from cart to checkout by +NDA%",
+        "reduced call-center requests by -NDA%",
         "expanded the design system to accelerate new releases and support",
         "designed internal products for supplier flow, documents and eGov, and price labels",
         "validated internal flows with supervisors and floor consultants through offline interviews and usability tests",
@@ -705,7 +839,7 @@ export const cvData = {
       format: "project-based · remote",
       summary:
         "Independent work on client products across mobile flows, AI, fintech, and utility services.",
-      projects: ["UniqUnits", "Xola", "CheryX", "Vault"],
+      projects: ["Orbi", "Xola", "CheryX", "Vault", "Freelance Marketplace", "AI Workspace", "AI Image Creation"],
       responsibilities: [
         "built product structure in new domains without long onboarding",
         "created wireframes, visual concepts, and final interfaces for specific scenarios",
