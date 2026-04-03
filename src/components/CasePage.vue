@@ -140,7 +140,7 @@ watch(sectionItems, () => {
     <RevealBlock v-if="hasStructuredOverview && goalsItems.length" as="article" class="content-block" id="goals" :order="5">
       <h2 class="section-title">{{ siteCopy.goalsLabel }}</h2>
       <div class="prose">
-        <RichList :items="goalsItems" />
+        <RichList :items="goalsItems" :show-metrics="false" />
       </div>
     </RevealBlock>
 
@@ -154,7 +154,7 @@ watch(sectionItems, () => {
     <RevealBlock v-if="hasStructuredOverview" as="article" class="content-block" id="results" :order="7">
       <h2 class="section-title">{{ siteCopy.resultsLabel }}</h2>
       <div class="prose">
-        <RichList :items="caseData.results" />
+        <RichList :items="caseData.results" :force-markers="true" />
       </div>
     </RevealBlock>
 
@@ -168,7 +168,7 @@ watch(sectionItems, () => {
     <RevealBlock v-if="!hasStructuredOverview" as="article" class="content-block" id="results" :order="5">
       <h2 class="section-title">{{ siteCopy.resultsLabel }}</h2>
       <div class="prose">
-        <RichList :items="caseData.results" />
+        <RichList :items="caseData.results" :force-markers="true" />
       </div>
     </RevealBlock>
 

@@ -10,6 +10,14 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  showMetrics: {
+    type: Boolean,
+    default: true,
+  },
+  forceMarkers: {
+    type: Boolean,
+    default: false,
+  },
 });
 </script>
 
@@ -21,9 +29,14 @@ const props = defineProps({
     <li
       v-for="(item, index) in items"
       :key="`${item}-${index}`"
-      :class="{ 'metric-list-item': isPositiveNdaMetric(item) }"
+      :class="{ 'metric-list-item': forceMarkers || (showMetrics && isPositiveNdaMetric(item)) }"
     >
-      <span v-if="isPositiveNdaMetric(item)" class="metric-list-item__marker" aria-hidden="true">↑</span>
+      <span
+        v-if="forceMarkers || (showMetrics && isPositiveNdaMetric(item))"
+        class="metric-list-item__marker"
+        aria-hidden="true"
+        >↑</span
+      >
       {{ item }}
     </li>
   </ul>

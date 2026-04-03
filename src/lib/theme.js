@@ -11,19 +11,19 @@ export function readPreferredTheme() {
       return storedTheme;
     }
   } catch {
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    return "dark";
   }
 
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  return "dark";
 }
 
 export function readPreferredPalette() {
-  if (typeof window === "undefined") return "gruvbox";
+  if (typeof window === "undefined") return "default";
 
   try {
     const storedPalette = window.localStorage.getItem(PALETTE_STORAGE_KEY);
-    return storedPalette === "default" || storedPalette === "gruvbox" ? storedPalette : "gruvbox";
+    return storedPalette === "default" || storedPalette === "gruvbox" ? storedPalette : "default";
   } catch {
-    return "gruvbox";
+    return "default";
   }
 }

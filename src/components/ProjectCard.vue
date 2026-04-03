@@ -1,7 +1,6 @@
 <script setup>
 import { computed, inject } from "vue";
 import { Tag } from "@yerik/yedesign-system";
-import { isPositiveNdaMetric } from "../lib/metricMarkers";
 import NavLink from "./NavLink.vue";
 
 const props = defineProps({
@@ -42,12 +41,8 @@ const formatHighlight = (value) => {
       <div class="project-card__body">
         <h3 class="project-card__title">{{ project.title }}</h3>
         <ul v-if="nonTagFacts.length" class="project-card__highlights">
-          <li
-            v-for="(fact, index) in nonTagFacts"
-            :key="`${fact}-${index}`"
-            :class="{ 'metric-list-item': isPositiveNdaMetric(fact) }"
-          >
-            <span v-if="isPositiveNdaMetric(fact)" class="metric-list-item__marker" aria-hidden="true">↑</span>
+          <li v-for="(fact, index) in nonTagFacts" :key="`${fact}-${index}`" class="metric-list-item">
+            <span class="metric-list-item__marker" aria-hidden="true">↑</span>
             {{ formatHighlight(fact) }}
           </li>
         </ul>
@@ -68,12 +63,8 @@ const formatHighlight = (value) => {
     <div class="project-card__body">
       <h3 class="project-card__title">{{ project.title }}</h3>
       <ul v-if="nonTagFacts.length" class="project-card__highlights">
-        <li
-          v-for="(fact, index) in nonTagFacts"
-          :key="`${fact}-${index}`"
-          :class="{ 'metric-list-item': isPositiveNdaMetric(fact) }"
-        >
-          <span v-if="isPositiveNdaMetric(fact)" class="metric-list-item__marker" aria-hidden="true">↑</span>
+        <li v-for="(fact, index) in nonTagFacts" :key="`${fact}-${index}`" class="metric-list-item">
+          <span class="metric-list-item__marker" aria-hidden="true">↑</span>
           {{ formatHighlight(fact) }}
         </li>
       </ul>

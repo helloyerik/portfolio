@@ -1,6 +1,6 @@
 :root {
   --palette-bg: #050505;
-  --palette-fg: #ebdbb2;
+  --palette-fg: var(--mi-color-base-light);
   --palette-fg-muted: rgba(255, 255, 255, 0.58);
   --palette-line: rgba(255, 255, 255, 0.16);
   --palette-line-strong: rgba(255, 255, 255, 0.24);
@@ -16,7 +16,7 @@
   --palette-shadow-soft: rgba(0, 0, 0, 0.18);
   --palette-brand: rgba(230, 23, 113, 1);
   --palette-brand-soft: rgba(230, 23, 113, 0.2);
-  --palette-brand-contrast: #ebdbb2;
+  --palette-brand-contrast: var(--mi-color-base-light);
   --palette-toggle-active-bg: #ffffff;
   --palette-toggle-active-text: #000000;
   --palette-tag-bg: rgba(0, 0, 0, 0.76);
@@ -83,7 +83,7 @@ html[data-theme="light"][data-palette="default"] {
   --palette-avatar-top: rgba(0, 0, 0, 0.06);
   --palette-avatar-bottom: rgba(0, 0, 0, 0.02);
   --palette-toggle-active-bg: #000000;
-  --palette-toggle-active-text: #ebdbb2;
+  --palette-toggle-active-text: var(--mi-color-base-light);
   --palette-tag-bg: rgba(255, 255, 255, 0.92);
 }
 

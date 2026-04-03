@@ -37,7 +37,7 @@ const siteCopy = inject("siteCopy");
       <p v-for="(paragraph, index) in section.result ?? []" :key="`${paragraph}-${index}`">
         {{ paragraph }}
       </p>
-      <RichList v-if="section.resultList?.length" :items="section.resultList" />
+      <RichList v-if="section.resultList?.length" :items="section.resultList" :force-markers="true" />
     </template>
 
     <RichList v-if="section.list?.length" :items="section.list" :ordered="Boolean(section.ordered)" />

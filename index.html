@@ -11,24 +11,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500&family=Noto+Serif+JP:wght@300;400;600&family=Onest:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Noto+Serif+JP:wght@300;400;600&family=Onest:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <script>
       (function () {
         var storedTheme = null;
-        var isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        var palette = "gruvbox";
+        var palette = "default";
         try {
           storedTheme = window.localStorage.getItem("portfolio-theme");
           var storedPalette = window.localStorage.getItem("portfolio-palette");
-          palette = storedPalette === "default" || storedPalette === "gruvbox" ? storedPalette : "gruvbox";
+          palette = storedPalette === "default" || storedPalette === "gruvbox" ? storedPalette : "default";
         } catch (error) {
           storedTheme = null;
-          palette = "gruvbox";
+          palette = "default";
         }
         document.documentElement.dataset.theme =
-          storedTheme === "light" || storedTheme === "dark" ? storedTheme : isDark ? "dark" : "light";
+          storedTheme === "light" || storedTheme === "dark" ? storedTheme : "dark";
         document.documentElement.dataset.palette = palette;
       })();
     </script>

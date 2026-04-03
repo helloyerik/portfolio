@@ -56,7 +56,7 @@ const siteCopy = inject("siteCopy");
         </div>
         <div class="cv-entry__block">
           <h3 class="cv-entry__label">{{ siteCopy.cvResultsLabel }}</h3>
-          <RichList :items="item.results" />
+          <RichList :items="item.results" :force-markers="true" />
         </div>
       </div>
     </RevealBlock>
