@@ -582,7 +582,7 @@ a {
 
 .display-title {
   width: 100%;
-  margin: 0 0 var(--space-l);
+  margin: 0 0 var(--mi-spacing-8);
   font-size: var(--text-display);
   line-height: var(--line-display);
   font-weight: var(--mi-font-weight-display-2);
@@ -603,8 +603,8 @@ a {
 
 .section-header {
   display: grid;
-  gap: var(--space-xs);
-  margin-bottom: var(--space-l);
+  gap: var(--mi-spacing-4);
+  margin-bottom: var(--mi-spacing-8);
 }
 
 .section-title {
@@ -638,7 +638,7 @@ a {
 }
 
 .about-block .section-title {
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--mi-spacing-4);
 }
 
 .special-projects-block {
@@ -1059,7 +1059,7 @@ a {
 .prose p,
 .prose ul,
 .prose ol {
-  margin: 0 0 var(--space-s);
+  margin: 0 0 var(--mi-spacing-8);
   font-size: var(--text-body);
   line-height: var(--line-body);
 }
@@ -1094,7 +1094,7 @@ a {
 }
 
 .case-subsection__title {
-  margin: 0 0 var(--space-2xs);
+  margin: 0 0 var(--mi-spacing-4);
   font-size: var(--mi-font-size-subheader-3);
   line-height: var(--mi-line-height-subheader-3);
   font-weight: var(--mi-font-weight-subheader-3);
@@ -1102,7 +1102,7 @@ a {
 }
 
 .section-inline-title {
-  margin: 0 0 var(--space-xs);
+  margin: 0 0 var(--mi-spacing-4);
   font-size: var(--text-section);
   line-height: var(--line-section);
   font-weight: var(--mi-font-weight-subheader-3);
@@ -1110,7 +1110,7 @@ a {
 }
 
 .section-inline-label {
-  margin: 0 0 var(--space-xs);
+  margin: 0 0 var(--mi-spacing-4);
   font-size: var(--mi-font-size-body-1);
   line-height: var(--mi-line-height-body-1);
   font-weight: var(--mi-font-weight-body-1);
@@ -1547,7 +1547,7 @@ html[data-palette="gruvbox"] .before-after__tag {
 
 .cv-entry__header {
   display: grid;
-  gap: var(--space-2xs);
+  gap: var(--mi-spacing-4);
 }
 
 .cv-entry__meta {
@@ -1559,12 +1559,12 @@ html[data-palette="gruvbox"] .before-after__tag {
 
 .cv-entry__grid {
   display: grid;
-  gap: var(--space-s);
+  gap: var(--mi-spacing-8);
 }
 
 .cv-entry__block {
   display: grid;
-  gap: var(--space-2xs);
+  gap: var(--mi-spacing-4);
 }
 
 .cv-entry__label {
