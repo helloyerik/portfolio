@@ -27,7 +27,7 @@ const openExternal = (href) => {
   <header class="topbar">
     <ScrollProgressBar />
     <RevealBlock as="div" class="shell topbar__inner" :order="0">
-      <NavLink class="brand" href="/">Yerik Kuanbayev</NavLink>
+      <NavLink class="brand" href="/">Yerik</NavLink>
       <nav class="topnav topbar__actions">
         <Button
           :label="siteCopy.telegramButton"

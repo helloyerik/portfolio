@@ -497,11 +497,11 @@ a {
 }
 
 .brand {
-  font-size: var(--mi-font-size-body-1);
-  line-height: var(--mi-line-height-body-1);
-  font-family: var(--font-family-mono);
-  letter-spacing: var(--font-letter-spacing-mono);
-  font-weight: 500;
+  font-size: var(--text-body);
+  line-height: var(--line-body);
+  font-family: var(--font-family-body);
+  letter-spacing: normal;
+  font-weight: var(--mi-font-weight-article-body);
 }
 
 .topnav {
@@ -523,8 +523,11 @@ a {
 .theme-toggle {
   background: transparent;
   color: var(--color-text);
-  font: inherit;
+  font-family: var(--font-family-body);
+  font-size: var(--text-body);
+  font-weight: var(--mi-font-weight-article-body);
   line-height: var(--line-body);
+  letter-spacing: normal;
   padding-inline: var(--mi-spacing-8);
   padding-block: 0;
   border-radius: var(--mi-radius-l);

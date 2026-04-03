@@ -800,7 +800,7 @@ export const publicCases = {
 };
 
 export const cvData = {
-  title: "Yerik Kuanbayev",
+  title: "Yerik",
   role: "Product Designer",
   intro: [
     "Product designer with X+ years of experience across e-commerce, B2B, retail, AI, and internal tools. I design web and mobile products, systematize interfaces, evolve design systems, and work on solutions that influence metrics, shipping speed, and implementation quality.",
