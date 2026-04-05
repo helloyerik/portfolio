@@ -1,4 +1,10 @@
 import ecommerceCover from "../assets/projects/ecommerce-cover.png";
+import ecommerceCheckoutCover from "../assets/projects/ecommerce-checkout-cover.png";
+import ecommerceCartCover from "../assets/projects/ecommerce-cart-cover.png";
+import ecommerceProductPageCover from "../assets/projects/ecommerce-product-page-cover.png";
+import ecommerceOrdersCover from "../assets/projects/ecommerce-orders-cover.png";
+import ecommerceOrderDetailsCover from "../assets/projects/ecommerce-order-details-cover.png";
+import ecommerceWarrantyServicesCover from "../assets/projects/ecommerce-warranty-services-cover.png";
 import partnersCover from "../assets/projects/partners-cover.png";
 import partnersDrawer from "../assets/projects/partners-drawer.png";
 import productPageBeforeMockup from "../assets/Страница товара до мокап.png";
@@ -9,49 +15,119 @@ import freelancePreview from "../assets/projects/freelance-preview.jpg";
 import bmcPreview from "../assets/projects/bmc-preview.jpg";
 import { freelanceMedia } from "./freelance-media";
 
+const moduleMetricsPlaceholder = "Metrics will be added later.";
+
 export const caseOrder = [
-  { slug: "/projects/ecommerce-redesign", label: "E-commerce" },
-  { slug: "/projects/design-system", label: "Design system" },
+  { slug: "/projects/ecommerce-product-page", label: "Product page" },
+  { slug: "/projects/ecommerce-cart", label: "Cart" },
+  { slug: "/projects/ecommerce-checkout", label: "Checkout" },
+  { slug: "/projects/ecommerce-my-orders", label: "My orders" },
+  { slug: "/projects/ecommerce-warranty-services", label: "Warranty services" },
+  { slug: "/projects/ecommerce-order-details", label: "Order details" },
   { slug: "/projects/partners", label: "Mechta Partners" },
   { slug: "/projects/corporate-portal", label: "Corporate portal" },
   { slug: "/projects/freelance", label: "Freelance" },
-  { slug: "/projects/bmc-group", label: "BMC Group" },
 ];
 
 export const workflowCases = {};
 
 export const mechtaProjects = [
   {
-    slug: "/projects/ecommerce-redesign",
-    title: "E-commerce",
-    kind: "Redesign and growth",
+    slug: "/projects/ecommerce-product-page",
+    title: "Product page",
+    kind: "E-commerce module",
     period: "2025 — X",
     summary: [
-      "Redesign and optimization of the funnel: product page, cart, checkout, order details, and order history.",
-      "Warranty services and upsell scenarios were handled as a dedicated layer inside the project.",
+      "Rebuilt the product page so availability, delivery, credit, and the main CTA read as one quick decision.",
     ],
-    highlights: [
-      "Increased purchase conversion by NDA%",
-      "Increased checkout starts by NDA%",
-      "Reduced support requests by NDA%",
-    ],
-    facts: ["+NDA% conversion", "+NDA% to checkout", "-NDA% support requests"],
-    cover: ecommerceCover,
+    highlights: [moduleMetricsPlaceholder],
+    metrics: ["Product-page conversion +NDA%", "Time-to-CTA -NDA%"],
+    cover: ecommerceProductPageCover,
+    moduleCase: true,
+    showSummary: true,
     preview: false,
   },
   {
-    slug: "/projects/design-system",
-    title: "Design system",
-    kind: "System evolution",
+    slug: "/projects/ecommerce-cart",
+    title: "Cart",
+    kind: "E-commerce module",
     period: "2025 — X",
     summary: [
-      "Components, patterns, and documentation as one source of truth for design, analytics, and engineering.",
-      "We moved from a list of screens to a more structured description of flows, states, and product logic.",
+      "Turned the cart into a clean decision hub with a fast handoff to checkout and relevant upsells.",
     ],
-    highlights: ["Faster launches", "Less custom work and fewer duplicates", "Lower support cost"],
-    facts: ["Fewer duplicates", "Faster change delivery"],
-    cover: ecommerceCover,
-    hiddenOnHome: true,
+    highlights: [
+      "The handoff from cart to checkout became more direct: users moved to checkout faster, and the cart worked better as a decision point rather than a noisy intermediate screen.",
+    ],
+    metrics: ["Checkout starts +NDA%", "Cart drop-off -NDA%"],
+    cover: ecommerceCartCover,
+    moduleCase: true,
+    showSummary: true,
+    preview: false,
+  },
+  {
+    slug: "/projects/ecommerce-checkout",
+    title: "Checkout",
+    kind: "E-commerce module",
+    period: "2025 — X",
+    summary: [
+      "Shaped checkout to handle delivery vs pickup, promos, forms, and trade-in without breaking the flow.",
+    ],
+    highlights: [
+      "the next-step transition grew by +NDA%",
+      "the flow became more stable across delivery and pick-up scenarios",
+      "special rules and restrictions stopped breaking the main checkout path",
+    ],
+    metrics: ["Next-step transition +NDA%", "Checkout completion +NDA%"],
+    cover: ecommerceCheckoutCover,
+    moduleCase: true,
+    showSummary: true,
+    preview: false,
+  },
+  {
+    slug: "/projects/ecommerce-my-orders",
+    title: "My orders",
+    kind: "E-commerce module",
+    period: "2025 — X",
+    summary: [
+      "Made order history the entry point to statuses and next steps, not just a list.",
+    ],
+    highlights: [moduleMetricsPlaceholder],
+    metrics: ["Order-status tickets -NDA%"],
+    cover: ecommerceOrdersCover,
+    moduleCase: true,
+    showSummary: true,
+    preview: false,
+  },
+  {
+    slug: "/projects/ecommerce-warranty-services",
+    title: "Warranty services",
+    kind: "E-commerce module",
+    period: "2025 — X",
+    summary: [
+      "Packaged warranty services as a clear upsell mini-product inside the store.",
+    ],
+    highlights: [moduleMetricsPlaceholder],
+    metrics: ["Service attach rate +NDA%"],
+    cover: ecommerceWarrantyServicesCover,
+    moduleCase: true,
+    showSummary: true,
+    preview: false,
+  },
+  {
+    slug: "/projects/ecommerce-order-details",
+    title: "Order details",
+    kind: "E-commerce module",
+    period: "2025 — X",
+    summary: [
+      "Unified post-purchase status, promotions, and pickup timing into one clear stage.",
+    ],
+    highlights: [
+      "After rebuilding the post-purchase stage and its connected screens, support requests dropped by -NDA%: users understood order status, contents, and next actions much better without extra help.",
+    ],
+    metrics: ["Post-purchase support -NDA%"],
+    cover: ecommerceOrderDetailsCover,
+    moduleCase: true,
+    showSummary: true,
     preview: false,
   },
   {
@@ -62,7 +138,7 @@ export const mechtaProjects = [
     summary: [
       "An internal tool for processing supplier and partner offers. The focus was structure, speed for managers, and a scalable process.",
     ],
-    highlights: ["Launched the MVP in one month", "Reduced errors in product card creation", "Third highlight to be defined later"],
+    highlights: ["0->1 in one month", "Reduced errors in product card creation", "Third highlight to be defined later"],
     facts: ["Reduced product card creation errors", "Structured flow"],
     cover: partnersCover,
     preview: false,
@@ -115,7 +191,7 @@ export const freelanceProjects = [
     summary: [
       "A combined case built from seven client projects: Orbi, Xola, CheryX, Vault, Freelance Marketplace, AI Workspace, and AI Image Creation.",
     ],
-    highlights: ["7 projects", "mobile / AI / fintech", "fast cycle from brief to deliverable"],
+    highlights: ["89% of clients returned", "Completed 27 projects", "fast cycle from brief to deliverable"],
     facts: ["7 projects", "Mobile / AI / Fintech / Utilities"],
     cover: freelancePreview,
     preview: false,
@@ -146,9 +222,9 @@ export const publicCases = {
     title: "E-commerce",
     heroImage: ecommerceCover,
     summary: [
-      "A core redesign of the Mechta.kz shopping funnel for a 500k MAU retail product: product page, cart, checkout, order details, and order history.",
-      "The work combined conversion optimization, legacy cleanup, and design-system rollout so the team could improve the funnel without multiplying one-off UI logic.",
+      "A core redesign of the Mechta.kz shopping funnel for a 500k MAU retail product: product page, cart, checkout, order details, and order history. The work combined conversion optimization, legacy cleanup, and design-system rollout.",
     ],
+    metrics: ["Purchase conversion +NDA%", "Checkout starts +NDA%", "Support requests -NDA%"],
     context: [
       "The funnel had grown through multiple releases, so key screens were overloaded with banners, secondary promos, trade-in offers, financing blocks, and state-specific logic. On the product page especially, core decisions such as stock, delivery, credit, and the main CTA had to compete for the same attention area.",
       "This was not a solo redesign. I worked in close collaboration with a lead designer and a cross-functional team of analysts, product managers, and frontend/backend engineers. A large part of the job was reducing ambiguity: mapping dependencies, reviewing scenarios in pair, and turning a messy set of requirements into a cleaner product structure.",
@@ -191,9 +267,6 @@ export const publicCases = {
           "part of the financing information was lost inside a noisy layout",
           "the link between stock, fulfillment method, and the primary action was not obvious enough",
           "the page had to be rebuilt without hurting search visibility or useful SEO content",
-        ],
-        result: [
-          "The rebuilt page became more sequential: users can understand what is available right now, under which conditions they can buy, and how they can receive the product, while the team can support the screen with less custom logic.",
         ],
         list: [
           "audited the current flow and competitor patterns",
@@ -300,6 +373,164 @@ export const publicCases = {
       },
     ],
   },
+  ecommerceProductPage: {
+    slug: "/projects/ecommerce-product-page",
+    title: "Product page",
+    heroImage: ecommerceProductPageCover,
+    moduleCase: true,
+    summary: [
+      "The product page was the first and most crowded step of the funnel. It had to help users understand availability, pick-up or delivery, discounts, financing options, and the next action without friction.",
+    ],
+    metrics: ["Product-page conversion +NDA%", "Time-to-CTA -NDA%"],
+    results: [moduleMetricsPlaceholder],
+    sections: [
+      {
+        title: "Details",
+        problems: [
+          "critical information competed for attention on the first screen",
+          "part of the financing information was lost inside a noisy layout",
+          "the link between stock, fulfillment method, and the primary action was not obvious enough",
+          "the page had to be rebuilt without hurting search visibility or useful SEO content",
+        ],
+        list: [
+          "audited the current flow and competitor patterns",
+          "simplified the first-screen structure and carousel",
+          "merged delivery method and delivery timing into one block",
+          "moved financing and payment conditions into a dedicated zone",
+          "mapped how stock and fulfillment method affect UI states and the main CTA",
+          "checked that the redesign preserved indexation-critical SEO blocks",
+          "reduced visual competition to make the first choice faster",
+        ],
+        media: {
+          kind: "before-after",
+          beforeSrc: productPageBeforeMockup,
+          afterSrc: productPageAfterMockup,
+          beforeLabel: "Before",
+          afterLabel: "After",
+        },
+      },
+    ],
+  },
+  ecommerceCart: {
+    slug: "/projects/ecommerce-cart",
+    title: "Cart",
+    heroImage: ecommerceCartCover,
+    moduleCase: true,
+    summary: [
+      "I rebuilt the cart as a module with direct impact on conversion: fewer secondary distractions, a stronger transition to checkout, and upsell blocks that still felt relevant.",
+    ],
+    metrics: ["Checkout starts +NDA%", "Cart drop-off -NDA%"],
+    results: [
+      "The handoff from cart to checkout became more direct: users moved to checkout faster, and the cart worked better as a decision point rather than a noisy intermediate screen.",
+    ],
+    sections: [
+      {
+        title: "Details",
+        list: [
+          "reviewed competitor patterns and references",
+          "kept the checkout block visible so the main action stayed within reach",
+          "moved away from a table-like layout toward a card structure",
+          "surfaced gifts, discounts, bonuses, and relevant accessories",
+        ],
+        media: "Module: cart",
+      },
+    ],
+  },
+  ecommerceCheckout: {
+    slug: "/projects/ecommerce-checkout",
+    title: "Checkout",
+    heroImage: ecommerceCheckoutCover,
+    moduleCase: true,
+    summary: [
+      "Checkout had to support many dependencies at once: delivery, pick-up, bonuses, promo codes, forms, and special-case scenarios such as trade-in.",
+    ],
+    metrics: ["Next-step transition +NDA%", "Checkout completion +NDA%"],
+    results: [
+      "the next-step transition grew by +NDA%",
+      "the flow became more stable across delivery and pick-up scenarios",
+      "special rules and restrictions stopped breaking the main checkout path",
+    ],
+    sections: [
+      {
+        title: "Details",
+        list: [
+          "designed scenarios where fulfillment method changes availability",
+          "separated copy and states for delivery versus store pick-up",
+          "accounted for trade-in and other special constraints",
+          "refined forms, modal states, and confirmation logic",
+        ],
+        media: "Module: checkout",
+      },
+    ],
+  },
+  ecommerceMyOrders: {
+    slug: "/projects/ecommerce-my-orders",
+    title: "My orders",
+    heroImage: ecommerceOrdersCover,
+    moduleCase: true,
+    summary: [
+      "The order list became an extension of the post-purchase stage and the entry point into order history and statuses.",
+    ],
+    metrics: ["Order-status tickets -NDA%"],
+    results: [moduleMetricsPlaceholder],
+    sections: [
+      {
+        title: "Details",
+        list: [
+          "connected the list screen with the order-details logic",
+          "simplified navigation across statuses and states",
+          "checked how users move between the list and the details page",
+        ],
+        media: "Module: my orders",
+      },
+    ],
+  },
+  ecommerceWarrantyServices: {
+    slug: "/projects/ecommerce-warranty-services",
+    title: "Warranty services",
+    heroImage: ecommerceWarrantyServicesCover,
+    moduleCase: true,
+    summary: [
+      "Warranty services worked as a built-in mini-product inside the store and as a separate upsell layer.",
+    ],
+    metrics: ["Service attach rate +NDA%"],
+    results: [moduleMetricsPlaceholder],
+    sections: [
+      {
+        title: "Details",
+        list: [
+          "rethought the way warranties and plan cards are presented",
+          "designed relevant cross-sells around the service",
+          "simplified the content structure to reduce hardcoded layout logic",
+          "worked through edge cases, including services attached to several identical items",
+        ],
+      },
+    ],
+  },
+  ecommerceOrderDetails: {
+    slug: "/projects/ecommerce-order-details",
+    title: "Order details",
+    heroImage: ecommerceOrderDetailsCover,
+    moduleCase: true,
+    summary: [
+      "The post-purchase stage became the foundation of the project: this is where statuses, promotions, line items, pickup timing, and service dependencies all converged.",
+    ],
+    metrics: ["Post-purchase support -NDA%"],
+    results: [
+      "After rebuilding the post-purchase stage and its connected screens, support requests dropped by -NDA%: users understood order status, contents, and next actions much better without extra help.",
+    ],
+    sections: [
+      {
+        title: "Details",
+        list: [
+          "standardized statuses and their sequence after purchase",
+          "built one coherent post-purchase flow instead of disconnected screens",
+          "accounted for dependencies with microservices, pricing, delivery, and promotions",
+        ],
+        media: "Module: order details",
+      },
+    ],
+  },
   designSystem: {
     slug: "/projects/design-system",
     title: "Design system",
@@ -308,6 +539,7 @@ export const publicCases = {
       "A system layer for Mechta.kz that went beyond a component library and started working as shared product infrastructure for design, analytics, and engineering.",
       "The core shift was moving from isolated screen files to a clearer description of flows, states, dependencies, and reusable patterns.",
     ],
+    metrics: ["Launch cycles -NDA%", "Duplicate screens -NDA%", "Support cost -NDA%"],
     context: [
       "The design system had value as a UI library, but a lot of work still lived in disconnected mockups. As the product grew, that increased duplication, manual updates, and interpretation gaps between design, analytics, and engineering.",
       "My focus was to move the system from a collection of components into a layer that also documented behavior, dependencies, and repeatable product logic.",
@@ -400,6 +632,7 @@ export const publicCases = {
       "An internal service for processing supplier and partner offers: less manual chaos, fewer duplicates, and a clearer review workflow for category managers.",
       "The MVP had to be realistic for engineering and useful from day one, so the work focused on process clarity rather than interface complexity.",
     ],
+    metrics: ["Time to review -NDA%", "Duplicate offers -NDA%", "MVP launch NDA weeks"],
     context: [
       "Incoming offers were handled through a messy stream of manual operations. Duplicates polluted the catalog, decisions were hard to track, and category managers spent too much time just cleaning the flow before they could assess the actual proposal.",
       "The challenge was not to invent a large internal platform from scratch, but to build a compact MVP that reflected the real workflow and gave the team a cleaner staged process.",
@@ -482,6 +715,7 @@ export const publicCases = {
       "An internal portal for employee management, org structure, and document flows with electronic signing through eGov.",
       "The work was driven by deadlines and incomplete input, so a big part of the value was structuring the product before polishing the interface.",
     ],
+    metrics: ["Document processing -NDA%", "Manual steps -NDA%"],
     context: [
       "The project started without a complete technical brief or a stable product structure. Roles, statuses, and process boundaries had to be defined quickly, while the portal itself needed to cover both administrative employee management and document approval/signing.",
       "This made prioritization just as important as interface quality: the team needed a workable modular foundation first, and only then deeper refinement of separate flows.",
@@ -586,6 +820,7 @@ export const publicCases = {
       "A combined case from seven client projects: Orbi, Xola, CheryX, Vault, Freelance Marketplace, AI Workspace, and AI Image Creation.",
       "This period sharpened fast context switching, independent decision-making, and the ability to turn a rough brief into a review-ready product direction.",
     ],
+    metrics: ["89% repeat clients", "27 projects delivered", "3+ years of work"],
     context: [
       "Freelance meant much shorter cycles and much less infrastructure than a large product team. I had to enter new domains quickly, define the product frame, design the interface, and move the work to a state that clients could discuss, approve, and take forward.",
       "The value of this period was not one domain in particular, but the repetition of the same skill across very different products: rapid onboarding, clear structuring, and independent delivery.",
@@ -739,6 +974,7 @@ export const publicCases = {
       "Agency work around client websites, no-code / low-code delivery, and visual support for social channels.",
       "The key value of this experience was launch proximity: work had to move from design into an assembled deliverable quickly.",
     ],
+    metrics: ["Delivery cycle -NDA%", "Client approvals +NDA%"],
     context: [
       "BMC Group was a fast agency environment with short cycles, approvals, and launch pressure. The work was not finished at the mockup stage: pages had to be assembled, adapted to content, and brought to a state that clients could actually publish.",
       "Alongside websites, visual support for social channels had to stay consistent with the site direction and fit the rhythm of regular brand communication.",

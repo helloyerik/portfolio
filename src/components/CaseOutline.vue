@@ -15,9 +15,11 @@ const props = defineProps({
 
 const visible = ref(false);
 const isOpen = ref(false);
+const isClosing = ref(false);
 const outlineRef = ref(null);
 const siteCopy = inject("siteCopy");
 let closeTimeoutId = 0;
+let closeAnimationTimeoutId = 0;
 
 const clearCloseTimeout = () => {
   if (!closeTimeoutId) return;
@@ -25,16 +27,30 @@ const clearCloseTimeout = () => {
   closeTimeoutId = 0;
 };
 
+const clearCloseAnimationTimeout = () => {
+  if (!closeAnimationTimeoutId) return;
+  window.clearTimeout(closeAnimationTimeoutId);
+  closeAnimationTimeoutId = 0;
+};
+
 const openOutline = () => {
   clearCloseTimeout();
+  clearCloseAnimationTimeout();
+  isClosing.value = false;
   if (isOpen.value) return;
   isOpen.value = true;
 };
 
 const closeOutline = () => {
   clearCloseTimeout();
-  if (!isOpen.value) return;
+  if (!isOpen.value && !isClosing.value) return;
   isOpen.value = false;
+  isClosing.value = true;
+  clearCloseAnimationTimeout();
+  closeAnimationTimeoutId = window.setTimeout(() => {
+    isClosing.value = false;
+    closeAnimationTimeoutId = 0;
+  }, 280);
 };
 
 const scheduleClose = () => {
@@ -59,6 +75,7 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   clearCloseTimeout();
+  clearCloseAnimationTimeout();
 });
 </script>
 
@@ -66,7 +83,7 @@ onBeforeUnmount(() => {
   <aside
     ref="outlineRef"
     class="case-outline reveal"
-    :class="{ 'reveal--visible': visible, 'case-outline--open': isOpen }"
+    :class="{ 'reveal--visible': visible, 'case-outline--open': isOpen, 'case-outline--closing': isClosing }"
     :style="{ '--reveal-delay': '12ms' }"
     :aria-label="siteCopy.caseOutlineAriaLabel"
     @mouseenter="openOutline"

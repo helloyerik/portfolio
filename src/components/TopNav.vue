@@ -5,17 +5,6 @@ import NavLink from "./NavLink.vue";
 import RevealBlock from "./RevealBlock.vue";
 import ScrollProgressBar from "./ScrollProgressBar.vue";
 
-const props = defineProps({
-  theme: {
-    type: String,
-    required: true,
-  },
-  palette: {
-    type: String,
-    required: true,
-  },
-});
-
 const siteCopy = inject("siteCopy");
 
 const openExternal = (href) => {

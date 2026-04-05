@@ -8,19 +8,12 @@ import TopNav from "./components/TopNav.vue";
 import WorkflowPage from "./components/WorkflowPage.vue";
 import { getLocalizedCases, getSiteCopy } from "./content";
 import { readRoute } from "./lib/navigation";
-import {
-  PALETTE_STORAGE_KEY,
-  THEME_STORAGE_KEY,
-  readPreferredPalette,
-  readPreferredTheme,
-} from "./lib/theme";
 
-const theme = ref(readPreferredTheme());
-const palette = ref(readPreferredPalette());
 const route = ref(readRoute());
 const locale = computed(() => route.value.locale);
 const siteCopy = computed(() => getSiteCopy(locale.value));
 const localizedCases = computed(() => getLocalizedCases(locale.value));
+const heroSummary = computed(() => localizedCases.value.publicCases?.ecommerce?.summary?.[0] ?? "");
 
 provide("locale", locale);
 provide("siteCopy", siteCopy);
@@ -37,24 +30,6 @@ const workflowCaseMap = computed(() =>
       .filter(([slug]) => slug),
   ),
 );
-
-watch(theme, (value) => {
-  document.documentElement.dataset.theme = value;
-  try {
-    window.localStorage.setItem(THEME_STORAGE_KEY, value);
-  } catch {
-    // Ignore localStorage failures.
-  }
-});
-
-watch(palette, (value) => {
-  document.documentElement.dataset.palette = value;
-  try {
-    window.localStorage.setItem(PALETTE_STORAGE_KEY, value);
-  } catch {
-    // Ignore localStorage failures.
-  }
-});
 
 watch(
   locale,
@@ -98,12 +73,7 @@ const currentWorkflowCase = computed(() => workflowCaseMap.value[route.value.pat
 </script>
 
 <template>
-  <TopNav
-    :theme="theme"
-    :palette="palette"
-    @update:theme="theme = $event"
-    @update:palette="palette = $event"
-  />
+  <TopNav />
 
   <CasePage
     v-if="currentPublicCase"
@@ -118,6 +88,7 @@ const currentWorkflowCase = computed(() => workflowCaseMap.value[route.value.pat
   />
   <HomePage
     v-else
+    :hero-summary="heroSummary"
     :mechta-projects="localizedCases.mechtaProjects"
     :freelance-projects="localizedCases.freelanceProjects"
     :bmc-projects="localizedCases.bmcProjects"
