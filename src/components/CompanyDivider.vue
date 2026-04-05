@@ -35,15 +35,17 @@ const props = defineProps({
 
 <template>
   <div :id="id" class="company-divider">
-    <ListItem
-      :title="name"
-      :subtitle="`${period} · ${role}`"
-      size="M"
-      variant="plain"
-      :interactive="false"
-      :chevron="false"
-      class="company-divider__item"
-    />
+    <div class="company-component">
+      <ListItem
+        :title="name"
+        :subtitle="`${period} · ${role}`"
+        size="XL"
+        variant="plain"
+        :interactive="false"
+        :chevron="false"
+        class="company-divider__item"
+      />
+    </div>
     <p v-if="blurb" class="company-divider__blurb">{{ blurb }}</p>
   </div>
 </template>

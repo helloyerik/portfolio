@@ -30,6 +30,7 @@ const hasStructuredOverview = computed(
 const contextItems = computed(() => props.caseData.context ?? props.caseData.summary ?? []);
 const goalsItems = computed(() => props.caseData.goals ?? []);
 const actionsItems = computed(() => props.caseData.actions ?? props.caseData.tasks ?? []);
+const metricsItems = computed(() => props.caseData.metrics ?? []);
 const currentIndex = computed(() => props.caseOrder.findIndex((item) => item.slug === props.caseData.slug));
 const prevCase = computed(() =>
   currentIndex.value >= 0
@@ -40,7 +41,23 @@ const nextCase = computed(() =>
   currentIndex.value >= 0 ? props.caseOrder[(currentIndex.value + 1) % props.caseOrder.length] : null,
 );
 const siteCopy = inject("siteCopy");
-const sectionOrderOffset = computed(() => (hasStructuredOverview.value ? 8 : 7));
+const isModuleCase = computed(() => Boolean(props.caseData.moduleCase));
+const sectionOrderOffset = computed(() => {
+  let order = 4;
+  if (hasStructuredOverview.value) {
+    if (contextItems.value.length) order += 1;
+    if (goalsItems.value.length) order += 1;
+    if (actionsItems.value.length) order += 1;
+    if (metricsItems.value.length) order += 1;
+    if (props.caseData.results?.length) order += 1;
+  } else {
+    if (props.caseData.myRole?.length) order += 1;
+    if (metricsItems.value.length) order += 1;
+    if (props.caseData.results?.length) order += 1;
+    if (props.caseData.tasks?.length) order += 1;
+  }
+  return order;
+});
 const heroImageOpen = ref(false);
 
 const sectionItems = computed(() => {
@@ -49,6 +66,7 @@ const sectionItems = computed(() => {
       ...(contextItems.value.length ? [{ id: "context", label: siteCopy.value.contextLabel }] : []),
       ...(goalsItems.value.length ? [{ id: "goals", label: siteCopy.value.goalsLabel }] : []),
       ...(actionsItems.value.length ? [{ id: "actions", label: siteCopy.value.actionsLabel }] : []),
+      ...(metricsItems.value.length ? [{ id: "metrics", label: siteCopy.value.metricsLabel }] : []),
       ...(props.caseData.results?.length ? [{ id: "results", label: siteCopy.value.resultsLabel }] : []),
       ...mergedSections.value.map((section, index) => ({
         id: toSectionId(section.title, index),
@@ -58,9 +76,10 @@ const sectionItems = computed(() => {
   }
 
   return [
-    ...(props.caseData.myRole ? [{ id: "my-role", label: siteCopy.value.myRoleLabel }] : []),
-    { id: "results", label: siteCopy.value.resultsLabel },
-    { id: "tasks", label: siteCopy.value.tasksLabel },
+    ...(props.caseData.myRole?.length ? [{ id: "my-role", label: siteCopy.value.myRoleLabel }] : []),
+    ...(metricsItems.value.length ? [{ id: "metrics", label: siteCopy.value.metricsLabel }] : []),
+    ...(props.caseData.results?.length ? [{ id: "results", label: siteCopy.value.resultsLabel }] : []),
+    ...(props.caseData.tasks?.length ? [{ id: "tasks", label: siteCopy.value.tasksLabel }] : []),
     ...mergedSections.value.map((section, index) => ({
       id: toSectionId(section.title, index),
       label: section.title,
@@ -112,23 +131,23 @@ watch(sectionItems, () => {
   <main class="page case-page shell">
     <CaseOutline :items="sectionItems" :active-id="activeSectionId" />
 
-    <RevealBlock v-if="caseData.heroImage" class="case-hero" :order="1">
-      <button type="button" class="gallery__zoom-trigger case-hero__trigger" @click="heroImageOpen = true">
-        <img class="case-hero__image" :src="caseData.heroImage" alt="" />
-      </button>
-    </RevealBlock>
-    <RevealBlock v-else class="image-placeholder" :order="1">{{ siteCopy.caseCoverPlaceholder }}</RevealBlock>
-
-    <RevealBlock v-if="caseData.highlights?.length" class="fact-row" :order="2">
+    <RevealBlock v-if="caseData.highlights?.length" class="fact-row" :order="1">
       <span v-for="(item, index) in caseData.highlights" :key="`${item}-${index}`">{{ item }}</span>
     </RevealBlock>
 
-    <RevealBlock class="content-block" :order="3">
+    <RevealBlock class="content-block" :order="2">
       <h1 class="display-title">{{ caseData.title }}</h1>
       <div class="prose">
         <p v-for="(paragraph, index) in caseData.summary" :key="`${paragraph}-${index}`">{{ paragraph }}</p>
       </div>
     </RevealBlock>
+
+    <RevealBlock v-if="caseData.heroImage" class="case-hero" :order="3">
+      <button type="button" class="gallery__zoom-trigger case-hero__trigger" @click="heroImageOpen = true">
+        <img class="case-hero__image" :src="caseData.heroImage" alt="" />
+      </button>
+    </RevealBlock>
+    <RevealBlock v-else class="image-placeholder" :order="3">{{ siteCopy.caseCoverPlaceholder }}</RevealBlock>
 
     <RevealBlock v-if="hasStructuredOverview && contextItems.length" as="article" class="content-block" id="context" :order="4">
       <h2 class="section-title">{{ siteCopy.contextLabel }}</h2>
@@ -151,28 +170,78 @@ watch(sectionItems, () => {
       </div>
     </RevealBlock>
 
-    <RevealBlock v-if="hasStructuredOverview" as="article" class="content-block" id="results" :order="7">
-      <h2 class="section-title">{{ siteCopy.resultsLabel }}</h2>
+    <RevealBlock
+      v-if="hasStructuredOverview && metricsItems.length"
+      as="article"
+      class="content-block"
+      id="metrics"
+      :order="7"
+    >
+      <h2 class="section-title">{{ siteCopy.metricsLabel }}</h2>
       <div class="prose">
-        <RichList :items="caseData.results" :force-markers="true" />
+        <RichList :items="metricsItems" :force-markers="true" />
       </div>
     </RevealBlock>
 
-    <RevealBlock v-if="!hasStructuredOverview && caseData.myRole" as="article" class="content-block" id="my-role" :order="4">
+    <RevealBlock
+      v-if="hasStructuredOverview && caseData.results?.length"
+      as="article"
+      class="content-block"
+      id="results"
+      :order="8"
+    >
+      <h2 class="section-title">{{ siteCopy.resultsLabel }}</h2>
+      <div class="prose">
+        <RichList :items="caseData.results" />
+      </div>
+    </RevealBlock>
+
+    <RevealBlock
+      v-if="!hasStructuredOverview && caseData.myRole?.length"
+      as="article"
+      class="content-block"
+      id="my-role"
+      :order="4"
+    >
       <h2 class="section-title">{{ siteCopy.myRoleLabel }}</h2>
       <div class="prose">
         <p v-for="(paragraph, index) in caseData.myRole" :key="`${paragraph}-${index}`">{{ paragraph }}</p>
       </div>
     </RevealBlock>
 
-    <RevealBlock v-if="!hasStructuredOverview" as="article" class="content-block" id="results" :order="5">
-      <h2 class="section-title">{{ siteCopy.resultsLabel }}</h2>
+    <RevealBlock
+      v-if="!hasStructuredOverview && metricsItems.length"
+      as="article"
+      class="content-block"
+      id="metrics"
+      :order="5"
+    >
+      <h2 class="section-title">{{ siteCopy.metricsLabel }}</h2>
       <div class="prose">
-        <RichList :items="caseData.results" :force-markers="true" />
+        <RichList :items="metricsItems" :force-markers="true" />
       </div>
     </RevealBlock>
 
-    <RevealBlock v-if="!hasStructuredOverview" as="article" class="content-block" id="tasks" :order="6">
+    <RevealBlock
+      v-if="!hasStructuredOverview && caseData.results?.length"
+      as="article"
+      class="content-block"
+      id="results"
+      :order="6"
+    >
+      <h2 class="section-title">{{ siteCopy.resultsLabel }}</h2>
+      <div class="prose">
+        <RichList :items="caseData.results" />
+      </div>
+    </RevealBlock>
+
+    <RevealBlock
+      v-if="!hasStructuredOverview && caseData.tasks?.length"
+      as="article"
+      class="content-block"
+      id="tasks"
+      :order="7"
+    >
       <h2 class="section-title">{{ siteCopy.tasksLabel }}</h2>
       <div class="prose">
         <RichList :items="caseData.tasks" />
@@ -183,13 +252,19 @@ watch(sectionItems, () => {
       v-for="(section, index) in mergedSections"
       :id="toSectionId(section.title, index)"
       :key="section.title"
-      as="article"
-      class="content-block"
+      as="section"
+      class="content-block case-section"
       :order="index + sectionOrderOffset"
     >
-      <h2 class="section-title">{{ section.title }}</h2>
-      <SectionBody :section="section" />
-      <InlineMedia v-if="section.media && section.mediaPlacement !== 'after-problems'" :media="section.media" />
+      <div class="case-section__header">
+        <component :is="isModuleCase ? 'h2' : 'h1'" class="section-title">
+          {{ section.title }}
+        </component>
+      </div>
+      <div class="case-section__body">
+        <SectionBody :section="section" />
+        <InlineMedia v-if="section.media && section.mediaPlacement !== 'after-problems'" :media="section.media" />
+      </div>
     </RevealBlock>
 
     <RevealBlock as="nav" class="project-nav" :order="mergedSections.length + sectionOrderOffset">

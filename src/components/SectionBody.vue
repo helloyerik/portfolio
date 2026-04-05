@@ -15,13 +15,13 @@ const siteCopy = inject("siteCopy");
 </script>
 
 <template>
-  <div class="prose">
+  <div class="case-section__content">
     <p v-for="(paragraph, index) in section.paragraphs ?? []" :key="`${paragraph}-${index}`">
       {{ paragraph }}
     </p>
 
     <template v-if="section.problems?.length">
-      <p class="section-inline-title">{{ siteCopy.problemsLabel }}</p>
+      <h3 class="section-inline-title">{{ siteCopy.problemsLabel }}</h3>
       <RichList :items="section.problems" />
     </template>
 
@@ -31,9 +31,12 @@ const siteCopy = inject("siteCopy");
     />
 
     <template v-if="section.result?.length || section.resultList?.length">
-      <p :class="section.resultTitleStyle === 'body' ? 'section-inline-label' : 'section-inline-title'">
+      <p v-if="section.resultTitleStyle === 'body'" class="section-inline-label">
         {{ section.resultTitle ?? siteCopy.resultLabel }}
       </p>
+      <h3 v-else class="section-inline-title">
+        {{ section.resultTitle ?? siteCopy.resultLabel }}
+      </h3>
       <p v-for="(paragraph, index) in section.result ?? []" :key="`${paragraph}-${index}`">
         {{ paragraph }}
       </p>
@@ -43,12 +46,12 @@ const siteCopy = inject("siteCopy");
     <RichList v-if="section.list?.length" :items="section.list" :ordered="Boolean(section.ordered)" />
 
     <div v-for="(subsection, index) in section.subsections ?? []" :key="`${subsection.title}-${index}`" class="case-subsection">
-      <p class="case-subsection__title">{{ subsection.title }}:</p>
+      <h3 class="case-subsection__title">{{ subsection.title }}:</h3>
       <p v-for="(paragraph, innerIndex) in subsection.paragraphs ?? []" :key="`${paragraph}-${innerIndex}`">
         {{ paragraph }}
       </p>
       <template v-if="subsection.problems?.length">
-        <p class="section-inline-title">{{ siteCopy.problemsLabel }}</p>
+        <h3 class="section-inline-title">{{ siteCopy.problemsLabel }}</h3>
         <RichList :items="subsection.problems" />
       </template>
       <RichList
@@ -60,7 +63,7 @@ const siteCopy = inject("siteCopy");
     </div>
 
     <template v-if="section.learningList?.length">
-      <p class="section-inline-title">{{ siteCopy.personalTakeawaysLabel }}</p>
+      <h3 class="section-inline-title">{{ siteCopy.personalTakeawaysLabel }}</h3>
       <LineList :items="section.learningList" />
     </template>
   </div>

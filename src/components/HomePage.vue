@@ -9,6 +9,10 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
+  heroSummary: {
+    type: String,
+    default: "",
+  },
   freelanceProjects: {
     type: Array,
     default: () => [],
@@ -23,6 +27,12 @@ const siteCopy = inject("siteCopy");
 const visibleMechtaProjects = computed(() =>
   props.mechtaProjects.filter((project) => !project.hiddenOnHome),
 );
+const ecommerceModules = computed(() =>
+  visibleMechtaProjects.value.filter((project) => project.moduleCase),
+);
+const otherMechtaProjects = computed(() =>
+  visibleMechtaProjects.value.filter((project) => !project.moduleCase),
+);
 </script>
 
 <template>
@@ -31,6 +41,7 @@ const visibleMechtaProjects = computed(() =>
       <h1 class="display-title" id="about">
         {{ siteCopy.heroTitle }}
       </h1>
+      <p v-if="heroSummary" class="hero-summary">{{ heroSummary }}</p>
     </RevealBlock>
 
     <RevealBlock :order="3">
@@ -42,7 +53,12 @@ const visibleMechtaProjects = computed(() =>
         :role="siteCopy.productDesignerRole"
       />
     </RevealBlock>
-    <RevealBlock v-for="project in visibleMechtaProjects" :key="project.title" :order="4">
+    <div v-if="ecommerceModules.length" class="project-grid project-grid--ecommerce">
+      <RevealBlock v-for="project in ecommerceModules" :key="project.title" :order="4">
+        <ProjectCard :project="project" />
+      </RevealBlock>
+    </div>
+    <RevealBlock v-for="project in otherMechtaProjects" :key="project.title" :order="4">
       <ProjectCard :project="project" />
     </RevealBlock>
 
