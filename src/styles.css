@@ -168,21 +168,21 @@ body {
 
 
 
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  a,
-  button,
-  input,
-  textarea,
-  select,
-  label,
-  li,
-  span,
-  div) {
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+button,
+input,
+textarea,
+select,
+label,
+li,
+span,
+div) {
   font-family: var(--font-family-mono) !important;
   font-weight: 400 !important;
   font-size: var(--mi-font-size-code-body) !important;
@@ -190,21 +190,21 @@ body {
   letter-spacing: var(--font-letter-spacing-mono) !important;
 }
 
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  a,
-  button,
-  input,
-  textarea,
-  select,
-  label,
-  li,
-  span,
-  div) {
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+button,
+input,
+textarea,
+select,
+label,
+li,
+span,
+div) {
   font-family: "Inter", sans-serif !important;
 }
 
@@ -222,46 +222,46 @@ body {
 
 
 
-  .home-page .company-divider,
-  .home-page .project-card,
-  .home-page .about-block .section-title,
-  .home-page .about-block .prose > p,
-  .home-page .special-projects,
-  .page .display-title,
-  .page .cv-subtitle,
-  .page .section-title,
-  .page .fact-row,
-  .page .prose > p,
-  .page .prose > ul,
-  .page .prose > ol,
-  .page .section-inline-title,
-  .page .section-inline-label,
-  .page .case-subsection__title,
-  .page .line-list > li,
-  .page .project-nav,
-  .page .cv-entry__meta) {
+.home-page .company-divider,
+.home-page .project-card,
+.home-page .about-block .section-title,
+.home-page .about-block .prose>p,
+.home-page .special-projects,
+.page .display-title,
+.page .cv-subtitle,
+.page .section-title,
+.page .fact-row,
+.page .prose>p,
+.page .prose>ul,
+.page .prose>ol,
+.page .section-inline-title,
+.page .section-inline-label,
+.page .case-subsection__title,
+.page .line-list>li,
+.page .project-nav,
+.page .cv-entry__meta) {
   position: relative;
   counter-increment: ide-line;
 }
 
-  .home-page .company-divider,
-  .home-page .project-card,
-  .home-page .about-block .section-title,
-  .home-page .about-block .prose > p,
-  .home-page .special-projects,
-  .page .display-title,
-  .page .cv-subtitle,
-  .page .section-title,
-  .page .fact-row,
-  .page .prose > p,
-  .page .prose > ul,
-  .page .prose > ol,
-  .page .section-inline-title,
-  .page .section-inline-label,
-  .page .case-subsection__title,
-  .page .line-list > li,
-  .page .project-nav,
-  .page .cv-entry__meta)::after {
+.home-page .company-divider,
+.home-page .project-card,
+.home-page .about-block .section-title,
+.home-page .about-block .prose>p,
+.home-page .special-projects,
+.page .display-title,
+.page .cv-subtitle,
+.page .section-title,
+.page .fact-row,
+.page .prose>p,
+.page .prose>ul,
+.page .prose>ol,
+.page .section-inline-title,
+.page .section-inline-label,
+.page .case-subsection__title,
+.page .line-list>li,
+.page .project-nav,
+.page .cv-entry__meta)::after {
   content: counter(ide-line);
   position: absolute;
   top: 0;

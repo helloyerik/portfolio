@@ -4,7 +4,6 @@ import ecommerceCartCover from "../assets/projects/ecommerce-cart-cover.png";
 import ecommerceProductPageCover from "../assets/projects/ecommerce-product-page-cover.png";
 import ecommerceOrdersCover from "../assets/projects/ecommerce-orders-cover.png";
 import ecommerceOrderDetailsCover from "../assets/projects/ecommerce-order-details-cover.png";
-import ecommerceWarrantyServicesCover from "../assets/projects/ecommerce-warranty-services-cover.png";
 import partnersCover from "../assets/projects/partners-cover.png";
 import partnersDrawer from "../assets/projects/partners-drawer.png";
 import productPageBeforeMockup from "../assets/Страница товара до мокап.png";
@@ -21,7 +20,6 @@ export const caseOrder = [
   { slug: "/projects/ecommerce-cart", label: "Корзина" },
   { slug: "/projects/ecommerce-checkout", label: "Оформление заказа" },
   { slug: "/projects/ecommerce-my-orders", label: "Мои заказы" },
-  { slug: "/projects/ecommerce-warranty-services", label: "Гарантийные услуги" },
   { slug: "/projects/ecommerce-order-details", label: "Детали заказа" },
   { slug: "/projects/partners", label: "Mechta Partners" },
   { slug: "/projects/corporate-portal", label: "Корпоративный портал" },
@@ -37,7 +35,7 @@ export const workflowCases = {
         title: "Что это за слой",
         paragraphs: [
           "Это внутренний слой кейса, где я фиксирую не только итоговые экраны, но и саму логику работы: как собирались модули воронки, как мы договаривались с командами и почему часть решений менялась по ходу проекта.",
-          "Здесь важен не один экран, а связанный цикл работы вокруг страницы товара, корзины, оформления заказа, этапа после покупки, отслеживания заказа и гарантийных услуг.",
+          "Здесь важен не один экран, а связанный цикл работы вокруг страницы товара, корзины, оформления заказа, этапа после покупки и отслеживания заказа.",
         ],
       },
       {
@@ -116,18 +114,6 @@ export const workflowCases = {
           "собирал единый поток после покупки, а не набор разрозненных экранов",
           "искал конфликты между сценариями, статусами и данными разных команд",
           "закладывал фундамент для будущих изменений воронки через этап после покупки",
-        ],
-      },
-      {
-        title: "Гарантийные услуги",
-        paragraphs: [
-          "Гарантийные услуги были встроенным мини-продуктом внутри интернет-магазина. Здесь нужно было не просто показать тарифы, а связать их с товарами, сопутствующими сценариями и логикой апселла.",
-        ],
-        list: [
-          "пересобрал формат показа гарантий и карточек тарифов",
-          "продумал сопутствующие товары для услуг",
-          "упростил структуру описания, чтобы снизить хардкод",
-          "разобрал кейсы с несколькими одинаковыми товарами и пакетным добавлением",
         ],
       },
       {
@@ -288,28 +274,6 @@ export const workflowCases = {
           "проверял, как пользователь двигается между списком и деталями",
         ],
         media: "Модуль: мои заказы",
-      },
-    ],
-  },
-  ecommerceWarrantyServices: {
-    slug: "/projects/ecommerce-warranty-services",
-    title: "Гарантийные услуги",
-    heroImage: ecommerceWarrantyServicesCover,
-    moduleCase: true,
-    summary: [
-      "Гарантийные услуги были встроенным мини-проектом внутри интернет-магазина и отдельным слоем апселла.",
-    ],
-    metrics: ["Апселл услуг +NDA%"],
-    results: [moduleMetricsPlaceholder],
-    sections: [
-      {
-        title: "Детали",
-        list: [
-          "переосмыслил формат показа гарантий и карточек тарифов",
-          "проработал сопутствующие товары для услуг",
-          "упростил структуру описания, чтобы уменьшить хардкод",
-          "разобрал нестандартные сценарии, включая услуги на несколько одинаковых товаров",
-        ],
       },
     ],
   },
@@ -733,21 +697,6 @@ export const mechtaProjects = [
     preview: false,
   },
   {
-    slug: "/projects/ecommerce-warranty-services",
-    title: "Гарантийные услуги",
-    kind: "E-commerce модуль",
-    period: "2025 — X",
-    summary: [
-      "Гарантийные услуги были встроенным мини-проектом внутри интернет-магазина и отдельным слоем апселла.",
-    ],
-    highlights: [moduleMetricsPlaceholder],
-    metrics: ["Апселл услуг +NDA%"],
-    cover: ecommerceWarrantyServicesCover,
-    moduleCase: true,
-    showSummary: true,
-    preview: false,
-  },
-  {
     slug: "/projects/ecommerce-order-details",
     title: "Детали заказа",
     kind: "E-commerce модуль",
@@ -878,7 +827,6 @@ export const backlogSections = [
       "оформление заказа",
       "этап после покупки",
       "мои заказы",
-      "гарантийные услуги как встроенный мини-проект",
       "скриншоты и дополнительные материалы будут добавлены позже",
     ],
   },
@@ -998,16 +946,6 @@ export const publicCases = {
           "проверял, как пользователь двигается между списком и деталями",
         ],
         media: "Модуль: мои заказы",
-      },
-      {
-        title: "Гарантийные услуги",
-        paragraphs: ["Гарантийные услуги были встроенным мини-проектом внутри интернет-магазина и отдельным слоем апселла."],
-        list: [
-          "переосмыслил формат показа гарантий и карточек тарифов",
-          "проработал сопутствующие товары для услуг",
-          "упростил структуру описания, чтобы уменьшить хардкод",
-          "разобрал нестандартные сценарии, включая услуги на несколько одинаковых товаров",
-        ],
       },
       {
         title: "Итог",

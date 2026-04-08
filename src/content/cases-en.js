@@ -4,7 +4,6 @@ import ecommerceCartCover from "../assets/projects/ecommerce-cart-cover.png";
 import ecommerceProductPageCover from "../assets/projects/ecommerce-product-page-cover.png";
 import ecommerceOrdersCover from "../assets/projects/ecommerce-orders-cover.png";
 import ecommerceOrderDetailsCover from "../assets/projects/ecommerce-order-details-cover.png";
-import ecommerceWarrantyServicesCover from "../assets/projects/ecommerce-warranty-services-cover.png";
 import partnersCover from "../assets/projects/partners-cover.png";
 import partnersDrawer from "../assets/projects/partners-drawer.png";
 import productPageBeforeMockup from "../assets/Страница товара до мокап.png";
@@ -22,7 +21,6 @@ export const caseOrder = [
   { slug: "/projects/ecommerce-cart", label: "Cart" },
   { slug: "/projects/ecommerce-checkout", label: "Checkout" },
   { slug: "/projects/ecommerce-my-orders", label: "My orders" },
-  { slug: "/projects/ecommerce-warranty-services", label: "Warranty services" },
   { slug: "/projects/ecommerce-order-details", label: "Order details" },
   { slug: "/projects/partners", label: "Mechta Partners" },
   { slug: "/projects/corporate-portal", label: "Corporate portal" },
@@ -94,21 +92,6 @@ export const mechtaProjects = [
     highlights: [moduleMetricsPlaceholder],
     metrics: ["Order-status tickets -NDA%"],
     cover: ecommerceOrdersCover,
-    moduleCase: true,
-    showSummary: true,
-    preview: false,
-  },
-  {
-    slug: "/projects/ecommerce-warranty-services",
-    title: "Warranty services",
-    kind: "E-commerce module",
-    period: "2025 — X",
-    summary: [
-      "Packaged warranty services as a clear upsell mini-product inside the store.",
-    ],
-    highlights: [moduleMetricsPlaceholder],
-    metrics: ["Service attach rate +NDA%"],
-    cover: ecommerceWarrantyServicesCover,
     moduleCase: true,
     showSummary: true,
     preview: false,
@@ -348,16 +331,6 @@ export const publicCases = {
         media: "Module: my orders",
       },
       {
-        title: "Warranty services",
-        paragraphs: ["Warranty services worked as a built-in mini-product inside the store and as a separate upsell layer."],
-        list: [
-          "rethought the way warranties and plan cards are presented",
-          "designed relevant cross-sells around the service",
-          "simplified the content structure to reduce hardcoded layout logic",
-          "worked through edge cases, including services attached to several identical items",
-        ],
-      },
-      {
         title: "Summary",
         paragraphs: [
           "For me this was not a one-off redesign but a long-term improvement of a product flow. The outcome was not only better-looking screens, but a more connected funnel with clearer behavior and better scalability.",
@@ -482,28 +455,6 @@ export const publicCases = {
           "checked how users move between the list and the details page",
         ],
         media: "Module: my orders",
-      },
-    ],
-  },
-  ecommerceWarrantyServices: {
-    slug: "/projects/ecommerce-warranty-services",
-    title: "Warranty services",
-    heroImage: ecommerceWarrantyServicesCover,
-    moduleCase: true,
-    summary: [
-      "Warranty services worked as a built-in mini-product inside the store and as a separate upsell layer.",
-    ],
-    metrics: ["Service attach rate +NDA%"],
-    results: [moduleMetricsPlaceholder],
-    sections: [
-      {
-        title: "Details",
-        list: [
-          "rethought the way warranties and plan cards are presented",
-          "designed relevant cross-sells around the service",
-          "simplified the content structure to reduce hardcoded layout logic",
-          "worked through edge cases, including services attached to several identical items",
-        ],
       },
     ],
   },
