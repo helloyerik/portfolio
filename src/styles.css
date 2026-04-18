@@ -401,6 +401,7 @@ a {
 .home-page {
   padding-top: 0;
   padding-bottom: var(--space-2xl);
+  padding-inline: 20px;
 }
 
 .home-page>.reveal+.reveal {
@@ -409,7 +410,7 @@ a {
 
 .project-grid {
   display: grid;
-  gap: var(--space-l);
+  gap: calc(var(--space-l) - 20px);
   margin-top: var(--space-l);
   margin-bottom: var(--space-l);
 }
