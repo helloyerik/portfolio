@@ -17,11 +17,7 @@ import { freelanceMedia } from "./freelance-media";
 const moduleMetricsPlaceholder = "Metrics will be added later.";
 
 export const caseOrder = [
-  { slug: "/projects/ecommerce-product-page", label: "Product page" },
-  { slug: "/projects/ecommerce-cart", label: "Cart" },
-  { slug: "/projects/ecommerce-checkout", label: "Checkout" },
-  { slug: "/projects/ecommerce-my-orders", label: "My orders" },
-  { slug: "/projects/ecommerce-order-details", label: "Order details" },
+  { slug: "/projects/ecommerce", label: "E-commerce" },
   { slug: "/projects/partners", label: "Mechta Partners" },
   { slug: "/projects/corporate-portal", label: "Corporate portal" },
   { slug: "/projects/freelance", label: "Freelance" },
@@ -31,85 +27,15 @@ export const workflowCases = {};
 
 export const mechtaProjects = [
   {
-    slug: "/projects/ecommerce-product-page",
-    title: "Product page",
-    kind: "E-commerce module",
-    period: "2025 — X",
+    slug: "/projects/ecommerce",
+    title: "E-commerce",
+    kind: "Mechta.kz · Redesign",
+    period: "2025",
     summary: [
-      "Rebuilt the product page so availability, delivery, credit, and the main CTA read as one quick decision.",
+      "A core redesign of the Mechta.kz shopping funnel for a 500k MAU retail product: product page, cart, checkout, order details, and order history.",
     ],
-    highlights: [moduleMetricsPlaceholder],
-    metrics: ["Product-page conversion +NDA%", "Time-to-CTA -NDA%"],
-    cover: ecommerceProductPageCover,
-    moduleCase: true,
-    showSummary: true,
-    preview: false,
-  },
-  {
-    slug: "/projects/ecommerce-cart",
-    title: "Cart",
-    kind: "E-commerce module",
-    period: "2025 — X",
-    summary: [
-      "Turned the cart into a clean decision hub with a fast handoff to checkout and relevant upsells.",
-    ],
-    highlights: [
-      "The handoff from cart to checkout became more direct: users moved to checkout faster, and the cart worked better as a decision point rather than a noisy intermediate screen.",
-    ],
-    metrics: ["Checkout starts +NDA%", "Cart drop-off -NDA%"],
-    cover: ecommerceCartCover,
-    moduleCase: true,
-    showSummary: true,
-    preview: false,
-  },
-  {
-    slug: "/projects/ecommerce-checkout",
-    title: "Checkout",
-    kind: "E-commerce module",
-    period: "2025 — X",
-    summary: [
-      "Shaped checkout to handle delivery vs pickup, promos, forms, and trade-in without breaking the flow.",
-    ],
-    highlights: [
-      "the next-step transition grew by +NDA%",
-      "the flow became more stable across delivery and pick-up scenarios",
-      "special rules and restrictions stopped breaking the main checkout path",
-    ],
-    metrics: ["Next-step transition +NDA%", "Checkout completion +NDA%"],
-    cover: ecommerceCheckoutCover,
-    moduleCase: true,
-    showSummary: true,
-    preview: false,
-  },
-  {
-    slug: "/projects/ecommerce-my-orders",
-    title: "My orders",
-    kind: "E-commerce module",
-    period: "2025 — X",
-    summary: [
-      "Made order history the entry point to statuses and next steps, not just a list.",
-    ],
-    highlights: [moduleMetricsPlaceholder],
-    metrics: ["Order-status tickets -NDA%"],
-    cover: ecommerceOrdersCover,
-    moduleCase: true,
-    showSummary: true,
-    preview: false,
-  },
-  {
-    slug: "/projects/ecommerce-order-details",
-    title: "Order details",
-    kind: "E-commerce module",
-    period: "2025 — X",
-    summary: [
-      "Unified post-purchase status, promotions, and pickup timing into one clear stage.",
-    ],
-    highlights: [
-      "After rebuilding the post-purchase stage and its connected screens, support requests dropped by -NDA%: users understood order status, contents, and next actions much better without extra help.",
-    ],
-    metrics: ["Post-purchase support -NDA%"],
-    cover: ecommerceOrderDetailsCover,
-    moduleCase: true,
+    metrics: ["Purchase conversion +NDA%", "Checkout starts +NDA%", "Support requests -NDA%"],
+    cover: ecommerceCover,
     showSummary: true,
     preview: false,
   },
@@ -201,7 +127,7 @@ export const backlogSections = [];
 
 export const publicCases = {
   ecommerce: {
-    slug: "/projects/ecommerce-redesign",
+    slug: "/projects/ecommerce",
     title: "E-commerce",
     heroImage: ecommerceCover,
     summary: [
@@ -343,142 +269,6 @@ export const publicCases = {
           "treating product work as a system of dependencies rather than a set of isolated screens",
           "spotting earlier how a UX decision affects engineering, support, and adjacent services",
         ],
-      },
-    ],
-  },
-  ecommerceProductPage: {
-    slug: "/projects/ecommerce-product-page",
-    title: "Product page",
-    heroImage: ecommerceProductPageCover,
-    moduleCase: true,
-    summary: [
-      "The product page was the first and most crowded step of the funnel. It had to help users understand availability, pick-up or delivery, discounts, financing options, and the next action without friction.",
-    ],
-    metrics: ["Product-page conversion +NDA%", "Time-to-CTA -NDA%"],
-    results: [moduleMetricsPlaceholder],
-    sections: [
-      {
-        title: "Details",
-        problems: [
-          "critical information competed for attention on the first screen",
-          "part of the financing information was lost inside a noisy layout",
-          "the link between stock, fulfillment method, and the primary action was not obvious enough",
-          "the page had to be rebuilt without hurting search visibility or useful SEO content",
-        ],
-        list: [
-          "audited the current flow and competitor patterns",
-          "simplified the first-screen structure and carousel",
-          "merged delivery method and delivery timing into one block",
-          "moved financing and payment conditions into a dedicated zone",
-          "mapped how stock and fulfillment method affect UI states and the main CTA",
-          "checked that the redesign preserved indexation-critical SEO blocks",
-          "reduced visual competition to make the first choice faster",
-        ],
-        media: {
-          kind: "before-after",
-          beforeSrc: productPageBeforeMockup,
-          afterSrc: productPageAfterMockup,
-          beforeLabel: "Before",
-          afterLabel: "After",
-        },
-      },
-    ],
-  },
-  ecommerceCart: {
-    slug: "/projects/ecommerce-cart",
-    title: "Cart",
-    heroImage: ecommerceCartCover,
-    moduleCase: true,
-    summary: [
-      "I rebuilt the cart as a module with direct impact on conversion: fewer secondary distractions, a stronger transition to checkout, and upsell blocks that still felt relevant.",
-    ],
-    metrics: ["Checkout starts +NDA%", "Cart drop-off -NDA%"],
-    results: [
-      "The handoff from cart to checkout became more direct: users moved to checkout faster, and the cart worked better as a decision point rather than a noisy intermediate screen.",
-    ],
-    sections: [
-      {
-        title: "Details",
-        list: [
-          "reviewed competitor patterns and references",
-          "kept the checkout block visible so the main action stayed within reach",
-          "moved away from a table-like layout toward a card structure",
-          "surfaced gifts, discounts, bonuses, and relevant accessories",
-        ],
-        media: "Module: cart",
-      },
-    ],
-  },
-  ecommerceCheckout: {
-    slug: "/projects/ecommerce-checkout",
-    title: "Checkout",
-    heroImage: ecommerceCheckoutCover,
-    moduleCase: true,
-    summary: [
-      "Checkout had to support many dependencies at once: delivery, pick-up, bonuses, promo codes, forms, and special-case scenarios such as trade-in.",
-    ],
-    metrics: ["Next-step transition +NDA%", "Checkout completion +NDA%"],
-    results: [
-      "the next-step transition grew by +NDA%",
-      "the flow became more stable across delivery and pick-up scenarios",
-      "special rules and restrictions stopped breaking the main checkout path",
-    ],
-    sections: [
-      {
-        title: "Details",
-        list: [
-          "designed scenarios where fulfillment method changes availability",
-          "separated copy and states for delivery versus store pick-up",
-          "accounted for trade-in and other special constraints",
-          "refined forms, modal states, and confirmation logic",
-        ],
-        media: "Module: checkout",
-      },
-    ],
-  },
-  ecommerceMyOrders: {
-    slug: "/projects/ecommerce-my-orders",
-    title: "My orders",
-    heroImage: ecommerceOrdersCover,
-    moduleCase: true,
-    summary: [
-      "The order list became an extension of the post-purchase stage and the entry point into order history and statuses.",
-    ],
-    metrics: ["Order-status tickets -NDA%"],
-    results: [moduleMetricsPlaceholder],
-    sections: [
-      {
-        title: "Details",
-        list: [
-          "connected the list screen with the order-details logic",
-          "simplified navigation across statuses and states",
-          "checked how users move between the list and the details page",
-        ],
-        media: "Module: my orders",
-      },
-    ],
-  },
-  ecommerceOrderDetails: {
-    slug: "/projects/ecommerce-order-details",
-    title: "Order details",
-    heroImage: ecommerceOrderDetailsCover,
-    moduleCase: true,
-    summary: [
-      "The post-purchase stage became the foundation of the project: this is where statuses, promotions, line items, pickup timing, and service dependencies all converged.",
-    ],
-    metrics: ["Post-purchase support -NDA%"],
-    results: [
-      "After rebuilding the post-purchase stage and its connected screens, support requests dropped by -NDA%: users understood order status, contents, and next actions much better without extra help.",
-    ],
-    sections: [
-      {
-        title: "Details",
-        list: [
-          "standardized statuses and their sequence after purchase",
-          "built one coherent post-purchase flow instead of disconnected screens",
-          "accounted for dependencies with microservices, pricing, delivery, and promotions",
-        ],
-        media: "Module: order details",
       },
     ],
   },

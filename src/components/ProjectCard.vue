@@ -48,15 +48,13 @@ const metricMarker = (metric) => {
             {{ formatHighlight(fact) }}
           </li>
         </ul>
-      </div>
-      <div v-if="project.cover" class="project-card__cover">
-        <Tag
-          v-if="showSoonTag"
-          class="project-card__overlay-tag"
-          :label="siteCopy.soonLabel"
-          variant="overlay"
-        />
-        <div v-if="coverMetrics.length" class="project-card__metrics-overlay">
+        <div v-if="showSoonTag || coverMetrics.length" class="project-card__tags">
+          <Tag
+            v-if="showSoonTag"
+            class="project-card__overlay-tag"
+            :label="siteCopy.soonLabel"
+            variant="overlay"
+          />
           <Tag
             v-for="(metric, index) in coverMetrics"
             :key="`metric-${index}`"
@@ -67,12 +65,14 @@ const metricMarker = (metric) => {
             {{ metric }}
           </Tag>
         </div>
+      </div>
+      <div v-if="project.cover" class="project-card__cover">
         <img class="project-card__image" :src="project.cover" alt="" />
       </div>
     </article>
   </NavLink>
 
-  <article v-else class="project-card">
+  <article v-else class="project-card project-card--preview">
     <div class="project-card__body">
       <h3 class="project-card__title">{{ project.title }}</h3>
       <p v-if="cardSummary" class="project-card__summary">{{ cardSummary }}</p>
@@ -82,15 +82,13 @@ const metricMarker = (metric) => {
           {{ formatHighlight(fact) }}
         </li>
       </ul>
-    </div>
-    <div v-if="project.cover" class="project-card__cover">
-      <Tag
-        v-if="showSoonTag"
-        class="project-card__overlay-tag"
-        :label="siteCopy.soonLabel"
-        variant="overlay"
-      />
-      <div v-if="coverMetrics.length" class="project-card__metrics-overlay">
+      <div v-if="showSoonTag || coverMetrics.length" class="project-card__tags">
+        <Tag
+          v-if="showSoonTag"
+          class="project-card__overlay-tag"
+          :label="siteCopy.soonLabel"
+          variant="overlay"
+        />
         <Tag
           v-for="(metric, index) in coverMetrics"
           :key="`metric-${index}`"
@@ -101,6 +99,8 @@ const metricMarker = (metric) => {
           {{ metric }}
         </Tag>
       </div>
+    </div>
+    <div v-if="project.cover" class="project-card__cover">
       <img class="project-card__image" :src="project.cover" alt="" />
     </div>
   </article>

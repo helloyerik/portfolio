@@ -3,10 +3,10 @@
 :root {
   --mi-line-height-code-body: 22px;
   --mi-radius-2xs: 16px;
-  --font-family-body: "Inter", var(--mi-font-family-article-body);
-  --font-family-heading: "Inter", var(--mi-font-family-display-1);
-  --font-family-mono: var(--mi-font-family-mono);
-  --font-letter-spacing-mono: -0.02em;
+  --font-family-body: "Ubuntu", sans-serif;
+  --font-family-heading: "Ubuntu", sans-serif;
+  --font-family-mono: "Ubuntu", sans-serif;
+  --font-letter-spacing-mono: 0;
   --editor-gutter-width: 28px;
   --editor-gutter-gap: var(--mi-spacing-24);
   --text-body: var(--mi-font-size-article-body);
@@ -168,6 +168,7 @@ body {
 
 
 
+h1,
 h2,
 h3,
 h4,
@@ -182,14 +183,15 @@ select,
 label,
 li,
 span,
-div) {
-  font-family: var(--font-family-mono) !important;
+div {
+  font-family: var(--font-family-body) !important;
   font-weight: 400 !important;
   font-size: var(--mi-font-size-code-body) !important;
   line-height: var(--mi-line-height-code-body) !important;
-  letter-spacing: var(--font-letter-spacing-mono) !important;
+  letter-spacing: 0 !important;
 }
 
+h1,
 h2,
 h3,
 h4,
@@ -204,8 +206,8 @@ select,
 label,
 li,
 span,
-div) {
-  font-family: "Inter", sans-serif !important;
+div {
+  font-family: var(--font-family-body) !important;
 }
 
 
@@ -222,59 +224,22 @@ div) {
 
 
 
-.home-page .company-divider,
-.home-page .project-card,
-.home-page .about-block .section-title,
-.home-page .about-block .prose>p,
-.home-page .special-projects,
-.page .display-title,
-.page .cv-subtitle,
-.page .section-title,
-.page .fact-row,
-.page .prose>p,
-.page .prose>ul,
-.page .prose>ol,
-.page .section-inline-title,
-.page .section-inline-label,
-.page .case-subsection__title,
-.page .line-list>li,
-.page .project-nav,
-.page .cv-entry__meta) {
-  position: relative;
-  counter-increment: ide-line;
+
+.page-wrap {
+  transition:
+    opacity 280ms ease-in-out,
+    filter 280ms ease-in-out;
 }
 
-.home-page .company-divider,
-.home-page .project-card,
-.home-page .about-block .section-title,
-.home-page .about-block .prose>p,
-.home-page .special-projects,
-.page .display-title,
-.page .cv-subtitle,
-.page .section-title,
-.page .fact-row,
-.page .prose>p,
-.page .prose>ul,
-.page .prose>ol,
-.page .section-inline-title,
-.page .section-inline-label,
-.page .case-subsection__title,
-.page .line-list>li,
-.page .project-nav,
-.page .cv-entry__meta)::after {
-  content: counter(ide-line);
-  position: absolute;
-  top: 0;
-  right: calc(100% + var(--editor-gutter-gap));
-  width: var(--editor-gutter-width);
-  color: var(--mi-color-text-hint);
-  font-family: var(--font-family-mono);
-  font-size: var(--mi-font-size-code-body);
-  line-height: var(--mi-line-height-code-body);
-  letter-spacing: var(--font-letter-spacing-mono);
-  text-align: right;
-  pointer-events: none;
-  opacity: 0.8;
+.page-wrap--leaving {
+  opacity: 0;
+  filter: blur(var(--reveal-blur));
+}
+
+.page-wrap--entering {
+  opacity: 0;
+  filter: blur(var(--reveal-blur));
+  transition: none;
 }
 
 .reveal {
@@ -303,12 +268,10 @@ a {
   text-decoration: none;
 }
 
-.brand,
 .topnav__button,
 .project-nav a,
 .case-outline__link,
 
-.brand:hover,
 .topnav__button:hover,
 .project-nav a:hover,
 .case-outline__link:hover,
@@ -332,9 +295,9 @@ a {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: var(--color-bg);
+  background: linear-gradient(180deg, #000000 0%, #00000000 100%);
   backdrop-filter: none;
-  border-bottom: 1px solid transparent;
+  border-bottom: 0;
 }
 
 .scroll-progress {
@@ -343,7 +306,7 @@ a {
   left: 0;
   width: 100%;
   height: var(--mi-spacing-2);
-  background: var(--color-project-card-border);
+  background: transparent;
   overflow: hidden;
   pointer-events: none;
 }
@@ -359,26 +322,19 @@ a {
 .topbar__inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-m);
-  padding: 28px var(--mi-spacing-24);
+  justify-content: flex-start;
+  width: min(100%, var(--shell-width));
+  gap: 0;
+  padding: 8px 24px;
+  margin: 0 auto;
 }
 
 .topbar__actions {
   display: flex;
   align-items: center;
   gap: 0;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-
-.brand {
-  font-size: var(--text-body);
-  line-height: var(--line-body);
-  font-family: var(--font-family-body);
-  letter-spacing: normal;
-  font-weight: var(--mi-font-weight-article-body);
-  padding-inline: var(--mi-spacing-16);
+  flex-wrap: nowrap;
+  justify-content: center;
 }
 
 .topnav {
@@ -388,20 +344,24 @@ a {
   flex-wrap: wrap;
 }
 
-.topnav__button,
-
-.brand {
+.topnav__button {
   min-height: var(--mi-size-button-m-height);
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  padding: 0 var(--mi-spacing-16);
+  border: 0;
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
 }
 
-.topnav__button,
-
 .home-page {
-  padding-top: 0;
-  padding-bottom: var(--space-2xl);
-  padding-inline: 20px;
+  width: min(100%, var(--shell-width));
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-inline: 40px;
+  margin: 0 auto;
 }
 
 .home-page>.reveal+.reveal {
@@ -514,7 +474,7 @@ a {
   font-size: var(--mi-font-size-header-2);
   line-height: var(--mi-line-height-header-2);
   font-weight: var(--mi-font-weight-header-2);
-  font-family: "Inter", sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 h2.section-title {
@@ -789,11 +749,17 @@ h2.section-title {
 
 .project-card-link {
   display: block;
+  cursor: pointer;
+}
+
+.project-card--preview {
+  cursor: not-allowed;
 }
 
 .project-card__body {
   display: grid;
   gap: var(--mi-spacing-12);
+  margin-bottom: 12px;
   background: transparent;
   transition: none;
 }
@@ -850,7 +816,7 @@ h2.section-title {
 .case-hero {
   width: 100%;
   background: var(--color-panel-tint);
-  border-radius: var(--mi-radius-2xs);
+  border-radius: 8px;
   overflow: hidden;
 }
 
@@ -867,6 +833,17 @@ h2.section-title {
   object-fit: cover;
 }
 
+.project-card__image {
+  border-radius: 0;
+  transition: transform 320ms ease-out;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.project-card-link:hover .project-card__image {
+  transform: scale(1.05);
+}
+
 .case-hero__trigger {
   display: block;
   width: 100%;
@@ -875,35 +852,26 @@ h2.section-title {
   background: transparent;
 }
 
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 .project-card__overlay-tag {
-  position: absolute;
-  top: var(--space-s);
-  left: var(--space-s);
-  z-index: 1;
   display: inline-flex;
   align-items: center;
   padding: 3px 10px;
   border: 1px solid var(--color-border);
-  border-radius: var(--mi-radius-pill);
+  border-radius: 8px;
   background: var(--color-tag-bg);
   color: var(--color-text);
   backdrop-filter: blur(8px);
 }
 
-.project-card__metrics-overlay {
-  position: absolute;
-  top: var(--space-s);
-  left: var(--space-s);
-  right: var(--space-s);
-  z-index: 1;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2xs);
-}
-
 .project-card__metric-tag {
   --mi-color-surface-glass: rgba(34, 197, 94, 0.16);
-  --mi-color-line-generic: rgba(34, 197, 94, 0.24);
+  --mi-color-line-generic: transparent;
   color: #4ade80;
 }
 
@@ -1241,6 +1209,48 @@ h2.section-title {
   z-index: 10000;
 }
 
+/* Phase 1: backdrop covers the page (200ms) */
+.lightbox-enter-active .image-lightbox__backdrop {
+  transition: opacity 200ms ease-in-out;
+}
+.lightbox-enter-from .image-lightbox__backdrop {
+  opacity: 0;
+}
+
+/* Phase 2: content appears after backdrop is set (200ms delay + 280ms) */
+.lightbox-enter-active .image-lightbox__viewport,
+.lightbox-enter-active .image-lightbox__close {
+  transition:
+    opacity 280ms ease-in-out 200ms,
+    filter 280ms ease-in-out 200ms;
+}
+.lightbox-enter-from .image-lightbox__viewport,
+.lightbox-enter-from .image-lightbox__close {
+  opacity: 0;
+  filter: blur(var(--reveal-blur));
+}
+
+/* Phase 1: content disappears (280ms) */
+.lightbox-leave-active .image-lightbox__viewport,
+.lightbox-leave-active .image-lightbox__close {
+  transition:
+    opacity 280ms ease-in-out,
+    filter 280ms ease-in-out;
+}
+.lightbox-leave-to .image-lightbox__viewport,
+.lightbox-leave-to .image-lightbox__close {
+  opacity: 0;
+  filter: blur(var(--reveal-blur));
+}
+
+/* Phase 2: backdrop clears after content is gone (280ms delay + 200ms) */
+.lightbox-leave-active .image-lightbox__backdrop {
+  transition: opacity 200ms ease-in-out 280ms;
+}
+.lightbox-leave-to .image-lightbox__backdrop {
+  opacity: 0;
+}
+
 .image-lightbox__backdrop {
   position: absolute;
   inset: 0;
@@ -1300,6 +1310,8 @@ h2.section-title {
 }
 
 .before-after__tag {
+  --mi-color-line-generic: transparent;
+  border: 0;
   backdrop-filter: blur(8px);
 }
 

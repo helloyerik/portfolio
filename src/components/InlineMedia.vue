@@ -24,7 +24,7 @@ const closeImage = () => {
 
 <template>
   <template v-if="media">
-    <div v-if="Array.isArray(media)" class="gallery gallery--carousel gallery--square">
+    <div v-if="Array.isArray(media)" class="gallery gallery--carousel">
       <div v-for="(item, index) in media" :key="item.src ?? index" class="gallery__item gallery__item--carousel">
         <button type="button" class="gallery__zoom-trigger" @click="openImage(item.src, item.alt ?? '')">
           <img class="gallery__image" :src="item.src" :alt="item.alt ?? ''" />
@@ -42,11 +42,7 @@ const closeImage = () => {
         :after-label="media.afterLabel"
       />
     </div>
-    <div
-      v-else
-      class="gallery__item gallery__item--inline"
-      :class="{ 'gallery__item--square': typeof media === 'object' && media.src }"
-    >
+    <div v-else class="gallery__item gallery__item--inline">
       <button
         v-if="typeof media === 'object' && media.src"
         type="button"

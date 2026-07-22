@@ -27,12 +27,6 @@ const siteCopy = inject("siteCopy");
 const visibleMechtaProjects = computed(() =>
   props.mechtaProjects.filter((project) => !project.hiddenOnHome),
 );
-const ecommerceModules = computed(() =>
-  visibleMechtaProjects.value.filter((project) => project.moduleCase),
-);
-const otherMechtaProjects = computed(() =>
-  visibleMechtaProjects.value.filter((project) => !project.moduleCase),
-);
 </script>
 
 <template>
@@ -53,12 +47,7 @@ const otherMechtaProjects = computed(() =>
         :role="siteCopy.productDesignerRole"
       />
     </RevealBlock>
-    <div v-if="ecommerceModules.length" class="project-grid project-grid--ecommerce">
-      <RevealBlock v-for="project in ecommerceModules" :key="project.title" :order="4">
-        <ProjectCard :project="project" />
-      </RevealBlock>
-    </div>
-    <RevealBlock v-for="project in otherMechtaProjects" :key="project.title" :order="4">
+    <RevealBlock v-for="project in visibleMechtaProjects" :key="project.title" :order="4">
       <ProjectCard :project="project" />
     </RevealBlock>
 

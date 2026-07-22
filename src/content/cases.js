@@ -16,11 +16,7 @@ import bmcPreview from "../assets/projects/bmc-preview.jpg";
 const moduleMetricsPlaceholder = "Метрики будут добавлены позже.";
 
 export const caseOrder = [
-  { slug: "/projects/ecommerce-product-page", label: "Страница товара" },
-  { slug: "/projects/ecommerce-cart", label: "Корзина" },
-  { slug: "/projects/ecommerce-checkout", label: "Оформление заказа" },
-  { slug: "/projects/ecommerce-my-orders", label: "Мои заказы" },
-  { slug: "/projects/ecommerce-order-details", label: "Детали заказа" },
+  { slug: "/projects/ecommerce", label: "Интернет-магазин" },
   { slug: "/projects/partners", label: "Mechta Partners" },
   { slug: "/projects/corporate-portal", label: "Корпоративный портал" },
   { slug: "/projects/freelance", label: "Фриланс" },
@@ -29,7 +25,7 @@ export const caseOrder = [
 export const workflowCases = {
   ecommerce: {
     title: "Интернет-магазин",
-    publicHref: "/projects/ecommerce-redesign",
+    publicHref: "/projects/ecommerce",
     sections: [
       {
         title: "Что это за слой",
@@ -631,85 +627,15 @@ export const workflowCases = {
 
 export const mechtaProjects = [
   {
-    slug: "/projects/ecommerce-product-page",
-    title: "Страница товара",
-    kind: "E-commerce модуль",
-    period: "2025 — X",
+    slug: "/projects/ecommerce",
+    title: "Интернет-магазин",
+    kind: "Mechta.kz · Редизайн",
+    period: "2025",
     summary: [
-      "Страница товара была первым и самым нагруженным шагом воронки. Здесь пользователь принимал решение о покупке, выбирал способ получения, смотрел наличие, ориентировался в скидках и финансовых условиях.",
+      "Один из ключевых проектов внутри Mechta.kz — пересборка ключевой части воронки: страница товара, корзина, оформление заказа, детали заказа и список заказов.",
     ],
-    highlights: [moduleMetricsPlaceholder],
-    metrics: ["Конверсия страницы товара +NDA%", "Время до CTA -NDA%"],
-    cover: ecommerceProductPageCover,
-    moduleCase: true,
-    showSummary: true,
-    preview: false,
-  },
-  {
-    slug: "/projects/ecommerce-cart",
-    title: "Корзина",
-    kind: "E-commerce модуль",
-    period: "2025 — X",
-    summary: [
-      "Пересобрал корзину как модуль с прямым влиянием на конверсию: сократил число второстепенных элементов, усилил переход к оформлению заказа и встроил апселл.",
-    ],
-    highlights: [
-      "Связка корзины и следующего шага стала прямолинейнее: пользователи быстрее переходили к оформлению заказа, а сам модуль лучше работал как точка принятия решения, а не как промежуточный экран с лишним шумом.",
-    ],
-    metrics: ["Переходы к оформлению +NDA%", "Отказы из корзины -NDA%"],
-    cover: ecommerceCartCover,
-    moduleCase: true,
-    showSummary: true,
-    preview: false,
-  },
-  {
-    slug: "/projects/ecommerce-checkout",
-    title: "Оформление заказа",
-    kind: "E-commerce модуль",
-    period: "2025 — X",
-    summary: [
-      "Оформление заказа собиралось как зависимый модуль с большим количеством условий: доставка, самовывоз, бонусы, промокоды, формы и специальные сценарии.",
-    ],
-    highlights: [
-      "переход к следующему шагу вырос на +X%",
-      "сценарий стал стабильнее для разных способов получения заказа",
-      "специальные условия и ограничения перестали ломать основной путь оформления",
-    ],
-    metrics: ["Переход к следующему шагу +NDA%", "Завершение чекаута +NDA%"],
-    cover: ecommerceCheckoutCover,
-    moduleCase: true,
-    showSummary: true,
-    preview: false,
-  },
-  {
-    slug: "/projects/ecommerce-my-orders",
-    title: "Мои заказы",
-    kind: "E-commerce модуль",
-    period: "2025 — X",
-    summary: [
-      "Список заказов стал продолжением этапа после покупки и точкой входа в историю заказов и их статусы.",
-    ],
-    highlights: [moduleMetricsPlaceholder],
-    metrics: ["Запросы по статусам -NDA%"],
-    cover: ecommerceOrdersCover,
-    moduleCase: true,
-    showSummary: true,
-    preview: false,
-  },
-  {
-    slug: "/projects/ecommerce-order-details",
-    title: "Детали заказа",
-    kind: "E-commerce модуль",
-    period: "2025 — X",
-    summary: [
-      "Этап после покупки стал стартовой точкой всего проекта: здесь сходились статусы, акции, состав заказа, время получения и логика связанных сервисов.",
-    ],
-    highlights: [
-      "После пересборки этапа после покупки и связанных экранов обращений в колл-центр стало в X раз меньше: пользователи лучше понимали статус заказа, состав и дальнейшие действия без дополнительной помощи.",
-    ],
-    metrics: ["Обращения после покупки -NDA%"],
-    cover: ecommerceOrderDetailsCover,
-    moduleCase: true,
+    metrics: ["Конверсия в покупку +NDA%", "Переходы к оформлению +NDA%", "Обращения -NDA%"],
+    cover: ecommerceCover,
     showSummary: true,
     preview: false,
   },
@@ -834,7 +760,7 @@ export const backlogSections = [
 
 export const publicCases = {
   ecommerce: {
-    slug: "/projects/ecommerce-redesign",
+    slug: "/projects/ecommerce",
     title: "Интернет-магазин",
     heroImage: ecommerceCover,
     highlights: ["Регулярная синхронизация с командой 20+ человек"],

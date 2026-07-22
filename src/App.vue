@@ -39,8 +39,37 @@ watch(
   { immediate: true },
 );
 
+const PAGE_TRANSITION_MS = 280;
+const isLeaving = ref(false);
+const isEntering = ref(false);
+let transitionTimeout = 0;
+
 const syncRoute = () => {
-  route.value = readRoute();
+  const newRoute = readRoute();
+  const pathChanged = newRoute.pathname !== route.value.pathname;
+
+  if (!pathChanged) {
+    route.value = newRoute;
+    return;
+  }
+
+  if (transitionTimeout) {
+    clearTimeout(transitionTimeout);
+    transitionTimeout = 0;
+  }
+
+  isEntering.value = false;
+  isLeaving.value = true;
+
+  transitionTimeout = setTimeout(() => {
+    isLeaving.value = false;
+    route.value = newRoute;
+    isEntering.value = true;
+    setTimeout(() => {
+      isEntering.value = false;
+    }, 50);
+    transitionTimeout = 0;
+  }, PAGE_TRANSITION_MS);
 };
 
 onMounted(() => {
@@ -49,6 +78,7 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   window.removeEventListener("popstate", syncRoute);
+  if (transitionTimeout) clearTimeout(transitionTimeout);
 });
 
 watch(
@@ -75,22 +105,27 @@ const currentWorkflowCase = computed(() => workflowCaseMap.value[route.value.pat
 <template>
   <TopNav />
 
-  <CasePage
-    v-if="currentPublicCase"
-    :case-data="currentPublicCase"
-    :case-order="localizedCases.caseOrder"
-  />
-  <WorkflowPage v-else-if="currentWorkflowCase" :workflow-case="currentWorkflowCase" />
-  <CvPage v-else-if="route.pathname === '/cv'" :cv-data="localizedCases.cvData" />
-  <BacklogPage
-    v-else-if="route.pathname === '/backlog'"
-    :sections="localizedCases.backlogSections"
-  />
-  <HomePage
-    v-else
-    :hero-summary="heroSummary"
-    :mechta-projects="localizedCases.mechtaProjects"
-    :freelance-projects="localizedCases.freelanceProjects"
-    :bmc-projects="localizedCases.bmcProjects"
-  />
+  <div
+    class="page-wrap"
+    :class="{ 'page-wrap--leaving': isLeaving, 'page-wrap--entering': isEntering }"
+  >
+    <CasePage
+      v-if="currentPublicCase"
+      :case-data="currentPublicCase"
+      :case-order="localizedCases.caseOrder"
+    />
+    <WorkflowPage v-else-if="currentWorkflowCase" :workflow-case="currentWorkflowCase" />
+    <CvPage v-else-if="route.pathname === '/cv'" :cv-data="localizedCases.cvData" />
+    <BacklogPage
+      v-else-if="route.pathname === '/backlog'"
+      :sections="localizedCases.backlogSections"
+    />
+    <HomePage
+      v-else
+      :hero-summary="heroSummary"
+      :mechta-projects="localizedCases.mechtaProjects"
+      :freelance-projects="localizedCases.freelanceProjects"
+      :bmc-projects="localizedCases.bmcProjects"
+    />
+  </div>
 </template>

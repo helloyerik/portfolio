@@ -1,6 +1,5 @@
 <script setup>
 import { inject } from "vue";
-import { Button } from "@yerik/yedesign-system";
 import NavLink from "./NavLink.vue";
 import RevealBlock from "./RevealBlock.vue";
 import ScrollProgressBar from "./ScrollProgressBar.vue";
@@ -16,15 +15,12 @@ const openExternal = (href) => {
   <header class="topbar">
     <ScrollProgressBar />
     <RevealBlock as="div" class="shell topbar__inner" :order="0">
-      <NavLink class="brand" href="/">Yerik</NavLink>
       <nav class="topnav topbar__actions">
-        <Button
-          :label="siteCopy.telegramButton"
-          variant="text-only"
-          size="M"
-          class-name="topnav__button"
-          @click="openExternal('https://t.me/helloyerik')"
-        />
+        <NavLink class="topnav__button" href="/">Home</NavLink>
+        <NavLink class="topnav__button" href="/cv">CV</NavLink>
+        <button type="button" class="topnav__button" @click="openExternal('https://t.me/helloyerik')">
+          {{ siteCopy.telegramButton }}
+        </button>
       </nav>
     </RevealBlock>
   </header>
