@@ -192,7 +192,7 @@ watch(sectionItems, () => {
     >
       <h2 class="section-title">{{ siteCopy.resultsLabel }}</h2>
       <div class="prose">
-        <RichList :items="caseData.results" />
+        <RichList :items="caseData.results" :show-metrics="false" />
       </div>
     </RevealBlock>
 
@@ -231,7 +231,7 @@ watch(sectionItems, () => {
     >
       <h2 class="section-title">{{ siteCopy.resultsLabel }}</h2>
       <div class="prose">
-        <RichList :items="caseData.results" />
+        <RichList :items="caseData.results" :show-metrics="false" />
       </div>
     </RevealBlock>
 

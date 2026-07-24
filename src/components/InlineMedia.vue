@@ -33,7 +33,7 @@ const closeImage = () => {
     </div>
     <div
       v-else-if="typeof media === 'object' && media.kind === 'before-after'"
-      class="gallery__item gallery__item--inline gallery__item--bare gallery__item--square"
+      class="gallery__item gallery__item--inline gallery__item--bare"
     >
       <BeforeAfterSlider
         :before-src="media.beforeSrc"

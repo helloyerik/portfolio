@@ -19,6 +19,7 @@
   --line-display: var(--mi-line-height-header-2);
   --shell-width: 640px;
   --reading-width: 640px;
+  --media-width: 1080px;
   --space-3xs: var(--mi-spacing-4);
   --space-2xs: var(--mi-spacing-8);
   --space-xs: var(--mi-spacing-12);
@@ -295,7 +296,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: linear-gradient(180deg, #000000 0%, #00000000 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: none;
   border-bottom: 0;
 }
@@ -322,7 +323,7 @@ a {
 .topbar__inner {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   width: min(100%, var(--shell-width));
   gap: 0;
   padding: 8px 24px;
@@ -452,14 +453,50 @@ a {
 }
 
 .page {
-  width: 100%;
-  max-width: 640px;
+  width: min(100%, var(--shell-width));
+  max-width: none;
   margin: 0 auto;
   padding: 0;
+  padding-inline: 40px;
 }
 
 .page.shell {
-  padding: 0;
+  padding-inline: 40px;
+}
+
+.case-page {
+  width: min(100%, var(--media-width));
+}
+
+.case-page .fact-row,
+.case-page .content-block:not(.case-section),
+.case-page .case-section__header,
+.case-page .project-nav {
+  max-width: var(--reading-width);
+  width: 100%;
+  margin-inline: auto;
+}
+
+.case-page .case-section__content > p,
+.case-page .case-section__content > ul,
+.case-page .case-section__content > ol,
+.case-page .case-section__content > .section-inline-title,
+.case-page .case-section__content > .section-inline-label,
+.case-page .case-section__content > .case-subsection,
+.case-page .case-section__content > .rich-list,
+.case-page .case-section__content > .line-list {
+  max-width: var(--reading-width);
+  width: 100%;
+  margin-inline: auto;
+}
+
+.case-page .case-hero,
+.case-page .image-placeholder,
+.case-page .gallery,
+.case-page .gallery__item--inline,
+.case-page .before-after {
+  width: 100%;
+  max-width: none;
 }
 
 .section-header {
@@ -1055,7 +1092,8 @@ h2.section-title {
 }
 
 .page {
-  padding: var(--space-l) 0 var(--space-2xl);
+  padding-block: var(--space-l) var(--space-2xl);
+  padding-inline: 40px;
 }
 
 .page-header {
@@ -1302,7 +1340,7 @@ h2.section-title {
   cursor: ew-resize;
   touch-action: none;
   user-select: none;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 16 / 9;
 }
 
 .gallery__item--bare .before-after__frame {
@@ -1586,14 +1624,24 @@ h2.section-title {
   }
 
   .shell {
-    width: min(calc(100% - 28px), var(--shell-width));
+    width: 100%;
+    padding-inline: 16px;
+  }
+
+  .home-page {
+    padding-inline: 16px;
+  }
+
+  .page,
+  .page.shell {
+    padding-inline: 16px;
   }
 
   .topbar__inner {
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;
-    padding: var(--space-xs) 0;
+    padding: var(--space-xs) 16px;
   }
 
   .topbar__actions {
@@ -1604,11 +1652,14 @@ h2.section-title {
   }
 
   .company-card,
-  .project-card,
   .content-block,
   .cta-card,
   .hero-panel {
     padding: var(--space-m);
+  }
+
+  .project-card {
+    padding: 0;
   }
 
   .page .content-block {
@@ -1617,12 +1668,6 @@ h2.section-title {
 
   .case-hero {
     min-height: 240px;
-  }
-
-  .company-divider {
-    grid-template-columns: 44px minmax(0, 1fr);
-    column-gap: 12px;
-    row-gap: 2px;
   }
 
   .company-divider__mark {

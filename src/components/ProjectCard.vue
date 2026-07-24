@@ -24,7 +24,19 @@ const nonTagFacts = computed(() =>
   projectFacts.value.filter((fact) => fact !== "Скоро" && fact !== "Soon"),
 );
 const coverMetrics = computed(() => props.project.metrics ?? []);
-const showHighlights = computed(() => nonTagFacts.value.length && !coverMetrics.value.length);
+const highlightItems = computed(() => {
+  if (coverMetrics.value.length) {
+    return coverMetrics.value.map((metric) => ({
+      text: formatHighlight(metric),
+      marker: metricMarker(metric),
+    }));
+  }
+
+  return nonTagFacts.value.map((fact) => ({
+    text: formatHighlight(fact),
+    marker: "\u2191",
+  }));
+});
 const formatHighlight = (value) => {
   if (!value) return value;
   return value.charAt(0).toUpperCase() + value.slice(1);
@@ -42,28 +54,18 @@ const metricMarker = (metric) => {
       <div class="project-card__body">
         <h3 class="project-card__title">{{ project.title }}</h3>
         <p v-if="cardSummary" class="project-card__summary">{{ cardSummary }}</p>
-        <ul v-if="showHighlights" class="project-card__highlights">
-          <li v-for="(fact, index) in nonTagFacts" :key="`${fact}-${index}`" class="metric-list-item">
-            <span class="metric-list-item__marker" aria-hidden="true">&uarr;</span>
-            {{ formatHighlight(fact) }}
+        <ul v-if="highlightItems.length" class="project-card__highlights">
+          <li v-for="(item, index) in highlightItems" :key="`${item.text}-${index}`" class="metric-list-item">
+            <span class="metric-list-item__marker" aria-hidden="true">{{ item.marker }}</span>
+            {{ item.text }}
           </li>
         </ul>
-        <div v-if="showSoonTag || coverMetrics.length" class="project-card__tags">
+        <div v-if="showSoonTag" class="project-card__tags">
           <Tag
-            v-if="showSoonTag"
             class="project-card__overlay-tag"
             :label="siteCopy.soonLabel"
             variant="overlay"
           />
-          <Tag
-            v-for="(metric, index) in coverMetrics"
-            :key="`metric-${index}`"
-            class="project-card__metric-tag"
-            variant="overlay"
-          >
-            <span class="project-card__metric-marker" aria-hidden="true">{{ metricMarker(metric) }}</span>
-            {{ metric }}
-          </Tag>
         </div>
       </div>
       <div v-if="project.cover" class="project-card__cover">
@@ -76,28 +78,18 @@ const metricMarker = (metric) => {
     <div class="project-card__body">
       <h3 class="project-card__title">{{ project.title }}</h3>
       <p v-if="cardSummary" class="project-card__summary">{{ cardSummary }}</p>
-      <ul v-if="nonTagFacts.length" class="project-card__highlights">
-        <li v-for="(fact, index) in nonTagFacts" :key="`${fact}-${index}`" class="metric-list-item">
-          <span class="metric-list-item__marker" aria-hidden="true">&uarr;</span>
-          {{ formatHighlight(fact) }}
+      <ul v-if="highlightItems.length" class="project-card__highlights">
+        <li v-for="(item, index) in highlightItems" :key="`${item.text}-${index}`" class="metric-list-item">
+          <span class="metric-list-item__marker" aria-hidden="true">{{ item.marker }}</span>
+          {{ item.text }}
         </li>
       </ul>
-      <div v-if="showSoonTag || coverMetrics.length" class="project-card__tags">
+      <div v-if="showSoonTag" class="project-card__tags">
         <Tag
-          v-if="showSoonTag"
           class="project-card__overlay-tag"
           :label="siteCopy.soonLabel"
           variant="overlay"
         />
-        <Tag
-          v-for="(metric, index) in coverMetrics"
-          :key="`metric-${index}`"
-          class="project-card__metric-tag"
-          variant="overlay"
-        >
-          <span class="project-card__metric-marker" aria-hidden="true">{{ metricMarker(metric) }}</span>
-          {{ metric }}
-        </Tag>
       </div>
     </div>
     <div v-if="project.cover" class="project-card__cover">
