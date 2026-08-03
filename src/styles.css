@@ -3,9 +3,9 @@
 :root {
   --mi-line-height-code-body: 22px;
   --mi-radius-2xs: 16px;
-  --font-family-body: "Ubuntu", sans-serif;
-  --font-family-heading: "Ubuntu", sans-serif;
-  --font-family-mono: "Ubuntu", sans-serif;
+  --font-family-body: "Inter", sans-serif;
+  --font-family-heading: "Inter", sans-serif;
+  --font-family-mono: "Inter", sans-serif;
   --font-letter-spacing-mono: 0;
   --editor-gutter-width: 28px;
   --editor-gutter-gap: var(--mi-spacing-24);
@@ -296,9 +296,27 @@ a {
   position: sticky;
   top: 0;
   z-index: 10;
+  isolation: isolate;
   background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: none;
   border-bottom: 0;
+}
+
+.topbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  mask-image: linear-gradient(180deg, #000 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 100%);
+}
+
+.topbar > * {
+  position: relative;
+  z-index: 1;
 }
 
 .scroll-progress {
@@ -511,7 +529,7 @@ a {
   font-size: var(--mi-font-size-header-2);
   line-height: var(--mi-line-height-header-2);
   font-weight: var(--mi-font-weight-header-2);
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 h2.section-title {
@@ -877,7 +895,7 @@ h2.section-title {
   will-change: transform;
 }
 
-.project-card-link:hover .project-card__image {
+.project-card__cover:hover .project-card__image {
   transform: scale(1.05);
 }
 
@@ -931,6 +949,32 @@ h2.section-title {
   line-height: var(--mi-line-height-header-2);
   font-weight: var(--mi-font-weight-header-2);
   font-family: var(--font-family-heading);
+}
+
+.case-page .display-title,
+.case-page .section-title,
+.case-page h2.section-title {
+  font-weight: 800 !important;
+  font-size: 24px !important;
+}
+
+.project-card__heading {
+  display: grid;
+  gap: 0;
+}
+
+.home-page .project-card-link .project-card__title {
+  width: fit-content;
+  max-width: 100%;
+  justify-self: start;
+  padding-bottom: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-text) 40%, transparent);
+}
+
+.project-card-link .project-card__title::after {
+  content: "\2197";
+  margin-left: var(--space-3xs);
+  font-family: "Inter", system-ui, sans-serif;
 }
 
 .project-card__highlights {
@@ -1638,17 +1682,30 @@ h2.section-title {
   }
 
   .topbar__inner {
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: center;
-    padding: var(--space-xs) 16px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 8px 16px;
   }
 
   .topbar__actions {
-    width: 100%;
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 10px;
+    width: auto;
+    align-items: center;
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .topnav {
+    flex-wrap: nowrap;
+  }
+
+  .topnav__button:first-child {
+    padding-left: 0;
+  }
+
+  .topnav__button:last-child {
+    padding-right: 0;
   }
 
   .company-card,

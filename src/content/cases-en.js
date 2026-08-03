@@ -123,6 +123,14 @@ export const bmcProjects = [
   },
 ];
 
+export const certificates = [
+  {
+    title: "Wannabe",
+    period: "March — June 2026",
+    href: "https://drive.google.com/file/d/1NoGFtc-DFuN5Mz2C519muoHuBWWQHEuE/view?usp=drive_link",
+  },
+];
+
 export const backlogSections = [];
 
 export const publicCases = {

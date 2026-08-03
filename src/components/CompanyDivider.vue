@@ -20,17 +20,19 @@ const props = defineProps({
   },
   period: {
     type: String,
-    required: true,
+    default: "",
   },
   role: {
     type: String,
-    required: true,
+    default: "",
   },
   blurb: {
     type: String,
     default: "",
   },
 });
+
+const subtitle = [props.period, props.role].filter(Boolean).join(" · ");
 </script>
 
 <template>
@@ -38,7 +40,7 @@ const props = defineProps({
     <div class="company-component">
       <ListItem
         :title="name"
-        :subtitle="`${period} · ${role}`"
+        :subtitle="subtitle"
         size="XL"
         variant="plain"
         :interactive="false"

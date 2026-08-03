@@ -21,6 +21,10 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
+  certificates: {
+    type: Array,
+    default: () => [],
+  },
 });
 
 const siteCopy = inject("siteCopy");
@@ -61,6 +65,33 @@ const visibleMechtaProjects = computed(() =>
     </RevealBlock>
     <RevealBlock v-for="project in freelanceProjects" :key="project.title" :order="6">
       <ProjectCard :project="project" />
+    </RevealBlock>
+
+    <RevealBlock id="certificates" :order="7">
+      <CompanyDivider
+        mark="C"
+        :name="siteCopy.certificatesName"
+        :period="siteCopy.certificatesPeriod"
+        :role="siteCopy.certificatesRole"
+      />
+    </RevealBlock>
+    <RevealBlock v-for="certificate in certificates" :key="certificate.title" :order="8">
+      <a
+        class="project-card-link"
+        :href="certificate.href"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <article class="project-card">
+          <div class="project-card__body">
+            <div class="project-card__heading">
+              <h3 class="project-card__title">{{ certificate.title }}</h3>
+              <p v-if="certificate.period" class="project-card__meta-line">{{ certificate.period }}</p>
+            </div>
+            <p v-if="certificate.summary" class="project-card__summary">{{ certificate.summary }}</p>
+          </div>
+        </article>
+      </a>
     </RevealBlock>
 
   </main>

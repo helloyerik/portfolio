@@ -126,6 +126,7 @@ const currentWorkflowCase = computed(() => workflowCaseMap.value[route.value.pat
       :mechta-projects="localizedCases.mechtaProjects"
       :freelance-projects="localizedCases.freelanceProjects"
       :bmc-projects="localizedCases.bmcProjects"
+      :certificates="localizedCases.certificates"
     />
   </div>
 </template>

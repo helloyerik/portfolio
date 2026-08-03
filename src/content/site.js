@@ -19,6 +19,9 @@ export const siteCopy = {
     freelanceRole: "Project-based work · remote",
     bmcPeriod: "February 2024 — August 2024",
     bmcRole: "Project-based work · hybrid",
+    certificatesName: "Certificates",
+    certificatesPeriod: "Courses",
+    certificatesRole: "Product design",
     aboutTitle: "About",
     aboutParagraphs: [
       "I am a product designer with 3+ years of experience in digital products. I have worked on e-commerce, B2B, retail, AI, and internal tools, including admin panels, process-heavy scenarios, and service interfaces.",
@@ -83,6 +86,9 @@ export const siteCopy = {
     freelanceRole: "Проектная занятость · онлайн",
     bmcPeriod: "Февраль 2024 — август 2024",
     bmcRole: "Проектная занятость · гибрид",
+    certificatesName: "Сертификаты",
+    certificatesPeriod: "Курсы",
+    certificatesRole: "Продуктовый дизайн",
     aboutTitle: "Обо мне",
     aboutParagraphs: [
       "Я продуктовый дизайнер с 3+ годами опыта в цифровых продуктах. Работал с интернет-магазином, B2B, ритейлом, ИИ и внутренними сервисами, включая админки, процессные сценарии и сервисные интерфейсы.",
