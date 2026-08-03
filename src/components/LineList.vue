@@ -16,7 +16,7 @@ const props = defineProps({
       :key="`${item}-${index}`"
       :class="{ 'metric-list-item': isPositiveNdaMetric(item) }"
     >
-      <span v-if="isPositiveNdaMetric(item)" class="metric-list-item__marker" aria-hidden="true">↑</span>
+      <span v-if="isPositiveNdaMetric(item)" class="metric-list-item__marker" aria-hidden="true">✓</span>
       <template v-if="index > 0"><br /></template>{{ item }}
     </li>
   </ul>

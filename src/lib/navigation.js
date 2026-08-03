@@ -2,6 +2,11 @@ function normalizePathname(pathname) {
   return pathname.replace(/\/+$/, "") || "/";
 }
 
+const LEGACY_CASE_REDIRECTS = {
+  "/projects/partners": "/projects/internal-tools",
+  "/projects/corporate-portal": "/projects/internal-tools",
+};
+
 export function readRoute() {
   if (typeof window === "undefined") {
     return { pathname: "/", hash: "", locale: "en" };
@@ -9,8 +14,21 @@ export function readRoute() {
 
   const rawPathname = normalizePathname(window.location.pathname);
   const locale = rawPathname === "/ru" || rawPathname.startsWith("/ru/") ? "ru" : "en";
-  const pathname =
+  let pathname =
     locale === "ru" ? normalizePathname(rawPathname.slice(3) || "/") : rawPathname;
+
+  const redirectedPath = LEGACY_CASE_REDIRECTS[pathname];
+  if (redirectedPath) {
+    pathname = redirectedPath;
+    const hash = window.location.hash || "";
+    const localizedPath =
+      locale === "ru"
+        ? redirectedPath === "/"
+          ? "/ru"
+          : `/ru${redirectedPath}`
+        : redirectedPath;
+    window.history.replaceState({}, "", `${localizedPath}${hash}`);
+  }
 
   return {
     pathname,

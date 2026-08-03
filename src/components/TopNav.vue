@@ -16,10 +16,10 @@ const openExternal = (href) => {
     <ScrollProgressBar />
     <RevealBlock as="div" class="shell topbar__inner" :order="0">
       <nav class="topnav topbar__actions">
-        <NavLink class="topnav__button" href="/">Home</NavLink>
-        <NavLink class="topnav__button" href="/cv">CV</NavLink>
+        <NavLink class="topnav__button" href="/"><span>Home</span></NavLink>
+        <NavLink class="topnav__button" href="/cv"><span>CV</span></NavLink>
         <button type="button" class="topnav__button" @click="openExternal('https://t.me/helloyerik')">
-          {{ siteCopy.telegramButton }}
+          <span>{{ siteCopy.telegramButton }}</span>
         </button>
       </nav>
     </RevealBlock>

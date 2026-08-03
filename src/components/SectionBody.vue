@@ -31,11 +31,11 @@ const siteCopy = inject("siteCopy");
     />
 
     <template v-if="section.result?.length || section.resultList?.length">
-      <p v-if="section.resultTitleStyle === 'body'" class="section-inline-label">
-        {{ section.resultTitle ?? siteCopy.resultLabel }}
+      <p v-if="section.resultTitle && section.resultTitleStyle === 'body'" class="section-inline-label">
+        {{ section.resultTitle }}
       </p>
-      <h3 v-else class="section-inline-title">
-        {{ section.resultTitle ?? siteCopy.resultLabel }}
+      <h3 v-else-if="section.resultTitle" class="section-inline-title">
+        {{ section.resultTitle }}
       </h3>
       <p v-for="(paragraph, index) in section.result ?? []" :key="`${paragraph}-${index}`">
         {{ paragraph }}

@@ -13,7 +13,7 @@ const route = ref(readRoute());
 const locale = computed(() => route.value.locale);
 const siteCopy = computed(() => getSiteCopy(locale.value));
 const localizedCases = computed(() => getLocalizedCases(locale.value));
-const heroSummary = computed(() => localizedCases.value.publicCases?.ecommerce?.summary?.[0] ?? "");
+const heroSummary = computed(() => siteCopy.value.aboutParagraphs?.[0] ?? "");
 
 provide("locale", locale);
 provide("siteCopy", siteCopy);

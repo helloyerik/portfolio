@@ -4,10 +4,16 @@ import ecommerceCartCover from "../assets/projects/ecommerce-cart-cover.png";
 import ecommerceProductPageCover from "../assets/projects/ecommerce-product-page-cover.png";
 import ecommerceOrdersCover from "../assets/projects/ecommerce-orders-cover.png";
 import ecommerceOrderDetailsCover from "../assets/projects/ecommerce-order-details-cover.png";
+import giftCardFrames from "../assets/projects/gift-card-frames.png";
+import snippetFrames from "../assets/projects/snippet-frames.png";
 import partnersCover from "../assets/projects/partners-cover.png";
 import partnersDrawer from "../assets/projects/partners-drawer.png";
 import productPageBeforeMockup from "../assets/Страница товара до мокап.png";
 import productPageAfterMockup from "../assets/Страница товара после мокап.png";
+import cartBeforeMockup from "../assets/Корзина до мокап.png";
+import cartAfterMockup from "../assets/Корзина после мокап.png";
+import checkoutBeforeMockup from "../assets/Оформление до мокап.png";
+import checkoutAfterMockup from "../assets/Оформление после мокап.png";
 import pricingPreview from "../assets/projects/pricing-preview.jpg";
 import corporatePreview from "../assets/projects/corporate-preview.png";
 import freelancePreview from "../assets/projects/freelance-preview.jpg";
@@ -18,8 +24,7 @@ const moduleMetricsPlaceholder = "Metrics will be added later.";
 
 export const caseOrder = [
   { slug: "/projects/ecommerce", label: "E-commerce" },
-  { slug: "/projects/partners", label: "Mechta Partners" },
-  { slug: "/projects/corporate-portal", label: "Corporate portal" },
+  { slug: "/projects/internal-tools", label: "Internal Tools" },
   { slug: "/projects/freelance", label: "Freelance" },
 ];
 
@@ -32,62 +37,29 @@ export const mechtaProjects = [
     kind: "Mechta.kz · Redesign",
     period: "2025",
     summary: [
-      "A core redesign of the Mechta.kz shopping funnel for a 500k MAU retail product: product page, cart, checkout, order details, and order history.",
+      "Redesign of the Mechta.kz purchase funnel for a 500k MAU retail product: product page, cart, checkout, and post-purchase.",
     ],
-    metrics: ["Purchase conversion +NDA%", "Checkout starts +NDA%", "Support requests -NDA%"],
+    metrics: ["Purchase conversion +NDA%", "Cart → checkout +NDA%", "Support requests -NDA%"],
     cover: ecommerceCover,
     showSummary: true,
     preview: false,
   },
   {
-    slug: "/projects/partners",
-    title: "Mechta Partners",
-    kind: "0→1 / MVP",
+    slug: "/projects/internal-tools",
+    title: "Internal Tools",
+    kind: "0→1 / internal",
     period: "2025",
     summary: [
-      "An internal tool for processing supplier and partner offers. The focus was structure, speed for managers, and a scalable process.",
+      "Partners, Prices, and the corporate portal — Mechta internal tools for supplier flow, price-tag printing, and documents with eGov.",
     ],
-    highlights: ["0->1 in one month", "Reduced errors in product card creation", "Third highlight to be defined later"],
-    facts: ["Reduced product card creation errors", "Structured flow"],
+    highlights: [
+      "Partners: MVP in one month",
+      "Prices: faster price-tag printing",
+      "Portal: documents and eGov",
+    ],
+    facts: ["Partners", "Prices", "Corporate portal"],
     cover: partnersCover,
     preview: false,
-  },
-  {
-    slug: "/projects/corporate-portal",
-    title: "Corporate portal",
-    kind: "0→1 / internal product",
-    period: "2025",
-    summary: [
-      "An internal portal for employees, org structure, and documents with electronic signing through eGov.",
-    ],
-    highlights: [
-      "Accelerated the document signing process",
-      "Reduced document processing costs",
-      "Reduced HR support tickets by NDAx",
-      "The fourth point I will define later",
-    ],
-    facts: ["Employees and org structure", "Documents and eGov"],
-    cover: corporatePreview,
-    hiddenOnHome: true,
-    preview: false,
-  },
-  {
-    slug: "",
-    title: "Mechta Prices",
-    kind: "0→1 / internal product",
-    period: "2025",
-    summary: [
-      "A service for faster repricing and label replacement in physical stores, reducing reliance on legacy tools.",
-      "Field interviews and usability testing with supervisors and floor consultants helped validate the MVP in a real work context before launch.",
-    ],
-    highlights: [
-      "Under NDA, improved the price-tag printing workflow by making it faster",
-      "Reduced material waste during printing",
-      "Lowered printing error rates",
-    ],
-    facts: ["Faster price-tag printing workflow", "Reduced material waste", "Lowered printing error rates"],
-    cover: pricingPreview,
-    preview: true,
   },
 ];
 
@@ -125,7 +97,7 @@ export const bmcProjects = [
 
 export const certificates = [
   {
-    title: "Wannabe",
+    title: "Superpowered from Misha Rozov",
     period: "March — June 2026",
     href: "https://drive.google.com/file/d/1NoGFtc-DFuN5Mz2C519muoHuBWWQHEuE/view?usp=drive_link",
   },
@@ -139,60 +111,19 @@ export const publicCases = {
     title: "E-commerce",
     heroImage: ecommerceCover,
     summary: [
-      "A core redesign of the Mechta.kz shopping funnel for a 500k MAU retail product: product page, cart, checkout, order details, and order history. The work combined conversion optimization, legacy cleanup, and design-system rollout.",
+      "Redesign of the Mechta.kz purchase funnel for a 500k MAU retail product: product page, cart, checkout, and post-purchase. Worked independently, and at the start also with a lead designer, together with product, analytics, and engineering. Target metric for the funnel — purchase conversion; post-purchase also aimed at fewer support requests.",
     ],
-    metrics: ["Purchase conversion +NDA%", "Checkout starts +NDA%", "Support requests -NDA%"],
-    context: [
-      "The funnel had grown through multiple releases, so key screens were overloaded with banners, secondary promos, trade-in offers, financing blocks, and state-specific logic. On the product page especially, core decisions such as stock, delivery, credit, and the main CTA had to compete for the same attention area.",
-      "This was not a solo redesign. I worked in close collaboration with a lead designer and a cross-functional team of analysts, product managers, and frontend/backend engineers. A large part of the job was reducing ambiguity: mapping dependencies, reviewing scenarios in pair, and turning a messy set of requirements into a cleaner product structure.",
-    ],
-    goals: [
-      "make the main funnel actions easier to notice and faster to complete",
-      "reduce clutter on the product page without losing critical sales, delivery, credit, or SEO information",
-      "replace deprecated UI patterns with a cleaner and more scalable design-system base",
-      "lower support and operational handwork by making states, statuses, and next steps easier to understand",
-    ],
-    actions: [
-      "designed scenarios where fulfillment method changes availability",
-      "separated copy and states for delivery versus store pick-up",
-      "accounted for trade-in and other special constraints",
-      "refined forms, modal states, and confirmation logic",
-    ],
-    results: [
-      "the next-step transition grew by +NDA%",
-      "the flow became more stable across delivery and pick-up scenarios",
-      "special rules and restrictions stopped breaking the main checkout path",
-    ],
-    tasks: [
-      "Rebuilt key funnel pages to increase conversion",
-      "Looked for drop-off points through competitors, heatmaps, and session recordings",
-      "Validated scenarios through wireframes and clickable prototypes before implementation",
-      "Refined solutions iteratively to ship the most important parts faster",
-      "Aligned major changes through recurring presentations with a cross-functional team",
-      "Expanded the design system and documentation to reduce custom work and speed up delivery",
-      "Worked closely with engineering to reduce ambiguity during implementation",
-      "Built reusable page patterns and components to shorten future launches",
-    ],
+    metrics: ["Purchase conversion +NDA%", "Cart → checkout +NDA%", "Support requests -NDA%"],
     sections: [
       {
         title: "Product page",
         paragraphs: [
-          "The product page was the first and most crowded step of the funnel. It had to help users understand availability, pick-up or delivery, discounts, financing options, and the next action without friction.",
+          "The product page was the most crowded step of the funnel: stock, fulfillment, discounts, financing, and the main CTA competed on the first screen. We rebuilt the structure so the key decision path reads faster — without cutting SEO-critical content.",
         ],
-        problems: [
-          "critical information competed for attention on the first screen",
-          "part of the financing information was lost inside a noisy layout",
-          "the link between stock, fulfillment method, and the primary action was not obvious enough",
-          "the page had to be rebuilt without hurting search visibility or useful SEO content",
-        ],
-        list: [
-          "audited the current flow and competitor patterns",
-          "simplified the first-screen structure and carousel",
-          "merged delivery method and delivery timing into one block",
-          "moved financing and payment conditions into a dedicated zone",
-          "mapped how stock and fulfillment method affect UI states and the main CTA",
-          "checked that the redesign preserved indexation-critical SEO blocks",
-          "reduced visual competition to make the first choice faster",
+        resultList: [
+          "Product page conversion +NDA%",
+          "Time to primary CTA -NDA%",
+          "Clearer path from stock and fulfillment to the main CTA",
         ],
         media: {
           kind: "before-after",
@@ -205,77 +136,58 @@ export const publicCases = {
       {
         title: "Cart",
         paragraphs: [
-          "I rebuilt the cart as a module with direct impact on conversion: fewer secondary distractions, a stronger transition to checkout, and upsell blocks that still felt relevant.",
+          "Rebuilt the cart as a conversion module: fewer secondary elements, a sticky path to checkout, and relevant upsell (gifts, bonuses, accessories) without noise.",
         ],
-        result: [
-          "The handoff from cart to checkout became more direct: users moved to checkout faster, and the cart worked better as a decision point rather than a noisy intermediate screen.",
+        resultList: [
+          "Cart → checkout +NDA%",
+          "Cart exits -NDA%",
+          "Stronger upsell without cluttering the main path",
         ],
-        list: [
-          "reviewed competitor patterns and references",
-          "kept the checkout block visible so the main action stayed within reach",
-          "moved away from a table-like layout toward a card structure",
-          "surfaced gifts, discounts, bonuses, and relevant accessories",
-        ],
-        media: "Module: cart",
+        media: {
+          kind: "before-after",
+          beforeSrc: cartBeforeMockup,
+          afterSrc: cartAfterMockup,
+          beforeLabel: "Before",
+          afterLabel: "After",
+        },
       },
       {
         title: "Checkout",
         paragraphs: [
-          "Checkout had to support many dependencies at once: delivery, pick-up, bonuses, promo codes, forms, and special-case scenarios such as trade-in.",
+          "Checkout depended on delivery, pick-up, bonuses, promo codes, forms, and special cases like trade-in. We separated states and copy by fulfillment method so restrictions stopped breaking the main path.",
         ],
-        resultTitle: "Result:",
-        resultTitleStyle: "body",
         resultList: [
-          "the next-step transition grew by +NDA%",
-          "the flow became more stable across delivery and pick-up scenarios",
-          "special rules and restrictions stopped breaking the main checkout path",
+          "Next-step transition +NDA%",
+          "More stable delivery and pick-up completion",
+          "Special rules stopped breaking the main checkout path",
         ],
-        list: [
-          "designed scenarios where fulfillment method changes availability",
-          "separated copy and states for delivery versus store pick-up",
-          "accounted for trade-in and other special constraints",
-          "refined forms, modal states, and confirmation logic",
-        ],
-        media: "Module: checkout",
-        mediaPlacement: "before-result",
+        media: {
+          kind: "before-after",
+          beforeSrc: checkoutBeforeMockup,
+          afterSrc: checkoutAfterMockup,
+          beforeLabel: "Before",
+          afterLabel: "After",
+        },
       },
       {
-        title: "Order details",
+        title: "Post-purchase",
         paragraphs: [
-          "The post-purchase stage became the foundation of the project: this is where statuses, promotions, line items, pickup timing, and service dependencies all converged.",
+          "Post-purchase covers both the order list and order details. Statuses, promotions, line items, pickup timing, and service dependencies all met here. We standardized statuses, connected list → details, and rebuilt the flow so users understand what happened and what to do next.",
         ],
-        result: [
-          "After rebuilding the post-purchase stage and its connected screens, support requests dropped by -NDA%: users understood order status, contents, and next actions much better without extra help.",
+        resultList: [
+          "Support requests after purchase -NDA%",
+          "Clearer status and next-step reading in list and details",
+          "One status model across post-purchase screens",
         ],
-        list: [
-          "standardized statuses and their sequence after purchase",
-          "built one coherent post-purchase flow instead of disconnected screens",
-          "accounted for dependencies with microservices, pricing, delivery, and promotions",
-        ],
-        media: "Module: order details",
-      },
-      {
-        title: "My orders",
-        paragraphs: ["The order list became an extension of the post-purchase stage and the entry point into order history and statuses."],
-        list: [
-          "connected the list screen with the order-details logic",
-          "simplified navigation across statuses and states",
-          "checked how users move between the list and the details page",
-        ],
-        media: "Module: my orders",
-      },
-      {
-        title: "Summary",
-        paragraphs: [
-          "For me this was not a one-off redesign but a long-term improvement of a product flow. The outcome was not only better-looking screens, but a more connected funnel with clearer behavior and better scalability.",
-        ],
-      },
-      {
-        title: "Personal takeaways",
-        list: [
-          "connecting several product modules into one coherent user flow",
-          "treating product work as a system of dependencies rather than a set of isolated screens",
-          "spotting earlier how a UX decision affects engineering, support, and adjacent services",
+        media: [
+          {
+            src: giftCardFrames,
+            alt: "Card types in order details: electronic, plastic, and gift for someone else",
+          },
+          {
+            src: snippetFrames,
+            alt: "Order snippets and listing cards",
+          },
         ],
       },
     ],
@@ -373,61 +285,51 @@ export const publicCases = {
       },
     ],
   },
-  partners: {
-    slug: "/projects/partners",
-    title: "Mechta Partners",
+  internalTools: {
+    slug: "/projects/internal-tools",
+    title: "Internal Tools",
     heroImage: partnersCover,
     summary: [
-      "An internal service for processing supplier and partner offers: less manual chaos, fewer duplicates, and a clearer review workflow for category managers.",
-      "The MVP had to be realistic for engineering and useful from day one, so the work focused on process clarity rather than interface complexity.",
+      "Mechta.kz internal tools: Partners, Prices, and the corporate portal. Three products about processes, roles, and team speed — from suppliers and price tags to documents with eGov.",
     ],
-    metrics: ["Time to review -NDA%", "Duplicate offers -NDA%", "MVP launch NDA weeks"],
+    metrics: [
+      "Partners: time to review -NDA%",
+      "Prices: printing workflow -NDA%",
+      "Documents: processing time -NDA%",
+    ],
     context: [
-      "Incoming offers were handled through a messy stream of manual operations. Duplicates polluted the catalog, decisions were hard to track, and category managers spent too much time just cleaning the flow before they could assess the actual proposal.",
-      "The challenge was not to invent a large internal platform from scratch, but to build a compact MVP that reflected the real workflow and gave the team a cleaner staged process.",
+      "Internal work at Mechta spanned three 0→1 products: supplier offer processing, offline price-tag workflows, and a modular corporate portal with eGov signing.",
     ],
     goals: [
-      "turn the incoming stream into a manageable review workflow",
-      "reduce duplicate handling and wasted manager time",
-      "make prioritization and publishing preparation easier to track",
-      "ship an MVP that engineering could implement quickly",
+      "turn messy internal processes into shippable MVP workflows",
+      "keep role, status, and module boundaries clear under real constraints",
+      "validate decisions through prototypes and field checks before launch",
     ],
     actions: [
-      "mapped the raw supplier flow into review, prioritization, and publishing-preparation stages",
-      "interviewed category managers to capture pain points from the real process",
-      "framed the service as an inbox-like workflow instead of another static internal form",
-      "validated the MVP through a clickable prototype and alignment with engineering",
-      "reused familiar patterns where they reduced time-to-market without hurting clarity",
+      "mapped Partners as an inbox-like review → prioritization → publishing flow",
+      "validated Prices with supervisors and floor consultants in real store scenarios",
+      "structured the corporate portal around employees/org data and document routes",
     ],
     results: [
-      "Launched the MVP in one month with a structure that was realistic for engineering.",
-      "Reduced duplicate processing by turning incoming proposals into a clearer staged flow.",
-      "Gave managers a more controlled process for review, prioritization, and handoff to publishing.",
-      "Created a base that could be expanded with richer calculations and automation later on.",
-    ],
-    tasks: [
-      "Mapped the incoming stream of supplier offers into a structured workflow",
-      "Interviewed category managers to capture pain points in the real process",
-      "Prototyped the MVP around review, prioritization, and publishing preparation",
-      "Balanced process clarity with reuse of existing patterns to ship faster",
-      "Documented the MVP logic for the next implementation step",
+      "Launched Partners MVP in one month and reduced duplicates and manual errors.",
+      "Sped up price-tag printing and cut material waste and print errors in Prices.",
+      "Built a modular corporate portal for employees, org structure, documents, and eGov.",
     ],
     sections: [
       {
-        title: "Process",
+        title: "Partners",
         paragraphs: [
-          "The work naturally decomposed into three short modules: review the incoming stream, mark and prioritize the offers worth keeping, and then prepare the chosen ones for publishing in the main catalog.",
+          "An internal service for processing supplier and partner offers. Before that, the process lived in 1C — hard to scale and full of catalog duplicates.",
         ],
         problems: [
-          "the incoming flow was too dependent on manual operations",
-          "duplicates polluted the catalog and wasted team time",
-          "the team needed a realistic MVP instead of a heavy redesign from scratch",
+          "incoming offers depended too heavily on manual operations",
+          "duplicates polluted the catalog and wasted manager time",
+          "the team needed a realistic MVP instead of a heavy redesign",
         ],
         list: [
-          "framed the service as an inbox-like workflow instead of another static form",
-          "added a review layer for first-pass evaluation",
-          "built prioritization states and lightweight handoff logic",
-          "connected the final step with preparation for publishing in the catalog",
+          "split the work into review, prioritization, and publishing-preparation modules",
+          "validated the flow through a clickable prototype before implementation",
+          "connected internal processing to product-card preparation and catalog publishing",
         ],
         media: {
           src: partnersDrawer,
@@ -436,127 +338,47 @@ export const publicCases = {
         mediaPlacement: "after-problems",
       },
       {
-        title: "Validation and rollout",
+        title: "Prices",
         paragraphs: [
-          "To keep the MVP realistic, I aligned the flow with engineering and discussed the prototype with category managers who would actually use the service. That helped keep the scope focused while still solving the biggest pain points.",
+          "A service for faster repricing and label replacement in physical stores, reducing reliance on legacy tools.",
+          "Field interviews and usability testing with supervisors and floor consultants helped validate the MVP in a real work context before launch.",
         ],
         list: [
-          "gathered pain points from category managers",
-          "used a clickable prototype for alignment instead of abstract discussion",
-          "reused familiar patterns where it reduced time-to-market",
+          "sped up the price-tag printing workflow",
+          "reduced material waste during printing",
+          "lowered printing error rates",
         ],
+        media: {
+          src: pricingPreview,
+          alt: "Mechta Prices — price-tag printing service",
+        },
+      },
+      {
+        title: "Corporate portal",
+        paragraphs: [
+          "A modular portal for employees, org structure, and documents with approval and eGov signing. Built under an incomplete brief and a tight deadline.",
+        ],
+        problems: [
+          "no full technical brief at the start",
+          "role boundaries and actions had to be defined quickly",
+          "module prioritization was critical under limited time",
+        ],
+        list: [
+          "designed the admin layer for employees, departments, and org structure",
+          "mapped role-based document statuses and actions",
+          "prepared the interface for the eGov signing flow",
+        ],
+        media: {
+          src: corporatePreview,
+          alt: "Mechta corporate portal",
+        },
       },
       {
         title: "Personal takeaways",
         list: [
-          "breaking a messy internal process into a small set of practical modules",
-          "designing MVP logic around real work patterns instead of decorative complexity",
-          "using prototypes as a tool to keep meetings and trade-offs manageable",
-        ],
-      },
-    ],
-  },
-  corporate: {
-    slug: "/projects/corporate-portal",
-    title: "Corporate portal",
-    heroImage: corporatePreview,
-    summary: [
-      "An internal portal for employee management, org structure, and document flows with electronic signing through eGov.",
-      "The work was driven by deadlines and incomplete input, so a big part of the value was structuring the product before polishing the interface.",
-    ],
-    metrics: ["Document processing -NDA%", "Manual steps -NDA%"],
-    context: [
-      "The project started without a complete technical brief or a stable product structure. Roles, statuses, and process boundaries had to be defined quickly, while the portal itself needed to cover both administrative employee management and document approval/signing.",
-      "This made prioritization just as important as interface quality: the team needed a workable modular foundation first, and only then deeper refinement of separate flows.",
-    ],
-    goals: [
-      "turn an incomplete brief into a structured modular product",
-      "define clear role-based actions for employees, managers, and HR",
-      "build a readable document route from creation to eGov signing",
-      "prepare an admin layer for employees, departments, and org structure",
-    ],
-    actions: [
-      "split the portal into employee-management and document-signing modules",
-      "mapped roles, statuses, and transitions for lists and detailed process views",
-      "designed employee administration, editable org data, and manual linking where source data was incomplete",
-      "structured the eGov route with separate stages, confirmations, and status visibility",
-      "prepared the interfaces with engineering constraints and backend contracts in mind",
-    ],
-    results: [
-      "Built the foundation of a modular internal portal under a tight deadline.",
-      "Defined separate actions and states for HR, managers, and employees.",
-      "Structured the document approval and eGov signing flow as a dedicated process.",
-      "Prepared an admin layer for employees, departments, and org structure.",
-    ],
-    tasks: [
-      "Turned an incomplete brief into a structured set of product modules",
-      "Designed employee management around roles, statuses, and editable fields",
-      "Mapped the document route from creation to electronic signing in eGov",
-      "Built a status model that works both in lists and in detailed process views",
-      "Prepared the interfaces with engineering constraints in mind",
-    ],
-    sections: [
-      {
-        title: "Project context",
-        paragraphs: [
-          "Because of the deadline, the product had to be built as a modular system: first a working foundation, then deeper refinement of individual areas.",
-        ],
-        problems: [
-          "there was no full technical brief or complete input documentation at the start",
-          "role boundaries and actions had to be defined very quickly",
-          "with limited time, module prioritization was critical",
-        ],
-      },
-      {
-        title: "Employee management",
-        paragraphs: [
-          "This module covered the administrative side of the portal and the manual connections between data points that were missing in the existing HR system.",
-        ],
-        problems: [
-          "part of the organizational data was missing in the source system and had to be linked manually",
-          "department, org structure, and account data had to be editable within one flow",
-          "without a dedicated admin layer, these changes would stay scattered across the system",
-        ],
-        list: [
-          "designed the employee list with key identity and role data",
-          "built the employee card with editable fields, corporate email, and password change",
-          "added manual linking between employees, departments, and org structure",
-          "covered structure creation, department editing, and employee search",
-        ],
-      },
-      {
-        title: "Documents and eGov",
-        paragraphs: [
-          "The second module focused on approval routes and document signing through eGov, from the business process itself to the final signing status.",
-        ],
-        problems: [
-          "the route involved several roles and could easily lose status transparency",
-          "HR, managers, and employees needed different actions within the same process",
-          "electronic signing required a dedicated layer of statuses and confirmations",
-        ],
-        list: [
-          "mapped role-based flows for employee, manager, and HR",
-          "designed the document list, creation flow, editing, and process card",
-          "built statuses, stages, and role-based actions",
-          "prepared the interface for the eGov signing flow and signature status",
-        ],
-      },
-      {
-        title: "What mattered in UX",
-        list: [
-          "statuses and stages had to be readable at a glance",
-          "each role should only see relevant actions",
-          "the process needed to stay understandable both in the list and in the detailed view",
-          "the eGov signing state had to be visualized as a dedicated layer",
-        ],
-      },
-      {
-        title: "Personal takeaways",
-        list: [
-          "splitting a large internal product into modules and driving it by priority",
-          "designing around roles, statuses, and process stages",
-          "laying a backend contract and state model already at the UX stage",
-          "moving a project forward even with incomplete documentation and a tight deadline",
+          "designing an internal tool as a role-based process, not a pile of screens",
+          "holding MVP scope and modularity with incomplete input",
+          "validating decisions through prototypes and field scenarios before launch",
         ],
       },
     ],
@@ -798,7 +620,7 @@ export const cvData = {
       format: "full-time · on-site",
       summary:
         "A Kazakhstan retailer where I worked on the customer funnel of the e-commerce product and on internal tools.",
-      projects: ["E-commerce", "Design system", "Mechta Partners", "Corporate portal", "Mechta Prices"],
+      projects: ["E-commerce", "Design system", "Internal Tools"],
       responsibilities: [
         "rebuilt web and mobile flows to improve conversion and reduce errors",
         "improved customer and internal workflows under real business constraints",

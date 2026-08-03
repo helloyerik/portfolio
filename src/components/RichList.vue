@@ -1,5 +1,5 @@
 <script setup>
-import { isPositiveNdaMetric } from "../lib/metricMarkers";
+import { getMetricMarker, isPositiveNdaMetric } from "../lib/metricMarkers";
 
 const props = defineProps({
   items: {
@@ -19,6 +19,12 @@ const props = defineProps({
     default: false,
   },
 });
+
+const markerFor = (item) => {
+  if (props.forceMarkers) return getMetricMarker(item) ?? "✓";
+  if (props.showMetrics && isPositiveNdaMetric(item)) return getMetricMarker(item) ?? "✓";
+  return null;
+};
 </script>
 
 <template>
@@ -29,14 +35,11 @@ const props = defineProps({
     <li
       v-for="(item, index) in items"
       :key="`${item}-${index}`"
-      :class="{ 'metric-list-item': forceMarkers || (showMetrics && isPositiveNdaMetric(item)) }"
+      :class="{ 'metric-list-item': Boolean(markerFor(item)) }"
     >
-      <span
-        v-if="forceMarkers || (showMetrics && isPositiveNdaMetric(item))"
-        class="metric-list-item__marker"
-        aria-hidden="true"
-        >↑</span
-      >
+      <span v-if="markerFor(item)" class="metric-list-item__marker" aria-hidden="true">{{
+        markerFor(item)
+      }}</span>
       {{ item }}
     </li>
   </ul>

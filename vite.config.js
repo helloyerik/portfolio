@@ -2,10 +2,8 @@ import path from "node:path";
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 
-import { cloudflare } from "@cloudflare/vite-plugin";
-
 export default defineConfig({
-  plugins: [vue(), cloudflare()],
+  plugins: [vue()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

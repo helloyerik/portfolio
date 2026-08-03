@@ -27,10 +27,9 @@ const hasStructuredOverview = computed(
     Array.isArray(props.caseData.goals) ||
     Array.isArray(props.caseData.actions),
 );
-const contextItems = computed(() => props.caseData.context ?? props.caseData.summary ?? []);
+const introContextItems = computed(() => props.caseData.context ?? props.caseData.myRole ?? []);
 const goalsItems = computed(() => props.caseData.goals ?? []);
 const actionsItems = computed(() => props.caseData.actions ?? props.caseData.tasks ?? []);
-const metricsItems = computed(() => props.caseData.metrics ?? []);
 const currentIndex = computed(() => props.caseOrder.findIndex((item) => item.slug === props.caseData.slug));
 const prevCase = computed(() =>
   currentIndex.value >= 0
@@ -42,17 +41,16 @@ const nextCase = computed(() =>
 );
 const siteCopy = inject("siteCopy");
 const isModuleCase = computed(() => Boolean(props.caseData.moduleCase));
+const hasIntroCopy = computed(
+  () => Boolean(props.caseData.summary?.length) || Boolean(introContextItems.value.length),
+);
 const sectionOrderOffset = computed(() => {
   let order = 4;
   if (hasStructuredOverview.value) {
-    if (contextItems.value.length) order += 1;
     if (goalsItems.value.length) order += 1;
     if (actionsItems.value.length) order += 1;
-    if (metricsItems.value.length) order += 1;
     if (props.caseData.results?.length) order += 1;
   } else {
-    if (props.caseData.myRole?.length) order += 1;
-    if (metricsItems.value.length) order += 1;
     if (props.caseData.results?.length) order += 1;
     if (props.caseData.tasks?.length) order += 1;
   }
@@ -63,10 +61,8 @@ const heroImageOpen = ref(false);
 const sectionItems = computed(() => {
   if (hasStructuredOverview.value) {
     return [
-      ...(contextItems.value.length ? [{ id: "context", label: siteCopy.value.contextLabel }] : []),
       ...(goalsItems.value.length ? [{ id: "goals", label: siteCopy.value.goalsLabel }] : []),
       ...(actionsItems.value.length ? [{ id: "actions", label: siteCopy.value.actionsLabel }] : []),
-      ...(metricsItems.value.length ? [{ id: "metrics", label: siteCopy.value.metricsLabel }] : []),
       ...(props.caseData.results?.length ? [{ id: "results", label: siteCopy.value.resultsLabel }] : []),
       ...mergedSections.value.map((section, index) => ({
         id: toSectionId(section.title, index),
@@ -76,8 +72,6 @@ const sectionItems = computed(() => {
   }
 
   return [
-    ...(props.caseData.myRole?.length ? [{ id: "my-role", label: siteCopy.value.myRoleLabel }] : []),
-    ...(metricsItems.value.length ? [{ id: "metrics", label: siteCopy.value.metricsLabel }] : []),
     ...(props.caseData.results?.length ? [{ id: "results", label: siteCopy.value.resultsLabel }] : []),
     ...(props.caseData.tasks?.length ? [{ id: "tasks", label: siteCopy.value.tasksLabel }] : []),
     ...mergedSections.value.map((section, index) => ({
@@ -135,35 +129,29 @@ watch(sectionItems, () => {
       <span v-for="(item, index) in caseData.highlights" :key="`${item}-${index}`">{{ item }}</span>
     </RevealBlock>
 
-    <RevealBlock class="content-block" :order="2">
-      <h1 class="display-title">{{ caseData.title }}</h1>
-      <div class="prose">
-        <p v-for="(paragraph, index) in caseData.summary" :key="`${paragraph}-${index}`">{{ paragraph }}</p>
-      </div>
-    </RevealBlock>
-
-    <RevealBlock v-if="caseData.heroImage" class="case-hero" :order="3">
+    <RevealBlock v-if="caseData.heroImage" class="case-hero" :order="2">
       <button type="button" class="gallery__zoom-trigger case-hero__trigger" @click="heroImageOpen = true">
         <img class="case-hero__image" :src="caseData.heroImage" alt="" />
       </button>
     </RevealBlock>
-    <RevealBlock v-else class="image-placeholder" :order="3">{{ siteCopy.caseCoverPlaceholder }}</RevealBlock>
+    <RevealBlock v-else class="image-placeholder" :order="2">{{ siteCopy.caseCoverPlaceholder }}</RevealBlock>
 
-    <RevealBlock v-if="hasStructuredOverview && contextItems.length" as="article" class="content-block" id="context" :order="4">
-      <h2 class="section-title">{{ siteCopy.contextLabel }}</h2>
+    <RevealBlock v-if="hasIntroCopy" class="content-block" :order="3">
+      <h1 class="visually-hidden">{{ caseData.title }}</h1>
       <div class="prose">
-        <p v-for="(paragraph, index) in contextItems" :key="`${paragraph}-${index}`">{{ paragraph }}</p>
+        <p v-for="(paragraph, index) in caseData.summary ?? []" :key="`summary-${index}`">{{ paragraph }}</p>
+        <p v-for="(paragraph, index) in introContextItems" :key="`context-${index}`">{{ paragraph }}</p>
       </div>
     </RevealBlock>
 
-    <RevealBlock v-if="hasStructuredOverview && goalsItems.length" as="article" class="content-block" id="goals" :order="5">
+    <RevealBlock v-if="hasStructuredOverview && goalsItems.length" as="article" class="content-block" id="goals" :order="4">
       <h2 class="section-title">{{ siteCopy.goalsLabel }}</h2>
       <div class="prose">
         <RichList :items="goalsItems" :show-metrics="false" />
       </div>
     </RevealBlock>
 
-    <RevealBlock v-if="hasStructuredOverview && actionsItems.length" as="article" class="content-block" id="actions" :order="6">
+    <RevealBlock v-if="hasStructuredOverview && actionsItems.length" as="article" class="content-block" id="actions" :order="5">
       <h2 class="section-title">{{ siteCopy.actionsLabel }}</h2>
       <div class="prose">
         <RichList :items="actionsItems" />
@@ -171,59 +159,7 @@ watch(sectionItems, () => {
     </RevealBlock>
 
     <RevealBlock
-      v-if="hasStructuredOverview && metricsItems.length"
-      as="article"
-      class="content-block"
-      id="metrics"
-      :order="7"
-    >
-      <h2 class="section-title">{{ siteCopy.metricsLabel }}</h2>
-      <div class="prose">
-        <RichList :items="metricsItems" :force-markers="true" />
-      </div>
-    </RevealBlock>
-
-    <RevealBlock
       v-if="hasStructuredOverview && caseData.results?.length"
-      as="article"
-      class="content-block"
-      id="results"
-      :order="8"
-    >
-      <h2 class="section-title">{{ siteCopy.resultsLabel }}</h2>
-      <div class="prose">
-        <RichList :items="caseData.results" :show-metrics="false" />
-      </div>
-    </RevealBlock>
-
-    <RevealBlock
-      v-if="!hasStructuredOverview && caseData.myRole?.length"
-      as="article"
-      class="content-block"
-      id="my-role"
-      :order="4"
-    >
-      <h2 class="section-title">{{ siteCopy.myRoleLabel }}</h2>
-      <div class="prose">
-        <p v-for="(paragraph, index) in caseData.myRole" :key="`${paragraph}-${index}`">{{ paragraph }}</p>
-      </div>
-    </RevealBlock>
-
-    <RevealBlock
-      v-if="!hasStructuredOverview && metricsItems.length"
-      as="article"
-      class="content-block"
-      id="metrics"
-      :order="5"
-    >
-      <h2 class="section-title">{{ siteCopy.metricsLabel }}</h2>
-      <div class="prose">
-        <RichList :items="metricsItems" :force-markers="true" />
-      </div>
-    </RevealBlock>
-
-    <RevealBlock
-      v-if="!hasStructuredOverview && caseData.results?.length"
       as="article"
       class="content-block"
       id="results"
@@ -236,11 +172,24 @@ watch(sectionItems, () => {
     </RevealBlock>
 
     <RevealBlock
+      v-if="!hasStructuredOverview && caseData.results?.length"
+      as="article"
+      class="content-block"
+      id="results"
+      :order="4"
+    >
+      <h2 class="section-title">{{ siteCopy.resultsLabel }}</h2>
+      <div class="prose">
+        <RichList :items="caseData.results" :show-metrics="false" />
+      </div>
+    </RevealBlock>
+
+    <RevealBlock
       v-if="!hasStructuredOverview && caseData.tasks?.length"
       as="article"
       class="content-block"
       id="tasks"
-      :order="7"
+      :order="6"
     >
       <h2 class="section-title">{{ siteCopy.tasksLabel }}</h2>
       <div class="prose">

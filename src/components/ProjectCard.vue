@@ -34,18 +34,14 @@ const highlightItems = computed(() => {
 
   return nonTagFacts.value.map((fact) => ({
     text: formatHighlight(fact),
-    marker: "\u2191",
+    marker: "✓",
   }));
 });
 const formatHighlight = (value) => {
   if (!value) return value;
   return value.charAt(0).toUpperCase() + value.slice(1);
 };
-const metricMarker = (metric) => {
-  if (/\+/.test(metric)) return "\u2191";
-  if (/-/.test(metric)) return "\u2193";
-  return "\u2191";
-};
+const metricMarker = () => "✓";
 </script>
 
 <template>

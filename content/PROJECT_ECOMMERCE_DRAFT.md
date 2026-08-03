@@ -14,6 +14,66 @@
 
 Особенность проекта была в том, что редизайн воронки начался с конца, с post-checkout. Это было неочевидным решением, но именно так сложились бизнес-приоритеты и ожидания стейкхолдеров. Из-за этого нужно было не просто редизайнить экраны, а строить фундамент так, чтобы будущие изменения со временем собирались в цельный пользовательский поток.
 
+## Goals
+Moved from the public EN case page (`/projects/ecommerce` `#goals`) — keep here for drafts only:
+
+- make the main funnel actions easier to notice and faster to complete
+- reduce clutter on the product page without losing critical sales, delivery, credit, or SEO information
+- replace deprecated UI patterns with a cleaner and more scalable design-system base
+- lower support and operational handwork by making states, statuses, and next steps easier to understand
+
+## Cut from public case (2026-08 rewrite)
+Compact public version lives in `cases.js` / `cases-en.js`. Long process, lists, and takeaways stay here.
+
+### Removed from public — case-level
+- RU highlight: «Регулярная синхронизация с командой 20+ человек»
+- Long intro about design-system rollout (separate case / draft)
+- Case-level Actions / Tasks / Results prose
+- Sections: Summary / Итог, Personal takeaways / Личные итоги
+
+### Product page — detail cut
+Problems:
+- critical info competed on the first screen
+- financing lost in a noisy layout
+- stock / fulfillment / CTA link was unclear
+- rebuild without hurting SEO
+
+What I did:
+- audited current flow and competitors
+- simplified first screen and carousel
+- merged delivery method + timing
+- moved financing into a dedicated zone
+- mapped stock/fulfillment → UI states and CTA
+- preserved SEO blocks
+- reduced visual competition
+
+### Cart — detail cut
+- competitor review
+- sticky checkout block
+- table → cards
+- gifts, discounts, bonuses, accessories
+
+### Checkout — detail cut
+- fulfillment method changes availability
+- separate copy/states for delivery vs pick-up
+- trade-in and special constraints
+- forms, modals, confirmation logic
+- flow more stable across fulfillment methods
+
+### Post-purchase — detail cut
+- standardized status sequence
+- one coherent flow instead of disconnected screens
+- microservices / pricing / delivery / promotions dependencies
+- list ↔ details navigation checks
+
+### Personal takeaways (was public)
+- connecting several product modules into one coherent user flow
+- treating product work as a system of dependencies rather than isolated screens
+- spotting earlier how a UX decision affects engineering, support, and adjacent services
+
+### Summary (was public)
+Not a one-off redesign — a connected funnel rebuilt step by step.
+
 ## Results
 - увеличили конверсию в покупку на `X%`
 - повысили переход из корзины в чекаут на `X%`
