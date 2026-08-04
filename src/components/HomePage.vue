@@ -1,5 +1,6 @@
 <script setup>
 import { computed, inject } from "vue";
+import { ListItem } from "@yerik/yedesign-system";
 import CompanyDivider from "./CompanyDivider.vue";
 import ProjectCard from "./ProjectCard.vue";
 import RevealBlock from "./RevealBlock.vue";
@@ -57,7 +58,7 @@ const visibleMechtaProjects = computed(() =>
 
     <RevealBlock id="projects" :order="5">
       <CompanyDivider
-        mark="F"
+        mark-type="habr"
         :name="siteCopy.freelanceName"
         :period="siteCopy.freelancePeriod"
         :role="siteCopy.freelanceRole"
@@ -69,7 +70,6 @@ const visibleMechtaProjects = computed(() =>
 
     <RevealBlock id="certificates" :order="7">
       <CompanyDivider
-        mark="C"
         :name="siteCopy.certificatesName"
         :period="siteCopy.certificatesPeriod"
         :role="siteCopy.certificatesRole"
@@ -82,15 +82,17 @@ const visibleMechtaProjects = computed(() =>
         target="_blank"
         rel="noopener noreferrer"
       >
-        <article class="project-card">
-          <div class="project-card__body">
-            <div class="project-card__heading">
-              <h3 class="project-card__title">{{ certificate.title }}</h3>
-              <p v-if="certificate.period" class="project-card__meta-line">{{ certificate.period }}</p>
-            </div>
-            <p v-if="certificate.summary" class="project-card__summary">{{ certificate.summary }}</p>
-          </div>
-        </article>
+        <ListItem
+          :title="certificate.title"
+          :subtitle="certificate.period"
+          :image-src="certificate.imageSrc || ''"
+          :image-alt="certificate.title"
+          size="XL"
+          variant="plain"
+          :interactive="true"
+          :chevron="false"
+          class="company-divider__item"
+        />
       </a>
     </RevealBlock>
 

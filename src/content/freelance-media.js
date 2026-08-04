@@ -45,12 +45,16 @@ const freelanceEntries = Object.entries(freelanceAssetModules)
     return left.name.localeCompare(right.name);
   });
 
+/** Per-project carousel media: { kind: 'carousel', items: [{ src, alt }] } */
 export const freelanceMedia = freelanceEntries.reduce((accumulator, item) => {
   if (!accumulator[item.project]) {
-    accumulator[item.project] = [];
+    accumulator[item.project] = {
+      kind: "carousel",
+      items: [],
+    };
   }
 
-  accumulator[item.project].push({
+  accumulator[item.project].items.push({
     src: item.src,
     alt: item.alt,
   });

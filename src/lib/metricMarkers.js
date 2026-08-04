@@ -1,29 +1,25 @@
-const METRIC_MARKER = "✓";
+export const POSITIVE_METRIC_MARKER = "check";
+export const NEGATIVE_METRIC_MARKER = "minus";
 
 const POSITIVE_ACHIEVEMENT_PATTERNS = [
-  /^\s*[↑✓]/i,
-  /\+\s*(?:NDA%|XX%|X%|\d+%)/i,
-  /\b(faster|improved|increased|accelerated|grew|growth|shorter)\b/i,
-  /\b(рост|вырос|увелич|ускор|повыс|улучш|успешн|конверс|nps)\b/i,
+  /^\s*[↑✓✔☑↗]/i,
+  // Portfolio NDA % deltas are achievements: growth (+NDA%) and good reductions (-NDA%)
+  /[+-]\s*(?:NDA%|XX%|X%|\d+%)/i,
+  /\b(faster|improved|increased|accelerated|grew|growth|shorter|reduced|fewer|lower|less)\b/i,
+  /\b(рост|вырос|увелич|ускор|повыс|улучш|успешн|конверс|nps|сниз|меньше|ниже)\b/i,
 ];
 
-const NEGATIVE_DIRECTION_PATTERNS = [
-  /^\s*↓/i,
-  /-\s*(?:NDA%|XX%|X%|\d+%)/i,
-  /\b(less|lower|reduced|drop|fewer|exits|requests|waste|errors|time to)\b/i,
-  /\b(сниз|меньше|ниже|отказ|обращен|ошибк|время до|расход)\b/i,
-];
+// Explicit regression glyphs only — not percentage decreases of bad metrics
+const NEGATIVE_REGRESSION_PATTERNS = [/^\s*[↓−]/i];
 
 export const isPositiveNdaMetric = (value) =>
   typeof value === "string" && POSITIVE_ACHIEVEMENT_PATTERNS.some((pattern) => pattern.test(value));
 
 export const getMetricMarker = (value) => {
   if (typeof value !== "string") return null;
-  if (
-    NEGATIVE_DIRECTION_PATTERNS.some((pattern) => pattern.test(value)) ||
-    isPositiveNdaMetric(value)
-  ) {
-    return METRIC_MARKER;
+  if (isPositiveNdaMetric(value)) return POSITIVE_METRIC_MARKER;
+  if (NEGATIVE_REGRESSION_PATTERNS.some((pattern) => pattern.test(value))) {
+    return NEGATIVE_METRIC_MARKER;
   }
   return null;
 };

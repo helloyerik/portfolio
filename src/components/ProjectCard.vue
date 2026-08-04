@@ -1,6 +1,8 @@
 <script setup>
 import { computed, inject } from "vue";
 import { Tag } from "@yerik/yedesign-system";
+import { getMetricMarker, POSITIVE_METRIC_MARKER } from "../lib/metricMarkers";
+import MetricMarker from "./MetricMarker.vue";
 import NavLink from "./NavLink.vue";
 
 const props = defineProps({
@@ -17,9 +19,11 @@ const projectFacts = computed(() =>
 const showSoonTag = computed(() =>
   projectFacts.value.includes("Скоро") || projectFacts.value.includes("Soon"),
 );
-const cardSummary = computed(
-  () => props.project.cardSummary ?? (props.project.showSummary ? props.project.summary?.[0] ?? "" : ""),
-);
+const cardSummary = computed(() => {
+  if (props.project.cardSummary) return props.project.cardSummary;
+  if (props.project.showSummary === false) return "";
+  return props.project.summary?.[0] ?? "";
+});
 const nonTagFacts = computed(() =>
   projectFacts.value.filter((fact) => fact !== "Скоро" && fact !== "Soon"),
 );
@@ -28,20 +32,19 @@ const highlightItems = computed(() => {
   if (coverMetrics.value.length) {
     return coverMetrics.value.map((metric) => ({
       text: formatHighlight(metric),
-      marker: metricMarker(metric),
+      marker: getMetricMarker(metric) ?? POSITIVE_METRIC_MARKER,
     }));
   }
 
   return nonTagFacts.value.map((fact) => ({
     text: formatHighlight(fact),
-    marker: "✓",
+    marker: getMetricMarker(fact) ?? POSITIVE_METRIC_MARKER,
   }));
 });
 const formatHighlight = (value) => {
   if (!value) return value;
   return value.charAt(0).toUpperCase() + value.slice(1);
 };
-const metricMarker = () => "✓";
 </script>
 
 <template>
@@ -52,7 +55,7 @@ const metricMarker = () => "✓";
         <p v-if="cardSummary" class="project-card__summary">{{ cardSummary }}</p>
         <ul v-if="highlightItems.length" class="project-card__highlights">
           <li v-for="(item, index) in highlightItems" :key="`${item.text}-${index}`" class="metric-list-item">
-            <span class="metric-list-item__marker" aria-hidden="true">{{ item.marker }}</span>
+            <MetricMarker :kind="item.marker" />
             {{ item.text }}
           </li>
         </ul>
@@ -76,7 +79,7 @@ const metricMarker = () => "✓";
       <p v-if="cardSummary" class="project-card__summary">{{ cardSummary }}</p>
       <ul v-if="highlightItems.length" class="project-card__highlights">
         <li v-for="(item, index) in highlightItems" :key="`${item.text}-${index}`" class="metric-list-item">
-          <span class="metric-list-item__marker" aria-hidden="true">{{ item.marker }}</span>
+          <MetricMarker :kind="item.marker" />
           {{ item.text }}
         </li>
       </ul>

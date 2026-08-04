@@ -7,6 +7,7 @@ import ecommerceOrderDetailsCover from "../assets/projects/ecommerce-order-detai
 import giftCardFrames from "../assets/projects/gift-card-frames.png";
 import snippetFrames from "../assets/projects/snippet-frames.png";
 import partnersCover from "../assets/projects/partners-cover.png";
+import mishaRozovLogo from "../assets/misha-rozov-logo.png";
 import partnersDrawer from "../assets/projects/partners-drawer.png";
 import productPageBeforeMockup from "../assets/Страница товара до мокап.png";
 import productPageAfterMockup from "../assets/Страница товара после мокап.png";
@@ -18,13 +19,14 @@ import pricingPreview from "../assets/projects/pricing-preview.jpg";
 import corporatePreview from "../assets/projects/corporate-preview.png";
 import freelancePreview from "../assets/projects/freelance-preview.jpg";
 import bmcPreview from "../assets/projects/bmc-preview.jpg";
+import { freelanceMedia } from "./freelance-media";
 
 const moduleMetricsPlaceholder = "Метрики будут добавлены позже.";
 
 export const caseOrder = [
   { slug: "/projects/ecommerce", label: "Интернет-магазин" },
   { slug: "/projects/internal-tools", label: "Internal Tools" },
-  { slug: "/projects/freelance", label: "Фриланс" },
+  { slug: "/projects/freelance", label: "Фриланс на Habr" },
 ];
 
 export const workflowCases = {
@@ -330,7 +332,7 @@ export const workflowCases = {
     ],
   },
   freelance: {
-    title: "Фриланс",
+    title: "Фриланс на Habr",
     publicHref: "/projects/freelance",
     sections: [
       {
@@ -452,12 +454,14 @@ export const mechtaProjects = [
 export const freelanceProjects = [
   {
     slug: "/projects/freelance",
-    title: "Фриланс",
+    title: "Фриланс на Habr",
     kind: "Подборка кейсов",
     period: "2023 — 2025",
-    summary: ["Собранный кейс из четырех клиентских проектов: UniqUnits, Xola, CheryX и Vault."],
+    summary: [
+      "Собранный кейс из семи клиентских проектов: UniqUnits, Xola, CheryX, Vault, маркетплейс фриланса, AI Workspace и AI Image Creation.",
+    ],
     highlights: ["89% клиентов обращались повторно", "Выполнено 27 проектов", "быстрый цикл от брифа до результата"],
-    facts: ["4 проекта", "Мобильные / ИИ / Финтех / Утилитарные"],
+    facts: ["7 проектов", "Мобильные / ИИ / Финтех / Утилитарные"],
     cover: freelancePreview,
     preview: false,
   },
@@ -484,6 +488,7 @@ export const certificates = [
     title: "Superpowered from Misha Rozov",
     period: "Март — июнь 2026",
     href: "https://drive.google.com/file/d/1NoGFtc-DFuN5Mz2C519muoHuBWWQHEuE/view?usp=drive_link",
+    imageSrc: mishaRozovLogo,
   },
 ];
 
@@ -861,10 +866,11 @@ export const publicCases = {
   },
   freelance: {
     slug: "/projects/freelance",
-    title: "Фриланс",
+    title: "Фриланс на Habr",
     heroImage: freelancePreview,
     summary: [
-      "Фриланс дал мне продуктовый опыт в режиме коротких циклов: нужно было самостоятельно разбираться в новом домене, собирать структуру решения, держать качество без длинного онбординга и доводить проект до состояния, которое можно показать клиенту, обсуждать и развивать дальше. Здесь я наработал скорость, самостоятельность и привычку превращать сырой запрос в продуктовый каркас.",
+      "Собранный кейс из семи клиентских проектов: UniqUnits, Xola, CheryX, Vault, маркетплейс фриланса, AI Workspace и AI Image Creation.",
+      "Фриланс дал мне продуктовый опыт в режиме коротких циклов: нужно было самостоятельно разбираться в новом домене, собирать структуру решения, держать качество без длинного онбординга и доводить проект до состояния, которое можно показать клиенту, обсуждать и развивать дальше.",
     ],
     metrics: ["89% клиентов обращались повторно", "27 проектов выполнено", "3+ года практики"],
     myRole: [
@@ -908,6 +914,7 @@ export const publicCases = {
           "что делал: интервью, гипотезы, мобильная структура, состояния экранов",
           "результат: собранный trading-flow с быстрым доступом к ключевым сценариям",
         ],
+        media: freelanceMedia.Orbi,
       },
       {
         title: "Xola",
@@ -925,6 +932,7 @@ export const publicCases = {
           "что делал: Job Stories, вайрфреймы, интерфейс, айдентика, передача в разработку",
           "результат: концепт продукта, который клиент мог развивать дальше",
         ],
+        media: freelanceMedia.Xola,
       },
       {
         title: "CheryX",
@@ -942,6 +950,7 @@ export const publicCases = {
           "что делал: структура, вайрфреймы, айдентика, платежный сценарий",
           "результат: продуктовый концепт, который продавал саму идею сервиса",
         ],
+        media: freelanceMedia.CheryX,
       },
       {
         title: "Vault",
@@ -959,14 +968,44 @@ export const publicCases = {
           "что делал: вайрфреймы, визуальный концепт, интерфейс, материалы для стора и локализация",
           "результат: готовая к публикации упаковка продукта с переводом на несколько языков",
         ],
+        media: freelanceMedia.Vault,
       },
-    ],
-    gallery: [
-      "Проект: UniqUnits",
-      "Проект: Xola",
-      "Проект: CheryX",
-      "Проект: Vault",
-      null,
+      {
+        title: "Маркетплейс фриланса",
+        paragraphs: [
+          "Концепт маркетплейса для IT-специалистов: профили, матчинг и сценарии найма. Задача была собрать понятное продуктовое направление и для специалистов, и для команд, которые ищут людей.",
+        ],
+        list: [
+          "собрал структуру маркетплейса и логику просмотра",
+          "проработал экраны профиля, списков и матчинга",
+          "сформулировал продукт как более удобный hiring-flow, а не просто каталог специалистов",
+        ],
+        media: freelanceMedia.OOX,
+      },
+      {
+        title: "AI Workspace",
+        paragraphs: [
+          "Концепт рабочего пространства для командной работы с ИИ-агентом внутри сценария. Важно было встроить ассистента в командный поток, а не повесить его отдельной «фичей ради фичи».",
+        ],
+        list: [
+          "собрал workspace вокруг совместной работы и контекста задач",
+          "продумал, как ИИ-агент может помогать с навигацией и решениями внутри потока",
+          "довел концепт до более цельного продуктового сценария с понятными экранами и модулями",
+        ],
+        media: freelanceMedia["AI Workspace"],
+      },
+      {
+        title: "AI Image Creation",
+        paragraphs: [
+          "Легкий концепт вокруг генерации изображений с ИИ. Фокус был не на технической глубине, а на том, чтобы превратить типовой generation-flow в более чистый и презентабельный продуктовый опыт.",
+        ],
+        list: [
+          "собрал базовый сценарий генерации и состояния результата",
+          "проработал визуальное направление вокруг промпта и просмотра результата",
+          "упаковал концепт в экраны, с которыми удобнее обсуждать итерировать с клиентом",
+        ],
+        media: freelanceMedia["Genera AI"],
+      },
     ],
   },
   bmc: {

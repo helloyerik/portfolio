@@ -16,7 +16,7 @@ export const siteCopy = {
     productDesignerRole: "Product Designer",
     freelanceName: "Freelance",
     freelancePeriod: "July 2023 — July 2025",
-    freelanceRole: "Project-based work · remote",
+    freelanceRole: "Freelancer · remote",
     bmcPeriod: "February 2024 — August 2024",
     bmcRole: "Project-based work · hybrid",
     certificatesName: "Certificates",
@@ -25,7 +25,6 @@ export const siteCopy = {
     aboutTitle: "About",
     aboutParagraphs: [
       "I am a product designer with 3+ years of experience in digital products. I have worked on e-commerce, B2B, retail, AI, and internal tools, including admin panels, process-heavy scenarios, and service interfaces.",
-      "I am most interested in work that has to balance usability, business goals, and real implementation. That ranges from mobile apps and customer-facing journeys to internal tools, design systems, and product improvements. I have contributed to 0→1 launches, support of existing products, and steady iteration through prototypes, systems thinking, and close collaboration with teams.",
     ],
     specialProjectsTitle: "Special projects",
     specialProjectsButton: "Press me",
@@ -83,7 +82,7 @@ export const siteCopy = {
     productDesignerRole: "Продуктовый дизайнер",
     freelanceName: "Фриланс",
     freelancePeriod: "Июль 2023 — июль 2025",
-    freelanceRole: "Проектная занятость · онлайн",
+    freelanceRole: "Фриланс · онлайн",
     bmcPeriod: "Февраль 2024 — август 2024",
     bmcRole: "Проектная занятость · гибрид",
     certificatesName: "Сертификаты",
@@ -92,7 +91,6 @@ export const siteCopy = {
     aboutTitle: "Обо мне",
     aboutParagraphs: [
       "Я продуктовый дизайнер с 3+ годами опыта в цифровых продуктах. Работал с интернет-магазином, B2B, ритейлом, ИИ и внутренними сервисами, включая админки, процессные сценарии и сервисные интерфейсы.",
-      "Сильнее всего мне интересны задачи, где нужно одновременно учитывать usability, бизнес-цели и реальную реализацию: от мобильных приложений и клиентских сценариев до внутренних инструментов, дизайн-систем и продуктовых улучшений. Участвовал в запуске новых решений с нуля, поддержке существующих продуктов и их последовательном улучшении через прототипы, системный подход и тесную работу с командой.",
     ],
     specialProjectsTitle: "Спец проекты",
     specialProjectsButton: "Нажми меня",

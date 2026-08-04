@@ -1,12 +1,18 @@
 <script setup>
-import { isPositiveNdaMetric } from "../lib/metricMarkers";
+import { getMetricMarker, isPositiveNdaMetric, POSITIVE_METRIC_MARKER } from "../lib/metricMarkers";
+import MetricMarker from "./MetricMarker.vue";
 
-const props = defineProps({
+defineProps({
   items: {
     type: Array,
     default: () => [],
   },
 });
+
+const markerFor = (item) => {
+  if (isPositiveNdaMetric(item)) return getMetricMarker(item) ?? POSITIVE_METRIC_MARKER;
+  return null;
+};
 </script>
 
 <template>
@@ -14,9 +20,9 @@ const props = defineProps({
     <li
       v-for="(item, index) in items"
       :key="`${item}-${index}`"
-      :class="{ 'metric-list-item': isPositiveNdaMetric(item) }"
+      :class="{ 'metric-list-item': Boolean(markerFor(item)) }"
     >
-      <span v-if="isPositiveNdaMetric(item)" class="metric-list-item__marker" aria-hidden="true">✓</span>
+      <MetricMarker v-if="markerFor(item)" :kind="markerFor(item)" />
       <template v-if="index > 0"><br /></template>{{ item }}
     </li>
   </ul>

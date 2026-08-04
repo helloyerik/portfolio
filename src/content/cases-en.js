@@ -7,6 +7,7 @@ import ecommerceOrderDetailsCover from "../assets/projects/ecommerce-order-detai
 import giftCardFrames from "../assets/projects/gift-card-frames.png";
 import snippetFrames from "../assets/projects/snippet-frames.png";
 import partnersCover from "../assets/projects/partners-cover.png";
+import mishaRozovLogo from "../assets/misha-rozov-logo.png";
 import partnersDrawer from "../assets/projects/partners-drawer.png";
 import productPageBeforeMockup from "../assets/Страница товара до мокап.png";
 import productPageAfterMockup from "../assets/Страница товара после мокап.png";
@@ -25,7 +26,7 @@ const moduleMetricsPlaceholder = "Metrics will be added later.";
 export const caseOrder = [
   { slug: "/projects/ecommerce", label: "E-commerce" },
   { slug: "/projects/internal-tools", label: "Internal Tools" },
-  { slug: "/projects/freelance", label: "Freelance" },
+  { slug: "/projects/freelance", label: "Freelance at Habr" },
 ];
 
 export const workflowCases = {};
@@ -66,7 +67,7 @@ export const mechtaProjects = [
 export const freelanceProjects = [
   {
     slug: "/projects/freelance",
-    title: "Freelance",
+    title: "Freelance at Habr",
     kind: "Case collection",
     period: "2023 — 2025",
     summary: [
@@ -100,6 +101,7 @@ export const certificates = [
     title: "Superpowered from Misha Rozov",
     period: "March — June 2026",
     href: "https://drive.google.com/file/d/1NoGFtc-DFuN5Mz2C519muoHuBWWQHEuE/view?usp=drive_link",
+    imageSrc: mishaRozovLogo,
   },
 ];
 
@@ -385,7 +387,7 @@ export const publicCases = {
   },
   freelance: {
     slug: "/projects/freelance",
-    title: "Freelance",
+    title: "Freelance at Habr",
     heroImage: freelancePreview,
     summary: [
       "A combined case from seven client projects: Orbi, Xola, CheryX, Vault, Freelance Marketplace, AI Workspace, and AI Image Creation.",

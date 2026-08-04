@@ -1,5 +1,8 @@
 <script setup>
+import { computed } from "vue";
 import { ListItem } from "@yerik/yedesign-system";
+import mechtaLogo from "@/assets/mechta-kz-logo.png";
+import habrLogo from "@/assets/habr-logo.png";
 
 const props = defineProps({
   id: {
@@ -33,6 +36,13 @@ const props = defineProps({
 });
 
 const subtitle = [props.period, props.role].filter(Boolean).join(" · ");
+
+const logoByMarkType = {
+  mechta: mechtaLogo,
+  habr: habrLogo,
+};
+
+const logoSrc = computed(() => logoByMarkType[props.markType] ?? "");
 </script>
 
 <template>
@@ -41,6 +51,8 @@ const subtitle = [props.period, props.role].filter(Boolean).join(" · ");
       <ListItem
         :title="name"
         :subtitle="subtitle"
+        :image-src="logoSrc"
+        :image-alt="name"
         size="XL"
         variant="plain"
         :interactive="false"

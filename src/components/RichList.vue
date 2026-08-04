@@ -1,5 +1,6 @@
 <script setup>
-import { getMetricMarker, isPositiveNdaMetric } from "../lib/metricMarkers";
+import { getMetricMarker, isPositiveNdaMetric, POSITIVE_METRIC_MARKER } from "../lib/metricMarkers";
+import MetricMarker from "./MetricMarker.vue";
 
 const props = defineProps({
   items: {
@@ -21,8 +22,10 @@ const props = defineProps({
 });
 
 const markerFor = (item) => {
-  if (props.forceMarkers) return getMetricMarker(item) ?? "✓";
-  if (props.showMetrics && isPositiveNdaMetric(item)) return getMetricMarker(item) ?? "✓";
+  if (props.forceMarkers) return getMetricMarker(item) ?? POSITIVE_METRIC_MARKER;
+  if (props.showMetrics && isPositiveNdaMetric(item)) {
+    return getMetricMarker(item) ?? POSITIVE_METRIC_MARKER;
+  }
   return null;
 };
 </script>
@@ -37,9 +40,7 @@ const markerFor = (item) => {
       :key="`${item}-${index}`"
       :class="{ 'metric-list-item': Boolean(markerFor(item)) }"
     >
-      <span v-if="markerFor(item)" class="metric-list-item__marker" aria-hidden="true">{{
-        markerFor(item)
-      }}</span>
+      <MetricMarker v-if="markerFor(item)" :kind="markerFor(item)" />
       {{ item }}
     </li>
   </ul>
