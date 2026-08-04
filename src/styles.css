@@ -386,7 +386,7 @@ a {
   justify-content: center;
   width: min(100%, var(--shell-width));
   gap: 0;
-  padding: 0 16px;
+  padding: 8px;
   margin: 0 auto;
   overflow: visible;
 }

@@ -170,7 +170,7 @@ export const publicCases = {
         },
       },
       {
-        title: "Post-purchase",
+        title: "Order details",
         paragraphs: [
           "Post-purchase covers both the order list and order details. Statuses, promotions, line items, pickup timing, and service dependencies all met here. We standardized statuses, connected list → details, and rebuilt the flow so users understand what happened and what to do next.",
         ],
