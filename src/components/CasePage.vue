@@ -1,6 +1,6 @@
 <script setup>
 import { computed, inject, onBeforeUnmount, onMounted, ref, watch } from "vue";
-import { mergeLearningSections, toSectionId } from "../lib/navigation";
+import { toSectionId } from "../lib/navigation";
 import CaseOutline from "./CaseOutline.vue";
 import ImageLightbox from "./ImageLightbox.vue";
 import InlineMedia from "./InlineMedia.vue";
@@ -20,7 +20,7 @@ const props = defineProps({
   },
 });
 
-const mergedSections = computed(() => mergeLearningSections(props.caseData.sections));
+const mergedSections = computed(() => props.caseData.sections ?? []);
 const hasStructuredOverview = computed(
   () =>
     Array.isArray(props.caseData.context) ||
@@ -212,11 +212,27 @@ watch(sectionItems, () => {
       </div>
       <div class="case-section__body">
         <SectionBody :section="section" />
-        <InlineMedia v-if="section.media && section.mediaPlacement !== 'after-problems'" :media="section.media" />
+        <InlineMedia
+          v-if="section.media && section.mediaPlacement !== 'after-problems' && section.mediaPlacement !== 'before-result'"
+          :media="section.media"
+        />
       </div>
     </RevealBlock>
 
-    <RevealBlock as="nav" class="project-nav" :order="mergedSections.length + sectionOrderOffset">
+    <RevealBlock as="section" class="contact-cta" :order="mergedSections.length + sectionOrderOffset">
+      <h2 class="section-title">{{ siteCopy.ctaTitle }}</h2>
+      <p class="section-note">{{ siteCopy.ctaSubtitle }}</p>
+      <a
+        class="topnav__button"
+        :href="siteCopy.telegramHref"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span>{{ siteCopy.telegramButton }}</span>
+      </a>
+    </RevealBlock>
+
+    <RevealBlock as="nav" class="project-nav" :order="mergedSections.length + sectionOrderOffset + 1">
       <NavLink v-if="prevCase" :href="prevCase.slug">
         {{ siteCopy.previousCaseLabel }}: {{ prevCase.label }}
       </NavLink>

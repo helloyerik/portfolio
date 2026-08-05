@@ -1,6 +1,5 @@
 <script setup>
 import { computed, inject } from "vue";
-import { mergeLearningSections } from "../lib/navigation";
 import NavLink from "./NavLink.vue";
 import RevealBlock from "./RevealBlock.vue";
 import SectionBody from "./SectionBody.vue";
@@ -12,7 +11,7 @@ const props = defineProps({
   },
 });
 
-const mergedSections = computed(() => mergeLearningSections(props.workflowCase.sections));
+const mergedSections = computed(() => props.workflowCase.sections ?? []);
 const siteCopy = inject("siteCopy");
 </script>
 

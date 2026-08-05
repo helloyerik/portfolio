@@ -84,26 +84,3 @@ export function toSectionId(title, index) {
 
   return slug ? `section-${slug}` : `section-${index + 1}`;
 }
-
-export function mergeLearningSections(sections) {
-  const merged = [];
-
-  for (let index = 0; index < sections.length; index += 1) {
-    const current = sections[index];
-    const next = sections[index + 1];
-
-    if (current?.title === "Итог" && next?.title === "Личные итоги") {
-      merged.push({
-        ...current,
-        learningList: next.list ?? [],
-        learningOrdered: next.ordered,
-      });
-      index += 1;
-      continue;
-    }
-
-    merged.push(current);
-  }
-
-  return merged;
-}

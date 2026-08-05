@@ -1,7 +1,6 @@
 <script setup>
 import { inject } from "vue";
 import RichList from "./RichList.vue";
-import LineList from "./LineList.vue";
 import InlineMedia from "./InlineMedia.vue";
 
 const props = defineProps({
@@ -43,7 +42,12 @@ const siteCopy = inject("siteCopy");
       <RichList v-if="section.resultList?.length" :items="section.resultList" :force-markers="true" />
     </template>
 
-    <RichList v-if="section.list?.length" :items="section.list" :ordered="Boolean(section.ordered)" />
+    <RichList
+      v-if="section.list?.length"
+      :items="section.list"
+      :ordered="Boolean(section.ordered)"
+      :force-markers="Boolean(section.forceMarkers)"
+    />
 
     <div v-for="(subsection, index) in section.subsections ?? []" :key="`${subsection.title}-${index}`" class="case-subsection">
       <h3 class="case-subsection__title">{{ subsection.title }}:</h3>
@@ -61,10 +65,5 @@ const siteCopy = inject("siteCopy");
       />
       <InlineMedia :media="subsection.media" />
     </div>
-
-    <template v-if="section.learningList?.length">
-      <h3 class="section-inline-title">{{ siteCopy.personalTakeawaysLabel }}</h3>
-      <LineList :items="section.learningList" />
-    </template>
   </div>
 </template>

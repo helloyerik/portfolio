@@ -96,5 +96,30 @@ const visibleMechtaProjects = computed(() =>
       </a>
     </RevealBlock>
 
+    <RevealBlock as="section" class="contact-cta" :order="9">
+      <h2 class="section-title">{{ siteCopy.ctaTitle }}</h2>
+      <p class="section-note">{{ siteCopy.ctaSubtitle }}</p>
+      <a
+        class="topnav__button"
+        :href="siteCopy.telegramHref"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span>{{ siteCopy.telegramButton }}</span>
+      </a>
+    </RevealBlock>
+
+    <RevealBlock as="footer" class="project-nav site-footer" :order="10">
+      <span>{{ siteCopy.footerCopyright }}</span>
+      <a
+        class="topnav__button"
+        :href="siteCopy.telegramHref"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span>{{ siteCopy.telegramButton }}</span>
+      </a>
+    </RevealBlock>
+
   </main>
 </template>

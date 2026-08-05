@@ -18,7 +18,7 @@
   --line-section: var(--mi-line-height-subheader-3);
   --line-display: var(--mi-line-height-header-2);
   --shell-width: 640px;
-  --reading-width: 640px;
+  --reading-width: calc(var(--shell-width) - 2 * var(--page-inline));
   --media-width: 1080px;
   --page-inline: 40px;
   --space-3xs: var(--mi-spacing-4);
@@ -326,120 +326,31 @@ a {
 }
 
 .topbar {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  overflow: visible;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
-  border-bottom: 0;
-}
-
-/* Progressive blur: 5 stacked layers, strongest at top → clear below. */
-.topbar__blur {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 120px;
-  z-index: 0;
+  z-index: 10;
+  overflow: visible;
+  background-color: var(--color-bg);
+  background: var(--color-bg);
+  border-bottom: 0;
+  transform: translateY(0);
+  transition: transform 320ms ease;
+  will-change: transform;
+}
+
+.topbar--hidden {
+  transform: translateY(-100%);
   pointer-events: none;
 }
 
-.topbar__blur-layer {
-  position: absolute;
-  inset: 0;
-  background: transparent;
+.topbar-spacer {
+  flex-shrink: 0;
+  pointer-events: none;
 }
 
-.topbar__blur-layer--1 {
-  z-index: 1;
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
-  mask-image: linear-gradient(
-    to top,
-    transparent 12.5%,
-    #000 25%,
-    #000 37.5%,
-    transparent 50%
-  );
-  -webkit-mask-image: linear-gradient(
-    to top,
-    transparent 12.5%,
-    #000 25%,
-    #000 37.5%,
-    transparent 50%
-  );
-}
-
-.topbar__blur-layer--2 {
-  z-index: 2;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  mask-image: linear-gradient(
-    to top,
-    transparent 25%,
-    #000 37.5%,
-    #000 50%,
-    transparent 62.5%
-  );
-  -webkit-mask-image: linear-gradient(
-    to top,
-    transparent 25%,
-    #000 37.5%,
-    #000 50%,
-    transparent 62.5%
-  );
-}
-
-.topbar__blur-layer--3 {
-  z-index: 3;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  mask-image: linear-gradient(
-    to top,
-    transparent 37.5%,
-    #000 50%,
-    #000 62.5%,
-    transparent 75%
-  );
-  -webkit-mask-image: linear-gradient(
-    to top,
-    transparent 37.5%,
-    #000 50%,
-    #000 62.5%,
-    transparent 75%
-  );
-}
-
-.topbar__blur-layer--4 {
-  z-index: 4;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  mask-image: linear-gradient(
-    to top,
-    transparent 50%,
-    #000 62.5%,
-    #000 75%,
-    transparent 87.5%
-  );
-  -webkit-mask-image: linear-gradient(
-    to top,
-    transparent 50%,
-    #000 62.5%,
-    #000 75%,
-    transparent 87.5%
-  );
-}
-
-.topbar__blur-layer--5 {
-  z-index: 5;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  mask-image: linear-gradient(to top, transparent 62.5%, #000 75%, #000 100%);
-  -webkit-mask-image: linear-gradient(to top, transparent 62.5%, #000 75%, #000 100%);
-}
-
-.topbar > *:not(.topbar__blur) {
+.topbar > * {
   position: relative;
   z-index: 1;
   overflow: visible;
@@ -454,11 +365,12 @@ a {
 }
 
 .scroll-progress {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: var(--mi-spacing-2);
+  z-index: 11;
   background: transparent;
   overflow: hidden;
   pointer-events: none;
@@ -613,6 +525,7 @@ a {
 .case-page .fact-row,
 .case-page .content-block:not(.case-section),
 .case-page .case-section__header,
+.case-page .contact-cta,
 .case-page .project-nav {
   max-width: var(--reading-width);
   width: 100%;
@@ -1815,6 +1728,29 @@ h2.section-title {
   gap: var(--space-s);
   padding-top: var(--space-l);
   border-top: 1px solid var(--color-border);
+}
+
+.contact-cta {
+  display: grid;
+  gap: var(--space-xs);
+  padding-top: var(--space-l);
+  border-top: 1px solid var(--color-border);
+}
+
+.contact-cta .topnav__button {
+  justify-self: start;
+  padding-inline: 0;
+}
+
+.site-footer {
+  color: var(--color-text-muted);
+  align-items: center;
+}
+
+.site-footer .topnav__button {
+  min-height: auto;
+  padding: 0;
+  color: var(--color-text-muted);
 }
 
 .cv-subtitle {
