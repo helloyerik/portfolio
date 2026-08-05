@@ -334,9 +334,8 @@ a {
   border-bottom: 0;
 }
 
-/* Progressive blur: ~20px at top → 0 at bottom. Fixed so sticky box doesn't clip it. */
-.topbar::before {
-  content: "";
+/* Progressive blur: 5 stacked layers, strongest at top → clear below. */
+.topbar__blur {
   position: fixed;
   top: 0;
   left: 0;
@@ -344,18 +343,103 @@ a {
   height: 120px;
   z-index: 0;
   pointer-events: none;
+}
+
+.topbar__blur-layer {
+  position: absolute;
+  inset: 0;
   background: transparent;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  mask-image: linear-gradient(180deg, #000 0%, transparent 100%);
-  -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 100%);
 }
 
-.topbar::after {
-  content: none;
+.topbar__blur-layer--1 {
+  z-index: 1;
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  mask-image: linear-gradient(
+    to top,
+    transparent 12.5%,
+    #000 25%,
+    #000 37.5%,
+    transparent 50%
+  );
+  -webkit-mask-image: linear-gradient(
+    to top,
+    transparent 12.5%,
+    #000 25%,
+    #000 37.5%,
+    transparent 50%
+  );
 }
 
-.topbar > * {
+.topbar__blur-layer--2 {
+  z-index: 2;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  mask-image: linear-gradient(
+    to top,
+    transparent 25%,
+    #000 37.5%,
+    #000 50%,
+    transparent 62.5%
+  );
+  -webkit-mask-image: linear-gradient(
+    to top,
+    transparent 25%,
+    #000 37.5%,
+    #000 50%,
+    transparent 62.5%
+  );
+}
+
+.topbar__blur-layer--3 {
+  z-index: 3;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  mask-image: linear-gradient(
+    to top,
+    transparent 37.5%,
+    #000 50%,
+    #000 62.5%,
+    transparent 75%
+  );
+  -webkit-mask-image: linear-gradient(
+    to top,
+    transparent 37.5%,
+    #000 50%,
+    #000 62.5%,
+    transparent 75%
+  );
+}
+
+.topbar__blur-layer--4 {
+  z-index: 4;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  mask-image: linear-gradient(
+    to top,
+    transparent 50%,
+    #000 62.5%,
+    #000 75%,
+    transparent 87.5%
+  );
+  -webkit-mask-image: linear-gradient(
+    to top,
+    transparent 50%,
+    #000 62.5%,
+    #000 75%,
+    transparent 87.5%
+  );
+}
+
+.topbar__blur-layer--5 {
+  z-index: 5;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  mask-image: linear-gradient(to top, transparent 62.5%, #000 75%, #000 100%);
+  -webkit-mask-image: linear-gradient(to top, transparent 62.5%, #000 75%, #000 100%);
+}
+
+.topbar > *:not(.topbar__blur) {
   position: relative;
   z-index: 1;
   overflow: visible;
@@ -876,6 +960,13 @@ h2.section-title {
 .project-card-link:hover .project-card__body,
 .project-card:hover,
 .project-card:hover .project-card__body {
+  background: transparent;
+}
+
+/* Certificate / linked ListItem: keep title underline + arrow, no hover fill */
+.project-card-link .mi-list-item.is-interactive:hover,
+.project-card-link .mi-list-item--plain.is-interactive:hover,
+.project-card-link:hover .mi-list-item {
   background: transparent;
 }
 

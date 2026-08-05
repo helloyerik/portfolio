@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "npm run build && wrangler dev",
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "predeploy": "npm run optimize:images",
     "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
@@ -23,6 +25,7 @@
     "@vitejs/plugin-vue": "^6.0.5",
     "@vue/compiler-sfc": "^3.5.30",
     "sass": "^1.98.0",
+    "sharp": "^0.35.3",
     "vite": "^6.4.1",
     "wrangler": "^4.80.0"
   }

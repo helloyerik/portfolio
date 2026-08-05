@@ -13,6 +13,13 @@ const openExternal = (href) => {
 
 <template>
   <header class="topbar">
+    <div class="topbar__blur" aria-hidden="true">
+      <div class="topbar__blur-layer topbar__blur-layer--1"></div>
+      <div class="topbar__blur-layer topbar__blur-layer--2"></div>
+      <div class="topbar__blur-layer topbar__blur-layer--3"></div>
+      <div class="topbar__blur-layer topbar__blur-layer--4"></div>
+      <div class="topbar__blur-layer topbar__blur-layer--5"></div>
+    </div>
     <ScrollProgressBar />
     <RevealBlock as="div" class="shell topbar__inner" :order="0">
       <nav class="topnav topbar__actions">

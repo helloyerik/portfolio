@@ -4,4 +4,5 @@ dist/
 .vite/
 vendor/
 .vercel
+_raw/
 .wrangler

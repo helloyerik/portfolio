@@ -1,8 +1,8 @@
 <script setup>
 import { computed } from "vue";
 import { ListItem } from "@yerik/yedesign-system";
-import mechtaLogo from "@/assets/mechta-kz-logo.png";
-import habrLogo from "@/assets/habr-logo.png";
+import mechtaLogo from "@/assets/mechta-kz-logo.webp";
+import habrLogo from "@/assets/habr-logo.webp";
 
 const props = defineProps({
   id: {

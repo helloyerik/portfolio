@@ -5,12 +5,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-npm run dev      # start Vite dev server at http://localhost:5173
-npm run build    # production build
-npm run preview  # preview production build
+npm run dev              # start Vite dev server at http://localhost:5173
+npm run build            # production build
+npm run preview          # preview production build
+npm run optimize:images  # compress _raw/assets → src/assets WebP (also runs as predeploy)
 ```
 
 No lint or test scripts exist.
+
+### Images
+
+- Put originals in `_raw/assets/` mirroring `src/assets/` paths (gitignored).
+- Run `npm run optimize:images` before push/deploy — writes WebP into `src/assets/` (max width 1920, quality 80).
+- App imports only from `src/assets/*.webp`. Do not commit `_raw/`.
 
 ## Stack
 
