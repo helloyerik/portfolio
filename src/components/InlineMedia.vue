@@ -13,6 +13,13 @@ const props = defineProps({
 
 const activeImage = ref(null);
 
+/** Apply optional media.playbackRate (e.g. 1.25) once metadata is ready. */
+const applyPlaybackRate = (event, rate) => {
+  const video = event?.target;
+  if (!video || rate == null || Number.isNaN(Number(rate))) return;
+  video.playbackRate = Number(rate);
+};
+
 const openImage = (src, alt = "") => {
   if (!src) return;
   activeImage.value = { src, alt };
@@ -134,8 +141,30 @@ onBeforeUnmount(() => {
       </div>
     </div>
     <div v-else-if="Array.isArray(media)" class="gallery gallery--stack">
-      <div v-for="(item, index) in media" :key="item.src ?? index" class="gallery__item gallery__item--inline">
-        <button type="button" class="gallery__zoom-trigger" @click="openImage(item.src, item.alt ?? '')">
+      <div
+        v-for="(item, index) in media"
+        :key="item.src ?? index"
+        class="gallery__item gallery__item--inline"
+        :class="{ 'gallery__item--video': item.kind === 'video' }"
+      >
+        <video
+          v-if="item.kind === 'video'"
+          class="gallery__video"
+          :src="item.src"
+          :aria-label="item.alt ?? ''"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          @loadedmetadata="applyPlaybackRate($event, item.playbackRate)"
+        />
+        <button
+          v-else
+          type="button"
+          class="gallery__zoom-trigger"
+          @click="openImage(item.src, item.alt ?? '')"
+        >
           <MediaImage img-class="gallery__image" :src="item.src" :alt="item.alt ?? ''" />
         </button>
       </div>
@@ -157,6 +186,7 @@ onBeforeUnmount(() => {
         loop
         playsinline
         preload="metadata"
+        @loadedmetadata="applyPlaybackRate($event, media.playbackRate)"
       />
     </div>
     <div v-else class="gallery__item gallery__item--inline">
