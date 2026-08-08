@@ -358,7 +358,6 @@ export const publicCases = {
         paragraphs: [
           "Supplier offer processing for category managers. The process previously lived in 1C: hard to scale, full of catalog duplicates and manual errors. I simplified reviewing incoming offers and sending them for catalog review, validated it with a clickable prototype, and connected it to the product card.",
         ],
-        resultCards: true,
         resultList: [
           "Under tight deadlines, built the admin fully from design-system components — that made it possible to launch in one month",
           "Reduced errors, duplicates, and empty requests, which freed up time for real work",
@@ -375,8 +374,9 @@ export const publicCases = {
           "A price-tag printing service for physical stores: current prices, product names, and characteristics. Prices used to live in scattered instructions — shelf and checkout diverged, which meant customer complaints, staff fines, and damage to reputation and UX; we digitized it on a fast database so sellers can pull up-to-date data anytime and avoid errors.",
         ],
         resultList: [
-          "Sped up price-tag replacement and printing in physical stores by -NDA%",
-          "Reduced material waste and printing error rates",
+          "Sped up price-tag prep: the store gets an auto revaluation list instead of hunting changes in 1C",
+          "Cut tag errors — price and specs pull from shared master data, not manual entry",
+          "Added queue control: clear what’s still in progress vs already printed",
           "Validated the MVP in the field with supervisors and floor consultants before launch",
         ],
         media: [
