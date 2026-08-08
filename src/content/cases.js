@@ -422,7 +422,8 @@ export const mechtaProjects = [
       "Prices: быстрее печать ценников",
     ],
     facts: ["OMS", "Partners", "Prices"],
-    cover: partnersCover,
+    cover: omsDemo,
+    coverKind: "video",
     preview: false,
   },
 ];

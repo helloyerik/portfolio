@@ -64,7 +64,8 @@ export const mechtaProjects = [
       "Prices: faster price-tag printing",
     ],
     facts: ["OMS", "Partners", "Prices"],
-    cover: partnersCover,
+    cover: omsDemo,
+    coverKind: "video",
     preview: false,
   },
 ];

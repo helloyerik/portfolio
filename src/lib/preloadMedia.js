@@ -28,10 +28,16 @@ function addMediaUrls(media, target) {
   if (media.src) target.add(media.src);
 }
 
+function isVideoUrl(url) {
+  return typeof url === "string" && /\.mp4(\?|#|$)/i.test(url);
+}
+
 function walkCase(caseData, covers, interiors) {
   if (!caseData || typeof caseData !== "object") return;
 
-  if (caseData.cover) covers.add(caseData.cover);
+  if (caseData.cover && caseData.coverKind !== "video" && !isVideoUrl(caseData.cover)) {
+    covers.add(caseData.cover);
+  }
 
   for (const section of caseData.sections ?? []) {
     addMediaUrls(section?.media, interiors);
@@ -43,7 +49,9 @@ function walkCase(caseData, covers, interiors) {
 
 function walkProjectList(list, covers) {
   for (const project of list ?? []) {
-    if (project?.cover) covers.add(project.cover);
+    if (!project?.cover) continue;
+    if (project.coverKind === "video" || isVideoUrl(project.cover)) continue;
+    covers.add(project.cover);
   }
 }
 

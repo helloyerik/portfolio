@@ -29,6 +29,11 @@ const nonTagFacts = computed(() =>
   projectFacts.value.filter((fact) => fact !== "Скоро" && fact !== "Soon"),
 );
 const coverMetrics = computed(() => props.project.metrics ?? []);
+const isVideoCover = computed(() => {
+  if (props.project.coverKind === "video") return true;
+  const cover = props.project.cover;
+  return typeof cover === "string" && /\.mp4(\?|#|$)/i.test(cover);
+});
 const highlightItems = computed(() => {
   if (coverMetrics.value.length) {
     return coverMetrics.value.map((metric) => ({
@@ -69,7 +74,18 @@ const formatHighlight = (value) => {
         </div>
       </div>
       <div v-if="project.cover" class="project-card__cover">
-        <MediaImage fill img-class="project-card__image" :src="project.cover" alt="" />
+        <video
+          v-if="isVideoCover"
+          class="project-card__image project-card__video"
+          :src="project.cover"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-hidden="true"
+        />
+        <MediaImage v-else fill img-class="project-card__image" :src="project.cover" alt="" />
       </div>
     </article>
   </NavLink>
@@ -93,7 +109,18 @@ const formatHighlight = (value) => {
       </div>
     </div>
     <div v-if="project.cover" class="project-card__cover">
-      <MediaImage fill img-class="project-card__image" :src="project.cover" alt="" />
+      <video
+        v-if="isVideoCover"
+        class="project-card__image project-card__video"
+        :src="project.cover"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-hidden="true"
+      />
+      <MediaImage v-else fill img-class="project-card__image" :src="project.cover" alt="" />
     </div>
   </article>
 </template>

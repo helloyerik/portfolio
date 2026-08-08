@@ -1119,6 +1119,10 @@ h2.section-title {
   border-radius: 0;
 }
 
+.project-card__video {
+  pointer-events: none;
+}
+
 .case-hero__trigger {
   display: block;
   width: 100%;
