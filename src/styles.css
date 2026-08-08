@@ -1098,6 +1098,9 @@ h2.section-title {
 .project-card__cover {
   aspect-ratio: 16 / 9;
   position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .project-card__image,
@@ -1717,6 +1720,11 @@ h2.section-title {
 
 .gallery__item--video {
   line-height: 0;
+  background-color: var(--color-media-backdrop);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: var(--mi-radius-2xs);
 }
 
 .gallery__video {
@@ -1727,7 +1735,7 @@ h2.section-title {
   border: 0;
   outline: 0;
   border-radius: var(--mi-radius-2xs);
-  background: var(--color-media-backdrop);
+  background: transparent;
 }
 
 .gallery__item--carousel .gallery__image {

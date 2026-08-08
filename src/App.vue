@@ -87,7 +87,11 @@ onMounted(() => {
   stopMediaPreload = startBackgroundMediaPreload([
     getLocalizedCases("en"),
     getLocalizedCases("ru"),
-  ]);
+  ], {
+    idleTimeout: 400,
+    imageConcurrency: 4,
+    videoConcurrency: 2,
+  });
 });
 
 onBeforeUnmount(() => {

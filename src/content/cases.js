@@ -8,9 +8,14 @@ import giftCardFrames from "../assets/projects/gift-card-frames.webp";
 import snippetFrames from "../assets/projects/snippet-frames.webp";
 import partnersCover from "../assets/projects/partners-cover.webp";
 import mishaRozovLogo from "../assets/misha-rozov-logo.webp";
-import partnersDrawer from "../assets/projects/partners-drawer.webp";
 import omsDemo from "../assets/oms-demo.mp4";
+import omsDemoPoster from "../assets/oms-demo-poster.webp";
 import snippetDemo from "../assets/snippet-demo.mp4";
+import snippetDemoPoster from "../assets/snippet-demo-poster.webp";
+import giftCardDemo from "../assets/gift-card-demo.mp4";
+import giftCardDemoPoster from "../assets/gift-card-demo-poster.webp";
+import partnersDemo from "../assets/partners-demo.mp4";
+import partnersDemoPoster from "../assets/partners-demo-poster.webp";
 import pricesCharacteristics from "../assets/projects/internal-tools/prices-characteristics.webp";
 import homeBeforeMockup from "../assets/главная до.webp";
 import searchBeforeMockup from "../assets/поиск до.webp";
@@ -423,6 +428,7 @@ export const mechtaProjects = [
     ],
     facts: ["OMS", "Partners", "Prices"],
     cover: omsDemo,
+    coverPoster: omsDemoPoster,
     coverKind: "video",
     preview: false,
   },
@@ -621,11 +627,18 @@ export const publicCases = {
           {
             kind: "video",
             src: snippetDemo,
+            poster: snippetDemoPoster,
             alt: "Сниппеты заказов — демо",
           },
           {
             src: snippetFrames,
             alt: "Сниппеты заказов и карточки в списке",
+          },
+          {
+            kind: "video",
+            src: giftCardDemo,
+            poster: giftCardDemoPoster,
+            alt: "Подарочные карты — демо",
           },
         ],
       },
@@ -792,6 +805,7 @@ export const publicCases = {
         media: {
           kind: "video",
           src: omsDemo,
+          poster: omsDemoPoster,
           alt: "Mechta OMS — заказы и детали заказа",
         },
       },
@@ -806,8 +820,10 @@ export const publicCases = {
           "Перевёл процесс из 1С — это упростило работу и онбординг сотрудников",
         ],
         media: {
-          src: partnersDrawer,
-          alt: "Модуль подготовки к публикации в сервисе Mechta Partners",
+          kind: "video",
+          src: partnersDemo,
+          poster: partnersDemoPoster,
+          alt: "Mechta Partners — демо",
         },
       },
       {

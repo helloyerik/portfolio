@@ -8,9 +8,14 @@ import giftCardFrames from "../assets/projects/gift-card-frames.webp";
 import snippetFrames from "../assets/projects/snippet-frames.webp";
 import partnersCover from "../assets/projects/partners-cover.webp";
 import mishaRozovLogo from "../assets/misha-rozov-logo.webp";
-import partnersDrawer from "../assets/projects/partners-drawer.webp";
 import omsDemo from "../assets/oms-demo.mp4";
+import omsDemoPoster from "../assets/oms-demo-poster.webp";
 import snippetDemo from "../assets/snippet-demo.mp4";
+import snippetDemoPoster from "../assets/snippet-demo-poster.webp";
+import giftCardDemo from "../assets/gift-card-demo.mp4";
+import giftCardDemoPoster from "../assets/gift-card-demo-poster.webp";
+import partnersDemo from "../assets/partners-demo.mp4";
+import partnersDemoPoster from "../assets/partners-demo-poster.webp";
 import pricesCharacteristics from "../assets/projects/internal-tools/prices-characteristics.webp";
 import homeBeforeMockup from "../assets/главная до.webp";
 import searchBeforeMockup from "../assets/поиск до.webp";
@@ -65,6 +70,7 @@ export const mechtaProjects = [
     ],
     facts: ["OMS", "Partners", "Prices"],
     cover: omsDemo,
+    coverPoster: omsDemoPoster,
     coverKind: "video",
     preview: false,
   },
@@ -228,11 +234,18 @@ export const publicCases = {
           {
             kind: "video",
             src: snippetDemo,
+            poster: snippetDemoPoster,
             alt: "Order snippets — demo",
           },
           {
             src: snippetFrames,
             alt: "Order snippets and listing cards",
+          },
+          {
+            kind: "video",
+            src: giftCardDemo,
+            poster: giftCardDemoPoster,
+            alt: "Gift cards — demo",
           },
         ],
       },
@@ -351,6 +364,7 @@ export const publicCases = {
         media: {
           kind: "video",
           src: omsDemo,
+          poster: omsDemoPoster,
           alt: "Mechta OMS — orders and order details",
         },
       },
@@ -365,8 +379,10 @@ export const publicCases = {
           "Moved the process out of 1C — that simplified day-to-day work and employee onboarding",
         ],
         media: {
-          src: partnersDrawer,
-          alt: "Publishing preparation module in Mechta Partners",
+          kind: "video",
+          src: partnersDemo,
+          poster: partnersDemoPoster,
+          alt: "Mechta Partners — demo",
         },
       },
       {

@@ -1,5 +1,5 @@
 <script setup>
-import { computed, inject } from "vue";
+import { computed, inject, ref } from "vue";
 import { Tag } from "@yerik/yedesign-system";
 import { getMetricMarker, POSITIVE_METRIC_MARKER } from "../lib/metricMarkers";
 import MediaImage from "./MediaImage.vue";
@@ -34,6 +34,18 @@ const isVideoCover = computed(() => {
   const cover = props.project.cover;
   return typeof cover === "string" && /\.mp4(\?|#|$)/i.test(cover);
 });
+const videoReady = ref(false);
+
+const ensurePlay = (event) => {
+  const video = event?.target;
+  if (!video || !video.paused) return;
+  const playPromise = video.play();
+  if (playPromise?.catch) playPromise.catch(() => {});
+};
+
+const onVideoPlaying = () => {
+  videoReady.value = true;
+};
 const highlightItems = computed(() => {
   if (coverMetrics.value.length) {
     return coverMetrics.value.map((metric) => ({
@@ -73,17 +85,28 @@ const formatHighlight = (value) => {
           />
         </div>
       </div>
-      <div v-if="project.cover" class="project-card__cover">
+      <div
+        v-if="project.cover"
+        class="project-card__cover"
+        :style="isVideoCover && project.coverPoster
+          ? { backgroundImage: `url(${project.coverPoster})` }
+          : undefined"
+      >
         <video
           v-if="isVideoCover"
           class="project-card__image project-card__video"
+          :class="{ 'project-card__video--ready': videoReady }"
           :src="project.cover"
+          :poster="project.coverPoster"
           autoplay
           muted
           loop
           playsinline
-          preload="metadata"
+          preload="auto"
           aria-hidden="true"
+          @loadeddata="ensurePlay"
+          @canplay="ensurePlay"
+          @playing="onVideoPlaying"
         />
         <MediaImage v-else fill img-class="project-card__image" :src="project.cover" alt="" />
       </div>
@@ -108,17 +131,28 @@ const formatHighlight = (value) => {
         />
       </div>
     </div>
-    <div v-if="project.cover" class="project-card__cover">
+    <div
+      v-if="project.cover"
+      class="project-card__cover"
+      :style="isVideoCover && project.coverPoster
+        ? { backgroundImage: `url(${project.coverPoster})` }
+        : undefined"
+    >
       <video
         v-if="isVideoCover"
         class="project-card__image project-card__video"
+        :class="{ 'project-card__video--ready': videoReady }"
         :src="project.cover"
+        :poster="project.coverPoster"
         autoplay
         muted
         loop
         playsinline
-        preload="metadata"
+        preload="auto"
         aria-hidden="true"
+        @loadeddata="ensurePlay"
+        @canplay="ensurePlay"
+        @playing="onVideoPlaying"
       />
       <MediaImage v-else fill img-class="project-card__image" :src="project.cover" alt="" />
     </div>

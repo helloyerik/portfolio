@@ -12,12 +12,37 @@ const props = defineProps({
 });
 
 const activeImage = ref(null);
+/** Keys of videos that have painted their first playing frame (poster can hide). */
+const readyVideoKeys = ref(new Set());
+
+const isVideoReady = (key) => readyVideoKeys.value.has(key);
+
+const arrayVideoKey = (index) => `a-${index}`;
+
+const markVideoReady = (key) => {
+  if (readyVideoKeys.value.has(key)) return;
+  const next = new Set(readyVideoKeys.value);
+  next.add(key);
+  readyVideoKeys.value = next;
+};
 
 /** Apply optional media.playbackRate (e.g. 1.25) once metadata is ready. */
 const applyPlaybackRate = (event, rate) => {
   const video = event?.target;
   if (!video || rate == null || Number.isNaN(Number(rate))) return;
   video.playbackRate = Number(rate);
+};
+
+/** Retry play if autoplay was blocked until data is ready. */
+const ensurePlay = (event) => {
+  const video = event?.target;
+  if (!video || !video.paused) return;
+  const playPromise = video.play();
+  if (playPromise?.catch) playPromise.catch(() => {});
+};
+
+const onVideoPlaying = (key) => {
+  markVideoReady(key);
 };
 
 const openImage = (src, alt = "") => {
@@ -146,18 +171,26 @@ onBeforeUnmount(() => {
         :key="item.src ?? index"
         class="gallery__item gallery__item--inline"
         :class="{ 'gallery__item--video': item.kind === 'video' }"
+        :style="item.kind === 'video' && item.poster
+          ? { backgroundImage: `url(${item.poster})` }
+          : undefined"
       >
         <video
           v-if="item.kind === 'video'"
           class="gallery__video"
+          :class="{ 'gallery__video--ready': isVideoReady(arrayVideoKey(index)) }"
           :src="item.src"
+          :poster="item.poster"
           :aria-label="item.alt ?? ''"
           autoplay
           muted
           loop
           playsinline
-          preload="metadata"
+          preload="auto"
           @loadedmetadata="applyPlaybackRate($event, item.playbackRate)"
+          @loadeddata="ensurePlay"
+          @canplay="ensurePlay"
+          @playing="onVideoPlaying(arrayVideoKey(index))"
         />
         <button
           v-else
@@ -176,17 +209,26 @@ onBeforeUnmount(() => {
       :before-label="media.beforeLabel"
       :after-label="media.afterLabel"
     />
-    <div v-else-if="isVideo" class="gallery__item gallery__item--inline gallery__item--video">
+    <div
+      v-else-if="isVideo"
+      class="gallery__item gallery__item--inline gallery__item--video"
+      :style="media.poster ? { backgroundImage: `url(${media.poster})` } : undefined"
+    >
       <video
         class="gallery__video"
+        :class="{ 'gallery__video--ready': isVideoReady('single') }"
         :src="media.src"
+        :poster="media.poster"
         :aria-label="media.alt ?? ''"
         autoplay
         muted
         loop
         playsinline
-        preload="metadata"
+        preload="auto"
         @loadedmetadata="applyPlaybackRate($event, media.playbackRate)"
+        @loadeddata="ensurePlay"
+        @canplay="ensurePlay"
+        @playing="onVideoPlaying('single')"
       />
     </div>
     <div v-else class="gallery__item gallery__item--inline">
