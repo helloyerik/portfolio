@@ -897,6 +897,20 @@ h2.section-title {
   gap: 0;
 }
 
+/* ListItem titles use --mi-color-text-primary (mapped to 70% body).
+   Title-level copy should stay full contrast; captions stay muted. */
+.mi-list-item .mi-list-item__title,
+.mi-list-item.is-interactive:hover .mi-list-item__title {
+  color: var(--color-text);
+}
+
+.mi-list-item .mi-list-item__subtitle,
+.mi-list-item .mi-list-item__meta,
+.mi-list-item.is-interactive:hover .mi-list-item__subtitle,
+.mi-list-item.is-interactive:hover .mi-list-item__meta {
+  color: var(--color-text-muted);
+}
+
 .company-divider__media {
   display: inline-flex;
   align-items: center;
