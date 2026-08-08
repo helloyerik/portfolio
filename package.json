@@ -5,6 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:9999": "vite --port 9999 --host 127.0.0.1 --strictPort",
+    "dev:keep": "bash scripts/vite-keep.sh start",
+    "dev:stop": "bash scripts/vite-keep.sh stop",
+    "dev:status": "bash scripts/vite-keep.sh status",
     "build": "vite build",
     "preview": "npm run build && wrangler dev",
     "optimize:images": "node scripts/optimize-images.mjs",

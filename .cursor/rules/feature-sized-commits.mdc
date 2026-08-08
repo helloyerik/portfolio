@@ -1,5 +1,5 @@
 ---
-description: Portfolio pointer — feature-sized commits are global; local Vite restart only
+description: Portfolio pointer — feature-sized commits are global; persistent Vite on 9999
 alwaysApply: true
 ---
 
@@ -9,8 +9,10 @@ Global policy lives at `~/.cursor/rules/feature-sized-commits.mdc` (also Cursor 
 
 ## Dev server (portfolio only)
 
-If Vite is down on this project, restart:
+Vite on `:9999` is meant to run via **macOS launchd** (`KeepAlive`), not inside Cursor agent shells — those get aborted and kill the server.
 
-```bash
-npm run dev -- --port 9999 --host 127.0.0.1 --strictPort
-```
+- Start / keep alive: `npm run dev:keep`
+- Status: `npm run dev:status`
+- Stop: `npm run dev:stop`
+
+If the site is down, run `npm run dev:keep` — do **not** start `npm run dev` in a disposable agent background shell.
