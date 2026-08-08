@@ -1251,19 +1251,6 @@ h2.section-title {
   list-style-position: inside;
 }
 
-/* Description → bullets: +4px beyond the paragraph’s bottom margin. */
-.case-section > .case-section__copy > p + .rich-list,
-.case-section > .case-section__copy > p + .line-list,
-.case-section > .case-section__copy > p + ul,
-.case-section > .case-section__copy > p + ol,
-.prose > p + .rich-list,
-.prose > p + .line-list,
-.prose > p + ul,
-.prose > p + ol,
-.project-card__summary + .project-card__highlights {
-  padding-top: 4px;
-}
-
 .rich-list {
   padding-left: 0;
   list-style-position: inside;
