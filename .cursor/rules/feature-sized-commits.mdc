@@ -1,41 +1,13 @@
 ---
-description: Feature-sized git commits for contribution activity — commit real reviewable work chunks without waiting to be asked
+description: Portfolio pointer — feature-sized commits are global; local Vite restart only
 alwaysApply: true
 ---
 
-# Feature-sized commits (contribution graph)
+# Feature-sized commits (portfolio)
 
-Prefer **smaller, frequent, real commits** after each tangible unit of work so the GitHub contribution graph reflects actual progress — never empty/spam commits.
+Global policy lives at `~/.cursor/rules/feature-sized-commits.mdc` (also Cursor User Rules, `~/.codex/AGENTS.md`, `~/.claude/CLAUDE.md`). Do not fork a second full copy here.
 
-## When to commit (do not wait for “commit”)
-
-After finishing a **coherent, reviewable chunk** that stands alone and works locally, **create a git commit immediately** without the user saying “commit”. Examples of chunk size:
-
-- “gallery videos render”
-- “theme dissolve sync”
-- “OMS copy update”
-- a focused bugfix or polish pass
-
-This **overrides** the older preference “only commit when explicitly asked.”
-
-## When not to commit
-
-- Do **not** create empty, fake, or meaningless commits just to paint green squares
-- Do **not** commit broken/half-baked work; wait until the chunk works locally
-- Do **not** auto-push; commits stay local until the user asks to push
-
-## How to commit (Git Safety Protocol)
-
-Still follow the existing protocol for *how* to commit:
-
-1. Run in parallel: `git status`, `git diff` (staged + unstaged), `git log` (recent style)
-2. Stage relevant files only; never stage secrets (`.env`, credentials, etc.)
-3. Commit with a concise why-focused message via HEREDOC
-4. Verify with `git status` after commit
-5. Never: `git config` changes, `--force` push, `--no-verify`, interactive `-i` flags
-6. Amend only when all amend-safety conditions are met (explicit request or hook auto-fix of *your* unpushed HEAD commit)
-
-## Dev server (portfolio)
+## Dev server (portfolio only)
 
 If Vite is down on this project, restart:
 
