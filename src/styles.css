@@ -9,13 +9,13 @@
 }
 
 :root {
-  /* Portfolio base type: DS body-2 is 15/20 — bump to 17/+4 line. */
-  --mi-font-size-body-2: 17px;
-  --mi-line-height-body-2: 24px;
-  --mi-font-size-subheader-2: 17px;
-  --mi-line-height-subheader-2: 24px;
-  --mi-line-height-code-body: 26px;
-  --mi-line-height-article-body: 26px;
+  /* Portfolio base type: DS body-2 is 15/20 — bump to 20/+4 line from prior 17/26. */
+  --mi-font-size-body-2: 20px;
+  --mi-line-height-body-2: 28px;
+  --mi-font-size-subheader-2: 20px;
+  --mi-line-height-subheader-2: 28px;
+  --mi-line-height-code-body: 30px;
+  --mi-line-height-article-body: 30px;
   --mi-radius-2xs: 16px;
   --font-family-body: "ABC Diatype", sans-serif;
   --font-family-heading: "ABC Diatype", sans-serif;
@@ -27,7 +27,7 @@
   --text-body-compact: var(--mi-font-size-body-1);
   --text-section: var(--mi-font-size-subheader-3);
   --text-display: var(--mi-font-size-header-2);
-  --line-body: 26px;
+  --line-body: 30px;
   --line-body-compact: var(--mi-line-height-body-1);
   --line-section: var(--mi-line-height-subheader-3);
   --line-display: var(--mi-line-height-header-2);
