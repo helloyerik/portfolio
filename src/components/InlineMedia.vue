@@ -2,6 +2,7 @@
 import { computed, onBeforeUnmount, ref } from "vue";
 import BeforeAfterSlider from "./BeforeAfterSlider.vue";
 import ImageLightbox from "./ImageLightbox.vue";
+import MediaImage from "./MediaImage.vue";
 
 const props = defineProps({
   media: {
@@ -23,6 +24,10 @@ const closeImage = () => {
 
 const isCarousel = computed(
   () => typeof props.media === "object" && !Array.isArray(props.media) && props.media?.kind === "carousel",
+);
+
+const isVideo = computed(
+  () => typeof props.media === "object" && !Array.isArray(props.media) && props.media?.kind === "video",
 );
 
 const carouselItems = computed(() => (isCarousel.value ? props.media.items ?? [] : []));
@@ -120,25 +125,38 @@ onBeforeUnmount(() => {
         :key="item.src ?? index"
         class="gallery__item gallery__item--carousel"
       >
-        <img class="gallery__image" :src="item.src" :alt="item.alt ?? ''" draggable="false" />
+        <MediaImage
+          img-class="gallery__image"
+          :src="item.src"
+          :alt="item.alt ?? ''"
+          :draggable="false"
+        />
       </div>
     </div>
     <div v-else-if="Array.isArray(media)" class="gallery gallery--stack">
       <div v-for="(item, index) in media" :key="item.src ?? index" class="gallery__item gallery__item--inline">
         <button type="button" class="gallery__zoom-trigger" @click="openImage(item.src, item.alt ?? '')">
-          <img class="gallery__image" :src="item.src" :alt="item.alt ?? ''" />
+          <MediaImage img-class="gallery__image" :src="item.src" :alt="item.alt ?? ''" />
         </button>
       </div>
     </div>
-    <div
+    <BeforeAfterSlider
       v-else-if="typeof media === 'object' && media.kind === 'before-after'"
-      class="gallery__item gallery__item--inline gallery__item--bare"
-    >
-      <BeforeAfterSlider
-        :before-src="media.beforeSrc"
-        :after-src="media.afterSrc"
-        :before-label="media.beforeLabel"
-        :after-label="media.afterLabel"
+      :before-src="media.beforeSrc"
+      :after-src="media.afterSrc"
+      :before-label="media.beforeLabel"
+      :after-label="media.afterLabel"
+    />
+    <div v-else-if="isVideo" class="gallery__item gallery__item--inline gallery__item--video">
+      <video
+        class="gallery__video"
+        :src="media.src"
+        :aria-label="media.alt ?? ''"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
       />
     </div>
     <div v-else class="gallery__item gallery__item--inline">
@@ -148,8 +166,8 @@ onBeforeUnmount(() => {
         class="gallery__zoom-trigger"
         @click="openImage(media.src, media.alt ?? '')"
       >
-        <img
-          class="gallery__image"
+        <MediaImage
+          img-class="gallery__image"
           :src="media.src"
           :alt="media.alt ?? ''"
         />

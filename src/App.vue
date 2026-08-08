@@ -8,7 +8,10 @@ import TopNav from "./components/TopNav.vue";
 import WorkflowPage from "./components/WorkflowPage.vue";
 import { getLocalizedCases, getSiteCopy } from "./content";
 import { readRoute } from "./lib/navigation";
+import { startBackgroundMediaPreload } from "./lib/preloadMedia";
+import { applyThemeWithDissolve, readPreferredTheme } from "./lib/theme";
 
+const theme = ref(readPreferredTheme());
 const route = ref(readRoute());
 const locale = computed(() => route.value.locale);
 const siteCopy = computed(() => getSiteCopy(locale.value));
@@ -33,6 +36,10 @@ const workflowCaseMap = computed(() =>
   ),
 );
 
+watch(theme, (value) => {
+  applyThemeWithDissolve(value);
+});
+
 watch(
   locale,
   (value) => {
@@ -45,6 +52,7 @@ const PAGE_TRANSITION_MS = 280;
 const isLeaving = ref(false);
 const isEntering = ref(false);
 let transitionTimeout = 0;
+let stopMediaPreload = null;
 
 const syncRoute = () => {
   const newRoute = readRoute();
@@ -76,11 +84,17 @@ const syncRoute = () => {
 
 onMounted(() => {
   window.addEventListener("popstate", syncRoute);
+  stopMediaPreload = startBackgroundMediaPreload([
+    getLocalizedCases("en"),
+    getLocalizedCases("ru"),
+  ]);
 });
 
 onBeforeUnmount(() => {
   window.removeEventListener("popstate", syncRoute);
   if (transitionTimeout) clearTimeout(transitionTimeout);
+  stopMediaPreload?.();
+  stopMediaPreload = null;
 });
 
 watch(
@@ -105,7 +119,10 @@ const currentWorkflowCase = computed(() => workflowCaseMap.value[route.value.pat
 </script>
 
 <template>
-  <TopNav />
+  <TopNav
+    :theme="theme"
+    @update:theme="theme = $event"
+  />
 
   <div
     class="page-wrap"

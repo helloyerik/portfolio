@@ -16,7 +16,7 @@ defineProps({
     :class="`metric-list-item__marker--${kind}`"
     aria-hidden="true"
   >
-    <PhCheck v-if="kind === 'check'" :size="14" weight="bold" />
-    <PhMinus v-else :size="14" weight="bold" />
+    <PhCheck v-if="kind === 'check'" weight="bold" />
+    <PhMinus v-else weight="bold" />
   </span>
 </template>

@@ -72,4 +72,4 @@ Metric strings use `+NDA%` / `-NDA%` placeholders for confidential numbers. `src
 
 ### Theming
 
-`src/theme.css` holds CSS custom properties for the design system. Two palettes (default, Gruvbox) × two modes (light, dark). Theme is toggled via class on `<html>` and persisted to `localStorage`.
+`src/theme.css` holds CSS custom properties for the design system. Light and dark modes via `data-theme` on `<html>`, persisted to `localStorage`.

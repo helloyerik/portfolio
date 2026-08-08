@@ -19,6 +19,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  cards: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const markerFor = (item) => {
@@ -34,7 +38,7 @@ const markerFor = (item) => {
   <ol v-if="ordered">
     <li v-for="(item, index) in items" :key="`${item}-${index}`">{{ item }}</li>
   </ol>
-  <ul v-else class="rich-list">
+  <ul v-else class="rich-list" :class="{ 'rich-list--cards': cards }">
     <li
       v-for="(item, index) in items"
       :key="`${item}-${index}`"

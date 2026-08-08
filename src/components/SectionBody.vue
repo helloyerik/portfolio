@@ -3,7 +3,7 @@ import { inject } from "vue";
 import RichList from "./RichList.vue";
 import InlineMedia from "./InlineMedia.vue";
 
-const props = defineProps({
+defineProps({
   section: {
     type: Object,
     required: true,
@@ -14,7 +14,7 @@ const siteCopy = inject("siteCopy");
 </script>
 
 <template>
-  <div class="case-section__content">
+  <div class="case-section__copy">
     <p v-for="(paragraph, index) in section.paragraphs ?? []" :key="`${paragraph}-${index}`">
       {{ paragraph }}
     </p>
@@ -36,10 +36,15 @@ const siteCopy = inject("siteCopy");
       <h3 v-else-if="section.resultTitle" class="section-inline-title">
         {{ section.resultTitle }}
       </h3>
-      <p v-for="(paragraph, index) in section.result ?? []" :key="`${paragraph}-${index}`">
+      <p v-for="(paragraph, index) in section.result ?? []" :key="`result-${paragraph}-${index}`">
         {{ paragraph }}
       </p>
-      <RichList v-if="section.resultList?.length" :items="section.resultList" :force-markers="true" />
+      <RichList
+        v-if="section.resultList?.length"
+        :items="section.resultList"
+        :force-markers="true"
+        :cards="Boolean(section.resultCards)"
+      />
     </template>
 
     <RichList
@@ -49,7 +54,11 @@ const siteCopy = inject("siteCopy");
       :force-markers="Boolean(section.forceMarkers)"
     />
 
-    <div v-for="(subsection, index) in section.subsections ?? []" :key="`${subsection.title}-${index}`" class="case-subsection">
+    <div
+      v-for="(subsection, index) in section.subsections ?? []"
+      :key="`${subsection.title}-${index}`"
+      class="case-subsection"
+    >
       <h3 class="case-subsection__title">{{ subsection.title }}:</h3>
       <p v-for="(paragraph, innerIndex) in subsection.paragraphs ?? []" :key="`${paragraph}-${innerIndex}`">
         {{ paragraph }}

@@ -2,7 +2,6 @@
 import { computed, inject, onBeforeUnmount, onMounted, ref, watch } from "vue";
 import { toSectionId } from "../lib/navigation";
 import CaseOutline from "./CaseOutline.vue";
-import ImageLightbox from "./ImageLightbox.vue";
 import InlineMedia from "./InlineMedia.vue";
 import NavLink from "./NavLink.vue";
 import RevealBlock from "./RevealBlock.vue";
@@ -45,7 +44,7 @@ const hasIntroCopy = computed(
   () => Boolean(props.caseData.summary?.length) || Boolean(introContextItems.value.length),
 );
 const sectionOrderOffset = computed(() => {
-  let order = 4;
+  let order = 3;
   if (hasStructuredOverview.value) {
     if (goalsItems.value.length) order += 1;
     if (actionsItems.value.length) order += 1;
@@ -56,7 +55,6 @@ const sectionOrderOffset = computed(() => {
   }
   return order;
 });
-const heroImageOpen = ref(false);
 
 const sectionItems = computed(() => {
   if (hasStructuredOverview.value) {
@@ -129,14 +127,7 @@ watch(sectionItems, () => {
       <span v-for="(item, index) in caseData.highlights" :key="`${item}-${index}`">{{ item }}</span>
     </RevealBlock>
 
-    <RevealBlock v-if="caseData.heroImage" class="case-hero" :order="2">
-      <button type="button" class="gallery__zoom-trigger case-hero__trigger" @click="heroImageOpen = true">
-        <img class="case-hero__image" :src="caseData.heroImage" alt="" />
-      </button>
-    </RevealBlock>
-    <RevealBlock v-else class="image-placeholder" :order="2">{{ siteCopy.caseCoverPlaceholder }}</RevealBlock>
-
-    <RevealBlock v-if="hasIntroCopy" class="content-block" :order="3">
+    <RevealBlock v-if="hasIntroCopy" class="content-block" :order="2">
       <h1 class="visually-hidden">{{ caseData.title }}</h1>
       <div class="prose">
         <p v-for="(paragraph, index) in caseData.summary ?? []" :key="`summary-${index}`">{{ paragraph }}</p>
@@ -202,21 +193,17 @@ watch(sectionItems, () => {
       :id="toSectionId(section.title, index)"
       :key="section.title"
       as="section"
-      class="content-block case-section"
+      class="case-section"
       :order="index + sectionOrderOffset"
     >
-      <div class="case-section__header">
-        <component :is="isModuleCase ? 'h2' : 'h1'" class="section-title">
-          {{ section.title }}
-        </component>
-      </div>
-      <div class="case-section__body">
-        <SectionBody :section="section" />
-        <InlineMedia
-          v-if="section.media && section.mediaPlacement !== 'after-problems' && section.mediaPlacement !== 'before-result'"
-          :media="section.media"
-        />
-      </div>
+      <component :is="isModuleCase ? 'h2' : 'h1'" class="section-title">
+        {{ section.title }}
+      </component>
+      <SectionBody :section="section" />
+      <InlineMedia
+        v-if="section.media && section.mediaPlacement !== 'after-problems' && section.mediaPlacement !== 'before-result'"
+        :media="section.media"
+      />
     </RevealBlock>
 
     <RevealBlock as="section" class="contact-cta" :order="mergedSections.length + sectionOrderOffset">
@@ -242,12 +229,5 @@ watch(sectionItems, () => {
       </NavLink>
       <span v-else />
     </RevealBlock>
-
-    <ImageLightbox
-      :model-value="heroImageOpen"
-      :src="caseData.heroImage ?? ''"
-      :alt="caseData.title"
-      @update:model-value="heroImageOpen = false"
-    />
   </main>
 </template>

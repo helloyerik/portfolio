@@ -11,27 +11,16 @@
       name="description"
       content="Portfolio of a product designer focused on e-commerce, internal tools, and systems-driven product cases."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
     <script>
       (function () {
         var storedTheme = null;
-        var palette = "default";
         try {
           storedTheme = window.localStorage.getItem("portfolio-theme");
-          var storedPalette = window.localStorage.getItem("portfolio-palette");
-          palette = storedPalette === "default" || storedPalette === "gruvbox" ? storedPalette : "default";
         } catch (error) {
           storedTheme = null;
-          palette = "default";
         }
         document.documentElement.dataset.theme =
           storedTheme === "light" || storedTheme === "dark" ? storedTheme : "dark";
-        document.documentElement.dataset.palette = palette;
       })();
     </script>
     <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>

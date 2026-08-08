@@ -1,13 +1,26 @@
 <script setup>
-import { inject, onBeforeUnmount, onMounted, ref } from "vue";
+import { computed, inject, onBeforeUnmount, onMounted, ref } from "vue";
 import NavLink from "./NavLink.vue";
 import RevealBlock from "./RevealBlock.vue";
 import ScrollProgressBar from "./ScrollProgressBar.vue";
+
+const props = defineProps({
+  theme: {
+    type: String,
+    required: true,
+  },
+});
+
+const emit = defineEmits(["update:theme"]);
 
 const siteCopy = inject("siteCopy");
 const hidden = ref(false);
 const topbarRef = ref(null);
 const spacerHeight = ref(0);
+
+const themeToggleLabel = computed(() =>
+  props.theme === "dark" ? siteCopy.value.lightThemeLabel : siteCopy.value.darkThemeLabel,
+);
 
 let lastScrollY = 0;
 
@@ -33,6 +46,10 @@ const openExternal = (href) => {
   window.open(href, "_blank", "noopener,noreferrer");
 };
 
+const toggleTheme = () => {
+  emit("update:theme", props.theme === "dark" ? "light" : "dark");
+};
+
 onMounted(() => {
   lastScrollY = window.scrollY || document.documentElement.scrollTop || 0;
   syncSpacer();
@@ -50,13 +67,16 @@ onBeforeUnmount(() => {
   <ScrollProgressBar />
   <header ref="topbarRef" class="topbar" :class="{ 'topbar--hidden': hidden }">
     <RevealBlock as="div" class="shell topbar__inner" :order="0">
-      <nav class="topnav topbar__actions">
+      <nav class="topnav topbar__nav">
         <NavLink class="topnav__button" href="/"><span>Home</span></NavLink>
         <NavLink class="topnav__button" href="/cv"><span>CV</span></NavLink>
         <button type="button" class="topnav__button" @click="openExternal(siteCopy.telegramHref)">
           <span>{{ siteCopy.telegramButton }}</span>
         </button>
       </nav>
+      <button type="button" class="topnav__button theme-toggle" @click="toggleTheme">
+        <span>{{ themeToggleLabel }}</span>
+      </button>
     </RevealBlock>
   </header>
   <div class="topbar-spacer" aria-hidden="true" :style="{ height: `${spacerHeight}px` }" />

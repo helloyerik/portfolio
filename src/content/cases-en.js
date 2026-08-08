@@ -9,8 +9,12 @@ import snippetFrames from "../assets/projects/snippet-frames.webp";
 import partnersCover from "../assets/projects/partners-cover.webp";
 import mishaRozovLogo from "../assets/misha-rozov-logo.webp";
 import partnersDrawer from "../assets/projects/partners-drawer.webp";
-import omsBoard from "../assets/projects/internal-tools/oms.webp";
+import omsDemo from "../assets/oms-demo.mp4";
+import snippetDemo from "../assets/snippet-demo.mp4";
 import pricesCharacteristics from "../assets/projects/internal-tools/prices-characteristics.webp";
+import homeBeforeMockup from "../assets/главная до.webp";
+import searchBeforeMockup from "../assets/поиск до.webp";
+import searchAfterMockup from "../assets/поиск после.webp";
 import productPageBeforeMockup from "../assets/Страница товара до мокап.webp";
 import productPageAfterMockup from "../assets/Страница товара после мокап.webp";
 import cartBeforeMockup from "../assets/Корзина до мокап.webp";
@@ -39,7 +43,7 @@ export const mechtaProjects = [
     kind: "Mechta.kz · Redesign",
     period: "2025",
     summary: [
-      "Redesign of the Mechta.kz purchase funnel for a 500k MAU retail product: product page, cart, checkout, and post-purchase.",
+      "Redesign of the Mechta.kz purchase funnel for a 500k MAU retail product: home, search, product page, cart, checkout, and post-purchase.",
     ],
     metrics: ["Purchase conversion +NDA%", "Cart → checkout +NDA%", "Support requests -NDA%"],
     cover: ecommerceCover,
@@ -52,14 +56,14 @@ export const mechtaProjects = [
     kind: "0→1 / internal",
     period: "2025",
     summary: [
-      "Partners, Prices, and OMS — Mechta internal tools for supplier flow, price-tag printing, and order handling.",
+      "OMS, Partners, and Prices — Mechta internal tools for order handling, supplier flow, and price-tag printing.",
     ],
     highlights: [
+      "OMS: orders and order details",
       "Partners: MVP in one month",
       "Prices: faster price-tag printing",
-      "OMS: orders and order details",
     ],
-    facts: ["Partners", "Prices", "OMS"],
+    facts: ["OMS", "Partners", "Prices"],
     cover: partnersCover,
     preview: false,
   },
@@ -114,10 +118,43 @@ export const publicCases = {
     title: "E-commerce",
     heroImage: ecommerceCover,
     summary: [
-      "Redesign of the Mechta.kz purchase funnel for a 500k MAU retail product: product page, cart, checkout, and related purchase flows. Worked independently, and at the start also with a lead designer — alongside developers, several product managers, and dozens of analysts across four teams. Target metric — purchase conversion.",
+      "Redesign of the Mechta.kz purchase funnel for a 500k MAU retail product: home, search, product page, cart, checkout, and related purchase flows. Worked independently, and at the start also with a lead designer — alongside developers, several product managers, and dozens of analysts across four teams. Target metric — purchase conversion.",
     ],
     metrics: ["Purchase conversion +NDA%", "Cart → checkout +NDA%", "Support requests -NDA%"],
     sections: [
+      {
+        title: "Home",
+        paragraphs: [
+          "The entry point into the funnel: catalog, promotions, and the path to a product competed on the first screen. We rebuilt the structure so users reach search and the product page faster — without losing the promo layer.",
+        ],
+        resultList: [
+          "Catalog and search transitions +NDA%",
+          "Faster path from home to the product page",
+          "Promos stop crowding the main selection path",
+        ],
+        media: {
+          src: homeBeforeMockup,
+          alt: "Mechta.kz home page",
+        },
+      },
+      {
+        title: "Search",
+        paragraphs: [
+          "Search is a short path to purchase, but results and suggestions competed with filters. We rebuilt the flow so a query leads to a relevant product faster.",
+        ],
+        resultList: [
+          "Search → product page conversion +NDA%",
+          "Time to first relevant result -NDA%",
+          "Clearer link between query, suggestions, and results",
+        ],
+        media: {
+          kind: "before-after",
+          beforeSrc: searchBeforeMockup,
+          afterSrc: searchAfterMockup,
+          beforeLabel: "Before",
+          afterLabel: "After",
+        },
+      },
       {
         title: "Product page",
         paragraphs: [
@@ -186,6 +223,11 @@ export const publicCases = {
           {
             src: giftCardFrames,
             alt: "Card types in order details: electronic, plastic, and gift for someone else",
+          },
+          {
+            kind: "video",
+            src: snippetDemo,
+            alt: "Order snippets — demo",
           },
           {
             src: snippetFrames,
@@ -285,7 +327,7 @@ export const publicCases = {
     title: "Internal Tools",
     heroImage: partnersCover,
     summary: [
-      "At Mechta.kz I designed internal tools for category managers, store staff, and operations teams — Partners, Prices, and OMS. Before that, supplier offers lived in 1C with duplicates and manual errors, store repricing and price-tag printing were slow, and orders had no shared status-and-role frame.",
+      "At Mechta.kz I designed internal tools for category managers, store staff, and operations teams — OMS, Partners, and Prices. Before that, supplier offers lived in 1C with duplicates and manual errors, store repricing and price-tag printing were slow, and orders had no shared status-and-role frame.",
     ],
     metrics: [
       "Partners: time to review -NDA%",
@@ -294,31 +336,33 @@ export const publicCases = {
     context: [
       "The job was three working services around those roles: supplier offers through to publishing, in-store price-tag printing, and order handling. I shaped flows and boundaries with analytics, managers, and engineering; for Prices I also checked the work on shift with supervisors and floor consultants.",
     ],
-    goals: [
-      "turn internal processes into shippable MVP workflows",
-      "keep role, status, and module boundaries clear under real constraints",
-      "validate decisions through prototypes and field checks before launch",
-    ],
-    actions: [
-      "mapped Partners as review → selection → publishing preparation, then validated with a clickable prototype",
-      "checked Prices in real store scenarios with supervisors and floor consultants",
-      "structured OMS around order list, order details, statuses, and handling flows",
-    ],
-    results: [
-      "Launched Partners MVP in one month and reduced duplicates and manual errors.",
-      "Sped up price-tag printing and cut material waste and print errors in Prices.",
-      "Gave OMS a clear order-list and order-details frame for operations roles.",
-    ],
     sections: [
+      {
+        title: "OMS",
+        paragraphs: [
+          "OMS is an internal order management service for a retailer: every order from the website, stores, and marketplaces in one place. I designed the order list and detail view so an operator can find an order quickly, see its status and error reason, and resolve the issue without jumping between systems.",
+        ],
+        resultList: [
+          "Cut time spent finding and reviewing an order: operators work from one screen instead of several systems",
+          "Simplified error monitoring: troubled orders and failure reasons surface immediately, without manual digging",
+          "Sped up handling of stuck and failed orders — less routine work, more time for real exceptions",
+        ],
+        media: {
+          kind: "video",
+          src: omsDemo,
+          alt: "Mechta OMS — orders and order details",
+        },
+      },
       {
         title: "Partners",
         paragraphs: [
-          "Supplier offer processing for category managers. The process previously lived in 1C: hard to scale, full of catalog duplicates and manual errors. I shaped it as review → selection → publishing prep, validated with a clickable prototype, and connected it to the product card.",
+          "Supplier offer processing for category managers. The process previously lived in 1C: hard to scale, full of catalog duplicates and manual errors. I simplified reviewing incoming offers and sending them for catalog review, validated it with a clickable prototype, and connected it to the product card.",
         ],
+        resultCards: true,
         resultList: [
-          "Shipped the MVP in one month under limited resources by reusing existing components",
-          "Cut catalog duplicates and reduced manual errors in offer processing",
-          "Moved the process out of 1C into an inbox flow: review → selection → publishing prep",
+          "Under tight deadlines, built the admin fully from design-system components — that made it possible to launch in one month",
+          "Reduced errors, duplicates, and empty requests, which freed up time for real work",
+          "Moved the process out of 1C — that simplified day-to-day work and employee onboarding",
         ],
         media: {
           src: partnersDrawer,
@@ -328,7 +372,7 @@ export const publicCases = {
       {
         title: "Prices",
         paragraphs: [
-          "A service for physical stores where paper price-tag printing burned time, paper, and rechecking costs. Field interviews and usability tests with supervisors and floor consultants validated the MVP in a real work context before launch.",
+          "A price-tag printing service for physical stores: current prices, product names, and characteristics. The process previously lived in 1C and couldn't keep data fresh — stores printed stale tags, and staff got fined. We digitized it on a fast database so sellers can pull up-to-date data anytime and avoid printing errors.",
         ],
         resultList: [
           "Sped up price-tag replacement and printing in physical stores by -NDA%",
@@ -345,21 +389,6 @@ export const publicCases = {
             alt: "Mechta Prices — characteristics and priority module",
           },
         ],
-      },
-      {
-        title: "OMS",
-        paragraphs: [
-          "An internal order layer for operations teams: list, details, statuses, and handling flows. Early on, a clear status and role structure mattered more than interface depth.",
-        ],
-        resultList: [
-          "Laid the groundwork for roles and workspace state for future access expansion",
-          "Aligned columns and statuses with analytics data — a single source of truth for ops",
-          "Simplified integration-error monitoring and handling of troubled orders",
-        ],
-        media: {
-          src: omsBoard,
-          alt: "Mechta OMS — orders and order details",
-        },
       },
       {
         title: "Summary",

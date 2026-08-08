@@ -1,6 +1,7 @@
 <script setup>
 import { Tag } from "@yerik/yedesign-system";
 import { inject, onBeforeUnmount, onMounted, ref } from "vue";
+import MediaImage from "./MediaImage.vue";
 
 const siteCopy = inject("siteCopy");
 
@@ -113,8 +114,9 @@ onBeforeUnmount(() => {
       @touchmove="handleTouchMove"
     >
       <div class="before-after__base" aria-hidden="true">
-        <img
-          class="before-after__image before-after__image--base"
+        <MediaImage
+          fill
+          img-class="before-after__image before-after__image--base"
           :src="afterSrc"
           :alt="afterLabel ?? siteCopy.afterLabel"
         />
@@ -127,8 +129,10 @@ onBeforeUnmount(() => {
         :style="{ clipPath: `inset(0 ${100 - position}% 0 0)` }"
         aria-hidden="true"
       >
-        <img
-          class="before-after__image before-after__image--overlay"
+        <MediaImage
+          fill
+          absolute
+          img-class="before-after__image before-after__image--overlay"
           :src="beforeSrc"
           :alt="beforeLabel ?? siteCopy.beforeLabel"
         />

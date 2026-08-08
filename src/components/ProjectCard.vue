@@ -2,6 +2,7 @@
 import { computed, inject } from "vue";
 import { Tag } from "@yerik/yedesign-system";
 import { getMetricMarker, POSITIVE_METRIC_MARKER } from "../lib/metricMarkers";
+import MediaImage from "./MediaImage.vue";
 import MetricMarker from "./MetricMarker.vue";
 import NavLink from "./NavLink.vue";
 
@@ -68,7 +69,7 @@ const formatHighlight = (value) => {
         </div>
       </div>
       <div v-if="project.cover" class="project-card__cover">
-        <img class="project-card__image" :src="project.cover" alt="" />
+        <MediaImage fill img-class="project-card__image" :src="project.cover" alt="" />
       </div>
     </article>
   </NavLink>
@@ -92,7 +93,7 @@ const formatHighlight = (value) => {
       </div>
     </div>
     <div v-if="project.cover" class="project-card__cover">
-      <img class="project-card__image" :src="project.cover" alt="" />
+      <MediaImage fill img-class="project-card__image" :src="project.cover" alt="" />
     </div>
   </article>
 </template>
