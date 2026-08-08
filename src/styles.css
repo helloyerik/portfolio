@@ -1467,6 +1467,7 @@ h2.section-title {
 
 .media-image__skeleton {
   display: block;
+  z-index: 0;
   width: 100%;
   aspect-ratio: 16 / 9;
   border-radius: inherit;
@@ -1484,27 +1485,29 @@ h2.section-title {
 .media-image--absolute .media-image__skeleton {
   position: absolute;
   inset: 0;
+  z-index: 0;
   aspect-ratio: auto;
   height: 100%;
 }
 
+/* Keep the decoding image out of flow until ready so the skeleton owns layout.
+   Do NOT gate visibility on opacity — cached `load` can fire before Vue binds
+   @load, leaving every cover stuck invisible with only the skeleton. */
 .media-image__img {
-  opacity: 0;
-  transition: opacity 280ms ease;
+  position: relative;
+  z-index: 1;
+  display: block;
+  max-width: 100%;
 }
 
-/* Keep the decoding image out of flow until ready so the skeleton owns layout. */
 .media-image:not(.media-image--loaded):not(.media-image--fill):not(.media-image--absolute) .media-image__img {
   position: absolute;
   inset: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
   max-width: none;
   object-fit: cover;
-}
-
-.media-image--loaded .media-image__img {
-  opacity: 1;
 }
 
 .media-image--error .media-image__skeleton {
@@ -1523,10 +1526,6 @@ h2.section-title {
 @media (prefers-reduced-motion: reduce) {
   .media-image__skeleton {
     animation: none;
-  }
-
-  .media-image__img {
-    transition: none;
   }
 }
 

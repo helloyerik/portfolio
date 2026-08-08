@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref, watch } from "vue";
+import { nextTick, onMounted, ref, watch } from "vue";
 
 const props = defineProps({
   src: {
@@ -36,6 +36,7 @@ const errored = ref(false);
 
 const markLoaded = () => {
   loaded.value = true;
+  errored.value = false;
 };
 
 const markError = () => {
@@ -43,28 +44,38 @@ const markError = () => {
   loaded.value = true;
 };
 
+/** Catch cached images where `load` fired before Vue bound @load. */
 const syncFromElement = () => {
   const img = imgRef.value;
   if (!img) return;
 
-  if (img.complete) {
-    if (img.naturalWidth > 0) {
-      loaded.value = true;
-    } else {
-      markError();
-    }
+  if (!img.complete) return;
+
+  if (img.naturalWidth > 0) {
+    markLoaded();
+    return;
+  }
+
+  // complete + 0 width usually means a broken resource
+  if (img.currentSrc || img.src) {
+    markError();
   }
 };
 
 watch(
   () => props.src,
-  () => {
+  async () => {
     loaded.value = false;
     errored.value = false;
+    await nextTick();
+    syncFromElement();
   },
 );
 
-onMounted(syncFromElement);
+onMounted(async () => {
+  await nextTick();
+  syncFromElement();
+});
 </script>
 
 <template>
