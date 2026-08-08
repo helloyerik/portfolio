@@ -372,7 +372,7 @@ export const publicCases = {
       {
         title: "Prices",
         paragraphs: [
-          "A price-tag printing service for physical stores: current prices, product names, and characteristics. The process previously lived in 1C and couldn't keep data fresh — stores printed stale tags, and staff got fined. We digitized it on a fast database so sellers can pull up-to-date data anytime and avoid printing errors.",
+          "A price-tag printing service for physical stores: current prices, product names, and characteristics. Prices used to live in scattered instructions — shelf and checkout diverged, which meant customer complaints, staff fines, and damage to reputation and UX; we digitized it on a fast database so sellers can pull up-to-date data anytime and avoid errors.",
         ],
         resultList: [
           "Sped up price-tag replacement and printing in physical stores by -NDA%",
