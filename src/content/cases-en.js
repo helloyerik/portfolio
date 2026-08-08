@@ -371,7 +371,7 @@ export const publicCases = {
       {
         title: "Prices",
         paragraphs: [
-          "A price-tag printing service for physical stores: current prices, product names, and characteristics. Prices used to live in scattered instructions — shelf and checkout diverged, which meant customer complaints, staff fines, and damage to reputation and UX; we digitized it on a fast database so sellers can pull up-to-date data anytime and avoid errors.",
+          "A price-tag printing service for physical stores. Staff used to build and refresh the list themselves in 1C — and still had no single source of truth they could trust. Shelf and checkout drifted apart: sellers spent half the day swapping tags, customers clashed at the register, and employees got fined. We rebuilt the flow around current data: each store sees its own price changes and prints without typing prices by hand.",
         ],
         resultList: [
           "Sped up price-tag prep: the store gets an auto revaluation list instead of hunting changes in 1C",
