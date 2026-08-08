@@ -1076,9 +1076,6 @@ h2.section-title {
 .project-card__cover {
   aspect-ratio: 16 / 9;
   position: relative;
-  transition: transform 480ms cubic-bezier(0.22, 1.2, 0.36, 1);
-  transform-origin: center center;
-  will-change: transform;
 }
 
 .project-card__image,
@@ -1098,11 +1095,6 @@ h2.section-title {
 
 .project-card__image {
   border-radius: 0;
-}
-
-.project-card__cover:hover {
-  transform: scale(1.03);
-  z-index: 1;
 }
 
 .case-hero__trigger {
@@ -1193,6 +1185,9 @@ h2.section-title {
 .project-card-link .mi-list-item__title::after {
   content: "\2197";
   margin-left: var(--space-3xs);
+  font-size: 1em;
+  line-height: 1;
+  vertical-align: baseline;
   font-family: var(--font-family-body), system-ui, sans-serif;
 }
 
