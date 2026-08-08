@@ -58,8 +58,8 @@
   --motion-toolbar-duration: 220ms;
   --motion-toolbar-exit-duration: 160ms;
   --motion-toolbar-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --mi-color-text-primary: var(--color-text);
-  --mi-color-text-complementary: var(--color-text);
+  --mi-color-text-primary: var(--color-text-body);
+  --mi-color-text-complementary: var(--color-text-body);
   --mi-color-text-secondary: var(--color-text-muted);
   --mi-color-text-hint: var(--color-text-muted);
   --mi-color-text-inverse: var(--palette-brand-contrast);
@@ -628,6 +628,7 @@ a {
 .display-title {
   width: 100%;
   margin: 0 0 var(--mi-spacing-8);
+  color: var(--color-text);
   font-size: var(--text-display);
   line-height: var(--line-display);
   font-weight: var(--mi-font-weight-display-2);
@@ -708,6 +709,12 @@ a {
   line-height: var(--mi-line-height-header-2);
   font-weight: var(--mi-font-weight-header-2);
   font-family: var(--font-family-heading);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-text);
 }
 
 h1 {
@@ -939,6 +946,7 @@ h2.section-title {
 
 .company-divider__title {
   margin: 0;
+  color: var(--color-text);
   font-size: var(--mi-font-size-body-2);
   line-height: var(--mi-line-height-body-2);
   font-weight: 500;
@@ -1148,6 +1156,7 @@ h2.section-title {
 .company-card__title,
 .project-card__title {
   margin: 0;
+  color: var(--color-text);
   font-size: var(--mi-font-size-header-2);
   line-height: var(--mi-line-height-header-2);
   font-weight: var(--mi-font-weight-header-2);
@@ -1168,6 +1177,7 @@ h2.section-title {
 
 .home-page .project-card-link .project-card__title,
 .home-page .project-card-link .mi-list-item__title {
+  color: var(--color-text);
   width: fit-content;
   max-width: 100%;
   justify-self: start;
@@ -1241,6 +1251,19 @@ h2.section-title {
   list-style-position: inside;
 }
 
+/* Description → bullets: +4px beyond the paragraph’s bottom margin. */
+.case-section > .case-section__copy > p + .rich-list,
+.case-section > .case-section__copy > p + .line-list,
+.case-section > .case-section__copy > p + ul,
+.case-section > .case-section__copy > p + ol,
+.prose > p + .rich-list,
+.prose > p + .line-list,
+.prose > p + ul,
+.prose > p + ol,
+.project-card__summary + .project-card__highlights {
+  padding-top: 4px;
+}
+
 .rich-list {
   padding-left: 0;
   list-style-position: inside;
@@ -1250,7 +1273,7 @@ h2.section-title {
   display: flex;
   align-items: flex-start;
   list-style: none;
-  color: var(--color-text);
+  color: var(--color-text-body);
 }
 
 .metric-list-item + .metric-list-item {
@@ -1336,6 +1359,7 @@ h2.section-title {
 
 .case-subsection__title {
   margin: 0 0 var(--mi-spacing-4);
+  color: var(--color-text);
   font-size: var(--mi-font-size-subheader-3);
   line-height: var(--mi-line-height-subheader-3);
   font-weight: var(--mi-font-weight-subheader-3);
@@ -1344,6 +1368,7 @@ h2.section-title {
 
 .section-inline-title {
   margin: 0 0 var(--mi-spacing-4);
+  color: var(--color-text);
   font-size: var(--mi-font-size-subheader-3);
   line-height: var(--mi-line-height-subheader-3);
   font-weight: var(--mi-font-weight-subheader-3);

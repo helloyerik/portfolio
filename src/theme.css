@@ -1,7 +1,8 @@
 :root {
   --palette-bg: #050505;
-  --palette-fg: var(--mi-color-base-light);
-  --palette-fg-muted: rgba(255, 255, 255, 0.58);
+  --palette-fg: #ffffff;
+  --palette-fg-body: rgba(255, 255, 255, 0.7);
+  --palette-fg-muted: rgba(255, 255, 255, 0.7);
   --palette-line: rgba(255, 255, 255, 0.16);
   --palette-line-strong: rgba(255, 255, 255, 0.24);
   --palette-surface-line: rgba(255, 255, 255, 0.08);
@@ -36,6 +37,7 @@
 
   --color-bg: var(--palette-bg);
   --color-text: var(--palette-fg);
+  --color-text-body: var(--palette-fg-body);
   --color-text-muted: var(--palette-fg-muted);
   --color-border: var(--palette-line);
   --color-border-strong: var(--palette-line-strong);
@@ -72,7 +74,8 @@
 html[data-theme="light"] {
   --palette-bg: #ffffff;
   --palette-fg: #000000;
-  --palette-fg-muted: rgba(0, 0, 0, 0.5);
+  --palette-fg-body: rgba(0, 0, 0, 0.7);
+  --palette-fg-muted: rgba(0, 0, 0, 0.7);
   --palette-line: rgba(0, 0, 0, 0.12);
   --palette-line-strong: rgba(0, 0, 0, 0.2);
   --palette-surface-line: rgba(0, 0, 0, 0.08);
