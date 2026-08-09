@@ -2138,9 +2138,8 @@ html[data-theme="light"] .before-after__divider {
   color: var(--color-text-muted);
 }
 
-.cv-entry {
-  padding-top: var(--space-l);
-  border-top: 1px solid var(--color-border);
+.cv-page>*+* {
+  margin-top: var(--space-l);
 }
 
 .cv-entry__header {
@@ -2155,27 +2154,12 @@ html[data-theme="light"] .before-after__divider {
   color: var(--color-text-muted);
 }
 
-.cv-entry__grid {
-  display: grid;
-  gap: var(--mi-spacing-24);
-}
-
-.cv-entry__block {
-  display: grid;
-  gap: var(--mi-spacing-4);
-}
-
 .cv-entry__label {
-  margin: 0;
+  margin: var(--space-s) 0 0;
   font-size: var(--text-body);
   line-height: var(--line-body);
   font-weight: 600;
   font-family: var(--font-family-body);
-}
-
-.cv-entry__block ul,
-.cv-entry__block ol {
-  margin: 0;
 }
 
 .section--cta {

@@ -1,7 +1,6 @@
 <script setup>
 import { inject } from "vue";
 import RevealBlock from "./RevealBlock.vue";
-import RichList from "./RichList.vue";
 
 defineProps({
   cvData: {
@@ -33,9 +32,9 @@ const siteCopy = inject("siteCopy");
       <div class="cv-entry__header">
         <h2 class="section-title">{{ item.company }}</h2>
         <div class="cv-entry__meta">
-          <span>{{ item.period }}</span>
-          <span aria-hidden="true">·</span>
           <span>{{ item.role }}</span>
+          <span aria-hidden="true">·</span>
+          <span>{{ item.period }}</span>
           <span aria-hidden="true">·</span>
           <span>{{ item.format }}</span>
         </div>
@@ -43,21 +42,16 @@ const siteCopy = inject("siteCopy");
 
       <div class="prose">
         <p>{{ item.summary }}</p>
-      </div>
 
-      <div class="cv-entry__grid">
-        <div class="cv-entry__block">
-          <h3 class="cv-entry__label">{{ siteCopy.cvProjectsLabel }}</h3>
-          <RichList :items="item.projects" />
-        </div>
-        <div class="cv-entry__block">
-          <h3 class="cv-entry__label">{{ siteCopy.cvResponsibilitiesLabel }}</h3>
-          <RichList :items="item.responsibilities" />
-        </div>
-        <div class="cv-entry__block">
-          <h3 class="cv-entry__label">{{ siteCopy.cvResultsLabel }}</h3>
-          <RichList :items="item.results" :force-markers="true" />
-        </div>
+        <h3 class="cv-entry__label">{{ siteCopy.cvResponsibilitiesLabel }}</h3>
+        <ul>
+          <li v-for="(line, i) in item.responsibilities" :key="`resp-${i}`">{{ line }}</li>
+        </ul>
+
+        <h3 class="cv-entry__label">{{ siteCopy.cvResultsLabel }}</h3>
+        <ul>
+          <li v-for="(line, i) in item.results" :key="`res-${i}`">{{ line }}</li>
+        </ul>
       </div>
     </RevealBlock>
   </main>
