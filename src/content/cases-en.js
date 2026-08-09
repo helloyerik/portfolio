@@ -129,30 +129,33 @@ export const publicCases = {
       "I redesigned the home, search, product page, cart, checkout, and related purchase flows into one connected path to purchase.",
       "I worked independently — and at the start alongside a lead designer — with developers, product managers, and dozens of analysts across four teams, targeting purchase conversion.",
     ],
-    metrics: ["Purchase conversion +NDA%", "Cart → checkout +NDA%", "Support requests -NDA%"],
+    metrics: ["Purchase conversion +NDA%", "Transitions from cart to checkout +NDA%", "Support requests -NDA%"],
     sections: [
       {
         title: "Home",
         paragraphs: [
-          "The entry point into the funnel: catalog, promotions, and the path to a product competed on the first screen. We rebuilt the structure so users reach search and the product page faster — without losing the promo layer.",
+          "We updated the home page, improving navigation and surfacing the key sections on the first screen.",
         ],
         resultList: [
           "Catalog and search transitions +NDA%",
-          "Faster path from home to the product page",
-          "Promos stop crowding the main selection path",
+          "Bounce rate -NDA%",
+          "Transitions to the product card +NDA%",
         ],
         media: {
-          src: homeBeforeMockup,
-          alt: "Mechta.kz home page",
+          kind: "before-after",
+          beforeSrc: homeBeforeMockup,
+          afterSrc: homeAfterMockup,
+          beforeLabel: "Before",
+          afterLabel: "After",
         },
       },
       {
-        title: "Search",
+        title: "Product card",
         paragraphs: [
-          "Search is a short path to purchase, but results and suggestions competed with filters. We rebuilt the flow so a query leads to a relevant product faster.",
+          "We removed secondary elements and put the emphasis on the product photo and the benefits: a percentage discount and a gift.",
         ],
         resultList: [
-          "Search → product page conversion +NDA%",
+          "Search to product page conversion +NDA%",
           "Time to first relevant result -NDA%",
           "Clearer link between query, suggestions, and results",
         ],
@@ -167,11 +170,11 @@ export const publicCases = {
       {
         title: "Product page",
         paragraphs: [
-          "The product page was the densest step of the funnel: stock, fulfillment, discounts, financing, and the main CTA competed on the first screen. We rebuilt the structure to cut time to the purchase decision and keep SEO-critical content.",
+          "We reduced the emphasis on secondary and less popular sections, and made the call to action more prominent.",
         ],
         resultList: [
-          "Product page conversion +NDA%",
-          "Time to primary CTA -NDA%",
+          "Transitions to the cart +NDA%",
+          "Products added to the cart +NDA%",
           "Bounce rate -NDA%",
         ],
         media: {
@@ -185,10 +188,10 @@ export const publicCases = {
       {
         title: "Cart",
         paragraphs: [
-          "Rebuilt the cart as a conversion module: shorter path to checkout and upsell (gifts, bonuses, accessories) attached to the purchase flow instead of competing with it.",
+          "In the cart, we simplified adding accessories and working with promo codes, bonuses, and gifts.",
         ],
         resultList: [
-          "Cart → checkout +NDA%",
+          "Transitions from cart to checkout +NDA%",
           "Cart abandonment -NDA%",
           "Higher upsell contribution on the path to checkout",
         ],
@@ -203,12 +206,12 @@ export const publicCases = {
       {
         title: "Checkout",
         paragraphs: [
-          "Checkout depended on delivery, pick-up, bonuses, promo codes, forms, and special cases like trade-in. We separated states and copy by fulfillment method so special rules stopped blocking completion.",
+          "We updated the interface: simplified and sped up address selection, and made working with dates, statuses, and addresses more convenient.",
         ],
         resultList: [
           "Next-step transition +NDA%",
           "Higher completion for delivery and pick-up",
-          "Special rules stopped blocking checkout completion",
+          "Bounce rate -NDA%",
         ],
         media: {
           kind: "before-after",
@@ -221,11 +224,11 @@ export const publicCases = {
       {
         title: "Order details",
         paragraphs: [
-          "Post-purchase covers both the order list and order details. Statuses, promotions, line items, pickup timing, and service dependencies all met here. We standardized statuses, connected list → details, and rebuilt the flow so users could resolve next steps without calling support.",
+          "We standardized the statuses and worked through hundreds of cases, adding post-checkout instructions so customers understand what to expect next and what to do.",
         ],
         resultList: [
           "Support requests after purchase -NDA%",
-          "Fewer status-related support loops in list and details",
+          "Fewer canceled orders, more payments completed after a failed first attempt",
           "One status model across post-purchase screens",
         ],
         media: [
