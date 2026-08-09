@@ -124,7 +124,9 @@ export const publicCases = {
     title: "E-commerce",
     heroImage: ecommerceCover,
     summary: [
-      "Redesign of the Mechta.kz purchase funnel for a 500k MAU retail product: home, search, product page, cart, checkout, and related purchase flows. Worked independently, and at the start also with a lead designer — alongside developers, several product managers, and dozens of analysts across four teams. Target metric — purchase conversion.",
+      "I owned the end-to-end redesign of the Mechta.kz purchase funnel — a retail product with 500k MAU — from identifying the core conversion problems to shipping and measuring the outcomes.",
+      "I redesigned the home, search, product page, cart, checkout, and related purchase flows into one connected path to purchase.",
+      "I worked independently — and at the start alongside a lead designer — with developers, product managers, and dozens of analysts across four teams, targeting purchase conversion.",
     ],
     metrics: ["Purchase conversion +NDA%", "Cart → checkout +NDA%", "Support requests -NDA%"],
     sections: [
@@ -169,7 +171,7 @@ export const publicCases = {
         resultList: [
           "Product page conversion +NDA%",
           "Time to primary CTA -NDA%",
-          "Faster path from stock and fulfillment to the main CTA",
+          "Bounce rate -NDA%",
         ],
         media: {
           kind: "before-after",
@@ -186,7 +188,7 @@ export const publicCases = {
         ],
         resultList: [
           "Cart → checkout +NDA%",
-          "Cart exits -NDA%",
+          "Cart abandonment -NDA%",
           "Higher upsell contribution on the path to checkout",
         ],
         media: {
