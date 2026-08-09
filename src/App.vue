@@ -9,6 +9,7 @@ import WorkflowPage from "./components/WorkflowPage.vue";
 import { getLocalizedCases, getSiteCopy } from "./content";
 import { readRoute } from "./lib/navigation";
 import { startBackgroundMediaPreload } from "./lib/preloadMedia";
+import { startSmoothScroll } from "./lib/smoothScroll";
 import { applyThemeWithDissolve, readPreferredTheme } from "./lib/theme";
 
 const theme = ref(readPreferredTheme());
@@ -53,6 +54,7 @@ const isLeaving = ref(false);
 const isEntering = ref(false);
 let transitionTimeout = 0;
 let stopMediaPreload = null;
+let smoothScroll = null;
 
 const syncRoute = () => {
   const newRoute = readRoute();
@@ -83,6 +85,7 @@ const syncRoute = () => {
 };
 
 onMounted(() => {
+  smoothScroll = startSmoothScroll();
   window.addEventListener("popstate", syncRoute);
   stopMediaPreload = startBackgroundMediaPreload([
     getLocalizedCases("en"),
@@ -99,6 +102,8 @@ onBeforeUnmount(() => {
   if (transitionTimeout) clearTimeout(transitionTimeout);
   stopMediaPreload?.();
   stopMediaPreload = null;
+  smoothScroll?.stop();
+  smoothScroll = null;
 });
 
 watch(
@@ -106,13 +111,21 @@ watch(
   ([pathname, hash]) => {
     if (hash) {
       requestAnimationFrame(() => {
+        if (smoothScroll) {
+          smoothScroll.scrollTo(hash);
+          return;
+        }
         document.querySelector(hash)?.scrollIntoView({ block: "start" });
       });
       return;
     }
 
     if (pathname) {
-      window.scrollTo(0, 0);
+      if (smoothScroll) {
+        smoothScroll.scrollTo(0, { immediate: true });
+      } else {
+        window.scrollTo(0, 0);
+      }
     }
   },
   { immediate: true },

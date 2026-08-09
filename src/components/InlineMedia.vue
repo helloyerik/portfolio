@@ -149,6 +149,7 @@ onBeforeUnmount(() => {
       ref="carouselRef"
       class="gallery gallery--carousel"
       :class="{ 'gallery--carousel-dragging': isDragging }"
+      data-lenis-prevent
       @pointerdown="onCarouselPointerDown"
       @click.capture="onCarouselClickCapture"
     >

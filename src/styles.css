@@ -96,6 +96,37 @@ body {
     border-color var(--theme-dissolve-duration, 280ms) var(--reveal-ease);
 }
 
+/* Lenis smooth scroll (recommended companion styles). */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Hide the native page scrollbar — the header progress bar shows position. */
+html,
+body {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
