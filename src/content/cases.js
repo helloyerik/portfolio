@@ -18,6 +18,7 @@ import partnersDemo from "../assets/partners-demo.mp4";
 import partnersDemoPoster from "../assets/partners-demo-poster.webp";
 import pricesCharacteristics from "../assets/projects/internal-tools/prices-characteristics.webp";
 import homeBeforeMockup from "../assets/главная до.webp";
+import homeAfterMockup from "../assets/главная после.webp";
 import searchBeforeMockup from "../assets/поиск до.webp";
 import searchAfterMockup from "../assets/поиск после.webp";
 import productPageBeforeMockup from "../assets/Страница товара до мокап.webp";
@@ -27,7 +28,7 @@ import cartAfterMockup from "../assets/Корзина после мокап.webp
 import checkoutBeforeMockup from "../assets/Оформление до мокап.webp";
 import checkoutAfterMockup from "../assets/Оформление после мокап.webp";
 import pricingPreview from "../assets/projects/pricing-preview.webp";
-import freelancePreview from "../assets/projects/freelance-preview.webp";
+import freelancePreview from "../assets/projects/freelance/AI Workspace/02/Desktop home.webp";
 import bmcPreview from "../assets/projects/bmc-preview.webp";
 import { freelanceMedia } from "./freelance-media";
 
@@ -405,10 +406,10 @@ export const mechtaProjects = [
     kind: "Mechta.kz · Редизайн",
     period: "2025",
     summary: [
-      "Пересборка воронки покупки Mechta.kz (500k MAU): главная, поиск, страница товара, корзина, оформление заказа и этап после покупки.",
+      "Помогал увеличивать конверсию в покупку для онлайн-продукта с 500k MAU.",
     ],
-    metrics: ["Конверсия в покупку +NDA%", "Корзина → оформление +NDA%", "Обращения -NDA%"],
-    cover: ecommerceCover,
+    metrics: ["Конверсия в покупку +NDA%", "Отказы -NDA%", "Обращения -NDA%"],
+    cover: homeAfterMockup,
     showSummary: true,
     preview: false,
   },
@@ -418,7 +419,7 @@ export const mechtaProjects = [
     kind: "0→1 / интернал",
     period: "2025",
     summary: [
-      "OMS, Partners и Prices — внутренние сервисы Mechta: обработка заказов, поток поставщиков и печать ценников.",
+      "Проектирую интерфейсы для сотрудников компании. Помогаю оптимизировать рабочие процессы и снижать затраты бизнеса.",
     ],
     highlights: [
       "OMS: заказы и детали заказа",
@@ -442,7 +443,7 @@ export const freelanceProjects = [
     summary: [
       "Собранный кейс из семи клиентских проектов: UniqUnits, Xola, CheryX, Vault, маркетплейс фриланса, AI Workspace и AI Image Creation.",
     ],
-    highlights: ["89% клиентов обращались повторно", "Выполнено 27 проектов", "быстрый цикл от брифа до результата"],
+    highlights: ["89% клиентов обращались повторно", "Выполнено 27 проектов", "Работал с локальными и международными клиентами"],
     facts: ["7 проектов", "Мобильные / ИИ / Финтех / Утилитарные"],
     cover: freelancePreview,
     preview: false,
@@ -456,7 +457,7 @@ export const bmcProjects = [
     kind: "Агентский опыт",
     period: "2024",
     summary: [
-      "Клиентские сайты, сборка в no-code / low-code конструкторах и визуальная поддержка для Instagram в быстром агентском ритме.",
+      "Разрабатывал мобильные приложения, веб-сайты и мини-приложения Telegram. Оформлял соцсети для девелоперов и собирал для них лендинги.",
     ],
     highlights: ["клиентские сайты", "no-code / low-code", "поддержка соцсетей застройщиков"],
     facts: ["No-code / low-code", "Instagram"],

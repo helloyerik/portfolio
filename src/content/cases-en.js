@@ -18,6 +18,7 @@ import partnersDemo from "../assets/partners-demo.mp4";
 import partnersDemoPoster from "../assets/partners-demo-poster.webp";
 import pricesCharacteristics from "../assets/projects/internal-tools/prices-characteristics.webp";
 import homeBeforeMockup from "../assets/главная до.webp";
+import homeAfterMockup from "../assets/главная после.webp";
 import searchBeforeMockup from "../assets/поиск до.webp";
 import searchAfterMockup from "../assets/поиск после.webp";
 import productPageBeforeMockup from "../assets/Страница товара до мокап.webp";
@@ -27,7 +28,7 @@ import cartAfterMockup from "../assets/Корзина после мокап.webp
 import checkoutBeforeMockup from "../assets/Оформление до мокап.webp";
 import checkoutAfterMockup from "../assets/Оформление после мокап.webp";
 import pricingPreview from "../assets/projects/pricing-preview.webp";
-import freelancePreview from "../assets/projects/freelance-preview.webp";
+import freelancePreview from "../assets/projects/freelance/AI Workspace/02/Desktop home.webp";
 import bmcPreview from "../assets/projects/bmc-preview.webp";
 import { freelanceMedia } from "./freelance-media";
 
@@ -47,10 +48,10 @@ export const mechtaProjects = [
     kind: "Mechta.kz · Redesign",
     period: "2025",
     summary: [
-      "Redesign of the Mechta.kz purchase funnel for a 500k MAU retail product: home, search, product page, cart, checkout, and post-purchase.",
+      "I helped increase purchase conversion for a 500k MAU online retail product.",
     ],
-    metrics: ["Purchase conversion +NDA%", "Cart → checkout +NDA%", "Support requests -NDA%"],
-    cover: ecommerceCover,
+    metrics: ["Purchase conversion +NDA%", "Bounce rate -NDA%", "Support requests -NDA%"],
+    cover: homeAfterMockup,
     showSummary: true,
     preview: false,
   },
@@ -60,7 +61,7 @@ export const mechtaProjects = [
     kind: "0→1 / internal",
     period: "2025",
     summary: [
-      "OMS, Partners, and Prices — Mechta internal tools for order handling, supplier flow, and price-tag printing.",
+      "I design interfaces for internal teams — helping optimize workflows and reduce business costs.",
     ],
     highlights: [
       "OMS: orders and order details",
@@ -84,7 +85,7 @@ export const freelanceProjects = [
     summary: [
       "A combined case built from seven client projects: Orbi, Xola, CheryX, Vault, Freelance Marketplace, AI Workspace, and AI Image Creation.",
     ],
-    highlights: ["89% of clients returned", "Completed 27 projects", "fast cycle from brief to deliverable"],
+    highlights: ["89% of clients returned", "Completed 27 projects", "Worked with local and international clients"],
     facts: ["7 projects", "Mobile / AI / Fintech / Utilities"],
     cover: freelancePreview,
     preview: false,
@@ -98,7 +99,7 @@ export const bmcProjects = [
     kind: "Agency experience",
     period: "2024",
     summary: [
-      "Client websites, no-code / low-code delivery, and visual support for Instagram in a fast agency environment.",
+      "I built mobile apps, websites, and Telegram mini-apps, ran social media for real-estate developers, and assembled landing pages for them.",
     ],
     highlights: ["client websites", "no-code / low-code", "social support for real-estate brands"],
     facts: ["No-code / low-code", "Instagram"],
