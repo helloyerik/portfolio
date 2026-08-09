@@ -1,13 +1,5 @@
 @import "./theme.css";
 
-@font-face {
-  font-family: "ABC Diatype";
-  src: url("./assets/fonts/ABCDiatypeCyrillicVariable.ttf") format("truetype");
-  font-weight: 200 1000;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   /* Portfolio base type: DS body-2 is 15/20 — bump to 20/+4 line from prior 17/26. */
   --mi-font-size-body-2: 20px;
@@ -17,9 +9,9 @@
   --mi-line-height-code-body: 30px;
   --mi-line-height-article-body: 30px;
   --mi-radius-2xs: 16px;
-  --font-family-body: "ABC Diatype", sans-serif;
-  --font-family-heading: "ABC Diatype", sans-serif;
-  --font-family-mono: "ABC Diatype", sans-serif;
+  --font-family-body: "Geist", sans-serif;
+  --font-family-heading: "Geist", sans-serif;
+  --font-family-mono: "Geist", sans-serif;
   --font-letter-spacing-mono: 0;
   --editor-gutter-width: 28px;
   --editor-gutter-gap: var(--mi-spacing-24);
