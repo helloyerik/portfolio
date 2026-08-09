@@ -1,5 +1,5 @@
 <script setup>
-import { computed, inject, onBeforeUnmount, onMounted, ref } from "vue";
+import { inject, onBeforeUnmount, onMounted, ref } from "vue";
 import NavLink from "./NavLink.vue";
 import RevealBlock from "./RevealBlock.vue";
 import ScrollProgressBar from "./ScrollProgressBar.vue";
@@ -17,10 +17,6 @@ const siteCopy = inject("siteCopy");
 const hidden = ref(false);
 const topbarRef = ref(null);
 const spacerHeight = ref(0);
-
-const themeToggleLabel = computed(() =>
-  props.theme === "dark" ? siteCopy.value.lightThemeLabel : siteCopy.value.darkThemeLabel,
-);
 
 let lastScrollY = 0;
 
@@ -70,12 +66,12 @@ onBeforeUnmount(() => {
       <nav class="topnav topbar__nav">
         <NavLink class="topnav__button" href="/"><span>Home</span></NavLink>
         <NavLink class="topnav__button" href="/cv"><span>CV</span></NavLink>
-        <button type="button" class="topnav__button" @click="openExternal(siteCopy.telegramHref)">
-          <span>{{ siteCopy.telegramButton }}</span>
+        <button type="button" class="topnav__button" @click="toggleTheme">
+          <span>{{ siteCopy.themeButton }}</span>
         </button>
       </nav>
-      <button type="button" class="topnav__button theme-toggle" @click="toggleTheme">
-        <span>{{ themeToggleLabel }}</span>
+      <button type="button" class="topnav__button topbar__end" @click="openExternal(siteCopy.telegramHref)">
+        <span>{{ siteCopy.telegramButton }}</span>
       </button>
     </RevealBlock>
   </header>

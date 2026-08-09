@@ -554,7 +554,7 @@ a {
   padding-left: 0;
 }
 
-.topbar .theme-toggle {
+.topbar .topbar__end {
   padding-right: 0;
 }
 
