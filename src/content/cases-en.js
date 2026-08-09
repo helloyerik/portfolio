@@ -433,19 +433,6 @@ export const publicCases = {
       "Freelance meant much shorter cycles and much less infrastructure than a large product team. I had to enter new domains quickly, define the product frame, design the interface, and move the work to a state that clients could discuss, approve, and take forward.",
       "The value of this period was not one domain in particular, but the repetition of the same skill across very different products: rapid onboarding, clear structuring, and independent delivery.",
     ],
-    goals: [
-      "turn raw client requests into clear product structures",
-      "move quickly across new domains without long onboarding",
-      "ship interfaces and concepts that were ready for review or development",
-      "keep quality stable while managing scope, timing, and communication independently",
-    ],
-    actions: [
-      "framed products through competitor scans, interviews, and hypotheses",
-      "validated key scenarios with wireframes and clickable prototypes",
-      "designed UI, states, and brand direction around specific flows",
-      "prepared assets for development, pitching, or store publication",
-      "managed client scope, planning, and the next step without a larger delivery layer",
-    ],
     results: [
       "Designed several client products from scratch, from structure and wireframes to polished UI.",
       "Worked across mobile products, AI, fintech, utility apps, and brand packaging.",
@@ -473,16 +460,6 @@ export const publicCases = {
         paragraphs: [
           "A mobile app built around a proprietary indicator for traders. The key challenge was to make a dense trading interface manageable on a small screen without slowing down access to critical actions.",
         ],
-        problems: [
-          "high density of data and actions on a small screen",
-          "critical actions had to stay fast and thumb-friendly",
-          "the interface could not be simplified to the point where it lost meaning for traders",
-        ],
-        list: [
-          "interviewed traders and mapped hypotheses",
-          "structured the mobile home screen and algorithmic order flows",
-          "worked through loading, error, success, and helper states",
-        ],
         media: freelanceMedia.Orbi,
       },
       {
@@ -490,32 +467,12 @@ export const publicCases = {
         paragraphs: [
           "Built during the first wave of GPT products, when many projects were just wrappers around the model. The goal was not only to add AI, but to create a usable product around recipes, cooking, and adaptive instructions.",
         ],
-        problems: [
-          "the market was crowded with similar GPT wrappers without clear use cases",
-          "recipe search, cooking, and the AI layer had to work as one flow",
-          "the model alone did not create value without a clear product structure",
-        ],
-        list: [
-          "used Job Stories to frame the product",
-          "built wireframes, product structure, and the visual layer",
-          "turned the concept into a more coherent cooking product",
-        ],
         media: freelanceMedia.Xola,
       },
       {
         title: "CheryX",
         paragraphs: [
           "A fintech concept around paying with crypto directly on POS terminals. It needed to feel realistic and understandable in an everyday offline scenario rather than as a speculative concept.",
-        ],
-        problems: [
-          "an unusual crypto-payment model had to feel clear in a familiar offline context",
-          "the interface had to feel realistic, not speculative",
-          "the service value had to be communicated through the flow, not the complexity of the technology",
-        ],
-        list: [
-          "started with competitor analysis and product structure",
-          "moved into wireframes, brand direction, and the main payment flow",
-          "shaped the product around convenience rather than technical complexity",
         ],
         media: freelanceMedia.CheryX,
       },
