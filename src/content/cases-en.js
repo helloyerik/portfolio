@@ -604,7 +604,7 @@ export const cvData = {
   title: "Yerik",
   role: "Product Designer",
   intro: [
-    "Product designer with X+ years of experience across e-commerce, B2B, retail, AI, and internal tools. I design web and mobile products, systematize interfaces, evolve design systems, and work on solutions that influence metrics, shipping speed, and implementation quality.",
+    "Product designer with 3+ years of experience across e-commerce, B2B, retail, AI, and internal tools. I design web and mobile products, systematize interfaces, and evolve design systems — with a focus on metrics, shipping speed, and implementation quality.",
   ],
   experience: [
     {
@@ -613,23 +613,22 @@ export const cvData = {
       role: "Product Designer",
       format: "full-time · on-site",
       summary:
-        "A Kazakhstan retailer where I worked on the customer funnel of the e-commerce product and on internal tools.",
-      projects: ["E-commerce", "Design system", "Internal Tools"],
+        "One of Kazakhstan's largest retailers, with a 500k MAU e-commerce product. I work on the customer funnel and on internal tools for category managers, stores, and operations teams.",
+      projects: ["E-commerce", "Internal Tools", "Design system"],
       responsibilities: [
-        "rebuilt web and mobile flows to improve conversion and reduce errors",
-        "improved customer and internal workflows under real business constraints",
-        "validated solutions through prototypes, presentations, and design reviews",
-        "ran field interviews and usability tests for internal scenarios",
-        "expanded the design system and documentation to speed up shipping and support",
+        "redesign funnel flows — home, product page, cart, checkout — to grow conversion",
+        "improve customer and internal workflows under real business constraints",
+        "validate decisions with clickable prototypes, presentations, and design reviews",
+        "run field interviews and usability tests for internal scenarios",
+        "grow the design system and documentation to speed up releases",
+        "shape design culture: taught two designers vibe-coding prototyping, which sped up approvals and cut errors in design reviews and handoff to development",
       ],
       results: [
-        "improved purchase conversion by +NDA% in the e-commerce flow",
-        "increased the transition from cart to checkout by +NDA%",
-        "reduced call-center requests by -NDA%",
-        "expanded the design system to accelerate new releases and support",
-        "designed internal products for supplier flow, price labels, and OMS",
-        "validated internal flows with supervisors and floor consultants through offline interviews and usability tests",
-        "participated in hiring and onboarding a designer into the team",
+        "purchase conversion in the e-commerce funnel +NDA%",
+        "transitions from cart to checkout +NDA%",
+        "call-center requests -NDA%",
+        "shipped internal products: OMS, Partners, Prices",
+        "hired and onboarded a designer into the team",
       ],
     },
     {
@@ -638,18 +637,17 @@ export const cvData = {
       role: "Product Designer",
       format: "project-based · remote",
       summary:
-        "Independent work on client products across mobile flows, AI, fintech, and utility services.",
+        "Independent practice across mobile, AI, fintech, and utility products: 27 projects delivered, 89% of clients returned.",
       projects: ["Orbi", "Xola", "CheryX", "Vault", "Freelance Marketplace", "AI Workspace", "AI Image Creation"],
       responsibilities: [
-        "built product structure in new domains without long onboarding",
-        "created wireframes, visual concepts, and final interfaces for specific scenarios",
-        "packaged products through identity and presentation materials for development or publication",
-        "managed tasks, timelines, and client communication independently",
+        "entered new domains fast and built product structure without long onboarding",
+        "designed wireframes, visual concepts, and final UI around specific scenarios",
+        "packaged products with identity and presentation materials for development or publication",
+        "managed scope, timelines, and client communication independently",
       ],
       results: [
-        "designed several client products from scratch",
+        "designed several client products from scratch, from structure to final UI",
         "worked across trading, AI, crypto payments, and utility apps",
-        "built a solid independent practice around project ownership and client communication",
       ],
     },
     {
@@ -658,8 +656,8 @@ export const cvData = {
       role: "Designer",
       format: "project-based · hybrid",
       summary:
-        "An agency environment with short cycles: client websites, visual materials, and launch delivery through no-code / low-code tools.",
-      projects: ["Client websites", "Instagram and visual support"],
+        "Agency environment with short cycles: mobile apps, websites, and Telegram mini-apps, plus social media and landing pages for real-estate developers.",
+      projects: ["Client websites", "Telegram mini-apps", "Social media support"],
       responsibilities: [
         "designed landing pages and client-facing flows",
         "assembled pages in no-code / low-code tools for faster release",
@@ -669,7 +667,6 @@ export const cvData = {
       results: [
         "took client websites from mockup to release",
         "shortened time to launch through direct no-code / low-code assembly",
-        "kept a consistent visual layer between websites and social media",
       ],
     },
   ],
