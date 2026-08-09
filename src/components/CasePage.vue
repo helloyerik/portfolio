@@ -38,6 +38,12 @@ const prevCase = computed(() =>
 const nextCase = computed(() =>
   currentIndex.value >= 0 ? props.caseOrder[(currentIndex.value + 1) % props.caseOrder.length] : null,
 );
+// A 2-item cycle makes prev and next the same project — collapse to one link.
+const singleAdjacentCase = computed(() =>
+  prevCase.value && nextCase.value && prevCase.value.slug === nextCase.value.slug
+    ? prevCase.value
+    : null,
+);
 const siteCopy = inject("siteCopy");
 const isModuleCase = computed(() => Boolean(props.caseData.moduleCase));
 const hasIntroCopy = computed(
@@ -220,14 +226,22 @@ watch(sectionItems, () => {
     </RevealBlock>
 
     <RevealBlock as="nav" class="project-nav" :order="mergedSections.length + sectionOrderOffset + 1">
-      <NavLink v-if="prevCase" :href="prevCase.slug">
-        {{ siteCopy.previousCaseLabel }}: {{ prevCase.label }}
-      </NavLink>
-      <span v-else />
-      <NavLink v-if="nextCase" :href="nextCase.slug">
-        {{ siteCopy.nextCaseLabel }}: {{ nextCase.label }}
-      </NavLink>
-      <span v-else />
+      <template v-if="singleAdjacentCase">
+        <NavLink :href="singleAdjacentCase.slug">
+          {{ singleAdjacentCase.label }}
+        </NavLink>
+        <span />
+      </template>
+      <template v-else>
+        <NavLink v-if="prevCase" :href="prevCase.slug">
+          {{ siteCopy.previousCaseLabel }}: {{ prevCase.label }}
+        </NavLink>
+        <span v-else />
+        <NavLink v-if="nextCase" :href="nextCase.slug">
+          {{ siteCopy.nextCaseLabel }}: {{ nextCase.label }}
+        </NavLink>
+        <span v-else />
+      </template>
     </RevealBlock>
   </main>
 </template>
