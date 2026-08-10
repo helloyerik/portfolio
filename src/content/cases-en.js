@@ -48,7 +48,7 @@ export const mechtaProjects = [
     kind: "Mechta.kz · Redesign",
     period: "2025",
     summary: [
-      "I helped increase purchase conversion for a 500k MAU online retail product.",
+      "I helped a 500k MAU retailer increase purchase conversion by redesigning key funnel steps and optimizing the user journey.",
     ],
     metrics: ["Purchase conversion +NDA%", "Bounce rate -NDA%", "Support requests -NDA%"],
     cover: homeAfterMockup,
@@ -61,7 +61,7 @@ export const mechtaProjects = [
     kind: "0→1 / internal",
     period: "2025",
     summary: [
-      "I design interfaces for internal teams — helping optimize workflows and reduce business costs.",
+      "I designed interfaces for internal teams and employees — helping optimize workflows and reduce the burden on the business.",
     ],
     highlights: [
       "OMS: orders and order details",
@@ -481,27 +481,12 @@ export const publicCases = {
         paragraphs: [
           "A utility app for app stores: VPN, ad blocking, password leak checks, and speed testing aimed at a broad audience and subscription monetization.",
         ],
-        problems: [
-          "the product package had to work for store publication from day one",
-          "the interface and packaging needed to fit several markets",
-          "utility features, subscription logic, and the store presence had to support each other",
-        ],
-        list: [
-          "designed the wireframes, logo, visual concept, and store materials",
-          "focused on cover assets and localization",
-          "prepared the product package for publication across markets",
-        ],
         media: freelanceMedia.Vault,
       },
       {
         title: "Freelance Marketplace",
         paragraphs: [
           "A marketplace concept for IT specialists focused on profiles, matching, and hiring-related workflows. The goal was to shape a product direction that felt clear both for specialists and for teams searching for talent.",
-        ],
-        list: [
-          "outlined the main marketplace structure and browsing logic",
-          "worked through profile, list, and matching-related screens",
-          "framed the product as a more usable hiring flow rather than just a directory of specialists",
         ],
         media: freelanceMedia.OOX,
       },
@@ -510,22 +495,12 @@ export const publicCases = {
         paragraphs: [
           "A collaboration workspace concept with an AI agent inside the product flow. The task was to make the assistant feel embedded into teamwork rather than added as a separate gimmick.",
         ],
-        list: [
-          "structured the workspace around collaboration and task context",
-          "explored how an AI agent could support navigation and decisions inside the flow",
-          "turned the concept into a more coherent product scenario with clearer screens and modules",
-        ],
         media: freelanceMedia["AI Workspace"],
       },
       {
         title: "AI Image Creation",
         paragraphs: [
           "A lightweight concept around generating images with AI. The focus here was not technical depth, but turning a generic generation flow into a cleaner and more presentable product experience.",
-        ],
-        list: [
-          "framed the basic generation flow and output states",
-          "designed a visual direction around prompt input and result review",
-          "packaged the concept into screens that were easier to discuss and iterate with the client",
         ],
         media: freelanceMedia["Genera AI"],
       },
