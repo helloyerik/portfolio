@@ -2,6 +2,7 @@
 import { computed, inject, onBeforeUnmount, onMounted, ref, watch } from "vue";
 import { toSectionId } from "../lib/navigation";
 import CaseOutline from "./CaseOutline.vue";
+import ContactCta from "./ContactCta.vue";
 import InlineMedia from "./InlineMedia.vue";
 import NavLink from "./NavLink.vue";
 import RevealBlock from "./RevealBlock.vue";
@@ -212,18 +213,7 @@ watch(sectionItems, () => {
       />
     </RevealBlock>
 
-    <RevealBlock as="section" class="contact-cta" :order="mergedSections.length + sectionOrderOffset">
-      <h2 class="section-title">{{ siteCopy.ctaTitle }}</h2>
-      <p class="section-note">{{ siteCopy.ctaSubtitle }}</p>
-      <a
-        class="topnav__button"
-        :href="siteCopy.telegramHref"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <span>{{ siteCopy.telegramButton }}</span>
-      </a>
-    </RevealBlock>
+    <ContactCta :order="mergedSections.length + sectionOrderOffset" />
 
     <RevealBlock as="nav" class="project-nav" :order="mergedSections.length + sectionOrderOffset + 1">
       <template v-if="singleAdjacentCase">
