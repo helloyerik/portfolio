@@ -3,6 +3,7 @@ import { computed, inject } from "vue";
 import NavLink from "./NavLink.vue";
 import RevealBlock from "./RevealBlock.vue";
 import SectionBody from "./SectionBody.vue";
+import SiteFooter from "./SiteFooter.vue";
 
 const props = defineProps({
   workflowCase: {
@@ -39,5 +40,7 @@ const siteCopy = inject("siteCopy");
       <NavLink :href="workflowCase.publicHref">{{ siteCopy.workflowPublicCaseLabel }}</NavLink>
       <NavLink href="/#mechta">{{ siteCopy.workflowBackToProjectsLabel }}</NavLink>
     </RevealBlock>
+
+    <SiteFooter :order="mergedSections.length + 3" />
   </main>
 </template>

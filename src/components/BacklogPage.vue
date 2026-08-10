@@ -1,6 +1,7 @@
 <script setup>
 import { inject } from "vue";
 import RevealBlock from "./RevealBlock.vue";
+import SiteFooter from "./SiteFooter.vue";
 
 defineProps({
   sections: {
@@ -43,5 +44,7 @@ const siteCopy = inject("siteCopy");
         </div>
       </RevealBlock>
     </section>
+
+    <SiteFooter :order="sections.length + 2" />
   </main>
 </template>

@@ -1,6 +1,7 @@
 <script setup>
 import { inject } from "vue";
 import RevealBlock from "./RevealBlock.vue";
+import SiteFooter from "./SiteFooter.vue";
 
 defineProps({
   cvData: {
@@ -54,5 +55,7 @@ const siteCopy = inject("siteCopy");
         </ul>
       </div>
     </RevealBlock>
+
+    <SiteFooter :order="cvData.experience.length + 2" />
   </main>
 </template>

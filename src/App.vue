@@ -56,6 +56,14 @@ let transitionTimeout = 0;
 let stopMediaPreload = null;
 let smoothScroll = null;
 
+provide("scrollToTop", () => {
+  if (smoothScroll) {
+    smoothScroll.scrollTo(0);
+    return;
+  }
+  window.scrollTo(0, 0);
+});
+
 const syncRoute = () => {
   const newRoute = readRoute();
   const pathChanged = newRoute.pathname !== route.value.pathname;

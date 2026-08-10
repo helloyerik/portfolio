@@ -1209,7 +1209,8 @@ h2.section-title {
 
 .case-page .display-title,
 .case-page .section-title,
-.case-page h2.section-title {
+.case-page h2.section-title,
+h2.section-title--case {
   font-weight: 600 !important;
   font-size: 24px !important;
 }
@@ -2170,7 +2171,10 @@ html[data-theme="light"] .before-after__divider {
 .contact-cta__title::after {
   content: "\2197";
   margin-left: var(--space-3xs);
-  font-size: 0.9em;
+  font-size: 1em;
+  line-height: 1;
+  vertical-align: baseline;
+  font-family: var(--font-family-body), system-ui, sans-serif;
 }
 
 .site-footer {

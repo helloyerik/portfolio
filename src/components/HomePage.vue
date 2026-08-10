@@ -5,6 +5,7 @@ import CompanyDivider from "./CompanyDivider.vue";
 import ContactCta from "./ContactCta.vue";
 import ProjectCard from "./ProjectCard.vue";
 import RevealBlock from "./RevealBlock.vue";
+import SiteFooter from "./SiteFooter.vue";
 
 const props = defineProps({
   mechtaProjects: {
@@ -70,7 +71,7 @@ const visibleMechtaProjects = computed(() =>
     </RevealBlock>
 
     <RevealBlock id="certificates" :order="7">
-      <h2 class="section-title">{{ siteCopy.certificatesName }}</h2>
+      <h2 class="section-title section-title--case">{{ siteCopy.certificatesName }}</h2>
     </RevealBlock>
     <RevealBlock v-for="certificate in certificates" :key="certificate.title" :order="8">
       <a
@@ -95,17 +96,7 @@ const visibleMechtaProjects = computed(() =>
 
     <ContactCta :order="9" />
 
-    <RevealBlock as="footer" class="project-nav site-footer" :order="10">
-      <span>{{ siteCopy.footerCopyright }}</span>
-      <a
-        class="topnav__button"
-        :href="siteCopy.telegramHref"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <span>{{ siteCopy.telegramButton }}</span>
-      </a>
-    </RevealBlock>
+    <SiteFooter :order="10" />
 
   </main>
 </template>

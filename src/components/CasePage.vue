@@ -8,6 +8,7 @@ import NavLink from "./NavLink.vue";
 import RevealBlock from "./RevealBlock.vue";
 import RichList from "./RichList.vue";
 import SectionBody from "./SectionBody.vue";
+import SiteFooter from "./SiteFooter.vue";
 
 const props = defineProps({
   caseData: {
@@ -233,5 +234,7 @@ watch(sectionItems, () => {
         <span v-else />
       </template>
     </RevealBlock>
+
+    <SiteFooter :order="mergedSections.length + sectionOrderOffset + 2" />
   </main>
 </template>
