@@ -1610,6 +1610,37 @@ h2.section-title {
   margin-top: 0;
 }
 
+/* Freelance media: vertical stack of fixed 16:9 frames — portrait and
+   landscape shots both fit without stretching the page. */
+.gallery--frames {
+  margin-top: var(--space-xs);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-m);
+  width: 100%;
+  min-width: 0;
+}
+
+.gallery__item--frame {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--mi-radius-2xs);
+  background: var(--color-media-backdrop);
+}
+
+.gallery__item--frame .gallery__zoom-trigger {
+  height: 100%;
+}
+
+.gallery__item--frame .media-image {
+  height: 100%;
+}
+
+.gallery__image--frame {
+  height: 100%;
+  border-radius: 0;
+}
+
 .gallery--carousel {
   margin-top: var(--space-xs);
   display: flex;

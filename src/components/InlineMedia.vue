@@ -64,6 +64,12 @@ const isVideo = computed(
 
 const carouselItems = computed(() => (isCarousel.value ? props.media.items ?? [] : []));
 
+const isFrames = computed(
+  () => typeof props.media === "object" && !Array.isArray(props.media) && props.media?.kind === "frames",
+);
+
+const frameItems = computed(() => (isFrames.value ? props.media.items ?? [] : []));
+
 /** Carousel: horizontal trackpad/drag only — no vertical page scroll while hovered. */
 const carouselRef = ref(null);
 const isDragging = ref(false);
@@ -164,6 +170,25 @@ onBeforeUnmount(() => {
           :alt="item.alt ?? ''"
           :draggable="false"
         />
+      </div>
+    </div>
+    <div v-else-if="isFrames" class="gallery gallery--frames">
+      <div
+        v-for="(item, index) in frameItems"
+        :key="item.src ?? index"
+        class="gallery__item gallery__item--frame"
+      >
+        <button
+          type="button"
+          class="gallery__zoom-trigger"
+          @click="openImage(item.src, item.alt ?? '')"
+        >
+          <MediaImage
+            img-class="gallery__image gallery__image--frame"
+            :src="item.src"
+            :alt="item.alt ?? ''"
+          />
+        </button>
       </div>
     </div>
     <div v-else-if="Array.isArray(media)" class="gallery gallery--stack">
