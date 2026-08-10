@@ -48,7 +48,7 @@ export const mechtaProjects = [
     kind: "Mechta.kz · Redesign",
     period: "2025",
     summary: [
-      "I helped a 500k MAU retailer increase purchase conversion by redesigning key funnel steps and optimizing the user journey.",
+      "I helped a 500k MAU retailer increase purchase conversion by redesigning key funnel steps and optimizing the customer journey",
     ],
     metrics: ["Purchase conversion +NDA%", "Bounce rate -NDA%", "Support requests -NDA%"],
     cover: homeAfterMockup,
@@ -61,12 +61,12 @@ export const mechtaProjects = [
     kind: "0→1 / internal",
     period: "2025",
     summary: [
-      "I designed interfaces for internal teams and employees — helping optimize workflows and reduce the burden on the business.",
+      "I designed interfaces for internal teams and employees — helping optimize workflows and reduce the burden on the business",
     ],
     highlights: [
-      "OMS: orders and order details",
-      "Partners: MVP in one month",
-      "Prices: faster price-tag printing",
+      "Website, store, and marketplace orders — in one window",
+      "Supplier service: from scratch to launch in one month",
+      "Price-tag printing from shared data — no manual entry",
     ],
     facts: ["OMS", "Partners", "Prices"],
     cover: omsDemo,
@@ -83,7 +83,7 @@ export const freelanceProjects = [
     kind: "Case collection",
     period: "2023 — 2025",
     summary: [
-      "A combined case built from seven client projects: Orbi, Xola, CheryX, Vault, Freelance Marketplace, AI Workspace, and AI Image Creation.",
+      "A combined case built from seven client projects: Orbi, Xola, CheryX, Vault, Freelance Marketplace, AI Workspace, and AI Image Creation",
     ],
     highlights: ["89% of clients returned", "Completed 27 projects", "Worked with local and international clients"],
     facts: ["7 projects", "Mobile / AI / Fintech / Utilities"],
@@ -99,7 +99,7 @@ export const bmcProjects = [
     kind: "Agency experience",
     period: "2024",
     summary: [
-      "I built mobile apps, websites, and Telegram mini-apps, ran social media for real-estate developers, and assembled landing pages for them.",
+      "I built mobile apps, websites, and Telegram mini-apps, ran social media for real-estate developers, and assembled landing pages for them",
     ],
     highlights: ["client websites", "no-code / low-code", "social support for real-estate brands"],
     facts: ["No-code / low-code", "Instagram"],
@@ -127,14 +127,14 @@ export const publicCases = {
     summary: [
       "I owned the end-to-end redesign of the Mechta.kz purchase funnel — a retail product with 500k MAU — from identifying the core conversion problems to shipping and measuring the outcomes.",
       "I redesigned the home, search, product page, cart, checkout, and related purchase flows into one connected path to purchase.",
-      "I worked independently — and at the start alongside a lead designer — with developers, product managers, and dozens of analysts across four teams, targeting purchase conversion.",
+      "I worked independently — and at the start alongside a lead designer — with developers, product managers, and dozens of analysts across four teams, targeting purchase conversion",
     ],
     metrics: ["Purchase conversion +NDA%", "Transitions from cart to checkout +NDA%", "Support requests -NDA%"],
     sections: [
       {
         title: "Home",
         paragraphs: [
-          "We updated the home page, improving navigation and surfacing the key sections on the first screen.",
+          "We updated the home page, improving navigation and surfacing the key sections on the first screen",
         ],
         resultList: [
           "Catalog and search transitions +NDA%",
@@ -152,7 +152,7 @@ export const publicCases = {
       {
         title: "Product card",
         paragraphs: [
-          "We removed secondary elements and put the emphasis on the product photo and the benefits: a percentage discount and a gift.",
+          "We removed secondary elements and put the emphasis on the product photo and the benefits: a percentage discount and a gift",
         ],
         resultList: [
           "Search to product page conversion +NDA%",
@@ -170,7 +170,7 @@ export const publicCases = {
       {
         title: "Product page",
         paragraphs: [
-          "We reduced the emphasis on secondary and less popular sections, and made the call to action more prominent.",
+          "We reduced the emphasis on secondary and less popular sections, and made the call to action more prominent",
         ],
         resultList: [
           "Transitions to the cart +NDA%",
@@ -188,7 +188,7 @@ export const publicCases = {
       {
         title: "Cart",
         paragraphs: [
-          "In the cart, we simplified adding accessories and working with promo codes, bonuses, and gifts.",
+          "In the cart, we simplified adding accessories and working with promo codes, bonuses, and gifts",
         ],
         resultList: [
           "Transitions from cart to checkout +NDA%",
@@ -206,7 +206,7 @@ export const publicCases = {
       {
         title: "Checkout",
         paragraphs: [
-          "We updated the interface: simplified and sped up address selection, and made working with dates, statuses, and addresses more convenient.",
+          "We updated the interface: simplified and sped up address selection, and made working with dates, statuses, and addresses more convenient",
         ],
         resultList: [
           "Next-step transition +NDA%",
@@ -224,7 +224,7 @@ export const publicCases = {
       {
         title: "Order details",
         paragraphs: [
-          "We standardized the statuses and worked through hundreds of cases, adding post-checkout instructions so customers understand what to expect next and what to do.",
+          "We standardized the statuses and worked through hundreds of cases, adding post-checkout instructions so customers understand what to expect next and what to do",
         ],
         resultList: [
           "Support requests after purchase -NDA%",
@@ -267,7 +267,7 @@ export const publicCases = {
     metrics: ["Launch cycles -NDA%", "Duplicate screens -NDA%", "Support cost -NDA%"],
     context: [
       "The design system had value as a UI library, but a lot of work still lived in disconnected mockups. As the product grew, that increased duplication, manual updates, and interpretation gaps between design, analytics, and engineering.",
-      "My focus was to move the system from a collection of components into a layer that also documented behavior, dependencies, and repeatable product logic.",
+      "My focus was to move the system from a collection of components into a layer that also documented behavior, dependencies, and repeatable product logic",
     ],
     goals: [
       "reduce duplicate mockups and repeated manual updates",
@@ -299,7 +299,7 @@ export const publicCases = {
       {
         title: "From screen inventory to a system",
         paragraphs: [
-          "The team used to work through a long list of screens. To cover more scenarios, we kept producing more mockups, which increased duplication and made even small changes expensive.",
+          "The team used to work through a long list of screens. To cover more scenarios, we kept producing more mockups, which increased duplication and made even small changes expensive",
         ],
         problems: [
           "one scenario could drift across several mockups",
@@ -312,7 +312,7 @@ export const publicCases = {
       {
         title: "Single source of truth",
         paragraphs: [
-          "We started documenting flows, states, and dependencies right next to the screens so that analysts, designers, product managers, and engineers were all looking at the same system instead of different interpretations of it.",
+          "We started documenting flows, states, and dependencies right next to the screens so that analysts, designers, product managers, and engineers were all looking at the same system instead of different interpretations of it",
         ],
         list: [
           "documentation described not only the UI but the system behavior behind it",
@@ -324,7 +324,7 @@ export const publicCases = {
       {
         title: "Diagrams and quick prototypes",
         paragraphs: [
-          "For complex parts of the product, static screens were not enough. I complemented the UI with diagrams and quick prototypes so the team could discuss behavior, not just visuals.",
+          "For complex parts of the product, static screens were not enough. I complemented the UI with diagrams and quick prototypes so the team could discuss behavior, not just visuals",
         ],
         list: [
           "used diagrams to capture dependencies and state transitions",
@@ -336,7 +336,7 @@ export const publicCases = {
       {
         title: "Summary",
         paragraphs: [
-          "This work was about moving the design system from a set of components to a system layer that helps teams change and support the product with less duplication.",
+          "This work was about moving the design system from a set of components to a system layer that helps teams change and support the product with less duplication",
         ],
       },
     ],
@@ -353,13 +353,13 @@ export const publicCases = {
       "Prices: printing workflow -NDA%",
     ],
     context: [
-      "The job was three working services around those roles: supplier offers through to publishing, in-store price-tag printing, and order handling. I shaped flows and boundaries with analytics, managers, and engineering; for Prices I also checked the work on shift with supervisors and floor consultants.",
+      "The job was three working services around those roles: supplier offers through to publishing, in-store price-tag printing, and order handling. I shaped flows and boundaries with analytics, managers, and engineering; for Prices I also checked the work on shift with supervisors and floor consultants",
     ],
     sections: [
       {
         title: "OMS",
         paragraphs: [
-          "OMS is an internal order management service for a retailer: every order from the website, stores, and marketplaces in one place. I designed the order list and detail view so an operator can find an order quickly, see its status and error reason, and resolve the issue without jumping between systems.",
+          "OMS is an internal order management service for a retailer: every order from the website, stores, and marketplaces in one place. I designed the order list and detail view so an operator can find an order quickly, see its status and error reason, and resolve the issue without jumping between systems",
         ],
         resultList: [
           "Cut time spent finding and reviewing an order: operators work from one screen instead of several systems",
@@ -376,7 +376,7 @@ export const publicCases = {
       {
         title: "Partners",
         paragraphs: [
-          "Supplier offer processing for category managers. The process previously lived in 1C: hard to scale, full of catalog duplicates and manual errors. I simplified reviewing incoming offers and sending them for catalog review, validated it with a clickable prototype, and connected it to the product card.",
+          "Supplier offer processing for category managers. The process previously lived in 1C: hard to scale, full of catalog duplicates and manual errors. I simplified reviewing incoming offers and sending them for catalog review, validated it with a clickable prototype, and connected it to the product card",
         ],
         resultList: [
           "Under tight deadlines, built the admin fully from design-system components — that made it possible to launch in one month",
@@ -393,7 +393,7 @@ export const publicCases = {
       {
         title: "Prices",
         paragraphs: [
-          "A price-tag printing service for physical stores. Staff used to build and refresh the list themselves in 1C — and still had no single source of truth they could trust. Shelf and checkout drifted apart: sellers spent half the day swapping tags, customers clashed at the register, and employees got fined. We rebuilt the flow around current data: each store sees its own price changes and prints without typing prices by hand.",
+          "A price-tag printing service for physical stores. Staff used to build and refresh the list themselves in 1C — and still had no single source of truth they could trust. Shelf and checkout drifted apart: sellers spent half the day swapping tags, customers clashed at the register, and employees got fined. We rebuilt the flow around current data: each store sees its own price changes and prints without typing prices by hand",
         ],
         resultList: [
           "Sped up price-tag prep: the store gets an auto revaluation list instead of hunting changes in 1C",
@@ -415,7 +415,7 @@ export const publicCases = {
       {
         title: "Summary",
         paragraphs: [
-          "One approach across all three: structure the flow and roles first, then deepen the interface. Internal Tools is about working services around the process — not polishing screens.",
+          "One approach across all three: structure the flow and roles first, then deepen the interface. Internal Tools is about working services around the process — not polishing screens",
         ],
       },
     ],
@@ -431,7 +431,7 @@ export const publicCases = {
     metrics: ["89% repeat clients", "27 projects delivered", "3+ years of work"],
     context: [
       "Freelance meant much shorter cycles and much less infrastructure than a large product team. I had to enter new domains quickly, define the product frame, design the interface, and move the work to a state that clients could discuss, approve, and take forward.",
-      "The value of this period was not one domain in particular, but the repetition of the same skill across very different products: rapid onboarding, clear structuring, and independent delivery.",
+      "The value of this period was not one domain in particular, but the repetition of the same skill across very different products: rapid onboarding, clear structuring, and independent delivery",
     ],
     results: [
       "Designed several client products from scratch, from structure and wireframes to polished UI.",
@@ -452,55 +452,55 @@ export const publicCases = {
       {
         title: "Context",
         paragraphs: [
-          "Freelance was the period where I learned to run projects independently, keep momentum, and move from a client request to a workable product structure. There was less infrastructure than in a large team and more direct responsibility for the shape of the solution.",
+          "Freelance was the period where I learned to run projects independently, keep momentum, and move from a client request to a workable product structure. There was less infrastructure than in a large team and more direct responsibility for the shape of the solution",
         ],
       },
       {
         title: "Orbi",
         paragraphs: [
-          "A mobile app built around a proprietary indicator for traders. The key challenge was to make a dense trading interface manageable on a small screen without slowing down access to critical actions.",
+          "A mobile app built around a proprietary indicator for traders. The key challenge was to make a dense trading interface manageable on a small screen without slowing down access to critical actions",
         ],
         media: freelanceMedia.Orbi,
       },
       {
         title: "Xola",
         paragraphs: [
-          "Built during the first wave of GPT products, when many projects were just wrappers around the model. The goal was not only to add AI, but to create a usable product around recipes, cooking, and adaptive instructions.",
+          "Built during the first wave of GPT products, when many projects were just wrappers around the model. The goal was not only to add AI, but to create a usable product around recipes, cooking, and adaptive instructions",
         ],
         media: freelanceMedia.Xola,
       },
       {
         title: "CheryX",
         paragraphs: [
-          "A fintech concept around paying with crypto directly on POS terminals. It needed to feel realistic and understandable in an everyday offline scenario rather than as a speculative concept.",
+          "A fintech concept around paying with crypto directly on POS terminals. It needed to feel realistic and understandable in an everyday offline scenario rather than as a speculative concept",
         ],
         media: freelanceMedia.CheryX,
       },
       {
         title: "Vault",
         paragraphs: [
-          "A utility app for app stores: VPN, ad blocking, password leak checks, and speed testing aimed at a broad audience and subscription monetization.",
+          "A utility app for app stores: VPN, ad blocking, password leak checks, and speed testing aimed at a broad audience and subscription monetization",
         ],
         media: freelanceMedia.Vault,
       },
       {
         title: "Freelance Marketplace",
         paragraphs: [
-          "A marketplace concept for IT specialists focused on profiles, matching, and hiring-related workflows. The goal was to shape a product direction that felt clear both for specialists and for teams searching for talent.",
+          "A marketplace concept for IT specialists focused on profiles, matching, and hiring-related workflows. The goal was to shape a product direction that felt clear both for specialists and for teams searching for talent",
         ],
         media: freelanceMedia.OOX,
       },
       {
         title: "AI Workspace",
         paragraphs: [
-          "A collaboration workspace concept with an AI agent inside the product flow. The task was to make the assistant feel embedded into teamwork rather than added as a separate gimmick.",
+          "A collaboration workspace concept with an AI agent inside the product flow. The task was to make the assistant feel embedded into teamwork rather than added as a separate gimmick",
         ],
         media: freelanceMedia["AI Workspace"],
       },
       {
         title: "AI Image Creation",
         paragraphs: [
-          "A lightweight concept around generating images with AI. The focus here was not technical depth, but turning a generic generation flow into a cleaner and more presentable product experience.",
+          "A lightweight concept around generating images with AI. The focus here was not technical depth, but turning a generic generation flow into a cleaner and more presentable product experience",
         ],
         media: freelanceMedia["Genera AI"],
       },
@@ -517,7 +517,7 @@ export const publicCases = {
     metrics: ["Delivery cycle -NDA%", "Client approvals +NDA%"],
     context: [
       "BMC Group was a fast agency environment with short cycles, approvals, and launch pressure. The work was not finished at the mockup stage: pages had to be assembled, adapted to content, and brought to a state that clients could actually publish.",
-      "Alongside websites, visual support for social channels had to stay consistent with the site direction and fit the rhythm of regular brand communication.",
+      "Alongside websites, visual support for social channels had to stay consistent with the site direction and fit the rhythm of regular brand communication",
     ],
     goals: [
       "shorten the path from design to launch-ready pages",
@@ -546,7 +546,7 @@ export const publicCases = {
       {
         title: "No-code / low-code websites",
         paragraphs: [
-          "The main part of the work was client websites: designing pages, assembling them in no-code / low-code tools, and bringing them to a final launch-ready state.",
+          "The main part of the work was client websites: designing pages, assembling them in no-code / low-code tools, and bringing them to a final launch-ready state",
         ],
         problems: [
           "the project had to go beyond design into an assembled deliverable",
@@ -562,7 +562,7 @@ export const publicCases = {
       {
         title: "Instagram and visual support",
         paragraphs: [
-          "Alongside websites, we prepared visual materials for client social channels. My part of the work covered promotions, announcements, tariff posts, stories, and other formats that supported regular brand activity, mostly for large developers and real-estate businesses.",
+          "Alongside websites, we prepared visual materials for client social channels. My part of the work covered promotions, announcements, tariff posts, stories, and other formats that supported regular brand activity, mostly for large developers and real-estate businesses",
         ],
         list: [
           "designed promotions, announcements, and tariff-based visuals",
@@ -579,7 +579,7 @@ export const cvData = {
   title: "Yerik",
   role: "Product Designer",
   intro: [
-    "Product designer with 3+ years of experience in e-commerce, B2B, retail, AI, and internal tools. I design web and mobile products, build design systems, and ship solutions that move metrics.",
+    "Product designer with 3+ years of experience in e-commerce, B2B, retail, AI, and internal tools. I design web and mobile products, build design systems, and ship solutions that move metrics",
   ],
   experience: [
     {
@@ -588,7 +588,7 @@ export const cvData = {
       role: "Product Designer",
       format: "full-time · on-site",
       summary:
-        "Kazakhstan retailer with a 500k MAU online store. I led design for the purchase funnel and internal tools.",
+        "Kazakhstan retailer with a 500k MAU online store. I led design for the purchase funnel and internal tools",
       responsibilities: [
         "Helped a 500k MAU retailer grow purchase conversion by redesigning key funnel steps and improving the user journey",
         "Designed interfaces for internal teams and employees, optimizing workflows and reducing the load on the business",
@@ -611,7 +611,7 @@ export const cvData = {
       role: "Product Designer",
       format: "project-based · remote",
       summary:
-        "Independent work on client products across mobile, AI, fintech, and utilities.",
+        "Independent work on client products across mobile, AI, fintech, and utilities",
       responsibilities: [
         "Built product structure in new domains without long onboarding",
         "Designed wireframes, visual concepts, and final interfaces for specific scenarios",
@@ -629,7 +629,7 @@ export const cvData = {
       role: "Designer",
       format: "project-based · hybrid",
       summary:
-        "Agency with short cycles: client websites, mini-apps, and launch delivery through no-code / low-code.",
+        "Agency with short cycles: client websites, mini-apps, and launch delivery through no-code / low-code",
       responsibilities: [
         "Built mobile apps, websites, and Telegram mini-apps",
         "Ran social media for real-estate developers and assembled landing pages for them",
