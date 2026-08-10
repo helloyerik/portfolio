@@ -70,11 +70,7 @@ const visibleMechtaProjects = computed(() =>
     </RevealBlock>
 
     <RevealBlock id="certificates" :order="7">
-      <CompanyDivider
-        :name="siteCopy.certificatesName"
-        :period="siteCopy.certificatesPeriod"
-        :role="siteCopy.certificatesRole"
-      />
+      <h2 class="section-title">{{ siteCopy.certificatesName }}</h2>
     </RevealBlock>
     <RevealBlock v-for="certificate in certificates" :key="certificate.title" :order="8">
       <a
