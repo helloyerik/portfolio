@@ -1378,12 +1378,12 @@ h2.section-title--case {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1em;
-  height: 1em;
+  width: 0.85em;
+  height: 0.85em;
   color: var(--color-text-muted);
-  /* Center the 1em marker on the 30px body line so it doesn't ride the top. */
-  margin-top: calc((var(--line-body) - 1em) / 2);
-  margin-right: 6px;
+  /* Center the marker on the 30px body line so it doesn't ride the top. */
+  margin-top: calc((var(--line-body) - 0.85em) / 2);
+  margin-right: 4px;
   flex: 0 0 auto;
 }
 
