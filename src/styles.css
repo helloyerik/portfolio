@@ -699,10 +699,22 @@ a {
 .case-page .case-section > .section-title,
 .case-page .case-section > .case-section__copy,
 .case-page .contact-cta,
+.case-page .case-end-actions,
 .case-page .project-nav {
   max-width: var(--reading-width);
   width: 100%;
   margin-inline: auto;
+}
+
+.case-end-actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-m);
+}
+
+.case-end-actions .contact-cta {
+  max-width: none;
+  margin-inline: 0;
 }
 
 .case-page .case-section > .case-section__copy > p,
@@ -2230,6 +2242,26 @@ html[data-theme="light"] .before-after__divider {
   color: var(--color-text-muted);
 }
 
+/* Keycap hints, Nuxt UI Kbd style: smaller text, raised key edge. */
+.keycap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  margin-left: var(--space-2xs);
+  border: 1px solid var(--color-border-strong);
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  background: var(--color-panel-tint);
+  color: var(--color-text-muted);
+  font-family: var(--font-family-body);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+}
+
 .cv-subtitle {
   color: var(--color-text-muted);
 }
@@ -2374,5 +2406,13 @@ html[data-theme="light"] .before-after__divider {
   /* Portrait freelance frames scale down with the viewport height. */
   .gallery__item--frame-portrait {
     height: 60vh;
+  }
+
+  .case-end-actions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .keycap {
+    display: none;
   }
 }

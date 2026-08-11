@@ -2,7 +2,6 @@
 import { computed, inject, onBeforeUnmount, onMounted, ref, watch } from "vue";
 import { toSectionId } from "../lib/navigation";
 import CaseOutline from "./CaseOutline.vue";
-import ContactCta from "./ContactCta.vue";
 import InlineMedia from "./InlineMedia.vue";
 import NavLink from "./NavLink.vue";
 import RevealBlock from "./RevealBlock.vue";
@@ -32,19 +31,8 @@ const introContextItems = computed(() => props.caseData.context ?? props.caseDat
 const goalsItems = computed(() => props.caseData.goals ?? []);
 const actionsItems = computed(() => props.caseData.actions ?? props.caseData.tasks ?? []);
 const currentIndex = computed(() => props.caseOrder.findIndex((item) => item.slug === props.caseData.slug));
-const prevCase = computed(() =>
-  currentIndex.value >= 0
-    ? props.caseOrder[(currentIndex.value - 1 + props.caseOrder.length) % props.caseOrder.length]
-    : null,
-);
 const nextCase = computed(() =>
   currentIndex.value >= 0 ? props.caseOrder[(currentIndex.value + 1) % props.caseOrder.length] : null,
-);
-// A 2-item cycle makes prev and next the same project — collapse to one link.
-const singleAdjacentCase = computed(() =>
-  prevCase.value && nextCase.value && prevCase.value.slug === nextCase.value.slug
-    ? prevCase.value
-    : null,
 );
 const siteCopy = inject("siteCopy");
 const isModuleCase = computed(() => Boolean(props.caseData.moduleCase));
@@ -214,27 +202,23 @@ watch(sectionItems, () => {
       />
     </RevealBlock>
 
-    <ContactCta :order="mergedSections.length + sectionOrderOffset" />
-
-    <RevealBlock as="nav" class="project-nav" :order="mergedSections.length + sectionOrderOffset + 1">
-      <template v-if="singleAdjacentCase">
-        <NavLink :href="singleAdjacentCase.slug">
-          {{ singleAdjacentCase.label }}
-        </NavLink>
-        <span />
-      </template>
-      <template v-else>
-        <NavLink v-if="prevCase" :href="prevCase.slug">
-          {{ siteCopy.previousCaseLabel }}: {{ prevCase.label }}
-        </NavLink>
-        <span v-else />
-        <NavLink v-if="nextCase" :href="nextCase.slug">
-          {{ siteCopy.nextCaseLabel }}: {{ nextCase.label }}
-        </NavLink>
-        <span v-else />
-      </template>
+    <RevealBlock class="case-end-actions" :order="mergedSections.length + sectionOrderOffset">
+      <a
+        class="contact-cta"
+        :href="siteCopy.telegramHref"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="contact-cta__title">{{ siteCopy.ctaTitle }}</span>
+        <kbd class="keycap" aria-hidden="true">C</kbd>
+      </a>
+      <NavLink v-if="nextCase" class="contact-cta" :href="nextCase.slug">
+        <span class="contact-cta__title">{{ nextCase.label }}</span>
+        <kbd class="keycap" aria-hidden="true">N</kbd>
+      </NavLink>
+      <span v-else />
     </RevealBlock>
 
-    <SiteFooter :order="mergedSections.length + sectionOrderOffset + 2" />
+    <SiteFooter :order="mergedSections.length + sectionOrderOffset + 1" />
   </main>
 </template>
