@@ -2124,7 +2124,8 @@ html[data-theme="light"] .before-after__divider {
   width: var(--space-xs);
   height: 2px;
   border-radius: var(--mi-radius-pill);
-  background: var(--color-text-muted);
+  /* Inactive indicator — kept quiet (~25% of the text color). */
+  background: color-mix(in srgb, var(--color-text) 25%, transparent);
   transition: background-color 180ms ease;
 }
 
@@ -2177,8 +2178,7 @@ html[data-theme="light"] .before-after__divider {
 }
 
 .case-outline__link {
-  /* Inactive but clickable — kept quiet (~25% of the text color). */
-  color: color-mix(in srgb, var(--color-text) 25%, transparent);
+  color: var(--color-text-muted);
   opacity: 1;
   transform: none;
   filter: none;
