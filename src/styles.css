@@ -51,7 +51,7 @@
   --theme-dissolve-duration: 280ms;
   --compare-hint-duration: 1240ms;
   --compare-hint-ease: cubic-bezier(0.2, 1.1, 0.22, 1);
-  --color-media-backdrop: color-mix(in srgb, #aaaaaa 8%, transparent);
+  --color-media-backdrop: color-mix(in srgb, #aaaaaa 6%, transparent);
   --color-result-card-backdrop: color-mix(in srgb, #aaaaaa 10%, transparent);
   --motion-toolbar-duration: 220ms;
   --motion-toolbar-exit-duration: 160ms;
@@ -1674,9 +1674,8 @@ h2.section-title--case {
 
 .gallery__item--frame-portrait .gallery__zoom-trigger {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  /* 40px breathing room top/bottom so the shot doesn't touch the frame edges. */
+  inset: 40px 0;
 }
 
 .gallery__item--frame-portrait .gallery__image--frame {

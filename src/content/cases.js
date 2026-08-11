@@ -39,6 +39,7 @@ const moduleMetricsPlaceholder = "Метрики будут добавлены �
 export const caseOrder = [
   { slug: "/projects/ecommerce", label: "Интернет-магазин" },
   { slug: "/projects/internal-tools", label: "Internal Tools" },
+  { slug: "/projects/freelance", label: "Фриланс на Habr" },
 ];
 
 export const workflowCases = {
