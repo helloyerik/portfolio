@@ -1,5 +1,6 @@
 <script setup>
 import { computed, onBeforeUnmount, ref } from "vue";
+import { Tag } from "@yerik/yedesign-system";
 import BeforeAfterSlider from "./BeforeAfterSlider.vue";
 import ImageLightbox from "./ImageLightbox.vue";
 import MediaImage from "./MediaImage.vue";
@@ -252,6 +253,12 @@ onBeforeUnmount(() => {
       :before-label="media.beforeLabel"
       :after-label="media.afterLabel"
     />
+    <div
+      v-else-if="typeof media === 'object' && media.kind === 'case-soon'"
+      class="gallery__item gallery__item--inline gallery__item--case-soon"
+    >
+      <Tag label="Case Soon" variant="overlay" />
+    </div>
     <div
       v-else-if="isVideo"
       class="gallery__item gallery__item--inline gallery__item--video"

@@ -43,7 +43,7 @@
   --size-profile-mark: var(--mi-size-button-m-height);
   --size-birthday-modal-width: 360px;
   --size-freelance-carousel-height: 360px;
-  --size-freelance-frame-portrait: 640px;
+  --size-freelance-frame-portrait: 520px;
   --reveal-distance: var(--mi-spacing-8);
   --reveal-blur: 16px;
   --reveal-duration: 200ms;
@@ -1684,7 +1684,8 @@ h2.section-title--case {
    through the centered-grid chain and the image falls back to width sizing. */
 .gallery__item--frame-portrait {
   position: relative;
-  height: var(--size-freelance-frame-portrait);
+  /* Keep the whole frame on screen with ~40px of air top and bottom. */
+  height: min(var(--size-freelance-frame-portrait), calc(100vh - 80px));
 }
 
 .gallery__item--frame-portrait .gallery__zoom-trigger {
@@ -1837,6 +1838,20 @@ h2.section-title--case {
   background-position: center;
   background-repeat: no-repeat;
   border-radius: var(--mi-radius-2xs);
+  /* Demos are 16:9 — reserve the shape before metadata loads so the
+     block doesn't collapse into a square on mobile. */
+  aspect-ratio: 16 / 9;
+}
+
+.gallery__item--video .gallery__video {
+  height: 100%;
+}
+
+/* Placeholder slot — a quiet centered chip where media is coming soon. */
+.gallery__item--case-soon {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
 }
 
 .gallery__video {
@@ -2415,6 +2430,17 @@ html[data-theme="light"] .before-after__divider {
 
   .case-end-actions {
     grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-2xs);
+  }
+
+  /* Bullet markers sit closer to the text on mobile. */
+  .metric-list-item__marker {
+    margin-right: 3px;
+  }
+
+  /* Double the gap between project cards on the home page. */
+  .home-page > .reveal:has(.project-card) + .reveal:has(.project-card) {
+    margin-top: calc(var(--space-m) * 2);
   }
 
   .keycap {
