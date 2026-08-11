@@ -2328,4 +2328,23 @@ html[data-theme="light"] .before-after__divider {
   .case-outline {
     display: none;
   }
+
+  /* Freelance screenshots on mobile: drop the fixed 16:9 frame and let the
+     shot fit its gray container by height — no full-width stretching. */
+  .gallery--frames .gallery__item--frame {
+    aspect-ratio: auto;
+    max-height: 70vh;
+  }
+
+  .gallery--frames .gallery__item--frame .gallery__zoom-trigger,
+  .gallery--frames .gallery__item--frame .media-image {
+    height: auto;
+  }
+
+  .gallery--frames .gallery__image--frame {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+  }
 }
