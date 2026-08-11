@@ -1383,7 +1383,7 @@ h2.section-title--case {
   color: var(--color-text-muted);
   /* Center the marker on the 30px body line so it doesn't ride the top. */
   margin-top: calc((var(--line-body) - 0.85em) / 2);
-  margin-right: 4px;
+  margin-right: 2px;
   flex: 0 0 auto;
 }
 
@@ -2435,7 +2435,7 @@ html[data-theme="light"] .before-after__divider {
 
   /* Bullet markers sit closer to the text on mobile. */
   .metric-list-item__marker {
-    margin-right: 3px;
+    margin-right: 1.5px;
   }
 
   /* Double the gap between project cards on the home page. */
