@@ -16,6 +16,8 @@ import giftCardDemo from "../assets/gift-card-demo.mp4";
 import giftCardDemoPoster from "../assets/gift-card-demo-poster.webp";
 import partnersDemo from "../assets/partners-demo.mp4";
 import partnersDemoPoster from "../assets/partners-demo-poster.webp";
+import homeDemo from "../assets/home-demo.mp4";
+import homeDemoPoster from "../assets/home-demo-poster.webp";
 import pricesCharacteristics from "../assets/projects/internal-tools/prices-characteristics.webp";
 import homeBeforeMockup from "../assets/главная до.webp";
 import homeAfterMockup from "../assets/главная после.webp";
@@ -409,7 +411,9 @@ export const mechtaProjects = [
       "Помогал ритейлеру с 500k MAU увеличивать конверсию в покупку за счёт редизайна ключевых шагов воронки и оптимизации клиентского пути",
     ],
     metrics: ["Конверсия в покупку +NDA%", "Отказы -NDA%", "Обращения -NDA%"],
-    cover: homeAfterMockup,
+    cover: homeDemo,
+    coverPoster: homeDemoPoster,
+    coverKind: "video",
     showSummary: true,
     preview: false,
   },
