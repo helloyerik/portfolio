@@ -1664,9 +1664,19 @@ h2.section-title--case {
 }
 
 /* Portrait shots fill the frame height; object-fit keeps the ratio and
-   centers the image with the backdrop visible on the sides. */
+   centers the image with the backdrop visible on the sides.
+   The trigger is positioned absolutely — percentage heights don't resolve
+   through the centered-grid chain and the image falls back to width sizing. */
 .gallery__item--frame-portrait {
+  position: relative;
   height: var(--size-freelance-frame-portrait);
+}
+
+.gallery__item--frame-portrait .gallery__zoom-trigger {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .gallery__item--frame-portrait .gallery__image--frame {
