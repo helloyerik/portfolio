@@ -1260,7 +1260,7 @@ h2.section-title--case {
   margin-left: var(--space-3xs);
   font-size: 1em;
   line-height: 1;
-  vertical-align: baseline;
+  vertical-align: middle;
   font-family: var(--font-family-body), system-ui, sans-serif;
 }
 
@@ -1380,6 +1380,8 @@ h2.section-title--case {
   width: 1em;
   height: 1em;
   color: var(--color-text-muted);
+  /* Center the 1em marker on the 30px body line so it doesn't ride the top. */
+  margin-top: calc((var(--line-body) - 1em) / 2);
   margin-right: var(--space-3xs);
   flex: 0 0 auto;
 }
@@ -2174,7 +2176,8 @@ html[data-theme="light"] .before-after__divider {
 }
 
 .case-outline__link {
-  color: var(--color-text-muted);
+  /* Inactive but clickable — kept quiet (~25% of the text color). */
+  color: color-mix(in srgb, var(--color-text) 25%, transparent);
   opacity: 1;
   transform: none;
   filter: none;
@@ -2227,7 +2230,7 @@ html[data-theme="light"] .before-after__divider {
   margin-left: var(--space-3xs);
   font-size: 1em;
   line-height: 1;
-  vertical-align: baseline;
+  vertical-align: middle;
   font-family: var(--font-family-body), system-ui, sans-serif;
 }
 
