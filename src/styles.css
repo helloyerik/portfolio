@@ -3,6 +3,11 @@
 :root {
   /* Portfolio base type: DS body-2 is 15/20 — bump to 20/+4 line from prior 17/26. */
   --mi-font-size-body-2: 20px;
+  /* Type weights one step lighter than DS defaults (Geist is variable). */
+  --mi-font-weight-article-body: 300;
+  --mi-font-weight-display-2: 500;
+  --mi-font-weight-header-2: 500;
+  --mi-font-weight-subheader-3: 500;
   --mi-line-height-body-2: 28px;
   --mi-font-size-subheader-2: 20px;
   --mi-line-height-subheader-2: 28px;
@@ -38,6 +43,7 @@
   --size-profile-mark: var(--mi-size-button-m-height);
   --size-birthday-modal-width: 360px;
   --size-freelance-carousel-height: 360px;
+  --size-freelance-frame-portrait: 640px;
   --reveal-distance: var(--mi-spacing-8);
   --reveal-blur: 16px;
   --reveal-duration: 200ms;
@@ -659,7 +665,7 @@ a {
 }
 
 .hero-intro .display-title {
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .section {
@@ -1211,7 +1217,7 @@ h2.section-title {
 .case-page .section-title,
 .case-page h2.section-title,
 h2.section-title--case {
-  font-weight: 600 !important;
+  font-weight: 500 !important;
   font-size: 24px !important;
 }
 
@@ -1359,8 +1365,8 @@ h2.section-title--case {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1lh;
-  height: 1lh;
+  width: 1em;
+  height: 1em;
   color: var(--color-text-muted);
   margin-right: var(--space-3xs);
   flex: 0 0 auto;
@@ -1623,10 +1629,14 @@ h2.section-title--case {
 }
 
 .gallery__item--frame {
-  aspect-ratio: 16 / 9;
   overflow: hidden;
   border-radius: var(--mi-radius-2xs);
   background: var(--color-media-backdrop);
+}
+
+/* Orientation unknown until the shot loads — keep the 16:9 skeleton shape. */
+.gallery__item--frame:not(.gallery__item--frame-portrait):not(.gallery__item--frame-landscape) {
+  aspect-ratio: 16 / 9;
 }
 
 .gallery__item--frame .gallery__zoom-trigger {
@@ -1640,6 +1650,35 @@ h2.section-title--case {
 .gallery__image--frame {
   height: 100%;
   border-radius: 0;
+}
+
+/* Landscape shots fill the frame width; their height follows the own ratio. */
+.gallery__item--frame-landscape .gallery__zoom-trigger,
+.gallery__item--frame-landscape .media-image {
+  height: auto;
+}
+
+.gallery__item--frame-landscape .gallery__image--frame {
+  width: 100%;
+  height: auto;
+}
+
+/* Portrait shots fill the frame height; their width follows the own ratio. */
+.gallery__item--frame-portrait {
+  height: var(--size-freelance-frame-portrait);
+  display: flex;
+  justify-content: center;
+}
+
+.gallery__item--frame-portrait .gallery__zoom-trigger {
+  width: auto;
+  height: 100%;
+}
+
+.gallery__item--frame-portrait .gallery__image--frame {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
 }
 
 .gallery--carousel {
@@ -2212,7 +2251,7 @@ html[data-theme="light"] .before-after__divider {
   margin: var(--space-s) 0 0;
   font-size: var(--text-body);
   line-height: var(--line-body);
-  font-weight: 600;
+  font-weight: 500;
   font-family: var(--font-family-body);
 }
 
@@ -2329,22 +2368,8 @@ html[data-theme="light"] .before-after__divider {
     display: none;
   }
 
-  /* Freelance screenshots on mobile: drop the fixed 16:9 frame and let the
-     shot fit its gray container by height — no full-width stretching. */
-  .gallery--frames .gallery__item--frame {
-    aspect-ratio: auto;
-    max-height: 70vh;
-  }
-
-  .gallery--frames .gallery__item--frame .gallery__zoom-trigger,
-  .gallery--frames .gallery__item--frame .media-image {
-    height: auto;
-  }
-
-  .gallery--frames .gallery__image--frame {
-    width: 100%;
-    height: auto;
-    max-height: 70vh;
-    object-fit: contain;
+  /* Portrait freelance frames scale down with the viewport height. */
+  .gallery__item--frame-portrait {
+    height: 60vh;
   }
 }

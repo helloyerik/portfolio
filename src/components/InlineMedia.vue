@@ -70,6 +70,21 @@ const isFrames = computed(
 
 const frameItems = computed(() => (isFrames.value ? props.media.items ?? [] : []));
 
+/** Per-frame orientation from natural sizes — drives portrait/landscape frame styles. */
+const frameOrientations = ref({});
+
+const onFrameLoaded = (index, size) => {
+  if (!size?.naturalWidth || !size?.naturalHeight) return;
+  const orientation = size.naturalHeight > size.naturalWidth ? "portrait" : "landscape";
+  if (frameOrientations.value[index] === orientation) return;
+  frameOrientations.value = { ...frameOrientations.value, [index]: orientation };
+};
+
+const frameOrientationClass = (index) => {
+  const orientation = frameOrientations.value[index];
+  return orientation ? `gallery__item--frame-${orientation}` : "";
+};
+
 /** Carousel: horizontal trackpad/drag only — no vertical page scroll while hovered. */
 const carouselRef = ref(null);
 const isDragging = ref(false);
@@ -177,6 +192,7 @@ onBeforeUnmount(() => {
         v-for="(item, index) in frameItems"
         :key="item.src ?? index"
         class="gallery__item gallery__item--frame"
+        :class="frameOrientationClass(index)"
       >
         <button
           type="button"
@@ -187,6 +203,7 @@ onBeforeUnmount(() => {
             img-class="gallery__image gallery__image--frame"
             :src="item.src"
             :alt="item.alt ?? ''"
+            @loaded="onFrameLoaded(index, $event)"
           />
         </button>
       </div>

@@ -34,9 +34,15 @@ const imgRef = ref(null);
 const loaded = ref(false);
 const errored = ref(false);
 
-const markLoaded = () => {
+const emit = defineEmits(["loaded"]);
+
+const markLoaded = (event) => {
   loaded.value = true;
   errored.value = false;
+  const img = event?.target ?? imgRef.value;
+  if (img && img.naturalWidth && img.naturalHeight) {
+    emit("loaded", { naturalWidth: img.naturalWidth, naturalHeight: img.naturalHeight });
+  }
 };
 
 const markError = () => {
