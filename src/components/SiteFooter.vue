@@ -18,6 +18,7 @@ const scrollToTop = inject("scrollToTop", () => window.scrollTo(0, 0));
     <span>{{ siteCopy.footerCopyright }}</span>
     <button type="button" class="topnav__button" @click="scrollToTop">
       <span>{{ siteCopy.backToTopLabel }} <span class="site-footer__arrow" aria-hidden="true">&uarr;</span></span>
+      <kbd class="keycap" aria-hidden="true">T</kbd>
     </button>
   </RevealBlock>
 </template>

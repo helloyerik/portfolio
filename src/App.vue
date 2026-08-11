@@ -7,7 +7,8 @@ import HomePage from "./components/HomePage.vue";
 import TopNav from "./components/TopNav.vue";
 import WorkflowPage from "./components/WorkflowPage.vue";
 import { getLocalizedCases, getSiteCopy } from "./content";
-import { readRoute } from "./lib/navigation";
+import { startKeyboardShortcuts } from "./lib/keyboardShortcuts";
+import { localizeHref, navigate, readRoute } from "./lib/navigation";
 import { startBackgroundMediaPreload } from "./lib/preloadMedia";
 import { startSmoothScroll } from "./lib/smoothScroll";
 import { applyThemeWithDissolve, readPreferredTheme } from "./lib/theme";
@@ -64,6 +65,20 @@ provide("scrollToTop", () => {
   window.scrollTo(0, 0);
 });
 
+// Experimental single-key shortcuts (see lib/keyboardShortcuts.js).
+const navigateTo = (href) => {
+  navigate({ preventDefault: () => {} }, localizeHref(href, locale.value));
+};
+
+const nextCaseSlug = () => {
+  const order = localizedCases.value.caseOrder ?? [];
+  const index = order.findIndex((item) => item.slug === route.value.pathname);
+  if (index < 0) return null;
+  return order[(index + 1) % order.length].slug;
+};
+
+let stopShortcuts = null;
+
 const syncRoute = () => {
   const newRoute = readRoute();
   const pathChanged = newRoute.pathname !== route.value.pathname;
@@ -95,6 +110,26 @@ const syncRoute = () => {
 onMounted(() => {
   smoothScroll = startSmoothScroll();
   window.addEventListener("popstate", syncRoute);
+  stopShortcuts = startKeyboardShortcuts({
+    KeyH: () => navigateTo("/"),
+    KeyV: () => navigateTo("/cv"),
+    KeyD: () => {
+      theme.value = theme.value === "dark" ? "light" : "dark";
+    },
+    KeyG: () => window.open(siteCopy.value.telegramHref, "_blank", "noopener,noreferrer"),
+    KeyC: () => window.open(siteCopy.value.telegramHref, "_blank", "noopener,noreferrer"),
+    KeyT: () => {
+      if (smoothScroll) {
+        smoothScroll.scrollTo(0);
+        return;
+      }
+      window.scrollTo(0, 0);
+    },
+    KeyN: () => {
+      const next = nextCaseSlug();
+      if (next) navigateTo(next);
+    },
+  });
   stopMediaPreload = startBackgroundMediaPreload([
     getLocalizedCases("en"),
     getLocalizedCases("ru"),
@@ -110,6 +145,8 @@ onBeforeUnmount(() => {
   if (transitionTimeout) clearTimeout(transitionTimeout);
   stopMediaPreload?.();
   stopMediaPreload = null;
+  stopShortcuts?.();
+  stopShortcuts = null;
   smoothScroll?.stop();
   smoothScroll = null;
 });

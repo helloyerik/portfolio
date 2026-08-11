@@ -21,6 +21,7 @@ const siteCopy = inject("siteCopy");
       rel="noopener noreferrer"
     >
       <span class="contact-cta__title">{{ siteCopy.ctaTitle }}</span>
+      <kbd class="keycap" aria-hidden="true">C</kbd>
     </a>
   </RevealBlock>
 </template>

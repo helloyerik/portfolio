@@ -64,14 +64,22 @@ onBeforeUnmount(() => {
   <header ref="topbarRef" class="topbar" :class="{ 'topbar--hidden': hidden }">
     <RevealBlock as="div" class="shell topbar__inner" :order="0">
       <nav class="topnav topbar__nav">
-        <NavLink class="topnav__button" href="/"><span>Home</span></NavLink>
-        <NavLink class="topnav__button" href="/cv"><span>CV</span></NavLink>
+        <NavLink class="topnav__button" href="/">
+          <span>Home</span>
+          <kbd class="keycap" aria-hidden="true">H</kbd>
+        </NavLink>
+        <NavLink class="topnav__button" href="/cv">
+          <span>CV</span>
+          <kbd class="keycap" aria-hidden="true">V</kbd>
+        </NavLink>
         <button type="button" class="topnav__button" @click="toggleTheme">
           <span>{{ siteCopy.themeButton }}</span>
+          <kbd class="keycap" aria-hidden="true">D</kbd>
         </button>
       </nav>
       <button type="button" class="topnav__button topbar__end" @click="openExternal(siteCopy.telegramHref)">
         <span>{{ siteCopy.telegramButton }}</span>
+        <kbd class="keycap" aria-hidden="true">G</kbd>
       </button>
     </RevealBlock>
   </header>
