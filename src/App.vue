@@ -116,7 +116,6 @@ onMounted(() => {
     KeyD: () => {
       theme.value = theme.value === "dark" ? "light" : "dark";
     },
-    KeyG: () => window.open(siteCopy.value.telegramHref, "_blank", "noopener,noreferrer"),
     KeyC: () => window.open(siteCopy.value.telegramHref, "_blank", "noopener,noreferrer"),
     KeyT: () => {
       if (smoothScroll) {

@@ -79,7 +79,7 @@ onBeforeUnmount(() => {
       </nav>
       <button type="button" class="topnav__button topbar__end" @click="openExternal(siteCopy.telegramHref)">
         <span>{{ siteCopy.telegramButton }}</span>
-        <kbd class="keycap" aria-hidden="true">G</kbd>
+        <kbd class="keycap" aria-hidden="true">C</kbd>
       </button>
     </RevealBlock>
   </header>
