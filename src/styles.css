@@ -1382,7 +1382,7 @@ h2.section-title--case {
   color: var(--color-text-muted);
   /* Center the 1em marker on the 30px body line so it doesn't ride the top. */
   margin-top: calc((var(--line-body) - 1em) / 2);
-  margin-right: var(--space-3xs);
+  margin-right: 6px;
   flex: 0 0 auto;
 }
 
