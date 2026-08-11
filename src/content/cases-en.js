@@ -18,7 +18,6 @@ import partnersDemo from "../assets/partners-demo.mp4";
 import partnersDemoPoster from "../assets/partners-demo-poster.webp";
 import homeDemo from "../assets/home-demo.mp4";
 import homeDemoPoster from "../assets/home-demo-poster.webp";
-import pricesCharacteristics from "../assets/projects/internal-tools/prices-characteristics.webp";
 import homeBeforeMockup from "../assets/главная до.webp";
 import homeAfterMockup from "../assets/главная после.webp";
 import searchBeforeMockup from "../assets/поиск до.webp";
@@ -351,14 +350,11 @@ export const publicCases = {
     title: "Internal Tools",
     heroImage: partnersCover,
     summary: [
-      "At Mechta.kz I designed internal tools for category managers, store staff, and operations teams — OMS, Partners, and Prices. Before that, supplier offers lived in 1C with duplicates and manual errors, store repricing and price-tag printing were slow, and orders had no shared status-and-role frame.",
+      "At Mechta.kz I designed internal tools for category managers, store staff, and operations teams",
     ],
     metrics: [
       "Partners: time to review -NDA%",
       "Prices: printing workflow -NDA%",
-    ],
-    context: [
-      "The job was three working services around those roles: supplier offers through to publishing, in-store price-tag printing, and order handling. I shaped flows and boundaries with analytics, managers, and engineering; for Prices I also checked the work on shift with supervisors and floor consultants",
     ],
     sections: [
       {
@@ -412,8 +408,7 @@ export const publicCases = {
             alt: "Mechta Prices — price-tag printing service",
           },
           {
-            src: pricesCharacteristics,
-            alt: "Mechta Prices — characteristics and priority module",
+            kind: "case-soon",
           },
         ],
       },
@@ -447,12 +442,6 @@ export const publicCases = {
       "Managed client scope, timelines, and the next step",
     ],
     sections: [
-      {
-        title: "Context",
-        paragraphs: [
-          "Freelance was the period where I learned to run projects independently, keep momentum, and move from a client request to a workable product structure. There was less infrastructure than in a large team and more direct responsibility for the shape of the solution",
-        ],
-      },
       {
         title: "Orbi",
         paragraphs: [

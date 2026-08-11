@@ -18,7 +18,6 @@ import partnersDemo from "../assets/partners-demo.mp4";
 import partnersDemoPoster from "../assets/partners-demo-poster.webp";
 import homeDemo from "../assets/home-demo.mp4";
 import homeDemoPoster from "../assets/home-demo-poster.webp";
-import pricesCharacteristics from "../assets/projects/internal-tools/prices-characteristics.webp";
 import homeBeforeMockup from "../assets/главная до.webp";
 import homeAfterMockup from "../assets/главная после.webp";
 import searchBeforeMockup from "../assets/поиск до.webp";
@@ -790,14 +789,11 @@ export const publicCases = {
     title: "Internal Tools",
     heroImage: partnersCover,
     summary: [
-      "В Mechta.kz я проектировал внутренние сервисы для категорийных менеджеров, сотрудников магазинов и операционных команд — OMS, Partners и Prices. Раньше предложения поставщиков жили в 1С с дублями и ручными ошибками, переоценка и печать ценников тормозили офлайн-магазины, а заказы обрабатывались без единого каркаса статусов и ролей.",
+      "В Mechta.kz я проектировал внутренние сервисы для категорийных менеджеров, сотрудников магазинов и операционных команд",
     ],
     metrics: [
       "Partners: время обработки -NDA%",
       "Prices: workflow печати -NDA%",
-    ],
-    context: [
-      "Нужны были три рабочих сервиса под эти роли: поток предложений до публикации, печать ценников в магазине и обработка заказов. Собирал сценарии и границы с аналитикой, менеджерами и разработкой; для Prices дополнительно проверял работу на смене с супервайзерами и инфоконсультантами",
     ],
     sections: [
       {
@@ -851,8 +847,7 @@ export const publicCases = {
             alt: "Mechta Prices — сервис печати ценников",
           },
           {
-            src: pricesCharacteristics,
-            alt: "Mechta Prices — модуль характеристик и приоритетов",
+            kind: "case-soon",
           },
         ],
       },
@@ -886,12 +881,6 @@ export const publicCases = {
       "Вел клиентские договоренности по срокам, объему и следующему шагу",
     ],
     sections: [
-      {
-        title: "Контекст",
-        paragraphs: [
-          "Фриланс был периодом, в котором я учился самостоятельно вести проект, держать темп и переходить от запроса клиента к рабочей структуре продукта. Здесь было меньше инфраструктуры большой команды и больше личной ответственности за форму решения",
-        ],
-      },
       {
         title: "UniqUnits",
         paragraphs: [
