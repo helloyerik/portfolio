@@ -2242,7 +2242,8 @@ html[data-theme="light"] .before-after__divider {
   color: var(--color-text-muted);
 }
 
-/* Keycap hints, Nuxt UI Kbd style: smaller text, raised key edge. */
+/* Keycap hints, Nuxt UI Kbd style: smaller text, raised key edge.
+   Kept quiet — same light gray as the media cover backdrops. */
 .keycap {
   display: inline-flex;
   align-items: center;
@@ -2251,11 +2252,11 @@ html[data-theme="light"] .before-after__divider {
   height: 20px;
   padding: 0 6px;
   margin-left: var(--space-2xs);
-  border: 1px solid var(--color-border-strong);
+  border: 1px solid var(--color-media-backdrop);
   border-bottom-width: 2px;
   border-radius: 6px;
-  background: var(--color-panel-tint);
-  color: var(--color-text-muted);
+  background: var(--color-media-backdrop);
+  color: color-mix(in srgb, var(--color-text-muted) 55%, transparent);
   font-family: var(--font-family-body);
   font-size: 11px;
   font-weight: 500;
