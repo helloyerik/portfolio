@@ -1663,21 +1663,15 @@ h2.section-title--case {
   height: auto;
 }
 
-/* Portrait shots fill the frame height; their width follows the own ratio. */
+/* Portrait shots fill the frame height; object-fit keeps the ratio and
+   centers the image with the backdrop visible on the sides. */
 .gallery__item--frame-portrait {
   height: var(--size-freelance-frame-portrait);
-  display: flex;
-  justify-content: center;
-}
-
-.gallery__item--frame-portrait .gallery__zoom-trigger {
-  width: auto;
-  height: 100%;
 }
 
 .gallery__item--frame-portrait .gallery__image--frame {
+  width: 100%;
   height: 100%;
-  width: auto;
   object-fit: contain;
 }
 
