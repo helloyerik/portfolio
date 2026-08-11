@@ -425,13 +425,11 @@ export const publicCases = {
     title: "Freelance at Habr",
     heroImage: freelancePreview,
     summary: [
-      "A combined case from seven client projects: Orbi, Xola, CheryX, Vault, Freelance Marketplace, AI Workspace, and AI Image Creation.",
       "This period sharpened fast context switching, independent decision-making, and the ability to turn a rough brief into a review-ready product direction.",
     ],
     metrics: ["89% repeat clients", "27 projects delivered", "3+ years of work"],
     context: [
-      "Freelance meant much shorter cycles and much less infrastructure than a large product team. I had to enter new domains quickly, define the product frame, design the interface, and move the work to a state that clients could discuss, approve, and take forward.",
-      "The value of this period was not one domain in particular, but the repetition of the same skill across very different products: rapid onboarding, clear structuring, and independent delivery",
+      "Freelance meant much shorter cycles and much less infrastructure than a large product team. I had to enter new domains quickly, define the product frame, design the interface, and move the work to a state that clients could discuss, approve, and take forward",
     ],
     results: [
       "Designed several client products from scratch, from structure and wireframes to polished UI.",
