@@ -592,6 +592,11 @@ a {
   margin-top: var(--space-l);
 }
 
+/* Project cards get a double gap between each other. */
+.home-page > .reveal:has(.project-card) + .reveal:has(.project-card) {
+  margin-top: calc(var(--space-l) * 2);
+}
+
 .project-grid {
   display: grid;
   gap: calc(var(--space-l) - 20px);
@@ -921,8 +926,8 @@ h2.section-title {
 
 .company-divider__item.mi-list-item,
 .company-divider__item.mi-list-item--plain {
-  --mi-list-item-media-size: 44px;
-  --mi-list-item-media-radius: 12px;
+  --mi-list-item-media-size: 52px;
+  --mi-list-item-media-radius: 16px;
   display: flex;
   background: transparent;
   border: 0;
@@ -1383,8 +1388,26 @@ h2.section-title--case {
   color: var(--color-text-muted);
   /* Center the marker on the 30px body line so it doesn't ride the top. */
   margin-top: calc((var(--line-body) - 0.85em) / 2);
-  margin-right: 2px;
+  margin-right: 6px;
   flex: 0 0 auto;
+}
+
+/* Plain dot items (no metric marker): a custom dot with a tight gap. */
+.rich-list > li:not(.metric-list-item) {
+  display: flex;
+  align-items: flex-start;
+  list-style: none;
+}
+
+.rich-list > li:not(.metric-list-item)::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 0.35em;
+  height: 0.35em;
+  margin-top: calc((var(--line-body) - 0.35em) / 2);
+  margin-right: 6px;
+  border-radius: var(--mi-radius-pill);
+  background: currentColor;
 }
 
 .metric-list-item__marker--check {
@@ -1678,25 +1701,32 @@ h2.section-title--case {
   height: auto;
 }
 
-/* Portrait shots fill the frame height; object-fit keeps the ratio and
-   centers the image with the backdrop visible on the sides.
-   The trigger is positioned absolutely — percentage heights don't resolve
-   through the centered-grid chain and the image falls back to width sizing. */
-.gallery__item--frame-portrait {
-  position: relative;
-  /* Keep the whole frame on screen with ~40px of air top and bottom. */
+/* Portrait shots: the backdrop frame hugs the image. The image fills the
+   frame height, keeps its own width ratio and is never cropped; the frame
+   shrinks to the image width, stays centered and within the viewport. */
+.gallery--frames .gallery__item.gallery__item--frame-portrait {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  min-width: 0;
+  justify-self: center;
   height: min(var(--size-freelance-frame-portrait), calc(100vh - 80px));
+  padding: 40px 0;
 }
 
-.gallery__item--frame-portrait .gallery__zoom-trigger {
-  position: absolute;
-  /* 40px breathing room top/bottom so the shot doesn't touch the frame edges. */
-  inset: 40px 0;
-}
-
-.gallery__item--frame-portrait .gallery__image--frame {
-  width: 100%;
+.gallery--frames .gallery__item--frame-portrait .gallery__zoom-trigger {
+  position: static;
+  inset: auto;
+  display: flex;
+  align-items: center;
+  width: auto;
   height: 100%;
+}
+
+.gallery--frames .gallery__item--frame-portrait .gallery__image--frame {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
   object-fit: contain;
 }
 
@@ -1958,7 +1988,8 @@ h2.section-title--case {
   height: 100%;
   align-items: center;
   justify-content: center;
-  padding: var(--mi-spacing-6xl);
+  /* Extra air top/bottom keeps the image clear of the close button. */
+  padding: var(--mi-spacing-8xl) var(--mi-spacing-6xl);
 }
 
 .image-lightbox__close {
@@ -1970,7 +2001,7 @@ h2.section-title--case {
 
 .image-lightbox__image {
   display: block;
-  max-width: 100%;
+  max-width: min(100%, 1200px);
   max-height: 100%;
   width: auto;
   height: auto;
@@ -2424,7 +2455,7 @@ html[data-theme="light"] .before-after__divider {
   }
 
   /* Portrait freelance frames scale down with the viewport height. */
-  .gallery__item--frame-portrait {
+  .gallery--frames .gallery__item.gallery__item--frame-portrait {
     height: 60vh;
   }
 
@@ -2435,7 +2466,11 @@ html[data-theme="light"] .before-after__divider {
 
   /* Bullet markers sit closer to the text on mobile. */
   .metric-list-item__marker {
-    margin-right: 1.5px;
+    margin-right: 3px;
+  }
+
+  .rich-list > li:not(.metric-list-item)::before {
+    margin-right: 3px;
   }
 
   /* Double the gap between project cards on the home page. */
