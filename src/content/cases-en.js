@@ -577,12 +577,10 @@ export const cvData = {
       summary:
         "Helped grow purchase conversion for the online store of one of Kazakhstan's largest electronics retailers with 500k MAU",
       responsibilities: [
-        "Helped a 500k MAU retailer grow purchase conversion by redesigning key funnel steps and improving the user journey",
         "Analyzed the current funnel with product analysts, identified problem areas, and shaped hypotheses during discovery",
         "Designed interfaces for internal teams and employees, optimizing workflows and reducing the load on the business",
         "Ran field research and usability tests together with offline-store staff while developing internal services",
         "Grew the design system and documentation to speed up development and time to market",
-        "Taught two designers vibe-coding prototyping, which sped up approvals and cut design-review errors",
       ],
       results: [
         "Purchase conversion +NDA%",
