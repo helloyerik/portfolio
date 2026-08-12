@@ -3,8 +3,14 @@ import Lenis from "lenis";
 /** Matches `scroll-margin-top` on anchored case sections in styles.css. */
 const ANCHOR_OFFSET = -72;
 
-/** Scroll curve for programmatic scrolling (outline anchors, Back to Top). */
-const EASING_VAR = "--motion-scroll-ease";
+/** Fixed duration for programmatic scrolls (outline anchors, Back to Top). */
+const SCROLL_DURATION = 1.2;
+
+/** Wheel/touch smoothing curve — keeps the regular mouse-wheel scroll as before. */
+const WHEEL_EASING_VAR = "--motion-toolbar-ease";
+
+/** Pronounced ease-in-out used only for programmatic scroll triggers. */
+const SCROLL_EASING_VAR = "--motion-scroll-ease";
 
 function prefersReducedMotion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -53,10 +59,10 @@ function cubicBezierEasing(x1, y1, x2, y2) {
   };
 }
 
-/** Reads the site easing curve from CSS and converts it to a JS easing function. */
-function readSiteEasing() {
+/** Reads an easing curve from a CSS variable and converts it to a JS easing function. */
+function readEasing(varName) {
   const raw = getComputedStyle(document.documentElement)
-    .getPropertyValue(EASING_VAR)
+    .getPropertyValue(varName)
     .trim();
   const match = raw.match(
     /^cubic-bezier\(\s*([\d.]+)\s*,\s*(-?[\d.]+)\s*,\s*([\d.]+)\s*,\s*(-?[\d.]+)\s*\)$/,
@@ -93,8 +99,10 @@ export function startSmoothScroll() {
   }
 
   const lenis = new Lenis({
-    easing: readSiteEasing(),
+    easing: readEasing(WHEEL_EASING_VAR),
   });
+
+  const scrollEasing = readEasing(SCROLL_EASING_VAR);
 
   let rafId = 0;
   const raf = (time) => {
@@ -106,8 +114,8 @@ export function startSmoothScroll() {
   return {
     scrollTo(target, { immediate = false } = {}) {
       const options = isAnchorTarget(target)
-        ? { immediate, offset: ANCHOR_OFFSET }
-        : { immediate };
+        ? { immediate, offset: ANCHOR_OFFSET, duration: SCROLL_DURATION, easing: scrollEasing }
+        : { immediate, duration: SCROLL_DURATION, easing: scrollEasing };
       lenis.scrollTo(target, options);
     },
     stop() {
