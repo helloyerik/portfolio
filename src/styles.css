@@ -1650,6 +1650,15 @@ h2.section-title--case {
   width: 100%;
 }
 
+/* Media right after the copy: cancel the module grid gap so the space after
+   the last bullet equals the copy's internal paragraph→list gap (8px). */
+.case-section > .case-section__copy + .gallery--frames,
+.case-section > .case-section__copy + .gallery--stack,
+.case-section > .case-section__copy + .gallery--carousel,
+.case-section > .case-section__copy + .gallery__item--inline {
+  margin-top: calc(-1 * var(--case-module-gap));
+}
+
 .gallery--stack {
   margin-top: var(--space-xs);
   display: grid;
