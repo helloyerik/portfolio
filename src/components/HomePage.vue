@@ -39,9 +39,6 @@ const visibleMechtaProjects = computed(() =>
 <template>
   <main class="shell home-page">
     <RevealBlock class="hero-intro" :order="1">
-      <h1 class="display-title" id="about">
-        {{ siteCopy.heroTitle }}
-      </h1>
       <p v-if="heroSummary" class="hero-summary">{{ heroSummary }}</p>
     </RevealBlock>
 

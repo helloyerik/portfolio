@@ -18,7 +18,7 @@ export const siteCopy = {
     certificatesRole: "Product Design",
     aboutTitle: "About",
     aboutParagraphs: [
-      "I’m a product designer with 3+ years of experience, focused on e-commerce — and on the admin panels and internal tools that keep those products running",
+      "Product designer with 3 years of experience in e-commerce and internal services. I focus on solving business problems and balancing user experience with development",
     ],
     specialProjectsTitle: "Special projects",
     specialProjectsButton: "Press me",
