@@ -1651,8 +1651,8 @@ h2.section-title--case {
 }
 
 /* Media right after the copy: cancel the module grid gap so the space after
-   the last bullet equals the copy's internal paragraph→list gap (8px). */
-.case-section > .case-section__copy + .gallery--frames,
+   the last bullet equals the copy's internal paragraph→list gap (8px).
+   Frame stacks (freelance) keep the normal module spacing instead. */
 .case-section > .case-section__copy + .gallery--stack,
 .case-section > .case-section__copy + .gallery--carousel,
 .case-section > .case-section__copy + .gallery__item--inline {
@@ -1678,7 +1678,7 @@ h2.section-title--case {
   margin-top: var(--space-xs);
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: var(--space-m);
+  gap: calc(var(--space-m) * 2);
   width: 100%;
   min-width: 0;
 }
