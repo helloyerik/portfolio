@@ -1718,19 +1718,17 @@ h2.section-title--case {
   height: auto;
 }
 
-/* Portrait shots: a height-driven frame that hugs the shot with a thin gray
-   mat, centered in the column; the image fills the frame height, keeps its
-   ratio and is never cropped. Landscape frames stay width-driven. */
+/* Portrait shots: the same 16:9 backdrop frame as the other projects. The
+   image sits centered inside, scaled a little smaller than the frame so it
+   fits with breathing room and is never cropped. */
 .gallery--frames .gallery__item.gallery__item--frame-portrait {
-  aspect-ratio: auto;
-  width: fit-content;
-  max-width: 100%;
-  justify-self: center;
-  height: min(var(--size-freelance-frame-portrait), calc(100vh - 80px));
-  padding: var(--space-xs);
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  justify-self: stretch;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: var(--space-m);
 }
 
 .gallery--frames .gallery__item--frame-portrait .gallery__zoom-trigger {
@@ -1740,12 +1738,13 @@ h2.section-title--case {
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .gallery--frames .gallery__item--frame-portrait .gallery__image--frame {
   height: 100%;
   width: auto;
-  max-width: none;
+  max-width: 100%;
   object-fit: contain;
 }
 
