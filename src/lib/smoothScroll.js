@@ -3,8 +3,8 @@ import Lenis from "lenis";
 /** Matches `scroll-margin-top` on anchored case sections in styles.css. */
 const ANCHOR_OFFSET = -72;
 
-/** Site curve without overshoot, defined in styles.css `:root` (no end-bounce). */
-const EASING_VAR = "--motion-toolbar-ease";
+/** Scroll curve for programmatic scrolling (outline anchors, Back to Top). */
+const EASING_VAR = "--motion-scroll-ease";
 
 function prefersReducedMotion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;

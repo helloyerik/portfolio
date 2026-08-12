@@ -56,6 +56,8 @@
   --motion-toolbar-duration: 220ms;
   --motion-toolbar-exit-duration: 160ms;
   --motion-toolbar-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Programmatic scrolling (outline anchors, Back to Top): pronounced ease-in-out. */
+  --motion-scroll-ease: cubic-bezier(0.76, 0, 0.24, 1);
   --mi-color-text-primary: var(--color-text-body);
   --mi-color-text-complementary: var(--color-text-body);
   --mi-color-text-secondary: var(--color-text-muted);
@@ -1301,8 +1303,8 @@ h2.section-title--case {
 
 .prose ul,
 .prose ol {
-  padding-left: 0;
-  list-style-position: inside;
+  padding-left: 1.2em;
+  list-style-position: outside;
 }
 
 .case-section > .case-section__copy > p,
@@ -1388,7 +1390,7 @@ h2.section-title--case {
   color: var(--color-text-muted);
   /* Center the marker on the 30px body line so it doesn't ride the top. */
   margin-top: calc((var(--line-body) - 0.85em) / 2);
-  margin-right: 6px;
+  margin-right: 4px;
   flex: 0 0 auto;
 }
 
