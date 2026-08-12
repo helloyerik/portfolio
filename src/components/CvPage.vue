@@ -16,8 +16,6 @@ const siteCopy = inject("siteCopy");
 <template>
   <main class="page cv-page shell">
     <RevealBlock class="content-block" :order="1">
-      <h1 class="display-title">{{ cvData.title }}</h1>
-      <div class="cv-subtitle">{{ cvData.role }}</div>
       <div class="prose">
         <p v-for="(paragraph, index) in cvData.intro" :key="`${paragraph}-${index}`">{{ paragraph }}</p>
       </div>
