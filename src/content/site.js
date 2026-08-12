@@ -42,6 +42,8 @@ export const siteCopy = {
     nextCaseLabel: "Next case",
     ctaTitle: "Get in touch",
     telegramHref: "https://t.me/helloyerik",
+    cvHref:
+      "https://drive.google.com/file/d/13SuqVNpEbFQW5zAmzso36o-R_6GyYXbj/view?usp=sharing",
     footerCopyright: "© 2026",
     backToTopLabel: "Back to Top",
     caseCoverPlaceholder: "Case cover / hero visual",
@@ -105,6 +107,8 @@ export const siteCopy = {
     nextCaseLabel: "Следующий кейс",
     ctaTitle: "Напишите мне",
     telegramHref: "https://t.me/helloyerik",
+    cvHref:
+      "https://drive.google.com/file/d/13SuqVNpEbFQW5zAmzso36o-R_6GyYXbj/view?usp=sharing",
     footerCopyright: "© 2026",
     backToTopLabel: "Наверх",
     caseCoverPlaceholder: "Обложка кейса / hero visual",

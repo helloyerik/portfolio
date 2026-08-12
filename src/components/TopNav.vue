@@ -68,10 +68,10 @@ onBeforeUnmount(() => {
           <span>Home</span>
           <kbd class="keycap" aria-hidden="true">H</kbd>
         </NavLink>
-        <NavLink class="topnav__button" href="/cv">
-          <span>Резюме</span>
+        <button type="button" class="topnav__button" @click="openExternal(siteCopy.cvHref)">
+          <span>Resume</span>
           <kbd class="keycap" aria-hidden="true">R</kbd>
-        </NavLink>
+        </button>
         <button type="button" class="topnav__button" @click="toggleTheme">
           <span>{{ siteCopy.themeButton }}</span>
           <kbd class="keycap" aria-hidden="true">D</kbd>

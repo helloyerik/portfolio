@@ -2,7 +2,6 @@
 import { computed, onBeforeUnmount, onMounted, provide, ref, watch } from "vue";
 import BacklogPage from "./components/BacklogPage.vue";
 import CasePage from "./components/CasePage.vue";
-import CvPage from "./components/CvPage.vue";
 import HomePage from "./components/HomePage.vue";
 import TopNav from "./components/TopNav.vue";
 import WorkflowPage from "./components/WorkflowPage.vue";
@@ -113,7 +112,7 @@ onMounted(() => {
   window.addEventListener("popstate", syncRoute);
   stopShortcuts = startKeyboardShortcuts({
     KeyH: () => navigateTo("/"),
-    KeyR: () => navigateTo("/cv"),
+    KeyR: () => window.open(siteCopy.value.cvHref, "_blank", "noopener,noreferrer"),
     KeyD: () => {
       theme.value = theme.value === "dark" ? "light" : "dark";
     },
@@ -196,7 +195,6 @@ const currentWorkflowCase = computed(() => workflowCaseMap.value[route.value.pat
       :case-order="localizedCases.caseOrder"
     />
     <WorkflowPage v-else-if="currentWorkflowCase" :workflow-case="currentWorkflowCase" />
-    <CvPage v-else-if="route.pathname === '/cv'" :cv-data="localizedCases.cvData" />
     <BacklogPage
       v-else-if="route.pathname === '/backlog'"
       :sections="localizedCases.backlogSections"
