@@ -632,11 +632,11 @@ export const cvData = {
       {
         title: "AI & Prototyping",
         items:
-          "Prompt engineering · AI-assisted prototyping · Vibe coding · AI image generation · AI video generation · Figma · Framer · GitHub",
+          "Prompt engineering · AI-assisted prototyping · Vibe coding · AI image generation · AI video generation · Claude · Codex · Cursor · Qwen · Nano Banana · Weave · Figma · Framer · GitHub",
       },
       {
         title: "Languages",
-        items: "Russian — Native · English — Upper Intermediate",
+        items: "Kazakh — Native · Russian — Native · English — Upper Intermediate",
       },
     ],
   },
