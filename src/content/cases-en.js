@@ -595,38 +595,39 @@ export const cvData = {
     {
       company: "Freelance",
       period: "July 2023 — July 2025",
-      role: "Product Designer",
+      role: "UX/UI Designer",
       format: "project-based · remote",
       summary:
-        "Independent work on client products across mobile, AI, fintech, and utilities",
+        "Freelanced via habr.ru and worked as an outsourcer at the marketing agency BMC Group",
       responsibilities: [
+        "Developed websites, mobile apps, and Telegram mini-apps",
+        "Drafted technical specifications, dove into the client's project, proposed improvements, and presented several implementation options",
         "Built product structure in new domains without long onboarding",
         "Designed wireframes, visual concepts, and final interfaces for specific scenarios",
+        "Worked closely with the client's developer to align implementation and the handoff to development",
         "Packaged products with identity and presentation materials for development or publication",
         "Managed scope, timelines, and client communication independently",
+        "Created promo materials, social media designs, and app store visuals on outsource for marketing agencies",
       ],
       results: [
         "Completed 27 projects; 89% of clients returned",
         "Worked with local and international clients across trading, AI, crypto, and utility apps",
       ],
     },
-    {
-      company: "BMC Group",
-      period: "February 2024 — August 2024",
-      role: "Designer",
-      format: "project-based · hybrid",
-      summary:
-        "Agency with short cycles: client websites, mini-apps, and launch delivery through no-code / low-code",
-      responsibilities: [
-        "Built mobile apps, websites, and Telegram mini-apps",
-        "Ran social media for real-estate developers and assembled landing pages for them",
-        "Assembled pages in no-code / low-code tools for faster release",
-        "Brought projects to approval and publishing",
-      ],
-      results: [
-        "Took client websites from mockup to release",
-        "Shortened time to launch through no-code / low-code assembly",
-      ],
-    },
   ],
+  education: {
+    label: "Education",
+    main: "Astana Polytechnic College — Information Systems",
+    additionalLabel: "Additional",
+    additional: [
+      "Superpowered — Misha Rozov's Wannabe Like course",
+    ],
+  },
+  mentorship: {
+    label: "Mentorship",
+    items: [
+      "Hired and onboarded a designer for internal projects",
+      "Taught two designers vibe-coding: assembling clickable prototypes in code to speed up approvals at presentations and demonstrate mechanics, cutting design-review errors",
+    ],
+  },
 };
