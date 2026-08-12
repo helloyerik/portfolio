@@ -44,18 +44,49 @@ const siteCopy = inject("siteCopy");
       <div class="prose">
         <p>{{ item.summary }}</p>
 
-        <h3 class="cv-entry__label">{{ siteCopy.cvResponsibilitiesLabel }}</h3>
         <ul>
           <li v-for="(line, i) in item.responsibilities" :key="`resp-${i}`">{{ line }}</li>
-        </ul>
-
-        <h3 class="cv-entry__label">{{ siteCopy.cvResultsLabel }}</h3>
-        <ul>
-          <li v-for="(line, i) in item.results" :key="`res-${i}`">{{ line }}</li>
         </ul>
       </div>
     </RevealBlock>
 
-    <SiteFooter :order="cvData.experience.length + 2" />
+    <RevealBlock
+      v-if="cvData.education"
+      as="article"
+      class="content-block cv-entry"
+      :order="cvData.experience.length + 2"
+    >
+      <div class="cv-entry__header">
+        <h2 class="section-title">{{ cvData.education.label }}</h2>
+      </div>
+
+      <div class="prose">
+        <p>{{ cvData.education.main }}</p>
+
+        <h3 class="cv-entry__label">{{ cvData.education.additionalLabel }}</h3>
+        <ul>
+          <li v-for="(line, i) in cvData.education.additional" :key="`edu-${i}`">{{ line }}</li>
+        </ul>
+      </div>
+    </RevealBlock>
+
+    <RevealBlock
+      v-if="cvData.mentorship"
+      as="article"
+      class="content-block cv-entry"
+      :order="cvData.experience.length + 3"
+    >
+      <div class="cv-entry__header">
+        <h2 class="section-title">{{ cvData.mentorship.label }}</h2>
+      </div>
+
+      <div class="prose">
+        <ul>
+          <li v-for="(line, i) in cvData.mentorship.items" :key="`ment-${i}`">{{ line }}</li>
+        </ul>
+      </div>
+    </RevealBlock>
+
+    <SiteFooter :order="cvData.experience.length + 4" />
   </main>
 </template>
