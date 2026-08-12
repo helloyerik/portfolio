@@ -421,13 +421,7 @@ export const publicCases = {
     heroImage: freelancePreview,
     summary: [],
     metrics: ["89% repeat clients", "27 projects delivered", "3+ years of work"],
-    results: [
-      "Designed several client products from scratch, from structure and wireframes to polished UI.",
-      "Worked across mobile products, AI, fintech, utility apps, and brand packaging.",
-      "Prepared interfaces and concepts that clients could bring straight into development or the next iteration.",
-      "Built a reliable freelance practice around entering a context quickly, making decisions, and shipping work ready for review.",
-      "Handled the client side of the job: timelines, pricing, planning, and clear expectations.",
-    ],
+    results: [],
     tasks: [
       "Developed websites, mobile apps, and Telegram mini-apps",
       "Drafted technical specifications, dove into the client's project, proposed improvements, and presented several implementation options",
