@@ -419,9 +419,7 @@ export const publicCases = {
     slug: "/projects/freelance",
     title: "Freelance at Habr",
     heroImage: freelancePreview,
-    summary: [
-      "This period sharpened fast context switching, independent decision-making, and the ability to turn a rough brief into a review-ready product direction",
-    ],
+    summary: [],
     metrics: ["89% repeat clients", "27 projects delivered", "3+ years of work"],
     results: [
       "Designed several client products from scratch, from structure and wireframes to polished UI.",
@@ -431,10 +429,14 @@ export const publicCases = {
       "Handled the client side of the job: timelines, pricing, planning, and clear expectations.",
     ],
     tasks: [
-      "Framed products through competitor scans, interviews, and hypotheses, then validated scenarios with wireframes and clickable prototypes",
-      "Designed UI and states around specific user flows and packaged products into visual systems and brand direction",
-      "Prepared assets for development, pitching, or store publication",
-      "Managed client scope, timelines, and the next step",
+      "Developed websites, mobile apps, and Telegram mini-apps",
+      "Drafted technical specifications, dove into the client's project, proposed improvements, and presented several implementation options",
+      "Built product structure in new domains without long onboarding",
+      "Designed wireframes, visual concepts, and final interfaces for specific scenarios",
+      "Worked closely with the client's developer to align implementation and the handoff to development",
+      "Packaged products with identity and presentation materials for development or publication",
+      "Managed scope, timelines, and client communication independently",
+      "Created promo materials, social media designs, and app store visuals on outsource for marketing agencies",
     ],
     sections: [
       {
