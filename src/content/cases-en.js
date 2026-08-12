@@ -129,9 +129,7 @@ export const publicCases = {
     title: "E-commerce",
     heroImage: ecommerceCover,
     summary: [
-      "I owned the end-to-end redesign of the Mechta.kz purchase funnel — a retail product with 500k MAU — from identifying the core conversion problems to shipping and measuring the outcomes.",
-      "I redesigned the home, search, product page, cart, checkout, and related purchase flows into one connected path to purchase.",
-      "I worked independently — and at the start alongside a lead designer — with developers, product managers, and dozens of analysts across four teams, targeting purchase conversion",
+      "I owned the end-to-end redesign of the Mechta.kz purchase funnel — a retail product with 500k MAU — from identifying the core conversion problems to shipping and measuring the outcomes",
     ],
     metrics: ["Purchase conversion +NDA%", "Transitions from cart to checkout +NDA%", "Support requests -NDA%"],
     sections: [
