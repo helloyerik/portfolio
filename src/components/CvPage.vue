@@ -49,10 +49,28 @@ const siteCopy = inject("siteCopy");
     </RevealBlock>
 
     <RevealBlock
-      v-if="cvData.education"
+      v-if="cvData.skills"
       as="article"
       class="content-block cv-entry"
       :order="cvData.experience.length + 2"
+    >
+      <div class="cv-entry__header">
+        <h1 class="section-title">{{ cvData.skills.label }}</h1>
+      </div>
+
+      <div class="prose">
+        <div v-for="(group, gi) in cvData.skills.groups" :key="`skill-${gi}`" class="cv-skill-group">
+          <h3 class="cv-entry__label">{{ group.title }}</h3>
+          <p>{{ group.items }}</p>
+        </div>
+      </div>
+    </RevealBlock>
+
+    <RevealBlock
+      v-if="cvData.education"
+      as="article"
+      class="content-block cv-entry"
+      :order="cvData.experience.length + 3"
     >
       <div class="cv-entry__header">
         <h1 class="section-title">{{ cvData.education.label }}</h1>
@@ -72,7 +90,7 @@ const siteCopy = inject("siteCopy");
       v-if="cvData.mentorship"
       as="article"
       class="content-block cv-entry"
-      :order="cvData.experience.length + 3"
+      :order="cvData.experience.length + 4"
     >
       <div class="cv-entry__header">
         <h1 class="section-title">{{ cvData.mentorship.label }}</h1>
@@ -85,6 +103,6 @@ const siteCopy = inject("siteCopy");
       </div>
     </RevealBlock>
 
-    <SiteFooter :order="cvData.experience.length + 4" />
+    <SiteFooter :order="cvData.experience.length + 5" />
   </main>
 </template>

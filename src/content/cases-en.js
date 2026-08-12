@@ -611,6 +611,35 @@ export const cvData = {
       ],
     },
   ],
+  skills: {
+    label: "Skills",
+    groups: [
+      {
+        title: "Product Design",
+        items:
+          "Product thinking · Product strategy · UX/UI design · User flows · Wireframing · Interactive prototyping · Information architecture · E-commerce & retail · Data-heavy interfaces · B2B & B2C products · Multi-platform design",
+      },
+      {
+        title: "Research & Analytics",
+        items:
+          "Competitor analysis · Field research · In-depth interviews · Usability testing · Hypothesis generation · Metrics analysis · CJM · JTBD · User stories · Product analytics",
+      },
+      {
+        title: "Design Systems",
+        items:
+          "Design systems · Component architecture · Variants · Design tokens · Cross-platform guidelines · Design–dev handoff · Web · iOS · Android",
+      },
+      {
+        title: "AI & Prototyping",
+        items:
+          "Prompt engineering · AI-assisted prototyping · Vibe coding · AI image generation · AI video generation · Figma · Framer · GitHub",
+      },
+      {
+        title: "Languages",
+        items: "Russian — Native · English — Upper Intermediate",
+      },
+    ],
+  },
   education: {
     label: "Education",
     main: "Astana Polytechnic College — Information Systems",

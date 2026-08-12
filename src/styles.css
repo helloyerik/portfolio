@@ -2331,6 +2331,10 @@ html[data-theme="light"] .before-after__divider {
   padding-top: 0;
 }
 
+.cv-skill-group + .cv-skill-group {
+  margin-top: var(--space-s);
+}
+
 .cv-entry__header {
   display: grid;
   gap: var(--mi-spacing-4);
