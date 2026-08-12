@@ -50,7 +50,7 @@ export const mechtaProjects = [
     kind: "Mechta.kz · Redesign",
     period: "2025",
     summary: [
-      "I helped a 500k MAU retailer increase purchase conversion by redesigning key funnel steps and optimizing the customer journey",
+      "One of Kazakhstan's largest electronics retailers, with 500K MAU. Helped grow purchase conversion by improving existing pages and introducing new features",
     ],
     metrics: ["Purchase conversion +NDA%", "Bounce rate -NDA%", "Support requests -NDA%"],
     cover: homeDemo,
@@ -573,7 +573,7 @@ export const cvData = {
       role: "Product Designer",
       format: "full-time · on-site",
       summary:
-        "Helped grow purchase conversion for the online store of one of Kazakhstan's largest electronics retailers with 500k MAU",
+        "One of Kazakhstan's largest electronics retailers, with 500K MAU. Helped grow purchase conversion by improving existing pages and introducing new features",
       responsibilities: [
         "Analyzed the current funnel with product analysts, identified problem areas, and shaped hypotheses during discovery",
         "Designed interfaces for internal teams and employees, optimizing workflows and reducing the load on the business",
