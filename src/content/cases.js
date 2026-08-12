@@ -846,9 +846,6 @@ export const publicCases = {
             src: pricingPreview,
             alt: "Mechta Prices — сервис печати ценников",
           },
-          {
-            kind: "case-soon",
-          },
         ],
       },
       {

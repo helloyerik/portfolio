@@ -74,6 +74,7 @@ const nextCaseSlug = () => {
   const order = localizedCases.value.caseOrder ?? [];
   const index = order.findIndex((item) => item.slug === route.value.pathname);
   if (index < 0) return null;
+  if (order[index].slug === "/projects/internal-tools") return "/projects/ecommerce";
   return order[(index + 1) % order.length].slug;
 };
 

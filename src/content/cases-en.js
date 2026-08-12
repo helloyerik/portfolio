@@ -348,7 +348,7 @@ export const publicCases = {
     title: "Internal Tools",
     heroImage: partnersCover,
     summary: [
-      "At Mechta.kz I designed internal tools for category managers, store staff, and operations teams",
+      "I designed internal tools and services. I helped several teams refine and improve current scenarios and simplify their work, and also helped introduce new features and launch new services. Several thousand employees work at Mechta — developers in the IT department and offline-store staff such as sales consultants, supervisors, and others",
     ],
     metrics: [
       "Partners: time to review -NDA%",
@@ -404,9 +404,6 @@ export const publicCases = {
           {
             src: pricingPreview,
             alt: "Mechta Prices — price-tag printing service",
-          },
-          {
-            kind: "case-soon",
           },
         ],
       },

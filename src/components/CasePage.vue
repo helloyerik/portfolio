@@ -30,10 +30,21 @@ const hasStructuredOverview = computed(
 const introContextItems = computed(() => props.caseData.context ?? props.caseData.myRole ?? []);
 const goalsItems = computed(() => props.caseData.goals ?? []);
 const actionsItems = computed(() => props.caseData.actions ?? props.caseData.tasks ?? []);
+/** Internal Tools and E-commerce link to each other instead of following the cycle. */
+const NEXT_OVERRIDES = {
+  "/projects/internal-tools": "/projects/ecommerce",
+};
+
 const currentIndex = computed(() => props.caseOrder.findIndex((item) => item.slug === props.caseData.slug));
-const nextCase = computed(() =>
-  currentIndex.value >= 0 ? props.caseOrder[(currentIndex.value + 1) % props.caseOrder.length] : null,
-);
+const nextCase = computed(() => {
+  const overrideSlug = NEXT_OVERRIDES[props.caseData.slug];
+  if (overrideSlug) {
+    return props.caseOrder.find((item) => item.slug === overrideSlug) ?? null;
+  }
+  return currentIndex.value >= 0
+    ? props.caseOrder[(currentIndex.value + 1) % props.caseOrder.length]
+    : null;
+});
 const siteCopy = inject("siteCopy");
 const isModuleCase = computed(() => Boolean(props.caseData.moduleCase));
 const hasIntroCopy = computed(
