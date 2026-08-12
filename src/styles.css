@@ -599,6 +599,12 @@ a {
   margin-top: calc(var(--space-l) * 2);
 }
 
+/* Certificates belong together with their heading — keep that group tight. */
+.home-page > .reveal#certificates + .reveal:has(.project-card-link .company-divider__item),
+.home-page > .reveal:has(.project-card-link .company-divider__item) + .reveal:has(.project-card-link .company-divider__item) {
+  margin-top: var(--space-s);
+}
+
 .project-grid {
   display: grid;
   gap: calc(var(--space-l) - 20px);
@@ -2318,6 +2324,11 @@ html[data-theme="light"] .before-after__divider {
 
 .cv-page>*+* {
   margin-top: var(--space-l);
+}
+
+/* CV headings are h1 — cancel the global h1 top padding inside the CV. */
+.cv-page h1.section-title {
+  padding-top: 0;
 }
 
 .cv-entry__header {

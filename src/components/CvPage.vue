@@ -29,7 +29,7 @@ const siteCopy = inject("siteCopy");
       :order="index + 2"
     >
       <div class="cv-entry__header">
-        <h2 class="section-title">{{ item.company }}</h2>
+        <h1 class="section-title">{{ item.company }}</h1>
         <div class="cv-entry__meta">
           <span>{{ item.role }}</span>
           <span aria-hidden="true">·</span>
@@ -55,7 +55,7 @@ const siteCopy = inject("siteCopy");
       :order="cvData.experience.length + 2"
     >
       <div class="cv-entry__header">
-        <h2 class="section-title">{{ cvData.education.label }}</h2>
+        <h1 class="section-title">{{ cvData.education.label }}</h1>
       </div>
 
       <div class="prose">
@@ -75,7 +75,7 @@ const siteCopy = inject("siteCopy");
       :order="cvData.experience.length + 3"
     >
       <div class="cv-entry__header">
-        <h2 class="section-title">{{ cvData.mentorship.label }}</h2>
+        <h1 class="section-title">{{ cvData.mentorship.label }}</h1>
       </div>
 
       <div class="prose">
