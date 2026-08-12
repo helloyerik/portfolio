@@ -566,7 +566,7 @@ export const cvData = {
   title: "Yerik",
   role: "Product Designer",
   intro: [
-    "Product designer with 3+ years of experience in e-commerce, B2B, retail, AI, and internal tools. I design web and mobile products, build design systems, and ship solutions that move metrics",
+    "Product designer with 3 years of experience in e-commerce and internal services. I focus on solving business problems and balancing user experience with development",
   ],
   experience: [
     {
@@ -575,12 +575,11 @@ export const cvData = {
       role: "Product Designer",
       format: "full-time · on-site",
       summary:
-        "Kazakhstan retailer with a 500k MAU online store. I led design for the purchase funnel and internal tools",
+        "Helped grow purchase conversion for the online store of one of Kazakhstan's largest electronics retailers with 500k MAU",
       responsibilities: [
         "Helped a 500k MAU retailer grow purchase conversion by redesigning key funnel steps and improving the user journey",
         "Analyzed the current funnel with product analysts, identified problem areas, and shaped hypotheses during discovery",
         "Designed interfaces for internal teams and employees, optimizing workflows and reducing the load on the business",
-        "Validated decisions with clickable prototypes, presentations, and design reviews",
         "Ran field research and usability tests together with offline-store staff while developing internal services",
         "Grew the design system and documentation to speed up development and time to market",
         "Taught two designers vibe-coding prototyping, which sped up approvals and cut design-review errors",
