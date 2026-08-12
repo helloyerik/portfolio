@@ -113,7 +113,7 @@ onMounted(() => {
   window.addEventListener("popstate", syncRoute);
   stopShortcuts = startKeyboardShortcuts({
     KeyH: () => navigateTo("/"),
-    KeyV: () => navigateTo("/cv"),
+    KeyR: () => navigateTo("/cv"),
     KeyD: () => {
       theme.value = theme.value === "dark" ? "light" : "dark";
     },
