@@ -4,7 +4,7 @@
   /* Portfolio base type: DS body-2 is 15/20 — bump to 20/+4 line from prior 17/26. */
   --mi-font-size-body-2: 20px;
   /* Type weights one step lighter than DS defaults (Geist is variable). */
-  --mi-font-weight-article-body: 300;
+  --mi-font-weight-article-body: 200;
   --mi-font-weight-display-2: 500;
   --mi-font-weight-header-2: 500;
   --mi-font-weight-subheader-3: 500;
@@ -1396,7 +1396,7 @@ h2.section-title--case {
   color: var(--color-text-muted);
   /* Center the marker on the 30px body line so it doesn't ride the top. */
   margin-top: calc((var(--line-body) - 0.85em) / 2);
-  margin-right: 4px;
+  margin-right: 8px;
   flex: 0 0 auto;
 }
 
